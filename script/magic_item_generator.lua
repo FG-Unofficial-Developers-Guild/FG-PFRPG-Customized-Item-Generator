@@ -299,6 +299,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 5,
 		sAura = "faint transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Allying"] = {
 		sStringName  = "allying",
@@ -309,6 +313,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 5,
 		sAura = "faint transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Anarchic"] = {
 		sStringName  = "anarchic",
@@ -319,6 +327,23 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 7,
 		sAura = "moderate evocation" ,
+		aExclusions = {"Axiomatic",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "DMGTYPE: chaotic; IFT: ALIGN(lawful); DMG: 2d6",
+				nActionOnly = 1,
+				bAERequired = false,
+				nCritical = 0,
+			},
+			{
+				sEffect = "IF: ALIGN(lawful); NLVL 1",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Anchoring"] = {
 		sStringName  = "anchoring",
@@ -329,6 +354,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 10,
 		sAura = "moderate transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Axiomatic"] = {
 		sStringName  = "axiomatic",
@@ -339,6 +368,23 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 7,
 		sAura = "moderate evocation" ,
+		aExclusions = {"Anarchic",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "DMGTYPE: lawful; IFT: ALIGN(chaotic); DMG: 2d6",
+				nActionOnly = 1,
+				bAERequired = false,
+				nCritical = 0,
+			},
+			{
+				sEffect = "IF: ALIGN(chaotic); NLVL 1",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Bane"] = {
 		sStringName  = "bane",
@@ -349,6 +395,366 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 8,
 		sAura = "moderate conjuration" ,
+		aExclusions = {},
+		aEffects = {},
+		sSubSelectionLabel = "Bane Type",
+		aSubSelection = {
+			["Aberations"] = {
+				sStringName = "aberations",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "IFT: TYPE(aberation); ATK: 2; DMG: 2d6",
+						nActionOnly = 1,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Animals"] = {
+				sStringName = "animals",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "IFT: TYPE(animal); ATK: 2; DMG: 2d6",
+						nActionOnly = 1,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Constructs"] = {
+				sStringName = "constructs",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "IFT: TYPE(construct); ATK: 2; DMG: 2d6",
+						nActionOnly = 1,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Dragons"] = {
+				sStringName = "dragons",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "IFT: TYPE(dragon); ATK: 2; DMG: 2d6",
+						nActionOnly = 1,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Fey"] = {
+				sStringName = "fey",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "IFT: TYPE(fey); ATK: 2; DMG: 2d6",
+						nActionOnly = 1,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Humanoids"] = {
+				sStringName = "humanoid",
+				sSubSubSelectionLabel = "Humanoid Type",
+				aEffects = {},
+				aSubSubSelection = {
+					["Dwarf"] = {
+						sStringName = "dwarf",
+						aEffects = {
+							{
+								sEffect = "IFT: TYPE(dwarf); ATK: 2; DMG: 2d6",
+								nActionOnly = 1,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Elf"] = {
+						sStringName = "elf",
+						aEffects = {
+							{
+								sEffect = "IFT: TYPE(elf); ATK: 2; DMG: 2d6",
+								nActionOnly = 1,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Gnoll"] = {
+						sStringName = "gnoll",
+						aEffects = {
+							{
+								sEffect = "IFT: TYPE(gnoll); ATK: 2; DMG: 2d6",
+								nActionOnly = 1,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Gnome"] = {
+						sStringName = "gnome",
+						aEffects = {
+							{
+								sEffect = "IFT: TYPE(gnome); ATK: 2; DMG: 2d6",
+								nActionOnly = 1,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Goblinoid"] = {
+						sStringName = "goblinoid",
+						aEffects = {
+							{
+								sEffect = "IFT: TYPE(goblinoid); ATK: 2; DMG: 2d6",
+								nActionOnly = 1,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Halfling"] = {
+						sStringName = "halfling",
+						aEffects = {
+							{
+								sEffect = "IFT: TYPE(halfling); ATK: 2; DMG: 2d6",
+								nActionOnly = 1,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Human"] = {
+						sStringName = "human",
+						aEffects = {
+							{
+								sEffect = "IFT: TYPE(human); ATK: 2; DMG: 2d6",
+								nActionOnly = 1,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Orc"] = {
+						sStringName = "orc",
+						aEffects = {
+							{
+								sEffect = "IFT: TYPE(orc); ATK: 2; DMG: 2d6",
+								nActionOnly = 1,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Reptilian"] = {
+						sStringName = "reptilian",
+						aEffects = {
+							{
+								sEffect = "IFT: TYPE(reptilian); ATK: 2; DMG: 2d6",
+								nActionOnly = 1,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+				},
+			},
+			["Magical Beasts"] = {
+				sStringName = "magical beasts",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "IFT: TYPE(magical beast); ATK: 2; DMG: 2d6",
+						nActionOnly = 1,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Monstrous Humanoids"] = {
+				sStringName = "monstrous humanoid",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "IFT: TYPE(monstrous humanoid); ATK: 2; DMG: 2d6",
+						nActionOnly = 1,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Oozes"] = {
+				sStringName = "oozes",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "IFT: TYPE(ooze); ATK: 2; DMG: 2d6",
+						nActionOnly = 1,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Outsiders"] = {
+				sStringName = "outsiders",
+				aEffect = {},
+				sSubSubSelectionLabel = "Outsider Type",
+				aSubSubSelection = {
+					["Air"] = {
+						sStringName = "air",
+						aEffects = {
+							{
+								sEffect = "IFT: TYPE(air); ATK: 2; DMG: 2d6",
+								nActionOnly = 1,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Angel"] = {
+						sStringName = "angel",
+						aEffects = {
+							{
+								sEffect = "IFT: TYPE(angel); ATK: 2; DMG: 2d6",
+								nActionOnly = 1,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Archon"] = {
+						sStringName = "archon",
+						aEffects = {
+							{
+								sEffect = "IFT: TYPE(archon); ATK: 2; DMG: 2d6",
+								nActionOnly = 1,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Demon"] = {
+						sStringName = "demon",
+						aEffects = {
+							{
+								sEffect = "IFT: TYPE(demon); ATK: 2; DMG: 2d6",
+								nActionOnly = 1,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Devil"] = {
+						sStringName = "devil",
+						aEffects = {
+							{
+								sEffect = "IFT: TYPE(devil); ATK: 2; DMG: 2d6",
+								nActionOnly = 1,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Earth"] = {
+						sStringName = "earth",
+						aEffects = {
+							{
+								sEffect = "IFT: TYPE(earth); ATK: 2; DMG: 2d6",
+								nActionOnly = 1,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Fire"] = {
+						sStringName = "fire",
+						aEffects = {
+							{
+								sEffect = "IFT: TYPE(fire); ATK: 2; DMG: 2d6",
+								nActionOnly = 1,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Native"] = {
+						sStringName = "native",
+						aEffects = {
+							{
+								sEffect = "IFT: TYPE(native); ATK: 2; DMG: 2d6",
+								nActionOnly = 1,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Water"] = {
+						sStringName = "water",
+						aEffects = {
+							{
+								sEffect = "IFT: TYPE(water); ATK: 2; DMG: 2d6",
+								nActionOnly = 1,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+				},
+			},
+			["Plants"] = {
+				sStringName = "plants",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "IFT: TYPE(plant); ATK: 2; DMG: 2d6",
+						nActionOnly = 1,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Undead"] = {
+				sStringName = "undead",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "IFT: TYPE(undead); ATK: 2; DMG: 2d6",
+						nActionOnly = 1,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Vermin"] = {
+				sStringName = "vermin",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "IFT: TYPE(vermin); ATK: 2; DMG: 2d6",
+						nActionOnly = 1,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},		
+		},
 	},
 	["Benevolent"] = {
 		sStringName  = "benevolent",
@@ -359,6 +765,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 5,
 		sAura = "faint enchantment" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Brilliant energy"] = {
 		sStringName  = "brilliant energy",
@@ -369,6 +779,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 16,
 		sAura = "strong transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Called"] = {
 		sStringName  = "called",
@@ -379,6 +793,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 9,
 		sAura = "moderate conjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Conductive"] = {
 		sStringName  = "conductive",
@@ -389,6 +807,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 8,
 		sAura = "moderate necromancy" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Corrosive"] = {
 		sStringName  = "corrosive",
@@ -399,6 +821,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 10,
 		sAura = "moderate evocation" ,
+		aExclusions = {"Corrosive burst",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Corrosive burst"] = {
 		sStringName  = "corrosive burst",
@@ -409,6 +835,29 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 12,
 		sAura = "moderate evocation" ,
+		aExclusions = {"Corrosive",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "DMG: 1d10 acid, critical",
+				nActionOnly = 1,
+				bAERequired = true,
+				nCritical = 2,
+			},
+			{
+				sEffect = "DMG: 2d10 acid, critical",
+				nActionOnly = 1,
+				bAERequired = true,
+				nCritical = 3,
+			},
+			{
+				sEffect = "DMG: 3d10 acid, critical",
+				nActionOnly = 1,
+				bAERequired = true,
+				nCritical = 4,
+			},
+		},
 	},
 	["Countering"] = {
 		sStringName  = "countering",
@@ -419,6 +868,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 5,
 		sAura = "faint transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Courageous"] = {
 		sStringName  = "courageous",
@@ -429,6 +882,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 3,
 		sAura = "faint enchantment" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Cruel"] = {
 		sStringName  = "cruel",
@@ -439,6 +896,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 5,
 		sAura = "faint necromancy" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Cunning"] = {
 		sStringName  = "cunning",
@@ -449,6 +910,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 6,
 		sAura = "moderate divination" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Dancing"] = {
 		sStringName  = "dancing",
@@ -459,6 +924,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 15,
 		sAura = "strong transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Deadly"] = {
 		sStringName  = "deadly",
@@ -469,6 +938,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 5,
 		sAura = "faint necromancy" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Defending"] = {
 		sStringName  = "defending",
@@ -479,6 +952,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 8,
 		sAura = "moderate abjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Defiant"] = {
 		sStringName  = "defiant",
@@ -489,6 +966,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 10,
 		sAura = "strong abjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Dispelling"] = {
 		sStringName  = "dispelling",
@@ -499,6 +980,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 10,
 		sAura = "strong abjuration" ,
+		aExclusions = {"Dispelling burst",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Dispelling burst"] = {
 		sStringName  = "dispelling burst",
@@ -509,6 +994,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 12,
 		sAura = "strong abjuration" ,
+		aExclusions = {"Dispelling",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Disruption"] = {
 		sStringName  = "disruption",
@@ -519,6 +1008,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 14,
 		sAura = "strong conjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Dueling"] = {
 		sStringName  = "dueling",
@@ -529,6 +1022,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 5,
 		sAura = "faint transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Flaming"] = {
 		sStringName  = "flaming",
@@ -539,6 +1036,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 10,
 		sAura = "moderate evocation" ,
+		aExclusions = {"Flaming burst", "Igniting",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Flaming burst"] = {
 		sStringName  = "flaming burst",
@@ -549,6 +1050,29 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 12,
 		sAura = "strong evocation" ,
+		aExclusions = {"Flaming", "Igniting",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "DMG: 1d10 fire, critical",
+				nActionOnly = 1,
+				bAERequired = true,
+				nCritical = 2,
+			},
+			{
+				sEffect = "DMG: 2d10 fire, critical",
+				nActionOnly = 1,
+				bAERequired = true,
+				nCritical = 3,
+			},
+			{
+				sEffect = "DMG: 3d10 fire, critical",
+				nActionOnly = 1,
+				bAERequired = true,
+				nCritical = 4,
+			},
+		},
 	},
 	["Frost"] = {
 		sStringName  = "frost",
@@ -559,6 +1083,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 8,
 		sAura = "moderate evocation" ,
+		aExclusions = {"Icy burst",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Furious"] = {
 		sStringName  = "furious",
@@ -569,6 +1097,17 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 8,
 		sAura = "moderate enchantment" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "IF: CUSTOM(rage); ATK: 2; DMG: 2",
+				nActionOnly = 1,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Furyborn"] = {
 		sStringName  = "furyborn",
@@ -579,6 +1118,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 7,
 		sAura = "moderate enchantment" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Ghost touch"] = {
 		sStringName  = "ghost touch",
@@ -589,6 +1132,17 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 9,
 		sAura = "moderate conjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "DMGTYPE: ghost touch",
+				nActionOnly = 1,
+				bAERequired = true,
+				nCritical = 0,
+			},
+		},
 	},
 	["Glamered"] = {
 		sStringName  = "glamered",
@@ -599,6 +1153,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 10,
 		sAura = "moderate illusion" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Glorious"] = {
 		sStringName  = "glorious",
@@ -609,6 +1167,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 5,
 		sAura = "moderate evocation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Grayflame"] = {
 		sStringName  = "grayflame",
@@ -619,6 +1181,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 6,
 		sAura = "moderate transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Grounding"] = {
 		sStringName  = "grounding",
@@ -629,6 +1195,17 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 5,
 		sAura = "faint transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "IFT: TYPE(air); DMG: 1d6",
+				nActionOnly = 1,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Guardian"] = {
 		sStringName  = "guardian",
@@ -639,6 +1216,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 8,
 		sAura = "moderate abjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Heartseeker"] = {
 		sStringName  = "heartseeker",
@@ -649,6 +1230,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 7,
 		sAura = "moderate necromancy" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Holy"] = {
 		sStringName  = "holy",
@@ -659,6 +1244,23 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 7,
 		sAura = "moderate evocation" ,
+		aExclusions = {"Unholy", },
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "DMGTYPE: good; IFT: ALIGN(evil); DMG: 2d6",
+				nActionOnly = 1,
+				bAERequired = false,
+				nCritical = 0,
+			},
+			{
+				sEffect = "IF: ALIGN(evil); NLVL 1",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Huntsman"] = {
 		sStringName  = "huntsman",
@@ -669,6 +1271,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 7,
 		sAura = "moderate divination" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Icy burst"] = {
 		sStringName  = "icy burst",
@@ -679,6 +1285,29 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 10,
 		sAura = "moderate evocation" ,
+		aExclusions = {"Frost",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "DMG: 1d10 cold, critical",
+				nActionOnly = 1,
+				bAERequired = true,
+				nCritical = 2,
+			},
+			{
+				sEffect = "DMG: 2d10 cold, critical",
+				nActionOnly = 1,
+				bAERequired = true,
+				nCritical = 3,
+			},
+			{
+				sEffect = "DMG: 3d10 cold, critical",
+				nActionOnly = 1,
+				bAERequired = true,
+				nCritical = 4,
+			},
+		},
 	},
 	["Igniting"] = {
 		sStringName  = "igniting",
@@ -689,6 +1318,17 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 12,
 		sAura = "strong evocation" ,
+		aExclusions = {"Flaming", "Flaming burst",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "DMGO: 1d6 fire",
+				nActionOnly = 1,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Impact"] = {
 		sStringName  = "impact",
@@ -699,6 +1339,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = false,
 		iCL = 9,
 		sAura = "moderate transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Impervious"] = {
 		sStringName  = "impervious",
@@ -709,6 +1353,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 7,
 		sAura = "moderate transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Invigorating"] = {
 		sStringName  = "invigorating",
@@ -719,6 +1367,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 5,
 		sAura = "faint enchantment" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Jurist"] = {
 		sStringName  = "jurist",
@@ -729,6 +1381,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 4,
 		sAura = "faint transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Keen"] = {
 		sStringName  = "keen",
@@ -739,6 +1395,17 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = false,
 		iCL = 10,
 		sAura = "moderate transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "KEEN",
+				nActionOnly = 1,
+				bAERequired = true,
+				nCritical = 0,
+			},
+		},
 	},
 	["Ki focus"] = {
 		sStringName  = "ki focus",
@@ -749,6 +1416,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 8,
 		sAura = "moderate transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Ki intensifying"] = {
 		sStringName  = "ki intensifying",
@@ -759,6 +1430,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 12,
 		sAura = "strong transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Lifesurge"] = {
 		sStringName  = "lifesurge",
@@ -769,6 +1444,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 8,
 		sAura = "moderate conjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Limning"] = {
 		sStringName  = "limning",
@@ -779,6 +1458,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 5,
 		sAura = "faint evocation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Menacing"] = {
 		sStringName  = "menacing",
@@ -789,6 +1472,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 10,
 		sAura = "moderate illusion" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Merciful"] = {
 		sStringName  = "merciful",
@@ -799,6 +1486,17 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 5,
 		sAura = "faint conjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "DMGTYPE: nonlethal; DMG: 1d6",
+				nActionOnly = 1,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Mighty cleaving"] = {
 		sStringName  = "mighty cleaving",
@@ -809,6 +1507,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 8,
 		sAura = "moderate evocation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Mimetic"] = {
 		sStringName  = "mimetic",
@@ -819,6 +1521,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 5,
 		sAura = "faint abjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Negating"] = {
 		sStringName  = "negating",
@@ -829,6 +1535,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 5,
 		sAura = "moderate abjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Neutralizing"] = {
 		sStringName  = "neutralizing",
@@ -839,6 +1549,17 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 5,
 		sAura = "faint transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "IFT: TYPE(earth); 1d6",
+				nActionOnly = 1,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Nullifying"] = {
 		sStringName  = "nullifying",
@@ -849,6 +1570,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 12,
 		sAura = "strong abjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Ominous"] = {
 		sStringName  = "ominous",
@@ -859,6 +1584,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 5,
 		sAura = "faint evocation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Phase locking"] = {
 		sStringName  = "phase locking",
@@ -869,6 +1598,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 7,
 		sAura = "moderate abjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Planar"] = {
 		sStringName  = "planar",
@@ -879,6 +1612,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 9,
 		sAura = "moderate conjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Quenching"] = {
 		sStringName  = "quenching",
@@ -889,6 +1626,17 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 5,
 		sAura = "faint transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "IFT: TYPE(fire); 1d6",
+				nActionOnly = 1,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Repositioning"] = {
 		sStringName  = "repositioning",
@@ -899,6 +1647,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 10,
 		sAura = "moderate enchantment" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Seaborne"] = {
 		sStringName  = "seaborne",
@@ -909,6 +1661,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 7,
 		sAura = "moderate transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Shock"] = {
 		sStringName  = "shock",
@@ -919,6 +1675,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 8,
 		sAura = "moderate evocation" ,
+		aExclusions = {"Shocking burst", },
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Shocking burst"] = {
 		sStringName  = "shocking burst",
@@ -929,6 +1689,29 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 10,
 		sAura = "moderate evocation" ,
+		aExclusions = {"Shock",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "DMG: 1d10 electricity, critical",
+				nActionOnly = 1,
+				bAERequired = true,
+				nCritical = 2,
+			},
+			{
+				sEffect = "DMG: 2d10 electricity, critical",
+				nActionOnly = 1,
+				bAERequired = true,
+				nCritical = 3,
+			},
+			{
+				sEffect = "DMG: 3d10 electricity, critical",
+				nActionOnly = 1,
+				bAERequired = true,
+				nCritical = 4,
+			},
+		},
 	},
 	["Speed"] = {
 		sStringName  = "speed",
@@ -939,6 +1722,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 7,
 		sAura = "moderate transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Spell storing"] = {
 		sStringName  = "spell storing",
@@ -949,6 +1736,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 13,
 		sAura = "strong divination" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Spellstealing"] = {
 		sStringName  = "spellstealing",
@@ -959,6 +1750,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 12,
 		sAura = "strong evocation and varies" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Stalking"] = {
 		sStringName  = "stalking",
@@ -969,6 +1764,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 10,
 		sAura = "moderate divination" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Thawing"] = {
 		sStringName  = "thawing",
@@ -979,6 +1778,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 5,
 		sAura = "faint transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Throwing"] = {
 		sStringName  = "throwing",
@@ -988,7 +1791,11 @@ aMeleeWeaponAbilities = {
 		bPiercing    = true,
 		bBludgeoning = true,
 		iCL = 5,
-		sAura = "faint transmutation" ,
+		sAura = "faint transmutation",
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Thundering"] = {
 		sStringName  = "thundering",
@@ -999,6 +1806,29 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 5,
 		sAura = "faint necromancy" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "DMG: 1d8 sonic, critical",
+				nActionOnly = 1,
+				bAERequired = true,
+				nCritical = 2,
+			},
+			{
+				sEffect = "DMG: 2d8 sonic, critical",
+				nActionOnly = 1,
+				bAERequired = true,
+				nCritical = 3,
+			},
+			{
+				sEffect = "DMG: 3d8 sonic, critical",
+				nActionOnly = 1,
+				bAERequired = true,
+				nCritical = 4,
+			},
+		},
 	},
 	["Transformative"] = {
 		sStringName  = "transformative",
@@ -1008,7 +1838,11 @@ aMeleeWeaponAbilities = {
 		bPiercing    = true,
 		bBludgeoning = true,
 		iCL = 10,
-		sAura = "moderate transmutation" ,
+		sAura = "moderate transmutation",
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Unholy"] = {
 		sStringName  = "unholy",
@@ -1019,6 +1853,23 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 7,
 		sAura = "moderate evocation" ,
+		aExclusions = {"Holy",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "DMGTYPE: evil; IFT: ALIGN(good); DMG: 2d6",
+				nActionOnly = 1,
+				bAERequired = false,
+				nCritical = 0,
+			},
+			{
+				sEffect = "IF: ALIGN(good); NLVL 1",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Valiant"] = {
 		sStringName  = "valiant",
@@ -1029,6 +1880,17 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 5,
 		sAura = "faint divination" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "IFT: CUSTOM(challenge target); DMG: 1d6",
+				nActionOnly = 1,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Vicious"] = {
 		sStringName  = "vicious",
@@ -1039,6 +1901,17 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 9,
 		sAura = "moderate necromancy" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "DMG: 2d6",
+				nActionOnly = 1,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Vorpal"] = {
 		sStringName  = "vorpal",
@@ -1049,6 +1922,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = false,
 		iCL = 18,
 		sAura = "strong necromancy and transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Wounding"] = {
 		sStringName  = "wounding",
@@ -1059,6 +1936,17 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 10,
 		sAura = "moderate evocation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "NIFT: CUSTOM(immune, critical); DMGO: 1",
+				nActionOnly = 1,
+				bAERequired = true,
+				nCritical = 0,
+			},
+		},
 	},
 	["Disjoining"] = {
 		sStringName  = "disjoining",
@@ -1069,6 +1957,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 7,
 		sAura = "moderate necromancy" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Harvesting"] = {
 		sStringName  = "harvesting",
@@ -1079,6 +1971,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 9,
 		sAura = "moderate necromancy" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Mythic bane"] = {
 		sStringName  = "mythic bane",
@@ -1089,6 +1985,17 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 8,
 		sAura = "moderate evocation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "IFT: TYPE(mythic); ATK: 2; DMG: 2d6",
+				nActionOnly = 1,
+				bAERequired = true,
+				nCritical = 0,
+			},
+		},
 	},
 	["Potent"] = {
 		sStringName  = "potent",
@@ -1099,6 +2006,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 12,
 		sAura = "strong transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Sacrosanct"] = {
 		sStringName  = "sacrosanct",
@@ -1109,6 +2020,10 @@ aMeleeWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 8,
 		sAura = "moderate evocation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 }
 
@@ -1123,6 +2038,10 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 1,
 		sAura = "faint transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Impervious"] = {
 		sStringName  = "impervious",
@@ -1134,6 +2053,10 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 5,
 		sAura = "faint transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Glamered"] = {
 		sStringName  = "glamered",
@@ -1145,6 +2068,10 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 7,
 		sAura = "moderate evocation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Allying"] = {
 		sStringName  = "allying",
@@ -1156,6 +2083,10 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 10,
 		sAura = "moderate transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Bane"] = {
 		sStringName  = "bane",
@@ -1167,6 +2098,365 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 7,
 		sAura = "moderate evocation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "Bane Type",
+		aSubSelection = {
+			["Aberations"] = {
+				sStringName = "aberations",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "IFT: TYPE(aberation); ATK: 2; DMG: 2d6",
+						nActionOnly = 1,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Animals"] = {
+				sStringName = "animals",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "IFT: TYPE(animal); ATK: 2; DMG: 2d6",
+						nActionOnly = 1,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Constructs"] = {
+				sStringName = "constructs",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "IFT: TYPE(construct); ATK: 2; DMG: 2d6",
+						nActionOnly = 1,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Dragons"] = {
+				sStringName = "dragons",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "IFT: TYPE(dragon); ATK: 2; DMG: 2d6",
+						nActionOnly = 1,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Fey"] = {
+				sStringName = "fey",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "IFT: TYPE(fey); ATK: 2; DMG: 2d6",
+						nActionOnly = 1,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Humanoids"] = {
+				sStringName = "humanoid",
+				sSubSubSelectionLabel = "Humanoid Type",
+				aEffects = {},
+				aSubSubSelection = {
+					["Dwarf"] = {
+						sStringName = "dwarf",
+						aEffects = {
+							{
+								sEffect = "IFT: TYPE(dwarf); ATK: 2; DMG: 2d6",
+								nActionOnly = 1,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Elf"] = {
+						sStringName = "elf",
+						aEffects = {
+							{
+								sEffect = "IFT: TYPE(elf); ATK: 2; DMG: 2d6",
+								nActionOnly = 1,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Gnoll"] = {
+						sStringName = "gnoll",
+						aEffects = {
+							{
+								sEffect = "IFT: TYPE(gnoll); ATK: 2; DMG: 2d6",
+								nActionOnly = 1,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Gnome"] = {
+						sStringName = "gnome",
+						aEffects = {
+							{
+								sEffect = "IFT: TYPE(gnome); ATK: 2; DMG: 2d6",
+								nActionOnly = 1,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Goblinoid"] = {
+						sStringName = "goblinoid",
+						aEffects = {
+							{
+								sEffect = "IFT: TYPE(goblinoid); ATK: 2; DMG: 2d6",
+								nActionOnly = 1,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Halfling"] = {
+						sStringName = "halfling",
+						aEffects = {
+							{
+								sEffect = "IFT: TYPE(halfling); ATK: 2; DMG: 2d6",
+								nActionOnly = 1,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Human"] = {
+						sStringName = "human",
+						aEffects = {
+							{
+								sEffect = "IFT: TYPE(human); ATK: 2; DMG: 2d6",
+								nActionOnly = 1,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Orc"] = {
+						sStringName = "orc",
+						aEffects = {
+							{
+								sEffect = "IFT: TYPE(orc); ATK: 2; DMG: 2d6",
+								nActionOnly = 1,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Reptilian"] = {
+						sStringName = "reptilian",
+						aEffects = {
+							{
+								sEffect = "IFT: TYPE(reptilian); ATK: 2; DMG: 2d6",
+								nActionOnly = 1,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+				},
+			},
+			["Magical Beasts"] = {
+				sStringName = "magical beasts",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "IFT: TYPE(magical beast); ATK: 2; DMG: 2d6",
+						nActionOnly = 1,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Monstrous Humanoids"] = {
+				sStringName = "monstrous humanoid",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "IFT: TYPE(monstrous humanoid); ATK: 2; DMG: 2d6",
+						nActionOnly = 1,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Oozes"] = {
+				sStringName = "oozes",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "IFT: TYPE(ooze); ATK: 2; DMG: 2d6",
+						nActionOnly = 1,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Outsiders"] = {
+				sStringName = "outsiders",
+				aEffect = {},
+				sSubSubSelectionLabel = "Outsider Type",
+				aSubSubSelection = {
+					["Air"] = {
+						sStringName = "air",
+						aEffects = {
+							{
+								sEffect = "IFT: TYPE(air); ATK: 2; DMG: 2d6",
+								nActionOnly = 1,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Angel"] = {
+						sStringName = "angel",
+						aEffects = {
+							{
+								sEffect = "IFT: TYPE(angel); ATK: 2; DMG: 2d6",
+								nActionOnly = 1,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Archon"] = {
+						sStringName = "archon",
+						aEffects = {
+							{
+								sEffect = "IFT: TYPE(archon); ATK: 2; DMG: 2d6",
+								nActionOnly = 1,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Demon"] = {
+						sStringName = "demon",
+						aEffects = {
+							{
+								sEffect = "IFT: TYPE(demon); ATK: 2; DMG: 2d6",
+								nActionOnly = 1,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Devil"] = {
+						sStringName = "devil",
+						aEffects = {
+							{
+								sEffect = "IFT: TYPE(devil); ATK: 2; DMG: 2d6",
+								nActionOnly = 1,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Earth"] = {
+						sStringName = "earth",
+						aEffects = {
+							{
+								sEffect = "IFT: TYPE(earth); ATK: 2; DMG: 2d6",
+								nActionOnly = 1,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Fire"] = {
+						sStringName = "fire",
+						aEffects = {
+							{
+								sEffect = "IFT: TYPE(fire); ATK: 2; DMG: 2d6",
+								nActionOnly = 1,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Native"] = {
+						sStringName = "native",
+						aEffects = {
+							{
+								sEffect = "IFT: TYPE(native); ATK: 2; DMG: 2d6",
+								nActionOnly = 1,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Water"] = {
+						sStringName = "water",
+						aEffects = {
+							{
+								sEffect = "IFT: TYPE(water); ATK: 2; DMG: 2d6",
+								nActionOnly = 1,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+				},
+			},
+			["Plants"] = {
+				sStringName = "plants",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "IFT: TYPE(plant); ATK: 2; DMG: 2d6",
+						nActionOnly = 1,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Undead"] = {
+				sStringName = "undead",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "IFT: TYPE(undead); ATK: 2; DMG: 2d6",
+						nActionOnly = 1,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Vermin"] = {
+				sStringName = "vermin",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "IFT: TYPE(vermin); ATK: 2; DMG: 2d6",
+						nActionOnly = 1,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},		
+		},
 	},
 	["Called"] = {
 		sStringName  = "called",
@@ -1178,6 +2468,10 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 8,
 		sAura = "moderate conjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Conductive"] = {
 		sStringName  = "conductive",
@@ -1189,6 +2483,10 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 16,
 		sAura = "strong transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Conserving"] = {
 		sStringName  = "conserving",
@@ -1200,6 +2498,10 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 9,
 		sAura = "moderate conjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Corrosive"] = {
 		sStringName  = "corrosive",
@@ -1211,6 +2513,10 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 8,
 		sAura = "moderate necromancy" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Cruel"] = {
 		sStringName  = "cruel",
@@ -1222,6 +2528,10 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 7,
 		sAura = "moderate conjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Cunning"] = {
 		sStringName  = "cunning",
@@ -1233,6 +2543,10 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 12,
 		sAura = "moderate evocation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Distance"] = {
 		sStringName  = "distance",
@@ -1244,6 +2558,10 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 10,
 		sAura = "moderate evocation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Flaming"] = {
 		sStringName  = "flaming",
@@ -1255,6 +2573,10 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 5,
 		sAura = "faint necromancy" ,
+		aExclusions = {"Flaming burst", "Igniting",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Frost"] = {
 		sStringName  = "frost",
@@ -1266,6 +2588,10 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 6,
 		sAura = "moderate divination" ,
+		aExclusions = {"Icy burst",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Huntsman"] = {
 		sStringName  = "huntsman",
@@ -1277,6 +2603,10 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 12,
 		sAura = "moderate enchantment" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Jurist"] = {
 		sStringName  = "jurist",
@@ -1288,6 +2618,10 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 7,
 		sAura = "moderate enchantment" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Limning"] = {
 		sStringName  = "limning",
@@ -1299,6 +2633,10 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 6,
 		sAura = "moderate divination" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Lucky"] = {
 		sStringName  = "lucky",
@@ -1310,6 +2648,10 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 9,
 		sAura = "moderate conjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Merciful"] = {
 		sStringName  = "merciful",
@@ -1321,6 +2663,17 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 12,
 		sAura = "strong evocation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "DMGTYPE: nonlethal; DMG: 1d6",
+				nActionOnly = 1,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Planar"] = {
 		sStringName  = "planar",
@@ -1332,6 +2685,10 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 10,
 		sAura = "moderate evocation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Reliable"] = {
 		sStringName  = "reliable",
@@ -1343,6 +2700,10 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 8,
 		sAura = "moderate evocation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Returning"] = {
 		sStringName  = "returning",
@@ -1354,6 +2715,10 @@ aRangedWeaponAbilities = {
 		bThrown      = true,
 		iCL = 10,
 		sAura = "moderate illusion" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Seeking"] = {
 		sStringName  = "seeking",
@@ -1365,6 +2730,10 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 7,
 		sAura = "moderate evocation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Shock"] = {
 		sStringName  = "shock",
@@ -1376,6 +2745,10 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 7,
 		sAura = "moderate divination" ,
+		aExclusions = {"Shocking burst",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Thundering"] = {
 		sStringName  = "thundering",
@@ -1387,6 +2760,29 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 10,
 		sAura = "moderate evocation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "DMG: 1d8 sonic, critical",
+				nActionOnly = 1,
+				bAERequired = true,
+				nCritical = 2,
+			},
+			{
+				sEffect = "DMG: 2d8 sonic, critical",
+				nActionOnly = 1,
+				bAERequired = true,
+				nCritical = 3,
+			},
+			{
+				sEffect = "DMG: 3d8 sonic, critical",
+				nActionOnly = 1,
+				bAERequired = true,
+				nCritical = 4,
+			},
+		},
 	},
 	["Anarchic"] = {
 		sStringName  = "anarchic",
@@ -1398,6 +2794,23 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 12,
 		sAura = "strong evocation" ,
+		aExclusions = {"Axiomatic",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "DMGTYPE: chaotic; IFT: ALIGN(lawful); DMG: 2d6",
+				nActionOnly = 1,
+				bAERequired = false,
+				nCritical = 0,
+			},
+			{
+				sEffect = "IF: ALIGN(lawful); NLVL 1",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Anchoring"] = {
 		sStringName  = "anchoring",
@@ -1409,6 +2822,10 @@ aRangedWeaponAbilities = {
 		bThrown      = true,
 		iCL = 7,
 		sAura = "moderate transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Axiomatic"] = {
 		sStringName  = "axiomatic",
@@ -1420,6 +2837,23 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 4,
 		sAura = "faint transmutation" ,
+		aExclusions = {"Anarchic"},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "DMGTYPE: lawful; IFT: ALIGN(chaotic); DMG: 2d6",
+				nActionOnly = 1,
+				bAERequired = false,
+				nCritical = 0,
+			},
+			{
+				sEffect = "IF: ALIGN(chaotic); NLVL 1",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Corrosive burst"] = {
 		sStringName  = "corrosive burst",
@@ -1431,6 +2865,29 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 5,
 		sAura = "faint evocation" ,
+		aExclusions = {"Corrosive",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "DMG: 1d10 acid, critical",
+				nActionOnly = 1,
+				bAERequired = true,
+				nCritical = 2,
+			},
+			{
+				sEffect = "DMG: 2d10 acid, critical",
+				nActionOnly = 1,
+				bAERequired = true,
+				nCritical = 3,
+			},
+			{
+				sEffect = "DMG: 3d10 acid, critical",
+				nActionOnly = 1,
+				bAERequired = true,
+				nCritical = 4,
+			},
+		},
 	},
 	["Designating, lesser"] = {
 		sStringName  = "lesser designating",
@@ -1442,6 +2899,10 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 12,
 		sAura = "strong enchantment" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Endless ammunition"] = {
 		sStringName  = "endless ammunition",
@@ -1453,6 +2914,10 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 8,
 		sAura = "moderate transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Flaming burst"] = {
 		sStringName  = "flaming burst",
@@ -1464,6 +2929,29 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 5,
 		sAura = "faint conjuration" ,
+		aExclusions = {"Flaming", "Igniting",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "DMG: 1d10 fire, critical",
+				nActionOnly = 1,
+				bAERequired = true,
+				nCritical = 2,
+			},
+			{
+				sEffect = "DMG: 2d10 fire, critical",
+				nActionOnly = 1,
+				bAERequired = true,
+				nCritical = 3,
+			},
+			{
+				sEffect = "DMG: 3d10 fire, critical",
+				nActionOnly = 1,
+				bAERequired = true,
+				nCritical = 4,
+			},
+		},
 	},
 	["Holy"] = {
 		sStringName  = "holy",
@@ -1475,6 +2963,23 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 11,
 		sAura = "moderate abjuration" ,
+		aExclusions = {"Unholy",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "DMGTYPE: good; IFT: ALIGN(evil); DMG: 2d6",
+				nActionOnly = 1,
+				bAERequired = false,
+				nCritical = 0,
+			},
+			{
+				sEffect = "IF: ALIGN(evil); NLVL 1",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Icy burst"] = {
 		sStringName  = "icy burst",
@@ -1486,6 +2991,29 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 7,
 		sAura = "moderate abjuration" ,
+		aExclusions = {"Frost",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "DMG: 1d10 cold, critical",
+				nActionOnly = 1,
+				bAERequired = true,
+				nCritical = 2,
+			},
+			{
+				sEffect = "DMG: 2d10 cold, critical",
+				nActionOnly = 1,
+				bAERequired = true,
+				nCritical = 3,
+			},
+			{
+				sEffect = "DMG: 3d10 cold, critical",
+				nActionOnly = 1,
+				bAERequired = true,
+				nCritical = 4,
+			},
+		},
 	},
 	["Igniting"] = {
 		sStringName  = "igniting",
@@ -1497,6 +3025,17 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 9,
 		sAura = "moderate conjuration" ,
+		aExclusions = {"Flaming", "Flaming burst",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "DMGO: 1d6 fire",
+				nActionOnly = 1,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Phase locking"] = {
 		sStringName  = "phase locking",
@@ -1508,6 +3047,10 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 12,
 		sAura = "strong enchantment" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Shocking burst"] = {
 		sStringName  = "shocking burst",
@@ -1519,6 +3062,29 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 8,
 		sAura = "moderate transmutation" ,
+		aExclusions = {"Shock",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "DMG: 1d10 electricity, critical",
+				nActionOnly = 1,
+				bAERequired = true,
+				nCritical = 2,
+			},
+			{
+				sEffect = "DMG: 2d10 electricity, critical",
+				nActionOnly = 1,
+				bAERequired = true,
+				nCritical = 3,
+			},
+			{
+				sEffect = "DMG: 3d10 electricity, critical",
+				nActionOnly = 1,
+				bAERequired = true,
+				nCritical = 4,
+			},
+		},
 	},
 	["Stalking"] = {
 		sStringName  = "stalking",
@@ -1530,6 +3096,10 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 7,
 		sAura = "moderate transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Unholy"] = {
 		sStringName  = "unholy",
@@ -1541,6 +3111,23 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 11,
 		sAura = "moderate abjuration" ,
+		aExclusions = {"Holy",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "DMGTYPE: evil; IFT: ALIGN(good); DMG: 2d6",
+				nActionOnly = 1,
+				bAERequired = false,
+				nCritical = 0,
+			},
+			{
+				sEffect = "IF: ALIGN(good); NLVL 1",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Lucky, greater"] = {
 		sStringName  = "greater lucky",
@@ -1552,6 +3139,10 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 12,
 		sAura = "strong divination" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Reliable, greater"] = {
 		sStringName  = "greater reliable",
@@ -1563,6 +3154,10 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 8,
 		sAura = "moderate evocation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Speed"] = {
 		sStringName  = "speed",
@@ -1574,6 +3169,10 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 10,
 		sAura = "moderate evocation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Brilliant energy"] = {
 		sStringName  = "brilliant energy",
@@ -1585,6 +3184,10 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 7,
 		sAura = "moderate transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Designating, greater"] = {
 		sStringName  = "greater designating",
@@ -1596,6 +3199,10 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 10,
 		sAura = "moderate divination" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Nimble shot"] = {
 		sStringName  = "nimble shot",
@@ -1607,6 +3214,10 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 5,
 		sAura = "faint necromancy" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Second chance"] = {
 		sStringName  = "second chance",
@@ -1618,6 +3229,10 @@ aRangedWeaponAbilities = {
 		bThrown      = false,
 		iCL = 7,
 		sAura = "moderate evocation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Disjoining"] = {
 		sStringName  = "disjoining",
@@ -1628,6 +3243,10 @@ aRangedWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 7,
 		sAura = "moderate necromancy" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Harvesting"] = {
 		sStringName  = "harvesting",
@@ -1638,6 +3257,10 @@ aRangedWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 9,
 		sAura = "moderate necromancy" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Mythic bane"] = {
 		sStringName  = "mythic bane",
@@ -1648,6 +3271,17 @@ aRangedWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 8,
 		sAura = "moderate evocation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "IFT: TYPE(mythic); ATK: 2; DMG: 2d6",
+				nActionOnly = 1,
+				bAERequired = true,
+				nCritical = 0,
+			},
+		},
 	},
 	["Potent"] = {
 		sStringName  = "potent",
@@ -1658,6 +3292,10 @@ aRangedWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 12,
 		sAura = "strong transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Sacrosanct"] = {
 		sStringName  = "sacrosanct",
@@ -1668,6 +3306,10 @@ aRangedWeaponAbilities = {
 		bBludgeoning = true,
 		iCL = 8,
 		sAura = "moderate evocation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 }
 
@@ -1678,6 +3320,23 @@ aAmmunitionAbilities = {
 		iCost        = 0,
 		iCL = 7,
 		sAura = "moderate evocation" ,
+		aExclusions = {"Axiomatic",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "IF: CUSTOM(%s Attack); DMGTYPE: chaotic; IFT: ALIGN(lawful); DMG: 2d6",
+				nActionOnly = 1,
+				bAERequired = false,
+				nCritical = 0,
+			},
+			{
+				sEffect = "IF: ALIGN(lawful); NLVL 1",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Axiomatic"] = {
 		sStringName  = "axiomatic",
@@ -1685,6 +3344,23 @@ aAmmunitionAbilities = {
 		iCost        = 0,
 		iCL = 7,
 		sAura = "moderate evocation" ,
+		aExclusions = {"Anarchic",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "IF: CUSTOM(%s Attack); DMGTYPE: lawful; IFT: ALIGN(chaotic); DMG: 2d6",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+			{
+				sEffect = "IF: ALIGN(chaotic); NLVL 1",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Bane"] = {
 		sStringName  = "bane",
@@ -1692,6 +3368,365 @@ aAmmunitionAbilities = {
 		iCost        = 0,
 		iCL = 8,
 		sAura = "moderate conjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "Bane Type",
+		aSubSelection = {
+			["Aberations"] = {
+				sStringName = "aberations",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "IF: CUSTOM(%s Attack); IFT: TYPE(aberation); ATK: 2; DMG: 2d6",
+						nActionOnly = 0,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Animals"] = {
+				sStringName = "animals",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "IF: CUSTOM(%s Attack); IFT: TYPE(animal); ATK: 2; DMG: 2d6",
+						nActionOnly = 0,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Constructs"] = {
+				sStringName = "constructs",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "IF: CUSTOM(%s Attack); IFT: TYPE(construct); ATK: 2; DMG: 2d6",
+						nActionOnly = 0,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Dragons"] = {
+				sStringName = "dragons",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "IF: CUSTOM(%s Attack); IFT: TYPE(dragon); ATK: 2; DMG: 2d6",
+						nActionOnly = 0,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Fey"] = {
+				sStringName = "fey",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "IF: CUSTOM(%s Attack); IFT: TYPE(fey); ATK: 2; DMG: 2d6",
+						nActionOnly = 0,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Humanoids"] = {
+				sStringName = "humanoid",
+				sSubSubSelectionLabel = "Humanoid Type",
+				aEffects = {},
+				aSubSubSelection = {
+					["Dwarf"] = {
+						sStringName = "dwarf",
+						aEffects = {
+							{
+								sEffect = "IF: CUSTOM(%s Attack); IFT: TYPE(dwarf); ATK: 2; DMG: 2d6",
+								nActionOnly = 0,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Elf"] = {
+						sStringName = "elf",
+						aEffects = {
+							{
+								sEffect = "IF: CUSTOM(%s Attack); IFT: TYPE(elf); ATK: 2; DMG: 2d6",
+								nActionOnly = 0,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Gnoll"] = {
+						sStringName = "gnoll",
+						aEffects = {
+							{
+								sEffect = "IF: CUSTOM(%s Attack); IFT: TYPE(gnoll); ATK: 2; DMG: 2d6",
+								nActionOnly = 0,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Gnome"] = {
+						sStringName = "gnome",
+						aEffects = {
+							{
+								sEffect = "IF: CUSTOM(%s Attack); IFT: TYPE(gnome); ATK: 2; DMG: 2d6",
+								nActionOnly = 0,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Goblinoid"] = {
+						sStringName = "goblinoid",
+						aEffects = {
+							{
+								sEffect = "IF: CUSTOM(%s Attack); IFT: TYPE(goblinoid); ATK: 2; DMG: 2d6",
+								nActionOnly = 0,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Halfling"] = {
+						sStringName = "halfling",
+						aEffects = {
+							{
+								sEffect = "IF: CUSTOM(%s Attack); IFT: TYPE(halfling); ATK: 2; DMG: 2d6",
+								nActionOnly = 0,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Human"] = {
+						sStringName = "human",
+						aEffects = {
+							{
+								sEffect = "IF: CUSTOM(%s Attack); IFT: TYPE(human); ATK: 2; DMG: 2d6",
+								nActionOnly = 0,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Orc"] = {
+						sStringName = "orc",
+						aEffects = {
+							{
+								sEffect = "IF: CUSTOM(%s Attack); IFT: TYPE(orc); ATK: 2; DMG: 2d6",
+								nActionOnly = 0,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Reptilian"] = {
+						sStringName = "reptilian",
+						aEffects = {
+							{
+								sEffect = "IF: CUSTOM(%s Attack); IFT: TYPE(reptilian); ATK: 2; DMG: 2d6",
+								nActionOnly = 0,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+				},
+			},
+			["Magical Beasts"] = {
+				sStringName = "magical beasts",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "IF: CUSTOM(%s Attack); IFT: TYPE(magical beast); ATK: 2; DMG: 2d6",
+						nActionOnly = 0,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Monstrous Humanoids"] = {
+				sStringName = "monstrous humanoid",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "IF: CUSTOM(%s Attack); IFT: TYPE(monstrous humanoid); ATK: 2; DMG: 2d6",
+						nActionOnly = 0,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Oozes"] = {
+				sStringName = "oozes",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "IF: CUSTOM(%s Attack); IFT: TYPE(ooze); ATK: 2; DMG: 2d6",
+						nActionOnly = 0,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Outsiders"] = {
+				sStringName = "outsiders",
+				aEffect = {},
+				sSubSubSelectionLabel = "Outsider Type",
+				aSubSubSelection = {
+					["Air"] = {
+						sStringName = "air",
+						aEffects = {
+							{
+								sEffect = "IF: CUSTOM(%s Attack); IFT: TYPE(air); ATK: 2; DMG: 2d6",
+								nActionOnly = 0,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Angel"] = {
+						sStringName = "angel",
+						aEffects = {
+							{
+								sEffect = "IF: CUSTOM(%s Attack); IFT: TYPE(angel); ATK: 2; DMG: 2d6",
+								nActionOnly = 0,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Archon"] = {
+						sStringName = "archon",
+						aEffects = {
+							{
+								sEffect = "IF: CUSTOM(%s Attack); IFT: TYPE(archon); ATK: 2; DMG: 2d6",
+								nActionOnly = 0,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Demon"] = {
+						sStringName = "demon",
+						aEffects = {
+							{
+								sEffect = "IF: CUSTOM(%s Attack); IFT: TYPE(demon); ATK: 2; DMG: 2d6",
+								nActionOnly = 0,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Devil"] = {
+						sStringName = "devil",
+						aEffects = {
+							{
+								sEffect = "IF: CUSTOM(%s Attack); IFT: TYPE(devil); ATK: 2; DMG: 2d6",
+								nActionOnly = 0,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Earth"] = {
+						sStringName = "earth",
+						aEffects = {
+							{
+								sEffect = "IF: CUSTOM(%s Attack); IFT: TYPE(earth); ATK: 2; DMG: 2d6",
+								nActionOnly = 0,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Fire"] = {
+						sStringName = "fire",
+						aEffects = {
+							{
+								sEffect = "IF: CUSTOM(%s Attack); IFT: TYPE(fire); ATK: 2; DMG: 2d6",
+								nActionOnly = 0,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Native"] = {
+						sStringName = "native",
+						aEffects = {
+							{
+								sEffect = "IF: CUSTOM(%s Attack); IFT: TYPE(native); ATK: 2; DMG: 2d6",
+								nActionOnly = 0,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+					["Water"] = {
+						sStringName = "water",
+						aEffects = {
+							{
+								sEffect = "IF: CUSTOM(%s Attack); IFT: TYPE(water); ATK: 2; DMG: 2d6",
+								nActionOnly = 0,
+								bAERequired = false,
+								nCritical = 0,
+							},
+						},
+					},
+				},
+			},
+			["Plants"] = {
+				sStringName = "plants",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "IF: CUSTOM(%s Attack); IFT: TYPE(plant); ATK: 2; DMG: 2d6",
+						nActionOnly = 0,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Undead"] = {
+				sStringName = "undead",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "IF: CUSTOM(%s Attack); IFT: TYPE(undead); ATK: 2; DMG: 2d6",
+						nActionOnly = 0,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Vermin"] = {
+				sStringName = "vermin",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "IF: CUSTOM(%s Attack); IFT: TYPE(vermin); ATK: 2; DMG: 2d6",
+						nActionOnly = 0,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},		
+		},
 	},
 	["Brilliant energy"] = {
 		sStringName  = "brilliant energy",
@@ -1699,6 +3734,10 @@ aAmmunitionAbilities = {
 		iCost        = 0,
 		iCL = 16,
 		sAura = "strong transmutation " ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Conductive"] = {
 		sStringName  = "conductive",
@@ -1706,6 +3745,10 @@ aAmmunitionAbilities = {
 		iCost        = 0,
 		iCL = 8,
 		sAura = "moderate necromancy" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Corrosive"] = {
 		sStringName  = "corrosive",
@@ -1713,6 +3756,10 @@ aAmmunitionAbilities = {
 		iCost        = 0,
 		iCL = 10,
 		sAura = "moderate evocation" ,
+		aExclusions = {"Corrosive burst",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Corrosive burst"] = {
 		sStringName  = "corrosive burst",
@@ -1720,6 +3767,35 @@ aAmmunitionAbilities = {
 		iCost        = 0,
 		iCL = 12,
 		sAura = "moderate evocation" ,
+		aExclusions = {"Corrosive",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "IF: CUSTOM(%s Attack); DMG: 1d6 acid",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+			{
+				sEffect = "IF: CUSTOM(%s Attack); IF: CUSTOM(Crit2); DMG: 1d10 acid, critical",
+				nActionOnly = 0,
+				bAERequired = true,
+				nCritical = 0,
+			},
+			{
+				sEffect = "IF: CUSTOM(%s Attack); IF: CUSTOM(Crit3); DMG: 2d10 acid, critical",
+				nActionOnly = 0,
+				bAERequired = true,
+				nCritical = 0,
+			},
+			{
+				sEffect = "IF: CUSTOM(%s Attack); IF: CUSTOM(Crit3); DMG: 3d10 acid, critical",
+				nActionOnly = 0,
+				bAERequired = true,
+				nCritical = 0,
+			},
+		},
 	},
 	["Cruel"] = {
 		sStringName  = "cruel",
@@ -1727,6 +3803,10 @@ aAmmunitionAbilities = {
 		iCost        = 0,
 		iCL = 5,
 		sAura = "faint necromancy" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Cunning"] = {
 		sStringName  = "cunning",
@@ -1734,6 +3814,10 @@ aAmmunitionAbilities = {
 		iCost        = 0,
 		iCL = 6,
 		sAura = "moderate divination" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Designating, greater"] = {
 		sStringName  = "greater designating",
@@ -1741,6 +3825,10 @@ aAmmunitionAbilities = {
 		iCost        = 0,
 		iCL = 12,
 		sAura = "moderate enchantment" ,
+		aExclusions = {"Designating, lesser",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Designating, lesser"] = {
 		sStringName  = "lesser designating",
@@ -1748,6 +3836,10 @@ aAmmunitionAbilities = {
 		iCost        = 0,
 		iCL = 7,
 		sAura = "moderate enchantment" ,
+		aExclusions = {"Designating, greater",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Dry load"] = {
 		sStringName  = "dry load",
@@ -1755,6 +3847,10 @@ aAmmunitionAbilities = {
 		iCost        = 1500,
 		iCL = 3,
 		sAura = "faint abjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Flaming"] = {
 		sStringName  = "flaming",
@@ -1762,6 +3858,17 @@ aAmmunitionAbilities = {
 		iCost        = 0,
 		iCL = 10,
 		sAura = "moderate evocation" ,
+		aExclusions = {"Flaming burst", "Igniting",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "IF: CUSTOM(%s Attack); DMG: 1d6 fire",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Flaming burst"] = {
 		sStringName  = "flaming burst",
@@ -1769,6 +3876,35 @@ aAmmunitionAbilities = {
 		iCost        = 0,
 		iCL = 12,
 		sAura = "strong evocation" ,
+		aExclusions = {"Flaming", "Igniting",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "IF: CUSTOM(%s Attack); DMG: 1d6 fire",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+			{
+				sEffect = "IF: CUSTOM(%s Attack); IF: CUSTOM(Crit2); DMG: 1d10 fire, critical",
+				nActionOnly = 0,
+				bAERequired = true,
+				nCritical = 0,
+			},
+			{
+				sEffect = "IF: CUSTOM(%s Attack); IF: CUSTOM(Crit3); DMG: 2d10 fire, critical",
+				nActionOnly = 0,
+				bAERequired = true,
+				nCritical = 0,
+			},
+			{
+				sEffect = "IF: CUSTOM(%s Attack); IF: CUSTOM(Crit4); DMG: 3d10 fire, critical",
+				nActionOnly = 0,
+				bAERequired = true,
+				nCritical = 0,
+			},
+		},
 	},
 	["Frost"] = {
 		sStringName  = "frost",
@@ -1776,6 +3912,17 @@ aAmmunitionAbilities = {
 		iCost        = 0,
 		iCL = 8,
 		sAura = "moderate evocation" ,
+		aExclusions = {"Icy burst",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "IF: CUSTOM(%s Attack); DMG: 1d6 cold",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Ghost touch"] = {
 		sStringName  = "ghost touch",
@@ -1783,6 +3930,17 @@ aAmmunitionAbilities = {
 		iCost        = 0,
 		iCL = 9,
 		sAura = "moderate conjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "IF: CUSTOM(%s Attack); DMGTYPE: ghost touch";
+				nActionOnly = 0,
+				bAERequired = true,
+				nCritical = 0,
+			},
+		},
 	},
 	["Holy"] = {
 		sStringName  = "holy",
@@ -1790,6 +3948,23 @@ aAmmunitionAbilities = {
 		iCost        = 0,
 		iCL = 7,
 		sAura = "moderate evocation" ,
+		aExclusions = {"Unholy",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "IF: CUSTOM(%s Attack); DMGTYPE: good; IFT: ALIGN(evil); DMG: 2d6",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+			{
+				sEffect = "IF: ALIGN(evil); NLVL 1",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Icy burst"] = {
 		sStringName  = "icy burst",
@@ -1797,6 +3972,35 @@ aAmmunitionAbilities = {
 		iCost        = 0,
 		iCL = 10,
 		sAura = "moderate evocation" ,
+		aExclusions = {"Frost",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "IF: CUSTOM(%s Attack); DMG: 1d6 cold",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+			{
+				sEffect = "IF: CUSTOM(%s Attack); IF: CUSTOM(Crit2); DMG: 1d10 cold, critical",
+				nActionOnly = 0,
+				bAERequired = true,
+				nCritical = 0,
+			},
+			{
+				sEffect = "IF: CUSTOM(%s Attack); IF: CUSTOM(Crit3); DMG: 2d10 cold, critical",
+				nActionOnly = 0,
+				bAERequired = true,
+				nCritical = 0,
+			},
+			{
+				sEffect = "IF: CUSTOM(%s Attack); IF: CUSTOM(Crit4); DMG: 3d10 cold, critical",
+				nActionOnly = 0,
+				bAERequired = true,
+				nCritical = 0,
+			},
+		},
 	},
 	["Igniting"] = {
 		sStringName  = "igniting",
@@ -1804,6 +4008,23 @@ aAmmunitionAbilities = {
 		iCost        = 0,
 		iCL = 12,
 		sAura = "strong evocation" ,
+		aExclusions = {"Flaming", "Flaming burst",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "IF: CUSTOM(%s Attack); DMG: 1d6 fire",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+			{
+				sEffect = "IF: CUSTOM(%s Attack); DMG0: 1d6 fire",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Limning"] = {
 		sStringName  = "limning",
@@ -1811,6 +4032,10 @@ aAmmunitionAbilities = {
 		iCost        = 0,
 		iCL = 5,
 		sAura = "faint evocation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Merciful"] = {
 		sStringName  = "merciful",
@@ -1818,6 +4043,17 @@ aAmmunitionAbilities = {
 		iCost        = 0,
 		iCL = 5,
 		sAura = "faint conjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "IF: CUSTOM(%s Attack); DMGTYPE: nonlethal; DMG: 1d6",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Phase locking"] = {
 		sStringName  = "phase locking",
@@ -1825,6 +4061,10 @@ aAmmunitionAbilities = {
 		iCost        = 0,
 		iCL = 7,
 		sAura = "moderate abjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Planar"] = {
 		sStringName  = "planar",
@@ -1832,6 +4072,10 @@ aAmmunitionAbilities = {
 		iCost        = 0,
 		iCL = 9,
 		sAura = "moderate conjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Seeking"] = {
 		sStringName  = "seeking",
@@ -1839,6 +4083,10 @@ aAmmunitionAbilities = {
 		iCost        = 0,
 		iCL = 12,
 		sAura = "strong divination" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Shock"] = {
 		sStringName  = "shock",
@@ -1846,6 +4094,17 @@ aAmmunitionAbilities = {
 		iCost        = 0,
 		iCL = 8,
 		sAura = "moderate evocation" ,
+		aExclusions = {"Shocking burst",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "IF: CUSTOM(%s Attack); DMG: 1d6 electricity",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Shocking burst"] = {
 		sStringName  = "shocking burst",
@@ -1853,6 +4112,35 @@ aAmmunitionAbilities = {
 		iCost        = 0,
 		iCL = 10,
 		sAura = "moderate evocation" ,
+		aExclusions = {"Shock",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "IF: CUSTOM(%s Attack); DMG: 1d6 electricity",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+			{
+				sEffect = "IF: CUSTOM(%s Attack); IF: CUSTOM(Crit2); DMG: 1d10 electricity, critical",
+				nActionOnly = 0,
+				bAERequired = true,
+				nCritical = 0,
+			},
+			{
+				sEffect = "IF: CUSTOM(%s Attack); IF: CUSTOM(Crit3); DMG: 2d10 electricity, critical",
+				nActionOnly = 0,
+				bAERequired = true,
+				nCritical = 0,
+			},
+			{
+				sEffect = "IF: CUSTOM(%s Attack); IF: CUSTOM(Crit4); DMG: 3d10 electricity, critical",
+				nActionOnly = 0,
+				bAERequired = true,
+				nCritical = 0,
+			},
+		},
 	},
 	["Thundering"] = {
 		sStringName  = "thundering",
@@ -1860,6 +4148,29 @@ aAmmunitionAbilities = {
 		iCost        = 0,
 		iCL = 5,
 		sAura = "faint necromancy" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "IF: CUSTOM(%s Attack); IF: CUSTOM(Crit2); DMG: 1d8 sonic, critical",
+				nActionOnly = 0,
+				bAERequired = true,
+				nCritical = 0,
+			},
+			{
+				sEffect = "IF: CUSTOM(%s Attack); IF: CUSTOM(Crit3); DMG: 2d8 sonic, critical",
+				nActionOnly = 0,
+				bAERequired = true,
+				nCritical = 0,
+			},
+			{
+				sEffect = "IF: CUSTOM(%s Attack); IF: CUSTOM(Crit4); DMG: 3d8 sonic, critical",
+				nActionOnly = 0,
+				bAERequired = true,
+				nCritical = 0,
+			},
+		},
 	},
 	["Unholy"] = {
 		sStringName  = "unholy",
@@ -1867,6 +4178,23 @@ aAmmunitionAbilities = {
 		iCost        = 0,
 		iCL = 7,
 		sAura = "moderate evocation" ,
+		aExclusions = {"Holy",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "DMGTYPE: evil; IFT: ALIGN(good); DMG: 2d6",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+			{
+				sEffect = "IF: ALIGN(good); NLVL 1",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Disjoining"] = {
 		sStringName  = "disjoining",
@@ -1877,6 +4205,10 @@ aAmmunitionAbilities = {
 		bBludgeoning = true,
 		iCL = 7,
 		sAura = "moderate necromancy" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Harvesting"] = {
 		sStringName  = "harvesting",
@@ -1887,6 +4219,10 @@ aAmmunitionAbilities = {
 		bBludgeoning = true,
 		iCL = 9,
 		sAura = "moderate necromancy" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Mythic bane"] = {
 		sStringName  = "mythic bane",
@@ -1897,6 +4233,17 @@ aAmmunitionAbilities = {
 		bBludgeoning = true,
 		iCL = 8,
 		sAura = "moderate evocation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "IF: CUSTOM(%s Attack); IFT: TYPE(mythic); ATK: 2; DMG: 2d6",
+				nActionOnly = 1,
+				bAERequired = true,
+				nCritical = 0,
+			},
+		},
 	},
 	["Potent"] = {
 		sStringName  = "potent",
@@ -1907,6 +4254,10 @@ aAmmunitionAbilities = {
 		bBludgeoning = true,
 		iCL = 12,
 		sAura = "strong transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Sacrosanct"] = {
 		sStringName  = "sacrosanct",
@@ -1917,6 +4268,10 @@ aAmmunitionAbilities = {
 		bBludgeoning = true,
 		iCL = 8,
 		sAura = "moderate evocation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 }
 
@@ -1927,6 +4282,10 @@ aArmorAbilities = {
 		iCost        = 7000,
 		iCL = 10,
 		sAura = "moderate transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Balanced"] = {
 		sStringName  = "balanced",
@@ -1934,6 +4293,10 @@ aArmorAbilities = {
 		iCost        = 0,
 		iCL = 5,
 		sAura = "faint transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Benevolent"] = {
 		sStringName  = "benevolent",
@@ -1941,6 +4304,10 @@ aArmorAbilities = {
 		iCost        = 2000,
 		iCL = 5,
 		sAura = "faint enchantment" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Bitter"] = {
 		sStringName  = "bitter",
@@ -1948,6 +4315,10 @@ aArmorAbilities = {
 		iCost        = 0,
 		iCL = 5,
 		sAura = "faint transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Bolstering"] = {
 		sStringName  = "bolstering",
@@ -1955,6 +4326,10 @@ aArmorAbilities = {
 		iCost        = 0,
 		iCL = 5,
 		sAura = "faint enchantment" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Brawling"] = {
 		sStringName  = "brawling",
@@ -1962,6 +4337,10 @@ aArmorAbilities = {
 		iCost        = 0,
 		iCL = 5,
 		sAura = "faint transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Champion"] = {
 		sStringName  = "champion",
@@ -1969,6 +4348,17 @@ aArmorAbilities = {
 		iCost        = 0,
 		iCL = 5,
 		sAura = "faint abjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "IF: ALIGN(good); IFT: CUSTOM(challenge, smite); AC: 2",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Creeping"] = {
 		sStringName  = "creeping",
@@ -1976,6 +4366,10 @@ aArmorAbilities = {
 		iCost        = 5000,
 		iCL = 7,
 		sAura = "moderate illusion and transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Dastard"] = {
 		sStringName  = "dastard",
@@ -1983,6 +4377,17 @@ aArmorAbilities = {
 		iCost        = 0,
 		iCL = 5,
 		sAura = "faint abjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "IF: ALIGN(evil); IFT: CUSTOM(challenge, smite); AC: 2",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Deathless"] = {
 		sStringName  = "deathless",
@@ -1990,6 +4395,23 @@ aArmorAbilities = {
 		iCost        = 0,
 		iCL = 7,
 		sAura = "moderate abjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "RESIST: 10 negative; RESIST: 10 positive",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+			{
+				sEffect = "Fortification, FORTIF: 25 negative; FORTIF: 25 positive",
+				nActionOnly = 0,
+				bAERequired = true,
+				nCritical = 0,
+			},
+		},
 	},
 	["Defiant"] = {
 		sStringName  = "defiant",
@@ -1997,6 +4419,163 @@ aArmorAbilities = {
 		iCost        = 0,
 		iCL = 8,
 		sAura = "moderate conjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "Type",
+		aSubSelection = {
+			["Aberations"] = {
+				sStringName = "aberations",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {},
+			},
+			["Animals"] = {
+				sStringName = "animals",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {},
+			},
+			["Constructs"] = {
+				sStringName = "constructs",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {},
+			},
+			["Dragons"] = {
+				sStringName = "dragons",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {},
+			},
+			["Fey"] = {
+				sStringName = "fey",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {},
+			},
+			["Humanoids"] = {
+				sStringName = "humanoid",
+				sSubSubSelectionLabel = "Humanoid Type",
+				aEffects = {},
+				aSubSubSelection = {
+					["Dwarf"] = {
+						sStringName = "dwarf",
+						aEffects = {},
+					},
+					["Elf"] = {
+						sStringName = "elf",
+						aEffects = {},
+					},
+					["Gnoll"] = {
+						sStringName = "gnoll",
+						aEffects = {},
+					},
+					["Gnome"] = {
+						sStringName = "gnome",
+						aEffects = {},
+					},
+					["Goblinoid"] = {
+						sStringName = "goblinoid",
+						aEffects = {},
+					},
+					["Halfling"] = {
+						sStringName = "halfling",
+						aEffects = {},
+					},
+					["Human"] = {
+						sStringName = "human",
+						aEffects = {},
+					},
+					["Orc"] = {
+						sStringName = "orc",
+						aEffects = {},
+					},
+					["Reptilian"] = {
+						sStringName = "reptilian",
+						aEffects = {},
+					},
+				},
+			},
+			["Magical Beasts"] = {
+				sStringName = "magical beasts",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {},
+			},
+			["Monstrous Humanoids"] = {
+				sStringName = "monstrous humanoid",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {},
+			},
+			["Oozes"] = {
+				sStringName = "oozes",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {},
+			},
+			["Outsiders"] = {
+				sStringName = "outsiders",
+				aEffect = {},
+				sSubSubSelectionLabel = "Outsider Type",
+				aSubSubSelection = {
+					["Air"] = {
+						sStringName = "air",
+						aEffects = {},
+					},
+					["Angel"] = {
+						sStringName = "angel",
+						aEffects = {},
+					},
+					["Archon"] = {
+						sStringName = "archon",
+						aEffects = {},
+					},
+					["Demon"] = {
+						sStringName = "demon",
+						aEffects = {},
+					},
+					["Devil"] = {
+						sStringName = "devil",
+						aEffects = {},
+					},
+					["Earth"] = {
+						sStringName = "earth",
+						aEffects = {},
+					},
+					["Fire"] = {
+						sStringName = "fire",
+						aEffects = {},
+					},
+					["Native"] = {
+						sStringName = "native",
+						aEffects = {},
+					},
+					["Water"] = {
+						sStringName = "water",
+						aEffects = {},
+					},
+				},
+			},
+			["Plants"] = {
+				sStringName = "plants",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {},
+			},
+			["Undead"] = {
+				sStringName = "undead",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {},
+			},
+			["Vermin"] = {
+				sStringName = "vermin",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {},
+			},		
+		},
+		aEffects = {},
 	},
 	["Delving"] = {
 		sStringName  = "delving",
@@ -2004,6 +4583,10 @@ aArmorAbilities = {
 		iCost        = 10000,
 		iCL = 5,
 		sAura = "faint transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Determination"] = {
 		sStringName  = "determination",
@@ -2011,6 +4594,10 @@ aArmorAbilities = {
 		iCost        = 30000,
 		iCL = 10,
 		sAura = "moderate conjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Energy resistance"] = {
 		sStringName  = "energy resistance",
@@ -2018,6 +4605,76 @@ aArmorAbilities = {
 		iCost        = 18000,
 		iCL = 3,
 		sAura = "faint abjuration" ,
+		aExclusions = {"Energy resistance, greater", "Energy resistance, improved",},
+		sSubSelectionLabel = "Type",
+		aSubSelection = {
+			["Acid"] = {
+				sStringName = "acid",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "RESIST: 10 acid",
+						nActionOnly = 0,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Cold"] = {
+				sStringName = "cold",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "RESIST: 10 cold",
+						nActionOnly = 0,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Electricity"] = {
+				sStringName = "electricity",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "RESIST: 10 electricity",
+						nActionOnly = 0,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Fire"] = {
+				sStringName = "fire",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "RESIST: 10 fire",
+						nActionOnly = 0,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Sonic"] = {
+				sStringName = "sonic",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "RESIST: 10 sonic",
+						nActionOnly = 0,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+		},
+		aEffects = {},
 	},
 	["Energy resistance, greater"] = {
 		sStringName  = "greater energy resistance",
@@ -2025,6 +4682,76 @@ aArmorAbilities = {
 		iCost        = 66000,
 		iCL = 11,
 		sAura = "moderate abjuration" ,
+		aExclusions = {"Energy resistance", "Energy resistance, improved",},
+		sSubSelectionLabel = "Type",
+		aSubSelection = {
+			["Acid"] = {
+				sStringName = "acid",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "RESIST: 30 acid",
+						nActionOnly = 0,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Cold"] = {
+				sStringName = "cold",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "RESIST: 30 cold",
+						nActionOnly = 0,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Electricity"] = {
+				sStringName = "electricity",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "RESIST: 30 electricity",
+						nActionOnly = 0,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Fire"] = {
+				sStringName = "fire",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "RESIST: 30 fire",
+						nActionOnly = 0,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Sonic"] = {
+				sStringName = "sonic",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "RESIST: 30 sonic",
+						nActionOnly = 0,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+		},
+		aEffects = {},
 	},
 	["Energy resistance, improved"] = {
 		sStringName  = "improved energy resistance",
@@ -2032,6 +4759,76 @@ aArmorAbilities = {
 		iCost        = 42000,
 		iCL = 7,
 		sAura = "moderate abjuration" ,
+		aExclusions = {"Energy resistance", "Energy resistance, greater",},
+		sSubSelectionLabel = "",
+		aSubSelection = {
+			["Acid"] = {
+				sStringName = "acid",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "RESIST: 20 acid",
+						nActionOnly = 0,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Cold"] = {
+				sStringName = "cold",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "RESIST: 20 cold",
+						nActionOnly = 0,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Electricity"] = {
+				sStringName = "electricity",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "RESIST: 20 electricity",
+						nActionOnly = 0,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Fire"] = {
+				sStringName = "fire",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "RESIST: 20 fire",
+						nActionOnly = 0,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+			["Sonic"] = {
+				sStringName = "sonic",
+				sSubSubSelectionLabel = "",
+				aSubSubSelection = {},
+				aEffects = {
+					{
+						sEffect = "RESIST: 20 sonic",
+						nActionOnly = 0,
+						bAERequired = false,
+						nCritical = 0,
+					},
+				},
+			},
+		},
+		aEffects = {},
 	},
 	["Etherealness"] = {
 		sStringName  = "etherealness",
@@ -2039,6 +4836,10 @@ aArmorAbilities = {
 		iCost        = 49000,
 		iCL = 13,
 		sAura = "strong transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Expeditious"] = {
 		sStringName  = "expeditious",
@@ -2046,6 +4847,10 @@ aArmorAbilities = {
 		iCost        = 4000,
 		iCL = 5,
 		sAura = "faint transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Fortification (heavy)"] = {
 		sStringName  = "heavy fortification",
@@ -2053,6 +4858,17 @@ aArmorAbilities = {
 		iCost        = 0,
 		iCL = 13,
 		sAura = "strong abjuration" ,
+		aExclusions = {"Fortification (light)", "Fortification (moderate)",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "FORTIF: 75 precision; FORTIF: 75, critical",
+				nActionOnly = 0,
+				bAERequired = true,
+				nCritical = 0,
+			},
+		},
 	},
 	["Fortification (light)"] = {
 		sStringName  = "light fortification",
@@ -2060,6 +4876,17 @@ aArmorAbilities = {
 		iCost        = 0,
 		iCL = 13,
 		sAura = "strong abjuration" ,
+		aExclusions = {"Fortification (heavy)", "Fortification (moderate)",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "FORTIF: 25 precision; FORTIF: 25, critical",
+				nActionOnly = 0,
+				bAERequired = true,
+				nCritical = 0,
+			},
+		},
 	},
 	["Fortification (moderate)"] = {
 		sStringName  = "moderate fortification",
@@ -2067,6 +4894,17 @@ aArmorAbilities = {
 		iCost        = 0,
 		iCL = 13,
 		sAura = "strong abjuration" ,
+		aExclusions = {"Fortification (heavy)", "Fortification (light)",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "FORTIF: 50 precision; FORTIF: 50, critical",
+				nActionOnly = 0,
+				bAERequired = true,
+				nCritical = 0,
+			},
+		},
 	},
 	["Ghost touch"] = {
 		sStringName  = "ghost touch",
@@ -2074,6 +4912,17 @@ aArmorAbilities = {
 		iCost        = 0,
 		iCL = 15,
 		sAura = "strong transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "Incorporeal",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Glamered"] = {
 		sStringName  = "glamered",
@@ -2081,6 +4930,10 @@ aArmorAbilities = {
 		iCost        = 2700,
 		iCL = 10,
 		sAura = "moderate illusion" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Grinding"] = {
 		sStringName  = "grinding",
@@ -2088,6 +4941,10 @@ aArmorAbilities = {
 		iCost        = 0,
 		iCL = 5,
 		sAura = "faint transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Harmonizing"] = {
 		sStringName  = "harmonizing",
@@ -2095,6 +4952,17 @@ aArmorAbilities = {
 		iCost        = 15000,
 		iCL = 7,
 		sAura = "moderate illusion" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "SKILL: 5 compotence perform; SKILL: -5 stealth; VULN: sonic",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Hosteling"] = {
 		sStringName  = "hosteling",
@@ -2102,6 +4970,10 @@ aArmorAbilities = {
 		iCost        = 7500,
 		iCL = 9,
 		sAura = "moderate conjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Impervious"] = {
 		sStringName  = "impervious",
@@ -2109,6 +4981,10 @@ aArmorAbilities = {
 		iCost        = 0,
 		iCL = 7,
 		sAura = "moderate transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Invulnerability"] = {
 		sStringName  = "invulnerability",
@@ -2116,6 +4992,17 @@ aArmorAbilities = {
 		iCost        = 0,
 		iCL = 18,
 		sAura = "strong varies" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "DR: 5 magic",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Jousting"] = {
 		sStringName  = "jousting",
@@ -2123,6 +5010,17 @@ aArmorAbilities = {
 		iCost        = 3750,
 		iCL = 5,
 		sAura = "faint transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "SKILL: 5 compotence ride",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Martyring"] = {
 		sStringName  = "martyring",
@@ -2130,6 +5028,10 @@ aArmorAbilities = {
 		iCost        = 18000,
 		iCL = 9,
 		sAura = "moderate conjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Mirrored"] = {
 		sStringName  = "mirrored",
@@ -2137,6 +5039,10 @@ aArmorAbilities = {
 		iCost        = 0,
 		iCL = 8,
 		sAura = "moderate abjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Poison-resistant"] = {
 		sStringName  = "poison resistant",
@@ -2144,6 +5050,10 @@ aArmorAbilities = {
 		iCost        = 2250,
 		iCL = 7,
 		sAura = "moderate conjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Putrid"] = {
 		sStringName  = "putrid",
@@ -2151,6 +5061,10 @@ aArmorAbilities = {
 		iCost        = 10000,
 		iCL = 5,
 		sAura = "faint conjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Radiant"] = {
 		sStringName  = "radiant",
@@ -2158,6 +5072,10 @@ aArmorAbilities = {
 		iCost        = 7500,
 		iCL = 6,
 		sAura = "moderate evocation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Rallying"] = {
 		sStringName  = "rallying",
@@ -2165,6 +5083,10 @@ aArmorAbilities = {
 		iCost        = 5000,
 		iCL = 5,
 		sAura = "faint abjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Righteous"] = {
 		sStringName  = "righteous",
@@ -2172,6 +5094,17 @@ aArmorAbilities = {
 		iCost        = 27000,
 		iCL = 10,
 		sAura = "moderate transmutation" ,
+		aExclusions = {"Unrighteous",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "IF ALIGN(evil); NLVL 1",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Shadow"] = {
 		sStringName  = "shadow",
@@ -2179,6 +5112,17 @@ aArmorAbilities = {
 		iCost        = 3750,
 		iCL = 5,
 		sAura = "faint illusion" ,
+		aExclusions = {"Shadow, greater", "Shadow, improved",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "SKILL: 5 compotence stealth",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Shadow, greater"] = {
 		sStringName  = "greater shadow",
@@ -2186,6 +5130,17 @@ aArmorAbilities = {
 		iCost        = 33750,
 		iCL = 15,
 		sAura = "strong illusion" ,
+		aExclusions = {"Shadow", "Shadow, improved",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "SKILL: 15 compotence stealth",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Shadow, improved"] = {
 		sStringName  = "improved shadow",
@@ -2193,6 +5148,17 @@ aArmorAbilities = {
 		iCost        = 15000,
 		iCL = 10,
 		sAura = "moderate illusion" ,
+		aExclusions = {"Shadow", "Shadow, greater",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "SKILL: 10 compotence stealth",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Slick"] = {
 		sStringName  = "slick",
@@ -2200,6 +5166,17 @@ aArmorAbilities = {
 		iCost        = 3750,
 		iCL = 4,
 		sAura = "faint conjuration" ,
+		aExclusions = {"Slick, greater", "Slick, improved",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "SKILL: 5 compotence escape artist",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Slick, greater"] = {
 		sStringName  = "slick greater",
@@ -2207,6 +5184,17 @@ aArmorAbilities = {
 		iCost        = 33750,
 		iCL = 15,
 		sAura = "strong conjuration" ,
+		aExclusions = {"Slick", "Slick, improved",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "SKILL: 15 compotence escape artist",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Slick, improved"] = {
 		sStringName  = "slick improved",
@@ -2214,6 +5202,17 @@ aArmorAbilities = {
 		iCost        = 15000,
 		iCL = 10,
 		sAura = "moderate conjuration" ,
+		aExclusions = {"Slick", "Slick, greater",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "SKILL: 10 compotence escape artist",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Spell resistance (13)"] = {
 		sStringName  = "spell resistance (13)",
@@ -2221,6 +5220,17 @@ aArmorAbilities = {
 		iCost        = 0,
 		iCL = 15,
 		sAura = "strong abjuration" ,
+		aExclusions = {"Spell resistance (15)", "Spell resistance (17)", "Spell resistance (19)",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "SR: 13",
+				nActionOnly = 0,
+				bAERequired = true,
+				nCritical = 0,
+			},
+		},
 	},
 	["Spell resistance (15)"] = {
 		sStringName  = "spell resistance (15)",
@@ -2228,6 +5238,17 @@ aArmorAbilities = {
 		iCost        = 0,
 		iCL = 15,
 		sAura = "strong abjuration" ,
+		aExclusions = {"Spell resistance (13)", "Spell resistance (17)", "Spell resistance (19)",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "SR: 15",
+				nActionOnly = 0,
+				bAERequired = true,
+				nCritical = 0,
+			},
+		},
 	},
 	["Spell resistance (17)"] = {
 		sStringName  = "spell resistance (17)",
@@ -2235,6 +5256,17 @@ aArmorAbilities = {
 		iCost        = 0,
 		iCL = 15,
 		sAura = "strong abjuration" ,
+		aExclusions = {"Spell resistance (13)", "Spell resistance (15)", "Spell resistance (19)",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "SR: 17",
+				nActionOnly = 0,
+				bAERequired = true,
+				nCritical = 0,
+			},
+		},
 	},
 	["Spell resistance (19)"] = {
 		sStringName  = "spell resistance (19)",
@@ -2242,6 +5274,17 @@ aArmorAbilities = {
 		iCost        = 0,
 		iCL = 15,
 		sAura = "strong abjuration" ,
+		aExclusions = {"Spell resistance (13)", "Spell resistance (15)", "Spell resistance (17)",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "SR: 19",
+				nActionOnly = 0,
+				bAERequired = true,
+				nCritical = 0,
+			},
+		},
 	},
 	["Spell storing"] = {
 		sStringName  = "spell storing",
@@ -2249,6 +5292,10 @@ aArmorAbilities = {
 		iCost        = 0,
 		iCL = 12,
 		sAura = "strong evocation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Stanching"] = {
 		sStringName  = "stanching",
@@ -2256,6 +5303,10 @@ aArmorAbilities = {
 		iCost        = 0,
 		iCL = 7,
 		sAura = "moderate transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Titanic"] = {
 		sStringName  = "titanic",
@@ -2263,6 +5314,10 @@ aArmorAbilities = {
 		iCost        = 0,
 		iCL = 7,
 		sAura = "moderate transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Unbound"] = {
 		sStringName  = "unbound",
@@ -2270,6 +5325,17 @@ aArmorAbilities = {
 		iCost        = 27000,
 		iCL = 10,
 		sAura = "moderate transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "IF ALIGN(lawful); NLVL 1",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Undead controlling"] = {
 		sStringName  = "undead controlling",
@@ -2277,6 +5343,10 @@ aArmorAbilities = {
 		iCost        = 49000,
 		iCL = 13,
 		sAura = "strong necromancy" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Unrighteous"] = {
 		sStringName  = "unrighteous",
@@ -2284,6 +5354,17 @@ aArmorAbilities = {
 		iCost        = 27000,
 		iCL = 10,
 		sAura = "moderate transmutation" ,
+		aExclusions = {"Righteous",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "IF ALIGN(good); NLVL 1",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Vigilant"] = {
 		sStringName  = "vigilant",
@@ -2291,6 +5372,17 @@ aArmorAbilities = {
 		iCost        = 27000,
 		iCL = 10,
 		sAura = "moderate transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "IF ALIGN(chaotic); NLVL 1",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Warding"] = {
 		sStringName  = "warding",
@@ -2298,6 +5390,10 @@ aArmorAbilities = {
 		iCost        = 0,
 		iCL = 12,
 		sAura = "strong abjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Wild"] = {
 		sStringName  = "wild",
@@ -2305,6 +5401,10 @@ aArmorAbilities = {
 		iCost        = 0,
 		iCL = 9,
 		sAura = "moderate transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Denying"] = {
 		sStringName  = "denying",
@@ -2312,6 +5412,10 @@ aArmorAbilities = {
 		iCost        = 0,
 		iCL = 13,
 		sAura = "strong abjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Resonating"] = {
 		sStringName  = "resonating",
@@ -2319,6 +5423,21 @@ aArmorAbilities = {
 		iCost        = 0,
 		iCL = 7,
 		sAura = "moderate abjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
+	},
+	["Burdenless"] = {
+		sStringName = "burdenless",
+		iBonus		= 0,
+		iCost		= 4000,
+		iCL			= 5,
+		sAura		= "faint transmutation",
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 }
 
@@ -2329,6 +5448,10 @@ aShieldAbilities = {
 		iCost        = 0,
 		iCL = 12,
 		sAura = "strong transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Arrow catching"] = {
 		sStringName  = "arrow catching",
@@ -2336,6 +5459,17 @@ aShieldAbilities = {
 		iCost        = 0,
 		iCL = 8,
 		sAura = "moderate abjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "AC: 1 deflection ranged",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Arrow deflection"] = {
 		sStringName  = "arrow deflection",
@@ -2343,6 +5477,10 @@ aShieldAbilities = {
 		iCost        = 0,
 		iCL = 5,
 		sAura = "faint abjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Bashing"] = {
 		sStringName  = "bashing",
@@ -2350,6 +5488,10 @@ aShieldAbilities = {
 		iCost        = 0,
 		iCL = 8,
 		sAura = "moderate transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Blinding"] = {
 		sStringName  = "blinding",
@@ -2357,6 +5499,10 @@ aShieldAbilities = {
 		iCost        = 0,
 		iCL = 7,
 		sAura = "moderate evocation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Clangorous"] = {
 		sStringName  = "clangorous",
@@ -2364,6 +5510,10 @@ aShieldAbilities = {
 		iCost        = 0,
 		iCL = 7,
 		sAura = "moderate evocation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Defiant"] = {
 		sStringName  = "defiant",
@@ -2371,6 +5521,10 @@ aShieldAbilities = {
 		iCost        = 0,
 		iCL = 8,
 		sAura = "moderate conjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Determination"] = {
 		sStringName  = "determination",
@@ -2378,6 +5532,10 @@ aShieldAbilities = {
 		iCost        = 30000,
 		iCL = 10,
 		sAura = "moderate conjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Energy resistance"] = {
 		sStringName  = "energy resistance",
@@ -2385,6 +5543,10 @@ aShieldAbilities = {
 		iCost        = 18000,
 		iCL = 3,
 		sAura = "faint abjuration" ,
+		aExclusions = {"Energy resistance, greater", "Energy resistance, improved",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Energy resistance, greater"] = {
 		sStringName  = "greater energy resistance",
@@ -2392,6 +5554,10 @@ aShieldAbilities = {
 		iCost        = 66000,
 		iCL = 11,
 		sAura = "moderate abjuration" ,
+		aExclusions = {"Energy resistance", "Energy resistance, improved",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Energy resistance, improved"] = {
 		sStringName  = "improved energy resistance",
@@ -2399,6 +5565,10 @@ aShieldAbilities = {
 		iCost        = 42000,
 		iCL = 7,
 		sAura = "moderate abjuration" ,
+		aExclusions = {"Energy resistance", "Energy resistance, greater",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Fortification (heavy)"] = {
 		sStringName  = "heavy fortification",
@@ -2406,6 +5576,17 @@ aShieldAbilities = {
 		iCost        = 0,
 		iCL = 13,
 		sAura = "strong abjuration" ,
+		aExclusions = {"Fortification (light)", "Fortification (moderate)",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "FORTIF: 75 precision; FORTIF: 75, critical",
+				nActionOnly = 0,
+				bAERequired = true,
+				nCritical = 0,
+			},
+		},
 	},
 	["Fortification (light)"] = {
 		sStringName  = "light fortification",
@@ -2413,6 +5594,17 @@ aShieldAbilities = {
 		iCost        = 0,
 		iCL = 13,
 		sAura = "strong abjuration" ,
+		aExclusions = {"Fortification (heavy)", "Fortification (moderate)",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "FORTIF: 25 precision; FORTIF: 25, critical",
+				nActionOnly = 0,
+				bAERequired = true,
+				nCritical = 0,
+			},
+		},
 	},
 	["Fortification (moderate)"] = {
 		sStringName  = "moderate fortification",
@@ -2420,6 +5612,17 @@ aShieldAbilities = {
 		iCost        = 0,
 		iCL = 13,
 		sAura = "strong abjuration" ,
+		aExclusions = {"Fortification (heavy)", "Fortification (light)",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "FORTIF: 50 precision; FORTIF: 50, critical",
+				nActionOnly = 0,
+				bAERequired = true,
+				nCritical = 0,
+			},
+		},
 	},
 	["Ghost touch"] = {
 		sStringName  = "ghost touch",
@@ -2427,6 +5630,17 @@ aShieldAbilities = {
 		iCost        = 0,
 		iCL = 15,
 		sAura = "strong transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {
+			{
+				sEffect = "Incorporeal",
+				nActionOnly = 0,
+				bAERequired = false,
+				nCritical = 0,
+			},
+		},
 	},
 	["Grinding"] = {
 		sStringName  = "grinding",
@@ -2434,6 +5648,10 @@ aShieldAbilities = {
 		iCost        = 0,
 		iCL = 5,
 		sAura = "faint transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Hosteling"] = {
 		sStringName  = "hosteling",
@@ -2441,6 +5659,10 @@ aShieldAbilities = {
 		iCost        = 7500,
 		iCL = 9,
 		sAura = "moderate conjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Impervious"] = {
 		sStringName  = "impervious",
@@ -2448,6 +5670,10 @@ aShieldAbilities = {
 		iCost        = 0,
 		iCL = 7,
 		sAura = "moderate transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Merging"] = {
 		sStringName  = "merging",
@@ -2455,6 +5681,10 @@ aShieldAbilities = {
 		iCost        = 0,
 		iCL = 10,
 		sAura = "moderate transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Mirrored"] = {
 		sStringName  = "mirrored",
@@ -2462,6 +5692,10 @@ aShieldAbilities = {
 		iCost        = 0,
 		iCL = 8,
 		sAura = "moderate abjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Poison-resistant"] = {
 		sStringName  = "poison resistant",
@@ -2469,6 +5703,10 @@ aShieldAbilities = {
 		iCost        = 2250,
 		iCL = 7,
 		sAura = "moderate conjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Radiant"] = {
 		sStringName  = "radiant",
@@ -2476,6 +5714,10 @@ aShieldAbilities = {
 		iCost        = 7500,
 		iCL = 6,
 		sAura = "moderate evocation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Rallying"] = {
 		sStringName  = "rallying",
@@ -2483,6 +5725,10 @@ aShieldAbilities = {
 		iCost        = 5000,
 		iCL = 5,
 		sAura = "faint abjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Ramming"] = {
 		sStringName  = "ramming",
@@ -2490,6 +5736,10 @@ aShieldAbilities = {
 		iCost        = 0,
 		iCL = 5,
 		sAura = "faint evocation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Reflecting"] = {
 		sStringName  = "reflecting",
@@ -2497,6 +5747,10 @@ aShieldAbilities = {
 		iCost        = 0,
 		iCL = 14,
 		sAura = "strong abjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Spell resistance (13)"] = {
 		sStringName  = "spell resistance 13 ",
@@ -2504,6 +5758,10 @@ aShieldAbilities = {
 		iCost        = 0,
 		iCL = 15,
 		sAura = "strong abjuration" ,
+		aExclusions = {"Spell resistance (15)", "Spell resistance (17)", "Spell resistance (19)",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Spell resistance (15)"] = {
 		sStringName  = "spell resistance (15)",
@@ -2511,6 +5769,10 @@ aShieldAbilities = {
 		iCost        = 0,
 		iCL = 15,
 		sAura = "strong abjuration" ,
+		aExclusions = {"Spell resistance (13)", "Spell resistance (17)", "Spell resistance (19)",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Spell resistance (17)"] = {
 		sStringName  = "spell resistance (17)",
@@ -2518,6 +5780,10 @@ aShieldAbilities = {
 		iCost        = 0,
 		iCL = 15,
 		sAura = "strong abjuration" ,
+		aExclusions = {"Spell resistance (13)", "Spell resistance (15)", "Spell resistance (19)",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Spell resistance (19)"] = {
 		sStringName  = "spell resistance (19)",
@@ -2525,6 +5791,10 @@ aShieldAbilities = {
 		iCost        = 0,
 		iCL = 15,
 		sAura = "strong abjuration" ,
+		aExclusions = {"Spell resistance (13)", "Spell resistance (15)", "Spell resistance (17)",},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Undead controlling"] = {
 		sStringName  = "undead controlling",
@@ -2532,6 +5802,10 @@ aShieldAbilities = {
 		iCost        = 49000,
 		iCL = 13,
 		sAura = "strong necromancy" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Wild"] = {
 		sStringName  = "wild",
@@ -2539,6 +5813,10 @@ aShieldAbilities = {
 		iCost        = 0,
 		iCL = 9,
 		sAura = "moderate transmutation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Wyrmsbreath"] = {
 		sStringName  = "wyrmsbreath",
@@ -2546,6 +5824,10 @@ aShieldAbilities = {
 		iCost        = 5000,
 		iCL = 5,
 		sAura = "faint evocation" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
 	},
 	["Deflecting"] = {
 		sStringName  = "deflecting",
@@ -2553,49 +5835,367 @@ aShieldAbilities = {
 		iCost        = 0,
 		iCL = 13,
 		sAura = "strong abjuration" ,
+		aExclusions = {},
+		sSubSelectionLabel = "",
+		aSubSelection = {},
+		aEffects = {},
+	},
+}
+aItemSize = {
+	["fine"] = {
+		iPosition = 1,
+	},
+	["diminuative"] = {
+		iPosition = 2,
+	},
+	["tiny"] = {
+		iPosition = 3,
+	},
+	["small"] = {
+		iPosition = 4,
+	},
+	["medium"] = {
+		iPosition = 5,
+	},
+	["large"] = {
+		iPosition = 6,
+	},
+	["huge"] = {
+		iPosition = 7,
+	},
+	["gargantuan"] = {
+		iPosition = 8,
+	},
+	["colossal"] = {
+		iPosition = 9,
 	},
 }
 
-function GenerateMagicItem(databasenode, sEnhancementBonus, sSpecialMaterial, sSpecialAbility1, sSpecialAbility2)
-	local bBonus, bMaterial, bAbility1, bAbility2 = checkComboboxes(sEnhancementBonus, sSpecialMaterial, sSpecialAbility1, sSpecialAbility2);
-	local sType, sSubType = getItemType(databasenode);
-	local sItemName, iItemCost, iItemWeight, sFullSubType, sItemProperties, iArmorPenalty, iArmorMaxDex, iArmorSpellFailure, iSpeed30, iSpeed20, iRange, sDamageType = getItemData(databasenode);
+aDamageDice = {
+    ["0"] = {
+		iPosition = 0,
+	},
+	["1"] = {
+		iPosition = 1,
+	},
+	["1d2"] = {
+		iPosition = 2,
+	},
+	["1d3"] = {
+		iPosition = 3,
+	},
+	["1d4"] = {
+		iPosition = 4,
+	},
+	["1d6"] = {
+		iPosition = 5,
+	},
+	["1d8"] = {
+		iPosition = 6,
+	},
+	["1d10"] = {
+		iPosition = 7,
+	},
+	["2d6"] = {
+		iPosition = 8,
+	},
+	["2d8"] = {
+		iPosition = 9,
+	},
+	["3d6"] = {
+		iPosition = 10,
+	},
+	["3d8"] = {
+		iPosition = 11,
+	},
+	["4d6"] = {
+		iPosition = 12,
+	},
+	["4d8"] = {
+		iPosition = 13,
+	},
+	["6d6"] = {
+		iPosition = 14,
+	},
+	["6d8"] = {
+		iPosition = 15,
+	},
+	["8d6"] = {
+		iPosition = 16,
+	},
+	["8d8"] = {
+		iPosition = 17,
+	},
+	["12d6"] = {
+		iPosition = 18,
+	},
+	["12d8"] = {
+		iPosition = 19,
+	},
+	["16d6"] = {
+		iPosition = 20,
+	},
+}
+
+aPositionDamage = {
+	[0] = {
+		sDamage = "0",
+	},
+	{
+		sDamage = "1",
+	},
+	{
+		sDamage = "1d2",
+	},
+	{
+		sDamage = "1d3",
+	},
+	{
+		sDamage = "1d4",
+	},
+	[5] = {
+		sDamage = "1d6",
+	},
+	[6] = {
+		sDamage = "1d8",
+		sAltDamage1 = "2d4",
+	},
+	[7] = {
+		sDamage = "1d10",
+	},
+	[8] = {
+		sDamage = "2d6",
+		sAltDamage1 = "3d4",
+		sAltDamage2 = "1d12",
+	},
+	[9] = {
+		sDamage = "2d8",
+		sAltDamage1 = "4d4",
+	},
+	[10] = {
+		sDamage = "3d6",
+		sAltDamage1 = "5d4",
+	},
+	[11] = {
+		sDamage = "3d8",
+		sAltDamage1 = "6d4",
+	},
+	[12] = {
+		sDamage = "4d6",
+		sAltDamage1 = "6d4",
+		sAltDamage2 = "2d12",
+	},
+	[13] = {
+		sDamage = "4d8",
+		sAltDamage1 = "8d4",
+	},
+	[14] = {
+		sDamage = "6d6",
+		sAltDamage1 = "9d4",
+		sAltDamage2 = "3d12",
+	},
+	[15] = {
+		sDamage = "6d8",
+		sAltDamage1 = "12d4",
+	},
+	[16] = {
+		sDamage = "8d6",
+		sAltDamage1 = "12d4",
+		sAltDamage2 = "4d12",
+	},
+	[17] = {
+		sDamage = "8d8",
+		sAltDamage1 = "16d4",
+	},
+	[18] = {
+		sDamage = "12d6",
+		sAltDamage1 = "18d4",
+		sAltDamage2 = "6d12",
+	},
+	[19] = {
+		sDamage = "12d8",
+		sAltDamage1 = "24d4",
+	},
+	[20] = {
+		sDamage = "16d6",
+		sAltDamage1 = "24d4",
+		sAltDamage2 = "8d12",
+	},
+}
+
+aAltDamageDice1 = {
+	["2d4"] = {
+		sDamage = "1d8",
+	},
+	["3d4"] = {
+		sDamage = "2d6",
+	},
+	["4d4"] = {
+		sDamage = "2d8",
+	},
+	["5d4"] = {
+		sDamage = "3d6",
+	},
+	["6d4"] = {
+		sDamage = "3d8",
+	},
+	["7d4"] = {
+		sDamage = "4d6",
+	},
+	["8d4"] = {
+		sDamage = "4d8",
+	},
+	["9d4"] = {
+		sDamage = "6d6",
+	},
+	["12d4"] = {
+		sDamage = "6d8",
+	},
+	["16d4"] = {
+		sDamage = "8d8",
+	},
+	["18d4"] = {
+		sDamage = "12d6",
+	},
+	["24d4"] = {
+		sDamage = "12d8",
+	},
+}
+
+aAltDamageDice2 = {
+	["1d12"] = {
+		sDamage = "2d6",
+	},
+	["2d12"] = {
+		sDamage = "4d6",
+	},
+	["3d12"] = {
+		sDamage = "6d6",
+	},
+	["4d12"] = {
+		sDamage = "8d6",
+	},
+	["6d12"] = {
+		sDamage = "12d6",
+	},
+	["8d12"] = {
+		sDamage = "16d6",
+	},
+}
+
+aAltDamageDice3 = {
+	["2d10"] = {
+		sDown = "2d8",
+		sUp = "4d8",
+	},
+}
+
+aWeightMultiplier = {
+	["fine"] = {
+		nMultiplier = 0.1,
+	},
+	["diminuative"] = {
+		nMultiplier = 0.1,
+	},
+	["tiny"] = {
+		nMultiplier = 0.1,
+	},
+	["small"] = {
+		nMultiplier = 0.5,
+	},
+	["medium"] = {
+		nMultiplier = 1,
+	},
+	["large"] = {
+		nMultiplier = 2,
+	},
+	["huge"] = {
+		nMultiplier = 5,
+	},
+	["gargantuan"] = {
+		nMultiplier = 8,
+	},
+	["colossal"] = {
+		nMultiplier = 12,
+	},
+}
+
+function GenerateMagicItem(nodeItem)
+	if not nodeItem then
+		return false;
+	end
+	sEnhancementBonus = DB.getValue(nodeItem, "combobox_bonus", "");
+	sSpecialMaterial = DB.getValue(nodeItem, "combobox_material", "");
+	sItemSize = DB.getValue(nodeItem, "combobox_item_size", "");
+	local sType, sSubType = getItemType(nodeItem);
+	aAbilities = getAbilities(nodeItem, sType, sSubType);
+
+	local bBonus, bMaterial, nErrorCode, aConflicts = checkComboboxes(sType, sSubType, sBonus, sSpecialMaterial, aAbilities);
+	if nErrorCode == 1 then
+		Comm.addChatMessage({text = string.format(Interface.getString("Error_4"), aConflicts.sAbility1), secret = true, icon ="ct_faction_foe"}); 
+		return false;
+    elseif nErrorCode == 2 then
+		Comm.addChatMessage({text = string.format(Interface.getString("Error_5"), aConflicts.sAbility1, aConflicts.sAbility2), secret = true, icon ="ct_faction_foe"}); 
+		return false;
+    elseif nErrorCode == 3 then	
+		Comm.addChatMessage({text = string.format(Interface.getString("Error_6"), aConflicts.sAbility1), secret = true, icon ="ct_faction_foe"}); 
+		return false;
+	end
+	
+	local sItemName, iItemCost, iItemWeight, sFullSubType, sItemProperties, iArmorPenalty, iArmorMaxDex, iArmorSpellFailure, iSpeed30, iSpeed20, iRange, sDamageType, sDamage, sOriginalSize = getItemData(nodeItem);
+	local sNewDamage = "";
+	
+	if sType == "Weapon" or sType == "Shield" then
+		sNewDamage = getDamageBySize(sDamage, sOriginalSize, sItemSize);
+	else
+		sNewDamage = sDamage;
+	end
 	
 	local iEnchancementBonus = getEnhancementBonus(sEnhancementBonus);
 	local iEffectiveBonus = iEnchancementBonus;
 	local iCostBonus = iEnchancementBonus;
 	local iExtraCost = 0;
+	local iTotalAbilityBonus = 0;
 	
-	if iEnchancementBonus == 0 and (bAbility1 or bAbility2) then
+	if (iEnchancementBonus == 0) and (next(aAbilities) ~= nil) then
 		Comm.addChatMessage({text = Interface.getString("Error_1"), secret = true, icon ="ct_faction_foe"}); 
 		return false;
 	end
-	
-	local iAbilityBonus, iAbilityCostBonus, iAbilityExtraCost, sAbilityName1, sAbilityName2;
-	local iCL1, iCL2 = 0, 0;
-	local sAura1, sAura2 = "", "";
-	if bAbility1 then
-		iAbilityBonus, iAbilityCostBonus, iAbilityExtraCost, sAbilityName1, iCL1, sAura1 = getAbilityBonusAndCost(sSpecialAbility1, sType, sSubType)
-		iEffectiveBonus = iEffectiveBonus + iAbilityBonus
-		iCostBonus = iCostBonus + iAbilityCostBonus
-		iExtraCost = iExtraCost + iAbilityExtraCost
-		sDamageType, iRange = getSpecialAbilityData(sSpecialAbility1, sDamageType, iRange)
+
+	local aAbilityBonus, aAbilityCostBonus, aAbilityExtraCost, aAbilityName, aCL, aAura, aEffectList = {}, {}, {}, {}, {}, {}, {};
+	for _,aAbility in ipairs(aAbilities) do
+		local iAbilityBonus, iAbilityCostBonus, iAbilityExtraCost, sAbilityName, iCL, sAura = getAbilityBonusAndCost(aAbility.sAbility, sType, sSubType);
+		iEffectiveBonus = iEffectiveBonus + iAbilityBonus;
+		iTotalAbilityBonus = iTotalAbilityBonus + iAbilityBonus;
+		iCostBonus = iCostBonus + iAbilityCostBonus;
+		iExtraCost = iExtraCost + iAbilityExtraCost;
+		sDamageType, iRange = getSpecialAbilityData(aAbility.sAbility, sDamageType, iRange);
+		local sFullSpecialAbility = aAbility.sAbility;
+		if aAbility.sSubAbility ~= Interface.getString("none") then
+			sFullSpecialAbility = sFullSpecialAbility .. "(" .. aAbility.sSubAbility;
+			if aAbility.sSubSubAbility ~= Interface.getString("none") then
+				sFullSpecialAbility = sFullSpecialAbility .. "(" .. aAbility.sSubSubAbility .. ")";
+			end
+			sFullSpecialAbility = sFullSpecialAbility .. ")";
+		end
+		sItemProperties = addProperty(sItemProperties, sFullSpecialAbility);
+		table.insert(aCL, iCL);
+		table.insert(aAura, sAura);
 	end
-	
-	if bAbility2 then
-		iAbilityBonus, iAbilityCostBonus, iAbilityExtraCost, sAbilityName2, iCL2, sAura2 = getAbilityBonusAndCost(sSpecialAbility2, sType, sSubType)
-		iEffectiveBonus = iEffectiveBonus + iAbilityBonus
-		iCostBonus = iCostBonus + iAbilityCostBonus
-		iExtraCost = iExtraCost + iAbilityExtraCost
-		sDamageType, iRange = getSpecialAbilityData(sSpecialAbility2, sDamageType, iRange)
+
+	if iTotalAbilityBonus > 5 then
+		Comm.addChatMessage({text = Interface.getString("Error_7"), secret = true, icon = "ct_faction_foe"});
+		return false;
 	end
-	
+
 	if iEffectiveBonus > 10 then
 		Comm.addChatMessage({text = Interface.getString("Error_2"), secret = true, icon ="ct_faction_foe"}); 
 		return false;
 	end
-	
-	local iMaterialCost, iNewWeight, iNewArmorPenalty, iNewArmorMaxDex, iNewArmorSpellFailure, iNewSpeed30, iNewSpeed20, bMasterworkMaterial, bFragileMaterial, sItemProperties, sDamageType = getMaterialData(sSpecialMaterial, iEnchancementBonus, sType, sSubType, sFullSubType, iItemWeight, iArmorPenalty, iArmorMaxDex, iArmorSpellFailure, iSpeed30, iSpeed20, iItemCost, sItemProperties, sDamageType);
+
+	local iMaterialCost, iNewWeight, iNewArmorPenalty, iNewArmorMaxDex, iNewArmorSpellFailure, iNewSpeed30, iNewSpeed20, bMasterworkMaterial, bFragileMaterial, sItemProperties, sDamageType = getMaterialData(sSpecialMaterial, iEnchancementBonus, sType, aSubType, sFullSubType, iItemWeight, iArmorPenalty, iArmorMaxDex, iArmorSpellFailure, iSpeed30, iSpeed20, iItemCost, sItemProperties, sDamageType);
+
+	local iNewWeight = getWeightBySize(iNewWeight, sOriginalSize, sItemSize);
 	
 	local iMasterworkCost = 0;
 	if (not bMasterworkMaterial) or (not sEnhancementBonus == Interface.getString("none")) then
@@ -2608,73 +6208,145 @@ function GenerateMagicItem(databasenode, sEnhancementBonus, sSpecialMaterial, sS
 		   iNewArmorPenalty = 0;
 		end
 	end
+
+	if sSpecialMaterial ~= Interface.getString("none") then
+		sItemProperties = addProperty(sItemProperties, sSpecialMaterial);
+	end
 	
 	local iEnhancementCost = getEnchancementCost(iCostBonus, sType);
 	local iTotalCost = iMaterialCost + iMasterworkCost + iEnhancementCost + iExtraCost;
 	
-	local sItemNewName = getItemNewName(sItemName, sEnhancementBonus, iEnchancementBonus, sSpecialMaterial, sAbilityName1, sAbilityName2, bAbility1, bAbility2, bMasterworkMaterial)
+	local sItemNewName = getItemNewName(sItemName, sEnhancementBonus, iEnchancementBonus, sSpecialMaterial, aAbilities, bMasterworkMaterial, sItemSize)
 	
 	local iNewBonus = 0;
 	if iEnchancementBonus > 0 then
 		iNewBonus = iEnchancementBonus;
+		sDamageType = addProperty(sDamageType, "magic");
+		if DataCommon.isPFRPG() and (sType == "Weapon" or sType == "Ammunition") then
+			sDamageType = getDamageTypeByEnhancementBonus(sDamageType, iEnchancementBonus);
+		end
 	end
 	local sNewNonIdentifiedName = "Unidentified " .. sItemName:lower();
 
-	local iBonusCL = 3 * iNewBonus;
-	local iCL = math.max(iBonusCL, iCL1, iCL2);
+	local iCL = 3 * iNewBonus;
+	for _,iCL1 in pairs(aCL) do
+		iCL = math.max(iCL, iCL1);
+	end
 	
 	local sAura = ""
-	if bAbility1 then
+	for _,sAura1 in pairs(aAura) do
 		sAura = addProperty(sAura, sAura1);
 	end
-	if bAbility2 then
-		sAura = addProperty(sAura, sAura2);
+	for _,aAbility in pairs(aAbilities) do
+		if aAbility.sAbility == "Impact" then
+			sNewDamage = changeDamageBySizeDifference(sNewDamage, 1);
+			break;
+		elseif aAbility.sAbility == "Bashing" then
+			sNewDamage = changeDamageBySizeDifference(sNewDamage, 2);
+			break;
+		end
 	end
-	
 	--Update fields in DB
-	populateItemField(databasenode, 'aura', 'string', sAura);
-	populateItemField(databasenode, 'bonus', 'number', iNewBonus);
-	populateItemField(databasenode, 'cl', 'number', iCL);
-	populateItemField(databasenode, 'cost', 'string', tostring(iTotalCost) .. " gp");
-	populateItemField(databasenode, 'isidentified', 'number', 0);
-	populateItemField(databasenode, 'locked', 'number', 1)
-	populateItemField(databasenode, 'name', 'string', sItemNewName);
-	populateItemField(databasenode, 'nonid_name', 'string', sNewNonIdentifiedName);
-	populateItemField(databasenode, 'properties', 'string', sItemProperties);
-	populateItemField(databasenode, 'weight', 'number', iNewWeight);
+	populateItemField(nodeItem, 'aura', 'string', sAura);
+	populateItemField(nodeItem, 'bonus', 'number', iNewBonus);
+	populateItemField(nodeItem, 'cl', 'number', iCL);
+	populateItemField(nodeItem, 'cost', 'string', tostring(iTotalCost) .. " gp");
+	populateItemField(nodeItem, 'isidentified', 'number', 0);
+	populateItemField(nodeItem, 'locked', 'number', 1)
+	populateItemField(nodeItem, 'name', 'string', sItemNewName);
+	populateItemField(nodeItem, 'nonid_name', 'string', sNewNonIdentifiedName);
+	populateItemField(nodeItem, 'properties', 'string', sItemProperties);
+	populateItemField(nodeItem, 'weight', 'number', iNewWeight);
+	populateItemField(nodeItem, 'damage', 'string', sNewDamage);
+	populateItemField(nodeItem, 'size', 'string', sItemSize);
 	
 	if sType == "Weapon" or sType == "Ammunition" then
-		populateItemField(databasenode, 'damagetype', 'string', sDamageType);
-		populateItemField(databasenode, 'range', 'number', iRange);
+		populateItemField(nodeItem, 'damagetype', 'string', sDamageType);
+		populateItemField(nodeItem, 'range', 'number', iRange);
 	end
 	
 	if sType == "Armor" or sType == "Shield" then
-		populateItemField(databasenode, 'checkpenalty', 'number', iNewArmorPenalty);
-		populateItemField(databasenode, 'maxstatbonus', 'number', iNewArmorMaxDex);
-		populateItemField(databasenode, 'speed20', 'number', iNewSpeed20);
-		populateItemField(databasenode, 'speed30', 'number', iNewSpeed30);
-		populateItemField(databasenode, 'spellfailure', 'number', iNewArmorSpellFailure);
+		populateItemField(nodeItem, 'checkpenalty', 'number', iNewArmorPenalty);
+		populateItemField(nodeItem, 'maxstatbonus', 'number', iNewArmorMaxDex);
+		populateItemField(nodeItem, 'speed20', 'number', iNewSpeed20);
+		populateItemField(nodeItem, 'speed30', 'number', iNewSpeed30);
+		populateItemField(nodeItem, 'spellfailure', 'number', iNewArmorSpellFailure);
 	end
-	Comm.addChatMessage({text = "Generated " .. sItemNewName, secret = true, icon="ct_faction_friend"}); 
+	for _,aAbility in pairs(aAbilities) do
+		addEffectsForAbility(nodeItem, sType, sSubType, aAbility.sAbility, aAbility.sSubAbility, aAbility.sSubSubAbility);
+	end
+	if sType == "Weapon" and (sSubType == "Ranged" or sSubType == "Firearm")  then
+		addRangedEffect(nodeItem);
+	end
+	if sType == "Ammunition" then
+		addAmmoEffect(nodeItem);
+	end
+	Comm.addChatMessage({text = "Generated " .. sItemNewName, secret = true, icon="ct_faction_friend"});--]]
 	return true;
 end
 
-function populateItemField(databasenode, field, fieldType, fieldValue)
-	local databaseChild = databasenode.getChild(field);
-	if databaseChild then
-		databaseChild.setValue(fieldValue);
+function getAbilities(nodeItem, sType, sSubType)
+	if not nodeItem then
+		return;
+	end
+	local aAbilities = {};
+	for _,nodeAbility in pairs(DB.getChildren(nodeItem, "abilitieslist")) do
+		local aAbility = {};
+		aAbility.sAbility = DB.getValue(nodeAbility, "combobox_ability");
+		aAbility.sSubAbility = DB.getValue(nodeAbility, "combobox_ability_sub_select");
+		aAbility.sSubSubAbility = DB.getValue(nodeAbility, "combobox_ability_sub_sub_select");
+		aAbility = cleanAbility(aAbility, sType, sSubType);
+		if next(aAbility) ~= nil then
+			table.insert(aAbilities, aAbility);
+		end
+	end
+	return aAbilities;
+end
+
+function cleanAbility(aAbility, sType, sSubType)
+	local aNewAbility = {};
+	local aAbilityList = getAbilityList(sType, sSubType);
+	
+	if aAbility.sAbility == Interface.getString("none") then
+		return aNewAbility;
+	end;
+	aNewAbility.sAbility = aAbility.sAbility;
+
+	if next(aAbilityList[aAbility.sAbility].aSubSelection) == nil then
+		aNewAbility.sSubAbility = Interface.getString("none");
+		aNewAbility.sSubSubAbility = Interface.getString("none");
 	else
-		databasenode.createChild(field, fieldType);
-		databasenode.getChild(field).setValue(fieldValue);
+		aNewAbility.sSubAbility = aAbility.sSubAbility;
+		if aAbility.sSubAbility ~= Interface.getString("none") and next(aAbilityList[aAbility.sAbility].aSubSelection[aAbility.sSubAbility].aSubSubSelection) == nil then
+			aNewAbility.sSubSubAbility = Interface.getString("none");
+		else
+			aNewAbility.sSubSubAbility = aAbility.sSubSubAbility;
+		end
+	end
+	return aNewAbility;
+end
+
+function getAbilityList(sType, sSubType)
+	if sType == "Weapon" then
+		if sSubType == "Melee" then
+			return aMeleeWeaponAbilities;
+		elseif sSubType == "Ranged" or sSubType == "Firearm" then
+			return aRangedWeaponAbilities;
+		end
+	elseif sType == "Ammunition" then
+		return aAmmunitionAbilities;
+	elseif sType == "Armor" then
+		return aArmorAbilities;
+	elseif sType == "Shield" then
+		return aShieldAbilities;
 	end
 end
 
-function getItemType(databasenode)
+function getItemType(nodeItem)
 	local sItemType = "";
 	local sItemSubType = "";
-	local sType = databasenode.getChild("type").getValue();
-	local sSubType = databasenode.getChild("subtype").getValue();
-	
+	local sType = nodeItem.getChild("type").getValue();
+	local sSubType = nodeItem.getChild("subtype").getValue();
 	if sType == "Weapon" then
 		sItemType = "Weapon";
 	elseif sType == "Armor" then
@@ -2685,7 +6357,7 @@ function getItemType(databasenode)
 		end
 	end
 	
-	if sSubType:match("Ammunition") then
+	if sSubType:match("Ammunition") or (sType == "Ammo") then
 		sItemType = "Ammunition";
 	end
 
@@ -2711,6 +6383,52 @@ function getItemType(databasenode)
 	return sItemType, sItemSubType;
 end
 
+function checkComboboxes(sType, sSubType, sBonus, sMaterial, aAbilities)
+    local bBonus = checkSelection(sBonus);
+	local bMaterial = checkSelection(sMaterial);
+	local aConflicts = {};
+
+	for key1,aAbility1 in ipairs(aAbilities) do
+		for key2,aAbility2 in ipairs(aAbilities) do
+			if (key1 ~= key2) then
+				local nError = checkForAbilitySelectionError(sType, sSubType, aAbility1, aAbility2);
+				if nError > 0 then
+					aConflicts.sAbility1 = aAbility1.sAbility;
+					aConflicts.sAbility2 = aAbility2.sAbility;
+					return bBonus, bMaterial, nError, aConflicts;
+				end
+			end
+		end
+		local aAbilityList = getAbilityList(sType, sSubType);
+		if next(aAbilityList[aAbility1.sAbility].aSubSelection) ~= nil and aAbility1.sSubAbility == Interface.getString("none") then
+			aConflicts.sAbility1 = aAbility1.sAbility;
+			return bBonus, bMaterial, 3, aConflicts;
+		elseif next(aAbilityList[aAbility1.sAbility].aSubSelection) ~= nil and next(aAbilityList[aAbility1.sAbility].aSubSelection[aAbility1.sSubAbility].aSubSubSelection) ~= nil and aAbility1.sSubSubAbility == Interface.getString("none") then
+			aConflicts.sAbility1 = aAbility1.sAbility;
+			return bBonus, bMaterial, 3, aConflicts;
+		end
+	end
+	return bBonus, bMaterial, 0;
+end
+
+function checkForAbilitySelectionError(sType, sSubType, aAbility1, aAbility2)
+	if aAbility1.sAbility == aAbility2.sAbility then
+		return 1;
+	elseif areExclusive(sType, sSubType, aAbility1.sAbility, aAbility2.sAbility) then
+		return 2;
+	end
+	return 0;
+end
+
+function checkSelection(sSelection)
+	return (sSelection ~= Interface.getString("none"));
+end
+
+function areExclusive(sType, sSubType, sAbility1, sAbility2)
+	local aAbilityList = getAbilityList(sType, sSubType);
+	return contains(aAbilityList[sAbility1].aExclusions, sAbility2);
+end
+
 function getEnhancementBonus(sEnhancementBonus)
 	local iEnchancementBonus = 0;
 	if sEnhancementBonus == Interface.getString("bonus_1") then
@@ -2727,43 +6445,56 @@ function getEnhancementBonus(sEnhancementBonus)
 	return iEnchancementBonus;
 end
 
-function checkComboboxes(sBonus, sMaterial, sAbility1, sAbility2)
-    local bBonus, bMaterial, bAbility1, bAbility2 = false, false, false, false
-    local sNone = Interface.getString("none");
-	
-	if sBonus ~= sNone then
-		bBonus = true;
+function getDamageTypeByEnhancementBonus(sDamageType, iEnchancementBonus)
+	local sNewDamageType = sDamageType;
+	if iEnchancementBonus == 5 then
+		sNewDamageType = addProperty(sNewDamageType, "chaotic");
+		sNewDamageType = addProperty(sNewDamageType, "evil");
+		sNewDamageType = addProperty(sNewDamageType, "good");
+		sNewDamageType = addProperty(sNewDamageType, "lawful");
 	end
-	
-    if sMaterial ~= sNone then
-        bMaterial = true;
-    end
-
-    if sAbility1 ~= sNone then
-        bAbility1 = true;
-    end
-
-    if sAbility2 ~= sNone then
-        bAbility2 = true;
-    end
-
-    if bAbility1 and sAbility1 == sAbility2 then
-        bAbility2 = false;
-		Comm.addChatMessage({text = Interface.getString("Warning_1"), secret = true, icon="ct_faction_neutral"}); 
-    end
-    return bBonus, bMaterial, bAbility1, bAbility2;
+	if iEnchancementBonus >= 4 then
+		sNewDamageType = addProperty(sNewDamageType, "adamantine");
+	end
+	if iEnchancementBonus >= 3 then
+		sNewDamageType = addProperty(sNewDamageType, "cold iron");
+		sNewDamageType = addProperty(sNewDamageType, "silver");
+	end
+	if iEnchancementBonus >= 1 then
+		sNewDamageType = addProperty(sNewDamageType, "magic");
+	end
+	return sNewDamageType;
 end
 
-function getAbilityBonusAndCost(sSpecialAbility, sType, sSubType)
+function populateItemField(databasenode, field, fieldType, fieldValue)
+	local databaseChild = databasenode.getChild(field);
+	if databaseChild then
+		databaseChild.setValue(fieldValue);
+	else
+		databasenode.createChild(field, fieldType);
+		databasenode.getChild(field).setValue(fieldValue);
+	end
+end
+
+function contains(aArray, sString)
+	for key,value in ipairs(aArray) do
+		if value == sString then
+			return true;
+		end
+	end
+	return false;
+end
+
+function getAbilityBonusAndCost(sSpecialAbility, sType, aSubType)
 	local iBonus, iBonusCost, iExtraCost, sAbilityName, iCL, sAura = 0, 0, 0, "", 0, "";
 
-	if sSubType == "Melee" then
+	if aSubType == "Melee" then
 		iBonus = aMeleeWeaponAbilities[sSpecialAbility].iBonus;
 		iExtraCost = aMeleeWeaponAbilities[sSpecialAbility].iCost;
 		sAbilityName = aMeleeWeaponAbilities[sSpecialAbility].sStringName;
 		iCL = aMeleeWeaponAbilities[sSpecialAbility].iCL;
 		sAura = aMeleeWeaponAbilities[sSpecialAbility].sAura;
-	elseif sSubType == "Ranged" then
+	elseif aSubType == "Ranged" then
 		iBonus = aRangedWeaponAbilities[sSpecialAbility].iBonus;
 		iExtraCost = aRangedWeaponAbilities[sSpecialAbility].iCost;
 		sAbilityName = aRangedWeaponAbilities[sSpecialAbility].sStringName;
@@ -2788,14 +6519,14 @@ function getAbilityBonusAndCost(sSpecialAbility, sType, sSubType)
 		iCL = aAmmunitionAbilities[sSpecialAbility].iCL;
 		sAura = aAmmunitionAbilities[sSpecialAbility].sAura;
 	end
-	
+
 	if iExtraCost == 0 then
 		iBonusCost = iBonus;
 	end
 	return iBonus, iBonusCost, iExtraCost, sAbilityName, iCL, sAura;
 end
 
-function getMaterialData(sMaterial, iEnhancingBonus, sType, sSubType, sFullSubType, iWeight, iArmorPenalty, iArmorMaxDex, iArmorSpellFailure, iSpeed30, iSpeed20, iItemBaseCost, sProperties, sDamageType)
+function getMaterialData(sMaterial, iEnhancingBonus, sType, aSubType, sFullSubType, iWeight, iArmorPenalty, iArmorMaxDex, iArmorSpellFailure, iSpeed30, iSpeed20, iItemBaseCost, sProperties, sDamageType)
 	local iMaterialCost = iItemBaseCost;
 	local iNewWeight = iWeight;
 	local iNewArmorPenalty = iArmorPenalty;
@@ -2813,11 +6544,11 @@ function getMaterialData(sMaterial, iEnhancingBonus, sType, sSubType, sFullSubTy
 	end
 	
 	if sMaterial == Interface.getString("adamantine") then
-		if sSubType == "Light" then
+		if aSubType == "Light" then
 			iMaterialCost = iMaterialCost + 5000;
-		elseif sSubType == "Medium" then
+		elseif aSubType == "Medium" then
 			iMaterialCost = iMaterialCost + 10000;
-		elseif sSubType == "Heavy" then
+		elseif aSubType == "Heavy" then
 			iMaterialCost = iMaterialCost + 15000;
 		elseif sType == "Weapon" then
 			iMaterialCost = iMaterialCost + 3000;
@@ -2842,9 +6573,9 @@ function getMaterialData(sMaterial, iEnhancingBonus, sType, sSubType, sFullSubTy
 		end
 		sNewDamageType = addProperty(sNewDamageType, "silver")
 	elseif sMaterial == Interface.getString("angelskin") then
-		if sSubType == "Light" then
+		if aSubType == "Light" then
 			iMaterialCost = iMaterialCost + 1000;
-		elseif sSubType == "Medium" then
+		elseif aSubType == "Medium" then
 			iMaterialCost = iMaterialCost + 2000;
 		end
 	elseif sMaterial == Interface.getString("blood_crystal") then
@@ -2860,9 +6591,9 @@ function getMaterialData(sMaterial, iEnhancingBonus, sType, sSubType, sFullSubTy
 		end
 		sNewDamageType = addProperty(sNewDamageType, "cold iron")
 	elseif sMaterial == Interface.getString("darkleaf_cloth") then
-		if sSubType == "Light" then
+		if aSubType == "Light" then
 			iMaterialCost = iMaterialCost + 750;
-		elseif sSubType == "Medium" then
+		elseif aSubType == "Medium" then
 			iMaterialCost = iMaterialCost + 1500;
 		else
 			iMaterialCost = iMaterialCost + 375 * iWeight;
@@ -2882,20 +6613,20 @@ function getMaterialData(sMaterial, iEnhancingBonus, sType, sSubType, sFullSubTy
 	elseif sMaterial == Interface.getString("dragonhide") then
 		iMaterialCost = 2 * getMasterworkPrice(sType, sProperties);
 	elseif sMaterial == Interface.getString("eel_hide") then
-		if sSubType == "Light" then
+		if aSubType == "Light" then
 			iMaterialCost = iMaterialCost + 1200;
-		elseif sSubType == "Medium" then
+		elseif aSubType == "Medium" then
 			iMaterialCost = iMaterialCost + 1800;
 		end
 		iNewArmorPenalty = iArmorPenalty + 1;
 		iNewArmorMaxDex = iNewArmorMaxDex + 1;
 		iNewArmorSpellFailure = iNewArmorSpellFailure - 10;		
 	elseif sMaterial == Interface.getString("elysian_bronze") then
-		if sSubType == "Light" then
+		if aSubType == "Light" then
 			iMaterialCost = iMaterialCost + 1000;
-		elseif sSubType == "Medium" then
+		elseif aSubType == "Medium" then
 			iMaterialCost = iMaterialCost + 2000;
-		elseif sSubType == "Heavy" then
+		elseif aSubType == "Heavy" then
 			iMaterialCost = iMaterialCost + 3000;
 		elseif sType == "Weapon" then
 			iMaterialCost = iMaterialCost + 1000;
@@ -2903,11 +6634,11 @@ function getMaterialData(sMaterial, iEnhancingBonus, sType, sSubType, sFullSubTy
 			iMaterialCost = iMaterialCost + 20;
 		end
 	elseif sMaterial == Interface.getString("fire_forged_steel") or sMaterial == Interface.getString("frost_forged_steel") then
-		if sSubType == "Light" then
+		if aSubType == "Light" then
 			iMaterialCost = iMaterialCost + 1000;
-		elseif sSubType == "Medium" then
+		elseif aSubType == "Medium" then
 			iMaterialCost = iMaterialCost + 2500;
-		elseif sSubType == "Heavy" then
+		elseif aSubType == "Heavy" then
 			iMaterialCost = iMaterialCost + 3000;
 		elseif sType == "Weapon" then
 			iMaterialCost = iMaterialCost + 600;
@@ -2917,17 +6648,17 @@ function getMaterialData(sMaterial, iEnhancingBonus, sType, sSubType, sFullSubTy
 	elseif sMaterial == Interface.getString("greenwood") then
 		iMaterialCost = iWeight * 50 + getMasterworkPrice(sType, sProperties);
 	elseif sMaterial == Interface.getString("griffon_mane") then
-		if sSubType == "Light" then
+		if aSubType == "Light" then
 			iMaterialCost = iMaterialCost + 200;
 		else
 			iMaterialCost = iMaterialCost + iWeight * 50; 
 		end
 	elseif sMaterial == Interface.getString("living_steel") then
-		if sSubType == "Light" then
+		if aSubType == "Light" then
 			iMaterialCost = iMaterialCost + 500;
-		elseif sSubType == "Medium" then
+		elseif aSubType == "Medium" then
 			iMaterialCost = iMaterialCost + 1000;
-		elseif sSubType == "Heavy" then
+		elseif aSubType == "Heavy" then
 			iMaterialCost = iMaterialCost + 1500;
 		elseif sType == "Weapon" then
 			iMaterialCost = iMaterialCost + 500;
@@ -2941,13 +6672,13 @@ function getMaterialData(sMaterial, iEnhancingBonus, sType, sSubType, sFullSubTy
 	elseif sMaterial == Interface.getString("mithral") then
 		sNewDamageType = addProperty(sNewDamageType, "silver")
 		iNewWeight = iNewWeight / 2;
-		if sSubType == "Light" then
+		if aSubType == "Light" then
 			iMaterialCost = iMaterialCost + 1000;
-		elseif sSubType == "Medium" then
+		elseif aSubType == "Medium" then
 			iMaterialCost = iMaterialCost + 4000;
 			iNewSpeed30 = 30;
 			iNewSpeed20  = 20;
-		elseif sSubType == "Heavy" then
+		elseif aSubType == "Heavy" then
 			iMaterialCost = iMaterialCost + 9000;
 			iNewSpeed30 = 20;
 			iNewSpeed20  = 15;
@@ -2957,7 +6688,9 @@ function getMaterialData(sMaterial, iEnhancingBonus, sType, sSubType, sFullSubTy
 			iMaterialCost = iMaterialCost + 500 * iWeight;
 		end
 		iNewArmorPenalty = iArmorPenalty + 3;
-		iNewArmorMaxDex = iNewArmorMaxDex + 2;
+		if iNewArmorMaxDex > 0 then
+			iNewArmorMaxDex = iNewArmorMaxDex + 2;
+		end
 		iNewArmorSpellFailure = iNewArmorSpellFailure - 10;
 		if iNewArmorSpellFailure < 0 then
 			iNewArmorSpellFailure = 0;
@@ -3028,11 +6761,18 @@ function getItemData(databasenode)
 	local dSpeed20 = databasenode.getChild("speed20");
 	local dDamageType = databasenode.getChild("damagetype");
 	local dRange = databasenode.getChild("range");
+	local dDamage = databasenode.getChild("damage");
+	local dSize = databasenode.getChild("size");
 	
-	local sItemName, iItemCost, iItemWeight, sFullSubType, sItemProperties, iArmorPenalty, iArmorMaxDex, iArmorSpellFailure, iSpeed30, iSpeed20, sItemCost, sDamageType, iRange = "", 0, 0, "", "", 0, 0, 0, 0, 0, "", "", 0;
+	local sItemName, iItemCost, iItemWeight, sFullSubType, sItemProperties, iArmorPenalty, iArmorMaxDex, iArmorSpellFailure, iSpeed30, iSpeed20, sItemCost, sDamageType, iRange, sDamage, sOriginalSize = "", 0, 0, "", "", 0, 0, 0, 0, 0, "", "", 0, "", "";
 	
 	if dItemName then sItemName = dItemName.getValue() end
-	if dItemProperties then sItemProperties = dItemProperties.getValue()  end
+	if dItemProperties then
+		sItemProperties = dItemProperties.getValue();
+		if sItemProperties == "-" then
+			sItemProperties = "";
+		end
+	end
 	if dItemWeight then iItemWeight = dItemWeight.getValue() end
 	if dItemCost then sItemCost = dItemCost.getValue() end
 	if dSubtype then sFullSubType = dSubtype.getValue() end
@@ -3043,6 +6783,13 @@ function getItemData(databasenode)
 	if dSpeed20 then iSpeed20 = dSpeed20.getValue() end
 	if dDamageType then sDamageType = dDamageType.getValue() end
 	if dRange then iRange = dRange.getValue() end
+	if dDamage then sDamage = dDamage.getValue() end
+	if dSize then
+		sOriginalSize = dSize.getValue();
+	end
+	if not sOriginalSize or sOriginalSize == "" then
+		sOriginalSize = Interface.getString("item_size_medium");
+	end
 		
 	local sCoinValue, sCoin = sItemCost:match("^%s*([%d,]+)%s*([^%d]*)$");
 	if not sCoinValue then
@@ -3060,8 +6807,7 @@ function getItemData(databasenode)
 		iItemCost = iItemCost / 100;
 		end
 	end
-	
-	return sItemName, iItemCost, iItemWeight, sFullSubType, sItemProperties, iArmorPenalty, iArmorMaxDex, iArmorSpellFailure, iSpeed30, iSpeed20, iRange, sDamageType;
+	return sItemName, iItemCost, iItemWeight, sFullSubType, sItemProperties, iArmorPenalty, iArmorMaxDex, iArmorSpellFailure, iSpeed30, iSpeed20, iRange, sDamageType, sDamage, sOriginalSize;
 end
 
 function getEnchancementCost(iEnchancementBonus, sType)
@@ -3080,8 +6826,25 @@ function getEnchancementCost(iEnchancementBonus, sType)
 	return iEnchantmentCost;
 end
 
-function getItemNewName(sItemName, sEnhancementBonus, iEnchancementBonus, sSpecialMaterial, sAbilityName1, sAbilityName2, bAbility1, bAbility2, bMasterworkMaterial)
+function figureAbilityName(sAbility, sSubAbility, sSubSubAbility)
+	local sAbilityName = "";
+	sAbilityName = sAbilityName .. sAbility;
+	if sSubAbility ~= Interface.getString("none") then
+		sAbilityName = sAbilityName .. "(" .. sSubAbility;
+		if sSubSubAbility ~= Interface.getString("none") then
+			sAbilityName = sAbilityName .. "(" .. sSubSubAbility .. ")";
+		end
+		sAbilityName = sAbilityName .. ")";
+	end
+	sAbilityName = sAbilityName .. " ";
+	return sAbilityName;
+end
+
+function getItemNewName(sItemName, sEnhancementBonus, iEnchancementBonus, sSpecialMaterial, aAbilities, bMasterworkMaterial, sItemSize)
 	local sItemNewName = "";
+	if sItemSize:lower() ~= Interface.getString("item_size_medium"):lower() then
+		sItemNewName = sItemNewName .. sItemSize .. " ";
+	end
 	if sEnhancementBonus == Interface.getString("bonus_mwk") and (not bMasterworkMaterial) then
 		sItemNewName = sItemNewName .. "masterwork" .. " ";
 	end
@@ -3091,15 +6854,16 @@ function getItemNewName(sItemName, sEnhancementBonus, iEnchancementBonus, sSpeci
 	if sSpecialMaterial ~= Interface.getString("none") then
 		sItemNewName = sItemNewName .. aSpecialMaterials[sSpecialMaterial].sStringName .. " ";
 	end
-	if bAbility1 then
-		sItemNewName = sItemNewName .. sAbilityName1 .. " ";
+
+	for _,aAbility in pairs(aAbilities) do
+		sItemNewName = sItemNewName .. figureAbilityName(aAbility.sAbility, aAbility.sSubAbility, aAbility.sSubSubAbility);
 	end
-	if bAbility2 then
-		sItemNewName = sItemNewName .. sAbilityName2 .. " ";
-	end
+	
 	sItemNewName = sItemNewName .. sItemName;
 	sItemNewName = sItemNewName:lower();
+
 	sItemNewName = sItemNewName:gsub("^%l", string.upper);
+
 	return sItemNewName;
 end
 
@@ -3107,14 +6871,16 @@ function addProperty(sItemProperties, sProperty)
 	local sNewItemProperties = "";
 	if sItemProperties == "" then
 		sNewItemProperties = sProperty;
+	elseif sItemProperties:match(sProperty) then
+		sNewItemProperties = sItemProperties;
 	else
 		sNewItemProperties = sItemProperties .. ", " .. sProperty;
 	end
 	return sNewItemProperties;
 end
 
-function getSpecialAbilityData(sSpecialAbility, sDamagetype, iRange)
-	local sNewDamageType = sDamagetype:lower();
+function getSpecialAbilityData(sSpecialAbility, sDamageType, iRange)
+	local sNewDamageType = sDamageType:lower();
 	local iNewRange = iRange;
 	if sSpecialAbility == Interface.getString("anarchic") then
 		sNewDamageType = addProperty(sNewDamageType, "chaotic");
@@ -3137,6 +6903,278 @@ function getSpecialAbilityData(sSpecialAbility, sDamagetype, iRange)
 	return sNewDamageType, iNewRange;
 end
 
+function getDamageBySize(sDamage, sOriginalSize, sItemSize)
+	local iSizeDifference = aItemSize[sItemSize:lower()].iPosition - aItemSize[sOriginalSize:lower()].iPosition;
+	if iSizeDifference == 0 then
+		return sDamage;
+	end
 
+	return changeDamageBySizeDifference(sDamage, iSizeDifference);
+end
 
+function changeDamageBySizeDifference(sDamage, iSizeDifference)
+	if sDamage == "" or sDamage == nil then
+		return sDamage;
+	end
+	local aDamage = {};
+	local aDamageSplit = StringManager.split(sDamage, "/");
 
+	for kDamage, vDamage in ipairs(aDamageSplit) do
+		local diceDamage, nDamage = StringManager.convertStringToDice(vDamage);
+		local nDiceCount = 0;
+		local sDie = "";
+		for _,dice in pairs(diceDamage) do
+			if sDie == "" then
+				sDie = dice;
+			end
+			nDiceCount = nDiceCount + 1;
+		end
+		table.insert(aDamage, { dice = nDiceCount .. sDie, mod = nDamage });
+	end
+
+	local aNewDamage = {};
+	for _,aDmg in pairs(aDamage) do
+		local sNewDamage = aDmg.dice;
+		local nMod = aDmg.mod;
+		local iPosition = 0;
+		local bIsAlt1 = false;
+		local bIsAlt2 = false;
+		local bIsAlt3 = false;
+
+		if aDamageDice[sNewDamage] ~= nil then
+			iPosition = aDamageDice[sNewDamage].iPosition;
+		elseif aAltDamageDice1[sNewDamage] ~= nil then
+			sNewDamage = aAltDamageDice1[sNewDamage].sDamage;
+			iPosition = aDamageDice[sNewDamage].iPosition;
+			bIsAlt1 = true;
+		elseif aAltDamageDice2[sNewDamage] ~= nil then
+			sNewDamage = aAltDamageDice2[sNewDamage].sDamage;
+			iPosition = aDamageDice[sNewDamage].iPosition;
+			bIsAlt2 = true;
+		elseif aAltDamageDice3[sNewDamage] ~= nil then
+			if iSizeDifference < 0 then
+				sNewDamage = aAltDamageDice3[sNewDamage].sDown;
+				iPosition = aDamageDice[sNewDamage].iPosition;
+				iSizeDifference = iSizeDifference + 1;
+			else
+				sNewDamage = aAltDamageDice3[sNewDamage].sUp;
+				iPosition = aDamageDice[sNewDamage].iPosition;
+				iSizeDifference = iSizeDifference - 1;
+			end
+			bIsAlt3 = true;
+		end
+
+		local iNewPosition = iPosition;
+		local iChange = 0;
+
+		for iVar = 1, math.abs(iSizeDifference), 1 do
+			if iSizeDifference < 0 then
+				iChange = -1;
+			else
+				iChange = 1;
+			end
+			if aDamageDice[sNewDamage].iPosition > aDamageDice["1d6"].iPosition then
+				iChange = iChange * 2;
+			end
+			sNewDamage = aPositionDamage[aDamageDice[sNewDamage].iPosition + iChange].sDamage;
+		end
+		if bIsAlt1 then
+			if aPositionDamage[aDamageDice[sNewDamage].iPosition].sAltDamage1 ~= nil then
+				sNewDamage = aPositionDamage[aDamageDice[sNewDamage].iPosition].sAltDamage1;
+			end
+		end
+		if bIsAlt2 then
+			if aPositionDamage[aDamageDice[sNewDamage].iPosition].sAltDamage2 ~= nil then
+				sNewDamage = aPositionDamage[aDamageDice[sNewDamage].iPosition].sAltDamage2;
+			end
+		end
+
+		table.insert(aNewDamage, { dice = sNewDamage, mod = nMod });
+	end
+
+	return getDamageString(aNewDamage);
+end
+function getDamageString(aDamage)
+	local sNewDamage = ""
+	if aDamage[2] then
+		sNewDamage = mergeDamage(aDamage[2]);
+	end
+	if aDamage[1] then
+		if sNewDamage ~= "" then
+			sNewDamage = sNewDamage .. "/";
+		end
+		sNewDamage = mergeDamage(aDamage[1]);
+	end
+	return sNewDamage;
+end
+
+function mergeDamage(aDamage)
+	local sNewDamage = aDamage.dice;
+	if aDamage.mod > 0 then
+		sNewDamage = sNewDamage .. "+" .. aDamage.mod;
+	elseif aDamage.mod < 0 then
+		sNewDamage = sNewDamage .. aDamage.mod;
+	end
+	return sNewDamage;
+end
+
+function addEffectsForAbility(nodeItem, sType, sSubType, sAbility, sSubAbility, sSubSubAbility)
+	if not nodeItem then
+		return;
+	end
+	if not usingAE() then
+		return;
+	end
+	local bAdvancedEffects = usingKelrugemsAE();
+	local nodeEffectList = DB.getChild(nodeItem, "effectlist");
+	if not nodeEffectList then
+		nodeEffectList = nodeItem.createChild("effectlist");
+	end
+	local aAbility = {};
+	local nCritical = 0;
+	if sType == "Weapon" then
+		if sSubType == "Melee" then
+			aAbility = aMeleeWeaponAbilities[sAbility];
+			nCritical = getCritical(nodeItem);
+		elseif sSubType == "Ranged" or sSubType == "Firearm" then
+			aAbility = aRangedWeaponAbilities[sAbility];
+			nCritical = getCritical(nodeItem);
+		end
+	elseif sType == "Ammunition" then
+		aAbility = aAmmunitionAbilities[sAbility];
+	elseif sType == "Armor" then
+		aAbility = aArmorAbilities[sAbility];
+	elseif sType == "Shield" then
+		aAbility = aShieldAbilities[sAbility];
+	end
+
+	local aEffects = {}
+	if aAbility then
+		if sSubAbility ~= Interface.getString("none") and next(aAbility.aSubSelection) ~= nil then
+			if sSubSubAbility ~= Interface.getString("none") and next(aAbility.aSubSelection[sSubAbility].aSubSubSelection) ~= nil then
+				aEffects = aAbility.aSubSelection[sSubAbility].aSubSubSelection[sSubSubAbility].aEffects;
+			else
+				aEffects = aAbility.aSubSelection[sSubAbility].aEffects;
+			end
+		else
+			aEffects = aAbility.aEffects;
+		end
+	end
+	if next(aEffects) ~= nil then
+		for _,aEffect in ipairs(aEffects) do
+			if not aEffect.bAERequired or (aEffect.bAERequired and bAdvancedEffects) then
+				if aEffect.nCritical == 0 or (aEffect.nCritical == nCritical) then
+					local sEffect = aEffect.sEffect;
+					if sType == "Ammunition" and aEffect.sEffect:match("%%s") then
+						sEffect = sEffect:format(getWeaponTypeName(nodeItem));
+					end
+					addEffect(nodeEffectList, sEffect, aEffect.nActionOnly, false);
+				end
+			end
+		end
+	end
+end
+
+function addEffect(nodeEffectList, sEffect, nActionOnly, bIsLabel)
+	if not nodeEffectList or not sEffect and sEffect ~= "" then
+		return
+	end
+	local nodeEffect = DB.createChild(nodeEffectList);
+	if not nodeEffect then
+		return;
+	end
+	if bIsLabel then
+		DB.setValue(nodeEffect, "type", "string", "label");
+	end
+	DB.setValue(nodeEffect, "effect", "string", sEffect);
+	DB.setValue(nodeEffect, "actiononly", "number", nActionOnly);
+end
+
+function getCritical(nodeItem)
+	if not nodeItem then
+		return 0;
+	end;
+	local nCritical = 2;
+	local sCritical = DB.getValue(nodeItem, "critical");
+	if sCritical then
+		sCritical = sCritical:match("x%d+");
+		if sCritical then
+			nCritical = tonumber(sCritical:match("%d+"));
+		end
+	end
+	return nCritical;
+end
+
+function addRangedEffect(nodeItem)
+	if not nodeItem then
+		return;
+	end
+	if not StringManager.contains(Extension.getExtensions(), "AdvancedEffects for 3.5E and Pathfinder") then
+		return;
+	end
+	local nodeEffectList = DB.getChild(nodeItem, "effectlist");
+	if not nodeEffectList then
+		nodeEffectList = nodeItem.createChild("effectlist");
+	end
+	addEffect(nodeEffectList, getWeaponTypeName(nodeItem) .. " Attack", 1, true);
+	addEffect(nodeEffectList, "Crit" .. getCritical(nodeItem), 1, true);
+end
+
+function addAmmoEffect(nodeItem)
+	if not nodeItem then
+		return;
+	end
+	if not StringManager.contains(Extension.getExtensions(), "AdvancedEffects for 3.5E and Pathfinder") then
+		return;
+	end
+	local nodeEffectList = DB.getChild(nodeItem, "effectlist");
+	if not nodeEffectList then
+		nodeEffectList = nodeItem.createChild("effectlist");
+	end
+	local nBonus = DB.getValue(nodeItem, "bonus", 0);
+	addEffect(nodeEffectList, "IF: CUSTOM(" .. getWeaponTypeName(nodeItem) .. " Attack); ATK: " .. nBonus .. " ranged; DMG: " .. nBonus, 0, false);
+end
+
+function usingAE()
+	return StringManager.contains(Extension.getExtensions(), "AdvancedEffects for 3.5E and Pathfinder");
+end
+
+function usingKelrugemsAE()
+	return (StringManager.contains(Extension.getExtensions(), "Advanced 3.5e and Pathfinder with Aoo") or 
+			StringManager.contains(Extension.getExtensions(), "Advanced 3.5e and Pathfinder") or
+			StringManager.contains(Extension.getExtensions(), "Advanced 3.5e and Pathfinder with AoO modified") or
+			StringManager.contains(Extension.getExtensions(), "Full OverlayPackage") or
+			StringManager.contains(Extension.getExtensions(), "Full OverlayPackage with other icons"));
+end
+
+function getWeaponTypeName(nodeItem)
+	if not nodeItem then
+		return "";
+	end
+	local sItemName = string.lower(DB.getValue(nodeItem, "name", ""));
+	local sSubType = string.lower(DB.getValue(nodeItem, "subtype", ""));
+	local sType = string.lower(DB.getValue(nodeItem, "type", ""));
+	if sSubType:match("ranged") and sItemName:match("crossbow") then
+		return "Crossbow";
+	elseif sSubType:match("ranged") and sItemName:match("bow") then
+		return "Bow";
+	elseif sSubType:match("firearm") then
+		return "Firearm";
+	elseif sType == "ammo" or sSubType == "ammunition" then
+		if sItemName:match("arrow") then
+			return "Bow";
+		elseif sItemName:match("bolt") then
+			return "Crossbow";
+		elseif sItemName:match("bullet") or sItemName:match("cartridge") then
+			return "Firearm";
+		end
+	end
+	return "";
+end
+
+function getWeightBySize(iItemWeight, sOriginalSize, sItemSize)
+	if sOriginalSize:lower() == sItemSize:lower() then
+		return iItemWeight;
+	end
+	return iItemWeight / aWeightMultiplier[sOriginalSize:lower()].nMultiplier * aWeightMultiplier[sItemSize:lower()].nMultiplier;
+end

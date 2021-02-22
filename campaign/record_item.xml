@@ -7,9 +7,23 @@
 
 <!--  Added button to windowclass -->
 <root>
+
 	<windowclass name="item" merge="join">
 		<sheetdata>
 			<template_launch_button name ="magic_item_generator_button" />
 		</sheetdata>
 	</windowclass>
+
+	<windowclass name="item_main" merge="join">
+		<script file="campaign/scripts/item_main.lua" />
+		<sheetdata>
+			<label_column name="size_label" insertbefore="divider3">
+				<static textres="item_label_size" />
+			</label_column>
+			<string_columnh name="size" insertbefore="divider3">
+				<gmeditonlu />
+			</string_columnh>
+		</sheetdata>
+	</windowclass>
+
 </root>

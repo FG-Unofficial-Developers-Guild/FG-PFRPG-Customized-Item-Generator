@@ -1,13 +1,17 @@
 <root>
-	<string name="Error_1">Error : cannot add a special ability if enhancement bonus is not at least +1.</string>
-	<string name="Error_2">Error : effective bonus is higher than +10.</string>
+	<string name="Error_1">Error : Cannot add a special ability if enhancement bonus is not at least +1.</string>
+	<string name="Error_2">Error : Effective bonus is higher than +10.</string>
 	<string name="Error_3">Only weapon, armor, shield and ammunition can be customised.</string>
-	<string name="Warning_1">Warning - Special ability 1 and 2 are similar. Only one will apply.</string>
+	<string name="Error_4">Error : Two special abilities are the same. %s. Can only place one.</string>
+	<string name="Error_5">Error : Two special abilities are exclusive. %s, %s. Can only place one.</string>
+	<string name="Error_6">Error : Special ability missing sub-ability selection. %s.</string>
+	<string name="Error_7">Error : Special ability bonus is higher than +5.</string>
 	<string name="magic_item_generator_button_text">Custom</string>
 	<string name="label_bonus">Bonus</string>
 	<string name="label_special_material">Special material</string>
-	<string name="label_special_ability_1">Special ability 1</string>
-	<string name="label_special_ability_2">Special ability 2</string>
+	<string name="label_special_ability">Special ability</string>
+	<string name="label_special_subability">Special sub-ability</string>
+	<string name="label_special_subsubability"> Special sub-sub-ability</string>
 	<string name="label_generate">Generate !</string>
 	<string name="none">None</string>
 	<string name="bonus_mwk">Masterwork</string>
@@ -204,4 +208,15 @@
 	<string name="mythic bane">Mythic bane</string>
 	<string name="potent">Potent</string>
 	<string name="sacrosanct">Sacrosanct</string>
+	<string name="label_item_size">Size</string>
+	<string name="item_size_fine">Fine</string>
+	<string name="item_size_diminutive">Diminutive</string>
+	<string name="item_size_tiny">Tiny</string>
+	<string name="item_size_small">Small</string>
+	<string name="item_size_medium">Medium</string>
+	<string name="item_size_large">Large</string>
+	<string name="item_size_huge">Huge</string>
+	<string name="item_size_gargantuan">Gargantuan</string>
+	<string name="item_size_colossal">Colossal</string>
+	<string name="header_abilities">Abilities</string>
 </root>
