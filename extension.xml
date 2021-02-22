@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<root version="3.0" release="3" icon="logo.png">
+
+	<properties>
+		<name>Custumised Item Generator</name>
+		<version>1</version>
+		<author>Faelwen</author>
+		<description>Item generator for Pathfinder and 3.5</description>
+		
+		<ruleset>
+			<name>PFRPG</name>
+		</ruleset>
+		<ruleset>
+			<name>3.5E</name>
+		</ruleset>
+	</properties>
+
+	<base>
+		<includefile source="xml/magic_item_generator.xml" />
+		<includefile source="xml/scripts.xml" />
+		<includefile source="campaign/record_item.xml" />
+		<includefile source="strings/customised_item_strings.xml" />
+		<includefile source="ref/ref_equipment.xml" />
+	</base>
+
+	<announcement text="Customised Item Generator by Faelwen." font="emotefont" icon="module_loaded" />
+</root>

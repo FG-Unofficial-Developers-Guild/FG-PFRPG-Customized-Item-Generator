@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<root>
+	<template name="template_launch_button">
+		<button_text_sm>
+			<anchored position="insidetopright" offset="200" width="100"/>
+			<state textres="magic_item_generator_button_text" />
+			<gmvisibleonly />
+			<script>
+				function onButtonPress()
+					local databasenode = window.getDatabaseNode();
+					local sItemType, sItemSubType = MagicItemGenerator.getItemType(databasenode);
+					
+					if sItemType == "" or (sItemType == "Armor" and sItemSubType == "") then
+						Comm.addChatMessage({text = Interface.getString("Error_3"), secret = true, icon ="ct_faction_foe"}); 
+					else
+						newnode = DB.copyNode(databasenode, DB.createChild('item'));
+						local magicWindow = Interface.openWindow("MagicPropertiesWindow",newnode);
+						window.close();
+					end
+				end
+			</script>
+		</button_text_sm>
+	</template>
+	
+	<template name="template_generate_button">
+		<button_text_sm>
+			<state textres="label_generate" />
+			<gmvisibleonly />
+		</button_text_sm>
+	</template>
+	
+	<template name="template_frame_control">
+		<genericcontrol>
+			<anchored>
+				<top anchor="top" offset="20" />
+				<left offset="15" />
+				<right offset="-20" />
+				<bottom offset="-15" />
+			</anchored>
+			<frame name="groupbox" />
+			<disabled />
+		</genericcontrol>
+	</template>
+	
+	<template name="template_left_anchor">
+		<genericcontrol name="left_anchor_control">
+			<anchored position="insidetopleft" height="0" width="0" />
+			<disabled />
+			<invisible />
+		</genericcontrol>
+	</template>
+
+	<template name="template_right_anchor">
+		<genericcontrol name="right_anchor_control">
+			<anchored position="insidetopright" height="0" width="0" />
+			<disabled />
+			<invisible />
+		</genericcontrol>
+	</template>
+	
+	<template name="template_label">
+		<stringcontrol>
+			<font>sheetlabel</font>
+			<readonly />
+			<nodrag />
+			<nodrop />
+			<noreset />
+		</stringcontrol>
+	</template>
+	
+	<template name="template_combo_box">
+		<combobox>
+			<frame>
+				<hidereadonly />
+			</frame>
+			<center />
+			<listdirection>down</listdirection>
+			<listmaxsize>5</listmaxsize>
+			<nodrag />
+			<nodrop />
+			<noreset />
+		</combobox>
+	</template>
+
+
+	
+	<windowclass name="Magic_generator_header">
+		<margins control="0,0,0,7" />
+		<sheetdata>
+			<anchor_record_header_right />
+		</sheetdata>
+	</windowclass>
+	
+	<windowclass name="MagicPropertiesWindow">
+		<margins control="0,0,0,7" />
+		<script file="script/magic_item_generator.lua" />
+		<frame>recordsheet</frame>
+		<sizelimits>
+			<minimum width="350" height="250" />
+		</sizelimits>
+		<sheetdata>
+			<template_left_anchor />
+			<template_right_anchor />
+			
+			<template_label name="label_bonus">
+				<anchored>
+					<top anchor="top" offset="30" />
+					<left offset="20" />
+				</anchored>
+				<static textres="label_bonus" />
+			</template_label>
+			
+			<template_label name="label_special_material">
+				<anchored>
+					<top parent="label_bonus" anchor="bottom" offset="10" />
+					<left offset="20" />
+				</anchored>
+				<static textres="label_special_material" />
+			</template_label>
+			
+			<template_label name="label_special_ability_1">
+				<anchored>
+					<top parent="label_special_material" anchor="bottom" offset="10" />
+					<left offset="20" />
+				</anchored>
+				<static textres="label_special_ability_1" />
+			</template_label>
+			
+			<template_label name="label_special_ability_2">
+				<anchored>
+					<top parent="label_special_ability_1" anchor="bottom" offset="10" />
+					<left offset="20" />
+				</anchored>
+				<static textres="label_special_ability_2" />
+			</template_label>
+			
+			<template_generate_button name="button_generate">
+				<anchored  width="100" height="50">
+					<top parent="label_special_ability_2" anchor="bottom" offset="30" />
+					<left offset="20" />
+				</anchored>
+				<script>
+					function onButtonPress()
+						local databasenode = window.getDatabaseNode();
+						local sEnhancementBonus = window.combobox_bonus.getValue()
+						local sSpecialMaterial = window.combobox_material.getValue()
+						local sSpecialAbility1 = window.combobox_ability_1.getValue()
+						local sSpecialAbility2 = window.combobox_ability_2.getValue()
+						if MagicItemGenerator.GenerateMagicItem(databasenode, sEnhancementBonus, sSpecialMaterial, sSpecialAbility1, sSpecialAbility2) then
+							local magicWindow = Interface.openWindow("item",databasenode);
+							window.close();
+						end
+					end
+				</script>
+			</template_generate_button>
+			
+			<template_combo_box name="combobox_bonus">
+				<anchored height="20" width="200">
+					<top anchor="top" offset="30" />
+					<left anchor="left" offset="120" />
+				</anchored>
+				<default textres="none" />
+				<script>
+					function onInit()
+						super.onInit();
+						addItems({Interface.getString("none"), Interface.getString("bonus_mwk"), Interface.getString("bonus_1"), Interface.getString("bonus_2"), Interface.getString("bonus_3"), Interface.getString("bonus_4"), Interface.getString("bonus_5")})
+					end
+				</script>
+			</template_combo_box>
+			
+			<template_combo_box name="combobox_material">
+				<anchored height="20" width="200">
+					<top parent="combobox_bonus" anchor="bottom" offset="5" />
+					<left anchor="left" offset="120" />
+				</anchored>
+				<default textres="none" />
+				<script>
+					function onInit()
+						super.onInit();
+						local databasenode = window.getDatabaseNode();
+						local sType, sSubType = MagicItemGenerator.getItemType(databasenode);
+						
+						local bLightArmor = (sType == "Armor" and sSubType == "Light") ;
+						local bMediumArmor = (sType == "Armor" and sSubType == "Medium");
+						local bHeavyArmor = (sType == "Armor" and sSubType == "Heavy");
+						local bShield = (sType == "Shield");
+						local bMeleeWeapon = (sType == "Weapon" and sSubType == "Melee");
+						local bRangedWeapon = (sType == "Weapon" and sSubType == "Ranged");
+						local bAmmunition = (sType == "Ammunition");
+						
+						addItems({Interface.getString("none")});
+						for key,value in pairs(MagicItemGenerator.aSpecialMaterials) do
+							if bLightArmor and value.bLightArmor then
+								add(key);
+							elseif bMediumArmor and value.bMediumArmor then
+								add(key);
+							elseif bHeavyArmor and value.bHeavyArmor then
+								add(key);
+							elseif bShield and value.bShield then
+								add(key);
+							elseif bMeleeWeapon and value.bMeleeWeapon then
+								add(key);
+							elseif bRangedWeapon and value.bRangedWeapon then
+								add(key);
+							elseif bAmmunition and value.bAmmunition then
+								add(key);
+							end
+						end
+					end
+				</script>
+			</template_combo_box>
+			
+			<template_combo_box name="combobox_ability_1">
+				<anchored height="20" width="200">
+					<top parent="combobox_material" anchor="bottom" offset="5" />
+					<left anchor="left" offset="120" />
+				</anchored>
+				<default textres="none" />
+				<script>
+					function onInit()
+						super.onInit();
+						local databasenode = window.getDatabaseNode();
+						local sType, sSubType = MagicItemGenerator.getItemType(databasenode);
+						local dDamageType = databasenode.getChild("damagetype");
+						local sName = databasenode.getChild("name").getValue();
+						
+						local bArmor = (sType == "Armor");
+						local bShield = (sType == "Shield");
+						local bMeleeWeapon = (sType == "Weapon" and sSubType == "Melee");
+						local bRangedWeapon = (sType == "Weapon" and sSubType == "Ranged");
+						local bAmmunition = (sType == "Ammunition");
+						local bFirearm = (sSubType == "Firearm");
+						local bSlashingWeapon = false;
+						local bPiercingWeapon = false;
+						local bBludgeoningWeapon = false;
+						if dDamageType then
+							bSlashingWeapon = dDamageType.getValue():lower():match("slashing");
+							bPiercingWeapon = dDamageType.getValue():lower():match("piercing");
+							bBludgeoningWeapon = dDamageType.getValue():lower():match("bludgeoning");
+						end
+						local bCrossbow = (sName:lower():match("crossbow"));
+						local bBow = (sName:lower():match("bow") and (not bCrossbow) );
+						
+						addItems({Interface.getString("none")});
+						
+						if bArmor then
+							for key,value in pairs(MagicItemGenerator.aArmorAbilities) do
+								add(key);
+							end
+						elseif bShield then
+							for key,value in pairs(MagicItemGenerator.aShieldAbilities) do
+								add(key);
+							end
+						elseif bMeleeWeapon then
+							for key,value in pairs(MagicItemGenerator.aMeleeWeaponAbilities) do
+								if bSlashingWeapon and value.bSlashing then
+									add(key);
+								elseif bPiercingWeapon and value.bPiercing then
+									add(key);
+								elseif bBludgeoningWeapon and value.bBludgeoning then
+									add(key);
+								end
+							end
+						elseif bRangedWeapon then
+							for key,value in pairs(MagicItemGenerator.aRangedWeaponAbilities) do
+								if value.bCrossbow or value.bBow then
+									if value.bCrossbow and bCrossbow then
+										add(key);
+									elseif value.bBow and bBow then
+										add(key);
+									end
+								else
+									add(key);
+								end
+							end
+						elseif bAmmunition then
+							for key,value in pairs(MagicItemGenerator.aAmmunitionAbilities) do
+								add(key);
+							end
+						end
+					end
+				</script>
+			</template_combo_box>
+			
+			<template_combo_box name="combobox_ability_2">
+				<anchored height="20" width="200">
+					<top parent="combobox_ability_1" anchor="bottom" offset="5" />
+					<left anchor="left" offset="120" />
+				</anchored>
+				<default textres="none" />
+				<script>
+					function onInit()
+						super.onInit();
+						local databasenode = window.getDatabaseNode();
+						local sType, sSubType = MagicItemGenerator.getItemType(databasenode);
+						local dDamageType = databasenode.getChild("damagetype");
+						local sName = databasenode.getChild("name").getValue();
+						
+						local bArmor = (sType == "Armor");
+						local bShield = (sType == "Shield");
+						local bMeleeWeapon = (sType == "Weapon" and sSubType == "Melee");
+						local bRangedWeapon = (sType == "Weapon" and sSubType == "Ranged");
+						local bAmmunition = (sType == "Ammunition");
+						local bFirearm = (sSubType == "Firearm");
+						local bSlashingWeapon = false;
+						local bPiercingWeapon = false;
+						local bBludgeoningWeapon = false;
+						if dDamageType then
+							bSlashingWeapon = dDamageType.getValue():lower():match("slashing");
+							bPiercingWeapon = dDamageType.getValue():lower():match("piercing");
+							bBludgeoningWeapon = dDamageType.getValue():lower():match("bludgeoning");
+						end
+						local bCrossbow = (sName:lower():match("crossbow"));
+						local bBow = (sName:lower():match("bow") and (not bCrossbow) );
+						
+						addItems({Interface.getString("none")});
+						
+						if bArmor then
+							for key,value in pairs(MagicItemGenerator.aArmorAbilities) do
+								add(key);
+							end
+						elseif bShield then
+							for key,value in pairs(MagicItemGenerator.aShieldAbilities) do
+								add(key);
+							end
+						elseif bMeleeWeapon then
+							for key,value in pairs(MagicItemGenerator.aMeleeWeaponAbilities) do
+								if bSlashingWeapon and value.bSlashing then
+									add(key);
+								elseif bPiercingWeapon and value.bPiercing then
+									add(key);
+								elseif bBludgeoningWeapon and value.bBludgeoning then
+									add(key);
+								end
+							end
+						elseif bRangedWeapon then
+							for key,value in pairs(MagicItemGenerator.aRangedWeaponAbilities) do
+								if value.bCrossbow or value.bBow then
+									if value.bCrossbow and bCrossbow then
+										add(key);
+									elseif value.bBow and bBow then
+										add(key);
+									end
+								else
+									add(key);
+								end
+							end
+						elseif bAmmunition then
+							for key,value in pairs(MagicItemGenerator.aAmmunitionAbilities) do
+								add(key);
+							end
+						end
+					end
+				</script>
+			</template_combo_box>
+			
+			<resize_campaignlistwithtabs/>
+			<close_campaignlist/>
+		</sheetdata>
+	</windowclass>
+</root>

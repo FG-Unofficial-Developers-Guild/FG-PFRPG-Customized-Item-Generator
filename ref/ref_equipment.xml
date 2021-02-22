@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!-- 
+  Please see the license.html file included with this distribution for 
+  attribution and copyright information.
+-->
+
+<!--  Added button to windowclasses -->
+<root>
+	<!-- Weapon -->
+	<windowclass name="referenceweapon" merge="join">
+		<sheetdata>
+			<template_launch_button name ="magic_item_generator_button" />
+		</sheetdata>
+	</windowclass>
+
+	<!-- Armor -->
+	<windowclass name="referencearmor" merge="join">
+		<sheetdata>
+			<template_launch_button name ="magic_item_generator_button" />
+		</sheetdata>
+	</windowclass>
+
+	<!-- Equipment -->
+	<windowclass name="referenceequipment" merge="join">
+		<sheetdata>
+			<template_launch_button name ="magic_item_generator_button" />
+		</sheetdata>
+	</windowclass>
+</root>
