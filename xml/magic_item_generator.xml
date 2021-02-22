@@ -209,13 +209,13 @@
 
 						local sType, sSubType = MagicItemGenerator.getItemType(nodeItem);
 						
-						local bLightArmor = (sType == "Armor" and sSubType == "Light") ;
-						local bMediumArmor = (sType == "Armor" and sSubType == "Medium");
-						local bHeavyArmor = (sType == "Armor" and sSubType == "Heavy");
-						local bShield = (sType == "Shield");
-						local bMeleeWeapon = (sType == "Weapon" and sSubType == "Melee");
-						local bRangedWeapon = (sType == "Weapon" and sSubType == "Ranged");
-						local bAmmunition = (sType == "Ammunition");
+						local bLightArmor = (sType == "armor" and sSubType == "light") ;
+						local bMediumArmor = (sType == "armor" and sSubType == "medium");
+						local bHeavyArmor = (sType == "armor" and sSubType == "heavy");
+						local bShield = (sType == "shield");
+						local bMeleeWeapon = (sType == "weapon" and sSubType == "melee");
+						local bRangedWeapon = (sType == "weapon" and sSubType == "ranged");
+						local bAmmunition = (sType == "ammunition");
 						
 						addItems({Interface.getString("none")});
 						for key,value in pairs(MagicItemGenerator.aSpecialMaterials) do

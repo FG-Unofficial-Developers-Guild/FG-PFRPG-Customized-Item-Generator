@@ -6145,7 +6145,7 @@ function GenerateMagicItem(nodeItem)
 	local sItemName, iItemCost, iItemWeight, sFullSubType, sItemProperties, iArmorPenalty, iArmorMaxDex, iArmorSpellFailure, iSpeed30, iSpeed20, iRange, sDamageType, sDamage, sOriginalSize = getItemData(nodeItem);
 	local sNewDamage = "";
 	
-	if sType == "Weapon" or sType == "Shield" then
+	if sType == "weapon" or sType == "shield" then
 		sNewDamage = getDamageBySize(sDamage, sOriginalSize, sItemSize);
 	else
 		sNewDamage = sDamage;
@@ -6222,7 +6222,7 @@ function GenerateMagicItem(nodeItem)
 	if iEnchancementBonus > 0 then
 		iNewBonus = iEnchancementBonus;
 		sDamageType = addProperty(sDamageType, "magic");
-		if DataCommon.isPFRPG() and (sType == "Weapon" or sType == "Ammunition") then
+		if DataCommon.isPFRPG() and (sType == "weapon" or sType == "ammunition") then
 			sDamageType = getDamageTypeByEnhancementBonus(sDamageType, iEnchancementBonus);
 		end
 	end
@@ -6253,19 +6253,19 @@ function GenerateMagicItem(nodeItem)
 	populateItemField(nodeItem, 'cost', 'string', tostring(iTotalCost) .. " gp");
 	populateItemField(nodeItem, 'isidentified', 'number', 0);
 	populateItemField(nodeItem, 'locked', 'number', 1)
-	populateItemField(nodeItem, 'name', 'string', sItemNewName);
-	populateItemField(nodeItem, 'nonid_name', 'string', sNewNonIdentifiedName);
+	populateItemField(nodeItem, 'name', 'string', StringManager.capitalize(sItemNewName));
+	populateItemField(nodeItem, 'nonid_name', 'string', StringManager.capitalize(sNewNonIdentifiedName));
 	populateItemField(nodeItem, 'properties', 'string', sItemProperties);
 	populateItemField(nodeItem, 'weight', 'number', iNewWeight);
 	populateItemField(nodeItem, 'damage', 'string', sNewDamage);
 	populateItemField(nodeItem, 'size', 'string', sItemSize);
 	
-	if sType == "Weapon" or sType == "Ammunition" then
+	if sType == "weapon" or sType == "ammunition" then
 		populateItemField(nodeItem, 'damagetype', 'string', sDamageType);
 		populateItemField(nodeItem, 'range', 'number', iRange);
 	end
 	
-	if sType == "Armor" or sType == "Shield" then
+	if sType == "armor" or sType == "shield" then
 		populateItemField(nodeItem, 'checkpenalty', 'number', iNewArmorPenalty);
 		populateItemField(nodeItem, 'maxstatbonus', 'number', iNewArmorMaxDex);
 		populateItemField(nodeItem, 'speed20', 'number', iNewSpeed20);
@@ -6275,10 +6275,10 @@ function GenerateMagicItem(nodeItem)
 	for _,aAbility in pairs(aAbilities) do
 		addEffectsForAbility(nodeItem, sType, sSubType, aAbility.sAbility, aAbility.sSubAbility, aAbility.sSubSubAbility);
 	end
-	if sType == "Weapon" and (sSubType == "Ranged" or sSubType == "Firearm")  then
+	if sType == "weapon" and (sSubType == "ranged" or sSubType == "firearm")  then
 		addRangedEffect(nodeItem);
 	end
-	if sType == "Ammunition" then
+	if sType == "ammunition" then
 		addAmmoEffect(nodeItem);
 	end
 	Comm.addChatMessage({text = "Generated " .. sItemNewName, secret = true, icon="ct_faction_friend"});--]]
@@ -6327,17 +6327,17 @@ function cleanAbility(aAbility, sType, sSubType)
 end
 
 function getAbilityList(sType, sSubType)
-	if sType == "Weapon" then
-		if sSubType == "Melee" then
+	if sType == "weapon" then
+		if sSubType == "melee" then
 			return aMeleeWeaponAbilities;
-		elseif sSubType == "Ranged" or sSubType == "Firearm" then
+		elseif sSubType == "ranged" or sSubType == "firearm" then
 			return aRangedWeaponAbilities;
 		end
-	elseif sType == "Ammunition" then
+	elseif sType == "ammunition" then
 		return aAmmunitionAbilities;
-	elseif sType == "Armor" then
+	elseif sType == "armor" then
 		return aArmorAbilities;
-	elseif sType == "Shield" then
+	elseif sType == "shield" then
 		return aShieldAbilities;
 	end
 end
@@ -6345,39 +6345,39 @@ end
 function getItemType(nodeItem)
 	local sItemType = "";
 	local sItemSubType = "";
-	local sType = nodeItem.getChild("type").getValue();
-	local sSubType = nodeItem.getChild("subtype").getValue();
-	if sType == "Weapon" then
-		sItemType = "Weapon";
-	elseif sType == "Armor" then
-		if sSubType:match("Shield") then
-			sItemType = "Shield";
+	local sType = string.lower(nodeItem.getChild("type").getValue() or "");
+	local sSubType = string.lower(nodeItem.getChild("subtype").getValue() or "");
+	if sType == "weapon" then
+		sItemType = "weapon";
+	elseif sType == "armor" then
+		if sSubType:match("shield") then
+			sItemType = "shield";
 		else
-			sItemType = "Armor";
+			sItemType = "armor";
 		end
 	end
 	
-	if sSubType:match("Ammunition") or (sType == "Ammo") then
-		sItemType = "Ammunition";
+	if sSubType:match("ammunition") or (sType == "ammo") then
+		sItemType = "ammunition";
 	end
 
-	if sType == "Weapon" then
-		if sSubType:match("Melee") then
-			sItemSubType = "Melee";
-		elseif sSubType:match("Ranged") then
-			sItemSubType = "Ranged";
-		elseif sSubType:match("Firearm") then
-			sItemSubType = "Firearm";
+	if sType == "weapon" then
+		if sSubType:match("melee") then
+			sItemSubType = "melee";
+		elseif sSubType:match("ranged") then
+			sItemSubType = "ranged";
+		elseif sSubType:match("firearm") then
+			sItemSubType = "firearm";
 		else
 			sItemSubType = "";
 		end
-	elseif sType == "Armor" then
-		if sSubType:match("Light") then
-			sItemSubType = "Light";
-		elseif sSubType:match("Medium") then
-			sItemSubType = "Medium";
-		elseif sSubType:match("Heavy") then
-			sItemSubType = "Heavy";
+	elseif sType == "armor" then
+		if sSubType:match("light") then
+			sItemSubType = "light";
+		elseif sSubType:match("medium") then
+			sItemSubType = "medium";
+		elseif sSubType:match("heavy") then
+			sItemSubType = "heavy";
 		end
 	end
 	return sItemType, sItemSubType;
@@ -6488,31 +6488,31 @@ end
 function getAbilityBonusAndCost(sSpecialAbility, sType, aSubType)
 	local iBonus, iBonusCost, iExtraCost, sAbilityName, iCL, sAura = 0, 0, 0, "", 0, "";
 
-	if aSubType == "Melee" then
+	if aSubType == "melee" then
 		iBonus = aMeleeWeaponAbilities[sSpecialAbility].iBonus;
 		iExtraCost = aMeleeWeaponAbilities[sSpecialAbility].iCost;
 		sAbilityName = aMeleeWeaponAbilities[sSpecialAbility].sStringName;
 		iCL = aMeleeWeaponAbilities[sSpecialAbility].iCL;
 		sAura = aMeleeWeaponAbilities[sSpecialAbility].sAura;
-	elseif aSubType == "Ranged" then
+	elseif aSubType == "ranged" then
 		iBonus = aRangedWeaponAbilities[sSpecialAbility].iBonus;
 		iExtraCost = aRangedWeaponAbilities[sSpecialAbility].iCost;
 		sAbilityName = aRangedWeaponAbilities[sSpecialAbility].sStringName;
 		iCL = aRangedWeaponAbilities[sSpecialAbility].iCL;
 		sAura = aRangedWeaponAbilities[sSpecialAbility].sAura;
-	elseif sType == "Armor" then
+	elseif sType == "armor" then
 		iBonus = aArmorAbilities[sSpecialAbility].iBonus;
 		iExtraCost = aArmorAbilities[sSpecialAbility].iCost;
 		sAbilityName = aArmorAbilities[sSpecialAbility].sStringName;
 		iCL = aArmorAbilities[sSpecialAbility].iCL;
 		sAura = aArmorAbilities[sSpecialAbility].sAura;
-	elseif sType == "Shield" then
+	elseif sType == "shield" then
 		iBonus = aShieldAbilities[sSpecialAbility].iBonus;
 		iExtraCost = aShieldAbilities[sSpecialAbility].iCost;
 		sAbilityName = aShieldAbilities[sSpecialAbility].sStringName;
 		iCL = aShieldAbilities[sSpecialAbility].iCL;
 		sAura = aShieldAbilities[sSpecialAbility].sAura;
-	elseif sType == "Ammunition" then
+	elseif sType == "ammunition" then
 		iBonus = aAmmunitionAbilities[sSpecialAbility].iBonus;
 		iExtraCost = aAmmunitionAbilities[sSpecialAbility].iCost;
 		sAbilityName = aAmmunitionAbilities[sSpecialAbility].sStringName;
@@ -6544,21 +6544,21 @@ function getMaterialData(sMaterial, iEnhancingBonus, sType, aSubType, sFullSubTy
 	end
 	
 	if sMaterial == Interface.getString("adamantine") then
-		if aSubType == "Light" then
+		if aSubType == "light" then
 			iMaterialCost = iMaterialCost + 5000;
-		elseif aSubType == "Medium" then
+		elseif aSubType == "medium" then
 			iMaterialCost = iMaterialCost + 10000;
-		elseif aSubType == "Heavy" then
+		elseif aSubType == "heavy" then
 			iMaterialCost = iMaterialCost + 15000;
-		elseif sType == "Weapon" then
+		elseif sType == "weapon" then
 			iMaterialCost = iMaterialCost + 3000;
-		elseif sType == "Ammunition" then
+		elseif sType == "ammunition" then
 			iMaterialCost = iMaterialCost + 60;
 		end
 		sNewProperties = addProperty(sNewProperties, "adamantine")
 		sNewDamageType = addProperty(sNewDamageType, "adamantine")
 	elseif sMaterial == Interface.getString("alchemical_silver") then
-		if sType == "Ammunition" then
+		if sType == "ammunition" then
 			iMaterialCost = iMaterialCost + 2;
 		else
 			if sFullSubType:lower():match("light") then
@@ -6573,15 +6573,15 @@ function getMaterialData(sMaterial, iEnhancingBonus, sType, aSubType, sFullSubTy
 		end
 		sNewDamageType = addProperty(sNewDamageType, "silver")
 	elseif sMaterial == Interface.getString("angelskin") then
-		if aSubType == "Light" then
+		if aSubType == "light" then
 			iMaterialCost = iMaterialCost + 1000;
-		elseif aSubType == "Medium" then
+		elseif aSubType == "medium" then
 			iMaterialCost = iMaterialCost + 2000;
 		end
 	elseif sMaterial == Interface.getString("blood_crystal") then
-		if sType == "Weapon" then
+		if sType == "weapon" then
 			iMaterialCost = iMaterialCost + 1500;
-		elseif sType == "Ammunition" then
+		elseif sType == "ammunition" then
 			iMaterialCost = iMaterialCost + 30;
 		end
 	elseif sMaterial == Interface.getString("cold_iron") then
@@ -6591,9 +6591,9 @@ function getMaterialData(sMaterial, iEnhancingBonus, sType, aSubType, sFullSubTy
 		end
 		sNewDamageType = addProperty(sNewDamageType, "cold iron")
 	elseif sMaterial == Interface.getString("darkleaf_cloth") then
-		if aSubType == "Light" then
+		if aSubType == "light" then
 			iMaterialCost = iMaterialCost + 750;
-		elseif aSubType == "Medium" then
+		elseif aSubType == "medium" then
 			iMaterialCost = iMaterialCost + 1500;
 		else
 			iMaterialCost = iMaterialCost + 375 * iWeight;
@@ -6605,7 +6605,7 @@ function getMaterialData(sMaterial, iEnhancingBonus, sType, aSubType, sFullSubTy
 			iNewArmorSpellFailure = 5;
 		end
 	elseif sMaterial == Interface.getString("darkwood") then
-		if sType == "Shield" then
+		if sType == "shield" then
 			iNewArmorPenalty = iNewArmorPenalty + 2;
 		end
 		iMaterialCost = iWeight * 10 + getMasterworkPrice(sType, sProperties);
@@ -6613,58 +6613,58 @@ function getMaterialData(sMaterial, iEnhancingBonus, sType, aSubType, sFullSubTy
 	elseif sMaterial == Interface.getString("dragonhide") then
 		iMaterialCost = 2 * getMasterworkPrice(sType, sProperties);
 	elseif sMaterial == Interface.getString("eel_hide") then
-		if aSubType == "Light" then
+		if aSubType == "light" then
 			iMaterialCost = iMaterialCost + 1200;
-		elseif aSubType == "Medium" then
+		elseif aSubType == "medium" then
 			iMaterialCost = iMaterialCost + 1800;
 		end
 		iNewArmorPenalty = iArmorPenalty + 1;
 		iNewArmorMaxDex = iNewArmorMaxDex + 1;
 		iNewArmorSpellFailure = iNewArmorSpellFailure - 10;		
 	elseif sMaterial == Interface.getString("elysian_bronze") then
-		if aSubType == "Light" then
+		if aSubType == "light" then
 			iMaterialCost = iMaterialCost + 1000;
-		elseif aSubType == "Medium" then
+		elseif aSubType == "medium" then
 			iMaterialCost = iMaterialCost + 2000;
-		elseif aSubType == "Heavy" then
+		elseif aSubType == "heavy" then
 			iMaterialCost = iMaterialCost + 3000;
-		elseif sType == "Weapon" then
+		elseif sType == "weapon" then
 			iMaterialCost = iMaterialCost + 1000;
-		elseif sType == "Ammunition" then
+		elseif sType == "ammunition" then
 			iMaterialCost = iMaterialCost + 20;
 		end
 	elseif sMaterial == Interface.getString("fire_forged_steel") or sMaterial == Interface.getString("frost_forged_steel") then
-		if aSubType == "Light" then
+		if aSubType == "light" then
 			iMaterialCost = iMaterialCost + 1000;
-		elseif aSubType == "Medium" then
+		elseif aSubType == "medium" then
 			iMaterialCost = iMaterialCost + 2500;
-		elseif aSubType == "Heavy" then
+		elseif aSubType == "heavy" then
 			iMaterialCost = iMaterialCost + 3000;
-		elseif sType == "Weapon" then
+		elseif sType == "weapon" then
 			iMaterialCost = iMaterialCost + 600;
-		elseif sType == "Ammunition" then
+		elseif sType == "ammunition" then
 			iMaterialCost = iMaterialCost + 15;
 		end
 	elseif sMaterial == Interface.getString("greenwood") then
 		iMaterialCost = iWeight * 50 + getMasterworkPrice(sType, sProperties);
 	elseif sMaterial == Interface.getString("griffon_mane") then
-		if aSubType == "Light" then
+		if aSubType == "light" then
 			iMaterialCost = iMaterialCost + 200;
 		else
 			iMaterialCost = iMaterialCost + iWeight * 50; 
 		end
 	elseif sMaterial == Interface.getString("living_steel") then
-		if aSubType == "Light" then
+		if aSubType == "light" then
 			iMaterialCost = iMaterialCost + 500;
-		elseif aSubType == "Medium" then
+		elseif aSubType == "medium" then
 			iMaterialCost = iMaterialCost + 1000;
-		elseif aSubType == "Heavy" then
+		elseif aSubType == "heavy" then
 			iMaterialCost = iMaterialCost + 1500;
-		elseif sType == "Weapon" then
+		elseif sType == "weapon" then
 			iMaterialCost = iMaterialCost + 500;
-		elseif sType == "Shield" then
+		elseif sType == "shield" then
 			iMaterialCost = iMaterialCost + 100;
-		elseif sType == "Ammunition" then
+		elseif sType == "ammunition" then
 			iMaterialCost = 10;
 		else
 			iMaterialCost = iMaterialCost + 250 * iWeight;
@@ -6672,17 +6672,17 @@ function getMaterialData(sMaterial, iEnhancingBonus, sType, aSubType, sFullSubTy
 	elseif sMaterial == Interface.getString("mithral") then
 		sNewDamageType = addProperty(sNewDamageType, "silver")
 		iNewWeight = iNewWeight / 2;
-		if aSubType == "Light" then
+		if aSubType == "light" then
 			iMaterialCost = iMaterialCost + 1000;
-		elseif aSubType == "Medium" then
+		elseif aSubType == "medium" then
 			iMaterialCost = iMaterialCost + 4000;
 			iNewSpeed30 = 30;
 			iNewSpeed20  = 20;
-		elseif aSubType == "Heavy" then
+		elseif aSubType == "heavy" then
 			iMaterialCost = iMaterialCost + 9000;
 			iNewSpeed30 = 20;
 			iNewSpeed20  = 15;
-		elseif sType == "Shield" then
+		elseif sType == "shield" then
 			iMaterialCost = iMaterialCost + 1000;
 		else
 			iMaterialCost = iMaterialCost + 500 * iWeight;
@@ -6696,9 +6696,9 @@ function getMaterialData(sMaterial, iEnhancingBonus, sType, aSubType, sFullSubTy
 			iNewArmorSpellFailure = 0;
 		end
 	elseif sMaterial == Interface.getString("viridium") then
-		if sType == "Weapon" then
+		if sType == "weapon" then
 			iMaterialCost = iMaterialCost + 200;
-		elseif sType == "Ammunition" then
+		elseif sType == "ammunition" then
 			iMaterialCost = iMaterialCost + 20;
 		end
 	elseif sMaterial == Interface.getString("whipwood") then
@@ -6720,7 +6720,7 @@ function getMaterialData(sMaterial, iEnhancingBonus, sType, aSubType, sFullSubTy
 		iMaterialCost = iNewWeight / 4;
 	end
 	
-	if bMasterworkMaterial and sType == "Armor" and iNewArmorPenalty == iArmorPenalty then
+	if bMasterworkMaterial and sType == "armor" and iNewArmorPenalty == iArmorPenalty then
 		iNewArmorPenalty = iArmorPenalty + 1;
 	end
 	if iNewArmorPenalty > 0 then
@@ -6734,11 +6734,11 @@ function getMasterworkPrice(sType, sProperties)
 	iMasterworkPrice = 0;
 	bDoubleProperty = sProperties:lower():match("double");
 	
-	if sType == "Armor" or sType == "Shield" then
+	if sType == "armor" or sType == "shield" then
 		iMasterworkPrice = 150;
-	elseif sType == "Ammunition" then
+	elseif sType == "ammunition" then
 		iMasterworkPrice = 6;
-	elseif sType == "Weapon" then
+	elseif sType == "weapon" then
 		if bDoubleProperty then
 			iMasterworkPrice = 600;
 		else
@@ -6816,11 +6816,11 @@ function getEnchancementCost(iEnchancementBonus, sType)
 	local aBonusPriceAmmunition = {0, 40, 160, 360, 640, 1000, 1440, 1960, 2560, 3240, 4000}
 	local iEnchantmentCost = 0;
 	
-	if sType == "Weapon" then
+	if sType == "weapon" then
 		iEnchantmentCost = aBonusPriceWeapon[iEnchancementBonus + 1];
-	elseif sType == "Armor" or sType == "Shield" then
+	elseif sType == "armor" or sType == "shield" then
 		iEnchantmentCost = aBonusPriceArmor[iEnchancementBonus + 1];
-	elseif sType == "Ammunition" then
+	elseif sType == "ammunition" then
 		iEnchantmentCost = aBonusPriceAmmunition[iEnchancementBonus + 1];
 	end
 	return iEnchantmentCost;
@@ -7032,19 +7032,19 @@ function addEffectsForAbility(nodeItem, sType, sSubType, sAbility, sSubAbility, 
 	end
 	local aAbility = {};
 	local nCritical = 0;
-	if sType == "Weapon" then
-		if sSubType == "Melee" then
+	if sType == "weapon" then
+		if sSubType == "melee" then
 			aAbility = aMeleeWeaponAbilities[sAbility];
 			nCritical = getCritical(nodeItem);
-		elseif sSubType == "Ranged" or sSubType == "Firearm" then
+		elseif sSubType == "ranged" or sSubType == "firearm" then
 			aAbility = aRangedWeaponAbilities[sAbility];
 			nCritical = getCritical(nodeItem);
 		end
-	elseif sType == "Ammunition" then
+	elseif sType == "ammunition" then
 		aAbility = aAmmunitionAbilities[sAbility];
-	elseif sType == "Armor" then
+	elseif sType == "armor" then
 		aAbility = aArmorAbilities[sAbility];
-	elseif sType == "Shield" then
+	elseif sType == "shield" then
 		aAbility = aShieldAbilities[sAbility];
 	end
 
@@ -7065,7 +7065,7 @@ function addEffectsForAbility(nodeItem, sType, sSubType, sAbility, sSubAbility, 
 			if not aEffect.bAERequired or (aEffect.bAERequired and bAdvancedEffects) then
 				if aEffect.nCritical == 0 or (aEffect.nCritical == nCritical) then
 					local sEffect = aEffect.sEffect;
-					if sType == "Ammunition" and aEffect.sEffect:match("%%s") then
+					if sType == "ammunition" and aEffect.sEffect:match("%%s") then
 						sEffect = sEffect:format(getWeaponTypeName(nodeItem));
 					end
 					addEffect(nodeEffectList, sEffect, aEffect.nActionOnly, false);
