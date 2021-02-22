@@ -6128,7 +6128,7 @@ function GenerateMagicItem(nodeItem)
 	sSpecialMaterial = DB.getValue(nodeItem, "combobox_material", "");
 	sItemSize = DB.getValue(nodeItem, "combobox_item_size", "");
 	local sType, sSubType = getItemType(nodeItem);
-	aAbilities = getAbilities(nodeItem, sType, sSubType);
+	local aAbilities = getAbilities(nodeItem, sType, sSubType);
 
 	local bBonus, bMaterial, nErrorCode, aConflicts = checkComboboxes(sType, sSubType, sBonus, sSpecialMaterial, aAbilities);
 	if nErrorCode == 1 then
@@ -7076,7 +7076,7 @@ function addEffectsForAbility(nodeItem, sType, sSubType, sAbility, sSubAbility, 
 end
 
 function addEffect(nodeEffectList, sEffect, nActionOnly, bIsLabel)
-	if not nodeEffectList or not sEffect and sEffect ~= "" then
+	if (not nodeEffectList or not sEffect) and sEffect ~= "" then
 		return
 	end
 	local nodeEffect = DB.createChild(nodeEffectList);
@@ -7136,14 +7136,13 @@ function addAmmoEffect(nodeItem)
 end
 
 function usingAE()
-	return StringManager.contains(Extension.getExtensions(), "AdvancedEffects for 3.5E and Pathfinder");
+	return (StringManager.contains(Extension.getExtensions(), "Advanced Effects for 3.5E and Pathfinder") or
+			StringManager.contains(Extension.getExtensions(), "AdvancedEffects for 3.5E and Pathfinder"));
 end
 
 function usingKelrugemsAE()
-	return (StringManager.contains(Extension.getExtensions(), "Advanced 3.5e and Pathfinder with Aoo") or 
-			StringManager.contains(Extension.getExtensions(), "Advanced 3.5e and Pathfinder") or
-			StringManager.contains(Extension.getExtensions(), "Advanced 3.5e and Pathfinder with AoO modified") or
-			StringManager.contains(Extension.getExtensions(), "Full OverlayPackage") or
+	return (StringManager.contains(Extension.getExtensions(), "Full OverlayPackage") or
+			StringManager.contains(Extension.getExtensions(), "Full OverlayPackage with alternative icons") or
 			StringManager.contains(Extension.getExtensions(), "Full OverlayPackage with other icons"));
 end
 
