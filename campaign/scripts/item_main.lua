@@ -38,13 +38,13 @@ function update()
 	local bWondrous = (string.find(sType, "wondrous item") ~= nil);
 	
 	local bSection1 = false;
-	if bOptionID and User.isHost() then
+	if bOptionID and Session.IsHost then
 		if updateControl("nonid_name", bReadOnly, true) then bSection1 = true; end;
 	else
 		updateControl("nonid_name", false);
 	end
 
-	if bOptionID and (User.isHost() or not bID) then
+	if bOptionID and (Session.IsHost or not bID) then
 		if updateControl("nonidentified", bReadOnly, true) then bSection1 = true; end;
 	else
 		updateControl("nonidentified", false);
@@ -116,12 +116,12 @@ function update()
 		divider6.setVisible(false);
 		gmonly_label.setVisible(false);
 		gmonly.setVisible(false);
-		if bOptionID and User.isHost() then
+		if bOptionID and Session.IsHost then
 			if updateControl("gmonly", bReadOnly, true) then bSection7 = true; end
 		else
 			updateControl("gmonly", bReadOnly, false);
 		end
-		if User.isHost() then 
+		if Session.IsHost then 
 			divider6.setVisible((bSection1 or bSection2 or bSection3 or bSection4 or bSection5) and bSection7);
 		end
 	end
