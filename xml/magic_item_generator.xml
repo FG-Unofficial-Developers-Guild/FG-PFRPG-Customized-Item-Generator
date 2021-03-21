@@ -14,7 +14,10 @@
 					if sItemType == "" or (sItemType == "Armor" and sItemSubType == "") then
 						Comm.addChatMessage({text = Interface.getString("Error_3"), secret = true, icon ="ct_faction_foe"}); 
 					else
-						nodeClone = DB.copyNode(nodeItem, DB.createChild('item'));
+						local nodeDestination = DB.findNode('item')
+						if not nodeItem.getParent().getModule() then nodeDestination = nodeItem.getParent() end
+						
+						nodeClone = DB.copyNode(nodeItem, DB.createChild(nodeDestination));
 						local magicWindow = Interface.openWindow("MagicPropertiesWindow", nodeClone);
 						window.close();
 					end
