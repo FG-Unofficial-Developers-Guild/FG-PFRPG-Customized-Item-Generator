@@ -22,6 +22,9 @@ function updateControl(sControl, bReadOnly, bID)
 	return self[sControl].update(bReadOnly);
 end
 
+local bUsingACIM = StringManager.contains(Extension.getExtensions(), "Advanced Character Inventory Manager for 3.5E and Pathfinder")
+local bUsingEnhanceItems = StringManager.contains(Extension.getExtensions(), "PFRPG - Enhanced Items")
+
 function update()
 	local nodeRecord = getDatabaseNode();
 	local bReadOnly = WindowManager.getReadOnlyState(nodeRecord);
@@ -60,7 +63,7 @@ function update()
 	if updateControl("size", bReadOnly, bID) then bSection3 = true; end
 	
 	local bSection8 = false;
-	if StringManager.contains(Extension.getExtensions(), "Advanced Character Inventory Manager for 3.5E and Pathfinder") then
+	if bUsingACIM then
 		if updateControl("damage", bReadOnly, bID and (bWeapon or bShield)) then bSection8 = true; end
 		if updateControl("damagetype", bReadOnly, bID and (bWeapon or bShield)) then bSection8 = true; end
 		if updateControl("critical", bReadOnly, bID and (bWeapon or bShield)) then bSection8 = true; end
@@ -80,9 +83,7 @@ function update()
 	if updateControl("speed30", bReadOnly, bID and bArmor) then bSection4 = true; end
 	if updateControl("speed20", bReadOnly, bID and bArmor) then bSection4 = true; end
 
-	local bPFRPGEILoaded = StringManager.contains(Extension.getExtensions(), "PFRPG - Enhanced Items");
-
-	if bPFRPGEILoaded then
+	if bUsingEnhanceItems then
 		current_label.setVisible(false);
 		maxcharges.setVisible(false);
 		maxcharges_label.setVisible(false);
@@ -111,7 +112,7 @@ function update()
 	description.setReadOnly(bReadOnly);
 
 	local bSection7 = false;
-	if bPFRPGEILoaded then
+	if bUsingEnhanceItems then
 		updateControl("sourcebook", bReadOnly, bID);
 		divider6.setVisible(false);
 		gmonly_label.setVisible(false);
@@ -128,7 +129,7 @@ function update()
 	
 	divider.setVisible(bSection1 and bSection2);
 	divider2.setVisible((bSection1 or bSection2) and bSection3);
-	if StringManager.contains(Extension.getExtensions(), "Advanced Character Inventory Manager for 3.5E and Pathfinder") then
+	if bUsingACIM then
 		divider3.setVisible((bSection1 or bSection2 or bSection3) and bSection8);
 		divider8.setVisible((bSection1 or bSection2 or bSection3 or bSection8) and bSection4)
 	else
