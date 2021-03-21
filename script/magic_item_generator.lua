@@ -7025,7 +7025,6 @@ function addEffectsForAbility(nodeItem, sType, sSubType, sAbility, sSubAbility, 
 	if not usingAE() then
 		return;
 	end
-	local bAdvancedEffects = usingKelrugemsAE();
 	local nodeEffectList = DB.getChild(nodeItem, "effectlist");
 	if not nodeEffectList then
 		nodeEffectList = nodeItem.createChild("effectlist");
@@ -7062,7 +7061,7 @@ function addEffectsForAbility(nodeItem, sType, sSubType, sAbility, sSubAbility, 
 	end
 	if next(aEffects) ~= nil then
 		for _,aEffect in ipairs(aEffects) do
-			if not aEffect.bAERequired or (aEffect.bAERequired and bAdvancedEffects) then
+			if not aEffect.bAERequired or (aEffect.bAERequired and usingKelrugemsAE()) then
 				if aEffect.nCritical == 0 or (aEffect.nCritical == nCritical) then
 					local sEffect = aEffect.sEffect;
 					if sType == "ammunition" and aEffect.sEffect:match("%%s") then
@@ -7109,7 +7108,7 @@ function addRangedEffect(nodeItem)
 	if not nodeItem then
 		return;
 	end
-	if not StringManager.contains(Extension.getExtensions(), "AdvancedEffects for 3.5E and Pathfinder") then
+	if not usingAE() then
 		return;
 	end
 	local nodeEffectList = DB.getChild(nodeItem, "effectlist");
@@ -7124,7 +7123,7 @@ function addAmmoEffect(nodeItem)
 	if not nodeItem then
 		return;
 	end
-	if not StringManager.contains(Extension.getExtensions(), "AdvancedEffects for 3.5E and Pathfinder") then
+	if not usingAE() then
 		return;
 	end
 	local nodeEffectList = DB.getChild(nodeItem, "effectlist");
