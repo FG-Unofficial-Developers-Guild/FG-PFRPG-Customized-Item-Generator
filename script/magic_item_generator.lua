@@ -7139,8 +7139,7 @@ function addAmmoEffect(nodeItem)
 end
 
 function usingAE()
-	return (StringManager.contains(Extension.getExtensions(), "Advanced Effects for 3.5E and Pathfinder") or
-			StringManager.contains(Extension.getExtensions(), "AdvancedEffects for 3.5E and Pathfinder"));
+	return StringManager.contains(Extension.getExtensions(), "Advanced Effects for 3.5E and Pathfinder");
 end
 
 function usingKelrugemsAE()
@@ -7181,13 +7180,14 @@ function getWeightBySize(iItemWeight, sOriginalSize, sItemSize)
 	return iItemWeight / aWeightMultiplier[sOriginalSize:lower()].nMultiplier * aWeightMultiplier[sItemSize:lower()].nMultiplier;
 end
 
+---	This function returns true if either supplied string is nil or blank.
 function notifyMissingTypeData(sType, sSubType)
 	local bNotified
-	if sType == '' then
+	if not sType or sType == '' then
 		ChatManager.SystemMessage(string.format(Interface.getString('magic_item_gen_error_8'), 'type'));
 		bNotified = true
 	end
-	if sSubType == '' then
+	if not sSubType or sSubType == '' then
 		ChatManager.SystemMessage(string.format(Interface.getString('magic_item_gen_error_8'), 'subtype'));
 		bNotified = true
 	end
