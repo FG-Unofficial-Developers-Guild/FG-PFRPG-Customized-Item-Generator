@@ -6128,15 +6128,11 @@ function GenerateMagicItem(nodeItem)
 	sSpecialMaterial = DB.getValue(nodeItem, "combobox_material", "");
 	sItemSize = DB.getValue(nodeItem, "combobox_item_size", "");
 	local sType, sSubType = getItemType(nodeItem);
-	if not sType then
-		ChatManager.SystemMessage(string.format(Interface.getString('magic_item_gen_error_8'), 'type'), nil);
+	if notifyMissingTypeData(sType, sSubType) then
+		return
 	end
-	if not sSubType then
-		ChatManager.SystemMessage(string.format(Interface.getString('Error_8'), 'subtype'), nil);
-	end
-	
+
 	local aAbilities = getAbilities(nodeItem, sType, sSubType);
-	if not aAbilities then return; end
 
 	local bBonus, bMaterial, nErrorCode, aConflicts = checkComboboxes(sType, sSubType, sBonus, sSpecialMaterial, aAbilities);
 	if nErrorCode == 1 then
@@ -7183,4 +7179,17 @@ function getWeightBySize(iItemWeight, sOriginalSize, sItemSize)
 		return iItemWeight;
 	end
 	return iItemWeight / aWeightMultiplier[sOriginalSize:lower()].nMultiplier * aWeightMultiplier[sItemSize:lower()].nMultiplier;
+end
+
+function notifyMissingTypeData(sType, sSubType)
+	local bNotified
+	if sType == '' then
+		ChatManager.SystemMessage(string.format(Interface.getString('magic_item_gen_error_8'), 'type'));
+		bNotified = true
+	end
+	if sSubType == '' then
+		ChatManager.SystemMessage(string.format(Interface.getString('magic_item_gen_error_8'), 'subtype'));
+		bNotified = true
+	end
+	return bNotified
 end
