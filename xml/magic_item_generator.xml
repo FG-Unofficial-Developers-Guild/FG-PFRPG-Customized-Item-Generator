@@ -357,8 +357,15 @@
 							return;
 						end
 						local sType, sSubType = MagicItemGenerator.getItemType(nodeItem);
+						if not sType then
+							ChatManager.SystemMessage(string.format(Interface.getString('magic_item_gen_error_8'), 'type'), nil);
+						end
+						if not sSubType then
+							ChatManager.SystemMessage(string.format(Interface.getString('Error_8'), 'subtype'), nil);
+						end
 						
 						local aAbilityList = MagicItemGenerator.getAbilityList(sType, sSubType);
+						if not aAbilityList then return; end
 						
 						local dDamageType = nodeItem.getChild("damagetype");
 						local sName = nodeItem.getChild("name").getValue();
@@ -401,8 +408,15 @@
 							return;
 						end
 						local sType, sSubType = MagicItemGenerator.getItemType(nodeItem);
+						if not sType then
+							ChatManager.SystemMessage(string.format(Interface.getString('magic_item_gen_error_8'), 'type'), nil);
+						end
+						if not sSubType then
+							ChatManager.SystemMessage(string.format(Interface.getString('Error_8'), 'subtype'), nil);
+						end
 						
 						local aAbilityList = MagicItemGenerator.getAbilityList(sType, sSubType);
+						if not aAbilityList then return; end
 						
 						local sAbility = getValue();
 
@@ -463,8 +477,15 @@
 							return;
 						end
 						local sType, sSubType = MagicItemGenerator.getItemType(nodeItem);
+						if not sType then
+							ChatManager.SystemMessage(string.format(Interface.getString('magic_item_gen_error_8'), 'type'), nil);
+						end
+						if not sSubType then
+							ChatManager.SystemMessage(string.format(Interface.getString('Error_8'), 'subtype'), nil);
+						end
 						
 						local aAbilityList = MagicItemGenerator.getAbilityList(sType, sSubType);
+						if not aAbilityList then return; end
 						
 						local sAbility = window.combobox_ability.getValue();
 						local sSelection = getValue();

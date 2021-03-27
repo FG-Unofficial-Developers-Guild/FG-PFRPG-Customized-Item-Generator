@@ -6,6 +6,7 @@
 	<string name="Error_5">Error : Two special abilities are exclusive. %s, %s. Can only place one.</string>
 	<string name="Error_6">Error : Special ability missing sub-ability selection. %s.</string>
 	<string name="Error_7">Error : Special ability bonus is higher than +5.</string>
+	<string name="magic_item_gen_error_8">Error : Item has no %s.</string>
 	<string name="magic_item_generator_button_text">Custom</string>
 	<string name="label_bonus">Bonus</string>
 	<string name="label_special_material">Special material</string>
