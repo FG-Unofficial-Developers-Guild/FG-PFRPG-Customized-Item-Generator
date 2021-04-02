@@ -8,8 +8,12 @@
 		<loadorder>55</loadorder>
 		<author>Faelwen with modifications by rmilmine and bmos</author>
 		<description>Simple generator for magic items</description>
-		<ruleset name="PFRPG" />
-		<ruleset name="3.5E" />
+		<ruleset>
+			<name>3.5E</name>
+		</ruleset>
+		<ruleset>
+			<name>PFRPG</name>
+		</ruleset>
 	</properties>
 
 	<base>
