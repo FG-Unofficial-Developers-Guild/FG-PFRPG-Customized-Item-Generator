@@ -6225,6 +6225,10 @@ function GenerateMagicItem(nodeItem)
 		end
 	end
 
+	if bFragileMaterial then
+		sItemProperties = addProperty(sItemProperties, "fragile");
+	end
+
 	if sSpecialMaterial ~= Interface.getString("none") then
 		sItemProperties = addProperty(sItemProperties, sSpecialMaterial);
 	end
