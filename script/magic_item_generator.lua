@@ -6120,6 +6120,18 @@ aWeightMultiplier = {
 	},
 }
 
+local function addProperty(sItemProperties, sProperty)
+	local sNewItemProperties = "";
+	if sItemProperties == "" then
+		sNewItemProperties = sProperty;
+	elseif sItemProperties:match(sProperty) then
+		sNewItemProperties = sItemProperties;
+	else
+		sNewItemProperties = sItemProperties .. ", " .. sProperty;
+	end
+	return sNewItemProperties;
+end
+
 function GenerateMagicItem(nodeItem)
 	if not nodeItem then
 		return false;
@@ -6869,18 +6881,6 @@ function getItemNewName(sItemName, sEnhancementBonus, iEnchancementBonus, sSpeci
 	sItemNewName = sItemNewName:gsub("^%l", string.upper);
 
 	return sItemNewName;
-end
-
-function addProperty(sItemProperties, sProperty)
-	local sNewItemProperties = "";
-	if sItemProperties == "" then
-		sNewItemProperties = sProperty;
-	elseif sItemProperties:match(sProperty) then
-		sNewItemProperties = sItemProperties;
-	else
-		sNewItemProperties = sItemProperties .. ", " .. sProperty;
-	end
-	return sNewItemProperties;
 end
 
 function getSpecialAbilityData(sSpecialAbility, sDamageType, iRange)
