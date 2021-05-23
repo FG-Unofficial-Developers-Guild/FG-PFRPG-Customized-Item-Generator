@@ -6132,6 +6132,15 @@ local function addProperty(sItemProperties, sProperty)
 	return sNewItemProperties;
 end
 
+local function getDamageBySize(sDamage, sOriginalSize, sItemSize)
+	local iSizeDifference = aItemSize[sItemSize:lower()].iPosition - aItemSize[sOriginalSize:lower()].iPosition;
+	if iSizeDifference == 0 then
+		return sDamage;
+	end
+
+	return changeDamageBySizeDifference(sDamage, iSizeDifference);
+end
+
 function GenerateMagicItem(nodeItem)
 	if not nodeItem then
 		return false;
@@ -6911,15 +6920,6 @@ function getSpecialAbilityData(sSpecialAbility, sDamageType, iRange)
 	return sNewDamageType, iNewRange;
 end
 
-function getDamageBySize(sDamage, sOriginalSize, sItemSize)
-	local iSizeDifference = aItemSize[sItemSize:lower()].iPosition - aItemSize[sOriginalSize:lower()].iPosition;
-	if iSizeDifference == 0 then
-		return sDamage;
-	end
-
-	return changeDamageBySizeDifference(sDamage, iSizeDifference);
-end
-
 function changeDamageBySizeDifference(sDamage, iSizeDifference)
 	if sDamage == "" or sDamage == nil then
 		return sDamage;
@@ -7002,6 +7002,17 @@ function changeDamageBySizeDifference(sDamage, iSizeDifference)
 
 	return getDamageString(aNewDamage);
 end
+
+local function mergeDamage(aDamage)
+	local sNewDamage = aDamage.dice;
+	if aDamage.mod > 0 then
+		sNewDamage = sNewDamage .. "+" .. aDamage.mod;
+	elseif aDamage.mod < 0 then
+		sNewDamage = sNewDamage .. aDamage.mod;
+	end
+	return sNewDamage;
+end
+
 function getDamageString(aDamage)
 	local sNewDamage = ""
 	if aDamage[2] then
@@ -7016,14 +7027,14 @@ function getDamageString(aDamage)
 	return sNewDamage;
 end
 
-function mergeDamage(aDamage)
-	local sNewDamage = aDamage.dice;
-	if aDamage.mod > 0 then
-		sNewDamage = sNewDamage .. "+" .. aDamage.mod;
-	elseif aDamage.mod < 0 then
-		sNewDamage = sNewDamage .. aDamage.mod;
-	end
-	return sNewDamage;
+local function usingAE()
+	return StringManager.contains(Extension.getExtensions(), "Advanced Effects for 3.5E and Pathfinder");
+end
+
+local function usingKelrugemsAE()
+	return (StringManager.contains(Extension.getExtensions(), "Full OverlayPackage") or
+			StringManager.contains(Extension.getExtensions(), "Full OverlayPackage with alternative icons") or
+			StringManager.contains(Extension.getExtensions(), "Full OverlayPackage with other icons"));
 end
 
 function addEffectsForAbility(nodeItem, sType, sSubType, sAbility, sSubAbility, sSubSubAbility)
@@ -7140,16 +7151,6 @@ function addAmmoEffect(nodeItem)
 	end
 	local nBonus = DB.getValue(nodeItem, "bonus", 0);
 	addEffect(nodeEffectList, "IF: CUSTOM(" .. getWeaponTypeName(nodeItem) .. " Attack); ATK: " .. nBonus .. " ranged; DMG: " .. nBonus, 0, false);
-end
-
-function usingAE()
-	return StringManager.contains(Extension.getExtensions(), "Advanced Effects for 3.5E and Pathfinder");
-end
-
-function usingKelrugemsAE()
-	return (StringManager.contains(Extension.getExtensions(), "Full OverlayPackage") or
-			StringManager.contains(Extension.getExtensions(), "Full OverlayPackage with alternative icons") or
-			StringManager.contains(Extension.getExtensions(), "Full OverlayPackage with other icons"));
 end
 
 function getWeaponTypeName(nodeItem)
