@@ -4,7 +4,7 @@
 
 	<properties>
 		<name>Customized Item Generator for 3.5E and Pathfinder</name>
-		<version>1.3</version>
+		<version>1.4</version>
 		<loadorder>55</loadorder>
 		<author>Faelwen with modifications by rmilmine and bmos</author>
 		<description>Simple generator for magic items</description>
@@ -16,7 +16,7 @@
 		</ruleset>
 	</properties>
 
-	<announcement text="Customised Item Generator v1.3\nFor Fantasy Grounds 3.3+ and the 3.5E and Pathfinder rulesets.\nBy Faelwen with modifications by rmilmine and bmos." font="emotefont" icon="module_loaded" />
+	<announcement text="Customised Item Generator v1.4\nBy Faelwen with modifications by rmilmine and bmos." font="emotefont" icon="module_loaded" />
 
 	<base>
 		<script name="MagicItemGenerator" file="script/magic_item_generator.lua"/>
