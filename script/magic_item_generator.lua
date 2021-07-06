@@ -6386,7 +6386,7 @@ function getItemType(nodeItem)
 		end
 	end
 	
-	if sSubType:match("ammunition") or (sType == "ammo") then
+	if sSubType:match("ammunition") or sType == "ammo" or sSubType == "ammo" then
 		sItemType = "ammunition";
 	end
 
