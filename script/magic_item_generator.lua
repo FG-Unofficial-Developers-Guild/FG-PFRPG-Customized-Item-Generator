@@ -7192,7 +7192,7 @@ function notifyMissingTypeData(sType, sSubType)
 		ChatManager.SystemMessage(string.format(Interface.getString('magic_item_gen_error_8'), 'type'));
 		bNotified = true
 	end
-	if not sSubType or sSubType == '' then
+	if (not sSubType or sSubType == '') and not sType == 'ammunition' then
 		ChatManager.SystemMessage(string.format(Interface.getString('magic_item_gen_error_8'), 'subtype'));
 		bNotified = true
 	end
