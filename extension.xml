@@ -3,7 +3,7 @@
 <root version="3.0" release="3">
 
 	<properties>
-		<name>Customized Item Generator for 3.5E and Pathfinder</name>
+		<name>Feature: Customized Item Generator</name>
 		<version>1.4</version>
 		<loadorder>55</loadorder>
 		<author>Faelwen with modifications by rmilmine and bmos</author>
