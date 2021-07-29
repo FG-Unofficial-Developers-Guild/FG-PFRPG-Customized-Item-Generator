@@ -7028,7 +7028,7 @@ function getDamageString(aDamage)
 end
 
 local function usingAE()
-	return StringManager.contains(Extension.getExtensions(), "Advanced Effects for 3.5E and Pathfinder");
+	return StringManager.contains(Extension.getExtensions(), "FG-PFRPG-Advanced-Effects");
 end
 
 local function usingKelrugemsAE()

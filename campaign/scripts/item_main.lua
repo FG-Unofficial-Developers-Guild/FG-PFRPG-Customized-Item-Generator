@@ -60,7 +60,7 @@ function update()
 	if updateControl("size", bReadOnly, bID) then bSection3 = true; end
 	
 	local bSection8 = false;
-	local bUsingACIM = StringManager.contains(Extension.getExtensions(), "Advanced Character Inventory Manager for 3.5E and Pathfinder")
+	local bUsingACIM = StringManager.contains(Extension.getExtensions(), "FG-PFRPG-Advanced-Item-Actions")
 	if bUsingACIM then
 		if updateControl("damage", bReadOnly, bID and (bWeapon or bShield)) then bSection8 = true; end
 		if updateControl("damagetype", bReadOnly, bID and (bWeapon or bShield)) then bSection8 = true; end
@@ -81,7 +81,7 @@ function update()
 	if updateControl("speed30", bReadOnly, bID and bArmor) then bSection4 = true; end
 	if updateControl("speed20", bReadOnly, bID and bArmor) then bSection4 = true; end
 
-	local bUsingEnhanceItems = StringManager.contains(Extension.getExtensions(), "PFRPG - Enhanced Items")
+	local bUsingEnhanceItems = StringManager.contains(Extension.getExtensions(), "FG-PFRPG-Enhanced-Items")
 	if bUsingEnhanceItems then
 		current_label.setVisible(false);
 		maxcharges.setVisible(false);
