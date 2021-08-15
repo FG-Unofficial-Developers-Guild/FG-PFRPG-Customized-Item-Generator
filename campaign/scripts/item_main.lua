@@ -130,7 +130,6 @@ function update()
 	divider2.setVisible((bSection1 or bSection2) and bSection3);
 	if bUsingACIM then
 		divider3.setVisible((bSection1 or bSection2 or bSection3) and bSection8);
-		divider8.setVisible((bSection1 or bSection2 or bSection3 or bSection8) and bSection4)
 	else
 		divider3.setVisible((bSection1 or bSection2 or bSection3) and bSection4);
 	end
