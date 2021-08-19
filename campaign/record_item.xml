@@ -7,10 +7,9 @@
 
 <!--  Added button to windowclass -->
 <root>
-
 	<windowclass name="item" merge="join">
 		<sheetdata>
-			<template_launch_button name = "magic_item_generator_button" />
+			<template_launch_button name="magic_item_generator_button" />
 		</sheetdata>
 	</windowclass>
 
@@ -25,5 +24,4 @@
 			</string_columnh>
 		</sheetdata>
 	</windowclass>
-
 </root>
