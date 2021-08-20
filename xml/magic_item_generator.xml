@@ -188,9 +188,10 @@
 			</template_label>
 			
 			<template_combo_box name="combobox_bonus">
-				<anchored height="20" width="200">
+				<anchored height="20">
 					<top parent="button_generate" anchor="bottom" offset="20" />
 					<left anchor="left" offset="120" />
+					<right anchor="right" offset="-20" />
 				</anchored>
 				<default textres="none" />
 				<script>
@@ -202,9 +203,10 @@
 			</template_combo_box>
 			
 			<template_combo_box name="combobox_material">
-				<anchored height="20" width="200">
+				<anchored height="20">
 					<top parent="combobox_bonus" anchor="bottom" offset="5" />
 					<left anchor="left" offset="120" />
+					<right anchor="right" offset="-20" />
 				</anchored>
 				<default textres="none" />
 				<script>
@@ -248,9 +250,10 @@
 			</template_combo_box>
 
 			<template_combo_box name="combobox_item_size">
-				<anchored height="20" width="200">
+				<anchored height="20">
 					<top parent="combobox_material" anchor="bottom" offset="5" />
 					<left anchor="left" offset="120" />
+					<right anchor="right" offset="-20" />
 				</anchored>
 				<default textres="item_size_medium" />
 				<script>
@@ -313,7 +316,6 @@
 				<target>item_ability_list</target>
 			</button_iadd>
 
-			<resize_campaignlistwithtabs/>
 			<close_campaignlist/>
 		</sheetdata>
 	</windowclass>
