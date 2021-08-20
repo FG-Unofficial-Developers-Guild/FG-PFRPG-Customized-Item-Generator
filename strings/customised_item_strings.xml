@@ -23,7 +23,7 @@
 	<string name="label_generate">Generate !</string>
 	<string name="label_item_size">Size</string>
 
-	<string name="none">None</string>
+	<string name="itemnone">None</string>
 
 	<string name="bonus_mwk">Masterwork</string>
 	<string name="bonus_1">Enhancement +1</string>

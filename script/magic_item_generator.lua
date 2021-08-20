@@ -6196,9 +6196,9 @@ function GenerateMagicItem(nodeItem)
 		iExtraCost = iExtraCost + iAbilityExtraCost;
 		sDamageType, iRange = getSpecialAbilityData(aAbility.sAbility, sDamageType, iRange);
 		local sFullSpecialAbility = aAbility.sAbility;
-		if aAbility.sSubAbility ~= Interface.getString("none") then
+		if aAbility.sSubAbility ~= Interface.getString("itemnone") then
 			sFullSpecialAbility = sFullSpecialAbility .. "(" .. aAbility.sSubAbility;
-			if aAbility.sSubSubAbility ~= Interface.getString("none") then
+			if aAbility.sSubSubAbility ~= Interface.getString("itemnone") then
 				sFullSpecialAbility = sFullSpecialAbility .. "(" .. aAbility.sSubSubAbility .. ")";
 			end
 			sFullSpecialAbility = sFullSpecialAbility .. ")";
@@ -6223,10 +6223,10 @@ function GenerateMagicItem(nodeItem)
 	local iNewWeight = getWeightBySize(iNewWeight, sOriginalSize, sItemSize);
 	
 	local iMasterworkCost = 0;
-	if (not bMasterworkMaterial) or (not sEnhancementBonus == Interface.getString("none")) then
+	if (not bMasterworkMaterial) or (not sEnhancementBonus == Interface.getString("itemnone")) then
 		iMasterworkCost = getMasterworkPrice(sType, sItemProperties);
 	end
-	if bMasterworkMaterial or sEnhancementBonus ~= Interface.getString("none") then
+	if bMasterworkMaterial or sEnhancementBonus ~= Interface.getString("itemnone") then
 		sItemProperties = addProperty(sItemProperties, "masterwork");
 		iNewArmorPenalty = iNewArmorPenalty + 1;
 		if iNewArmorPenalty > 0 then
@@ -6238,7 +6238,7 @@ function GenerateMagicItem(nodeItem)
 		sItemProperties = addProperty(sItemProperties, "fragile");
 	end
 
-	if sSpecialMaterial ~= Interface.getString("none") then
+	if sSpecialMaterial ~= Interface.getString("itemnone") then
 		sItemProperties = addProperty(sItemProperties, sSpecialMaterial);
 	end
 	
@@ -6336,18 +6336,18 @@ function cleanAbility(aAbility, sType, sSubType)
 	local aNewAbility = {};
 	local aAbilityList = getAbilityList(sType, sSubType);
 	
-	if aAbility.sAbility == Interface.getString("none") then
+	if aAbility.sAbility == Interface.getString("itemnone") then
 		return aNewAbility;
 	end;
 	aNewAbility.sAbility = aAbility.sAbility;
 
 	if next(aAbilityList[aAbility.sAbility].aSubSelection) == nil then
-		aNewAbility.sSubAbility = Interface.getString("none");
-		aNewAbility.sSubSubAbility = Interface.getString("none");
+		aNewAbility.sSubAbility = Interface.getString("itemnone");
+		aNewAbility.sSubSubAbility = Interface.getString("itemnone");
 	else
 		aNewAbility.sSubAbility = aAbility.sSubAbility;
-		if aAbility.sSubAbility ~= Interface.getString("none") and next(aAbilityList[aAbility.sAbility].aSubSelection[aAbility.sSubAbility].aSubSubSelection) == nil then
-			aNewAbility.sSubSubAbility = Interface.getString("none");
+		if aAbility.sSubAbility ~= Interface.getString("itemnone") and next(aAbilityList[aAbility.sAbility].aSubSelection[aAbility.sSubAbility].aSubSubSelection) == nil then
+			aNewAbility.sSubSubAbility = Interface.getString("itemnone");
 		else
 			aNewAbility.sSubSubAbility = aAbility.sSubSubAbility;
 		end
@@ -6429,10 +6429,10 @@ function checkComboboxes(sType, sSubType, sBonus, sMaterial, aAbilities)
 			end
 		end
 		local aAbilityList = getAbilityList(sType, sSubType);
-		if next(aAbilityList[aAbility1.sAbility].aSubSelection) ~= nil and aAbility1.sSubAbility == Interface.getString("none") then
+		if next(aAbilityList[aAbility1.sAbility].aSubSelection) ~= nil and aAbility1.sSubAbility == Interface.getString("itemnone") then
 			aConflicts.sAbility1 = aAbility1.sAbility;
 			return bBonus, bMaterial, 3, aConflicts;
-		elseif next(aAbilityList[aAbility1.sAbility].aSubSelection) ~= nil and next(aAbilityList[aAbility1.sAbility].aSubSelection[aAbility1.sSubAbility].aSubSubSelection) ~= nil and aAbility1.sSubSubAbility == Interface.getString("none") then
+		elseif next(aAbilityList[aAbility1.sAbility].aSubSelection) ~= nil and next(aAbilityList[aAbility1.sAbility].aSubSelection[aAbility1.sSubAbility].aSubSubSelection) ~= nil and aAbility1.sSubSubAbility == Interface.getString("itemnone") then
 			aConflicts.sAbility1 = aAbility1.sAbility;
 			return bBonus, bMaterial, 3, aConflicts;
 		end
@@ -6450,7 +6450,7 @@ function checkForAbilitySelectionError(sType, sSubType, aAbility1, aAbility2)
 end
 
 function checkSelection(sSelection)
-	return (sSelection ~= Interface.getString("none"));
+	return (sSelection ~= Interface.getString("itemnone"));
 end
 
 function areExclusive(sType, sSubType, sAbility1, sAbility2)
@@ -6567,7 +6567,7 @@ function getMaterialData(sMaterial, iEnhancingBonus, sType, aSubType, sFullSubTy
 	local sNewProperties = sProperties;
 	local sNewDamageType = sDamageType;
 	
-	if sMaterial ~= Interface.getString("none") then
+	if sMaterial ~= Interface.getString("itemnone") then
 		bMasterworkMaterial = aSpecialMaterials[sMaterial].bAlwaysMasterwork;
 		bFragileMaterial = aSpecialMaterials[sMaterial].bFragile;
 	end
@@ -6858,9 +6858,9 @@ end
 function figureAbilityName(sAbility, sSubAbility, sSubSubAbility)
 	local sAbilityName = "";
 	sAbilityName = sAbilityName .. sAbility;
-	if sSubAbility ~= Interface.getString("none") then
+	if sSubAbility ~= Interface.getString("itemnone") then
 		sAbilityName = sAbilityName .. "(" .. sSubAbility;
-		if sSubSubAbility ~= Interface.getString("none") then
+		if sSubSubAbility ~= Interface.getString("itemnone") then
 			sAbilityName = sAbilityName .. "(" .. sSubSubAbility .. ")";
 		end
 		sAbilityName = sAbilityName .. ")";
@@ -6880,7 +6880,7 @@ function getItemNewName(sItemName, sEnhancementBonus, iEnchancementBonus, sSpeci
 	if iEnchancementBonus > 0 then
 		sItemNewName = sItemNewName .. "+" .. tostring(iEnchancementBonus) .. " ";
 	end
-	if sSpecialMaterial ~= Interface.getString("none") then
+	if sSpecialMaterial ~= Interface.getString("itemnone") then
 		sItemNewName = sItemNewName .. aSpecialMaterials[sSpecialMaterial].sStringName .. " ";
 	end
 
@@ -7068,8 +7068,8 @@ function addEffectsForAbility(nodeItem, sType, sSubType, sAbility, sSubAbility, 
 
 	local aEffects = {}
 	if aAbility then
-		if sSubAbility ~= Interface.getString("none") and next(aAbility.aSubSelection) ~= nil then
-			if sSubSubAbility ~= Interface.getString("none") and next(aAbility.aSubSelection[sSubAbility].aSubSubSelection) ~= nil then
+		if sSubAbility ~= Interface.getString("itemnone") and next(aAbility.aSubSelection) ~= nil then
+			if sSubSubAbility ~= Interface.getString("itemnone") and next(aAbility.aSubSelection[sSubAbility].aSubSubSelection) ~= nil then
 				aEffects = aAbility.aSubSelection[sSubAbility].aSubSubSelection[sSubSubAbility].aEffects;
 			else
 				aEffects = aAbility.aSubSelection[sSubAbility].aEffects;
