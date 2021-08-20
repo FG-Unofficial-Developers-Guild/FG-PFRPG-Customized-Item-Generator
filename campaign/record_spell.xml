@@ -23,9 +23,9 @@
 		<margins control="0,0,0,7" />
 		<script file="script/magic_item_generator.lua" />
 		<frame>recordsheet</frame>
-		<sizelimits>
-			<minimum width="370" height="350" />
-		</sizelimits>
+		<placement>
+			<size width="370" height="200" />
+		</placement>
 		<sheetdata>
 			<template_left_anchor />
 			<template_right_anchor />
@@ -69,7 +69,7 @@
 				<anchored height="20">
 					<top parent="button_generate" anchor="bottom" offset="20" />
 					<left anchor="left" offset="120" />
-					<right anchor="right" offset="-20" />
+					<right anchor="right" offset="-25" />
 				</anchored>
 				<default textres="none" />
 				<script>
@@ -92,8 +92,8 @@
 				<center />
 			</basicnumber>
 			<basicnumber name="number_charges">
-				<anchored to="number_cl" height="10">
-					<top anchor="bottom" offset="20" />
+				<anchored to="number_cl" height="20">
+					<top anchor="bottom" offset="10" />
 					<left anchor="left" offset="0" />
 					<right anchor="right" offset="0" />
 				</anchored>
