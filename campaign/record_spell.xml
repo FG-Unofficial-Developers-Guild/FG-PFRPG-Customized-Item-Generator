@@ -24,7 +24,7 @@
 		<script file="script/magic_item_generator.lua" />
 		<frame>recordsheet</frame>
 		<placement>
-			<size width="370" height="200" />
+			<size width="370" height="240" />
 		</placement>
 		<sheetdata>
 			<template_left_anchor />
@@ -50,9 +50,16 @@
 				</anchored>
 				<static textres="label_consumablescreator_type" />
 			</template_label>
-			<template_label name="label_cl">
+			<template_label name="label_class">
 				<anchored>
 					<top parent="label_type" anchor="bottom" offset="10" />
+					<left offset="20" />
+				</anchored>
+				<static textres="label_consumablescreator_class" />
+			</template_label>
+			<template_label name="label_cl">
+				<anchored>
+					<top parent="label_class" anchor="bottom" offset="10" />
 					<left offset="20" />
 				</anchored>
 				<static textres="label_consumablescreator_cl" />
@@ -65,7 +72,7 @@
 				<static textres="label_consumablescreator_charges" />
 			</template_label>
 
-			<template_combo_box name="combobox_type">
+			<template_combo_box name="type">
 				<anchored height="20">
 					<top parent="button_generate" anchor="bottom" offset="20" />
 					<left anchor="left" offset="120" />
@@ -77,12 +84,40 @@
 						if super and super.onInit then
 							super.onInit();
 						end
-						addItems({"Scroll", "Wand", "Potion"})
+						addItems({ "Scroll", "Wand", "Potion" });
+					end
+					function onValueChanged()
+						if super and super.onValueChanged then
+							super.onValueChanged();
+						end
+						window.label_charges.setVisible(getValue() == "Wand");
+						window.charges.setVisible(getValue() == "Wand");
 					end
 				</script>
 			</template_combo_box>
-			<basicnumber name="number_cl">
-				<anchored to="combobox_type" height="20">
+			<template_combo_box name="class">
+				<anchored to="type" height="20">
+					<top anchor="bottom" offset="10" />
+					<left anchor="left" offset="0" />
+					<right anchor="right" offset="0" />
+				</anchored>
+				<default textres="consumable_creator_cleric" />
+				<script>
+					function onInit()
+						if super and super.onInit then
+							super.onInit();
+						end
+						addItems({
+							Interface.getString("consumable_creator_cleric"),
+								Interface.getString("consumable_creator_sorcerer"),
+								Interface.getString("consumable_creator_bard"),
+								Interface.getString("consumable_creator_paladin")
+							});
+					end
+				</script>
+			</template_combo_box>
+			<basicnumber name="cl">
+				<anchored to="class" height="20">
 					<top anchor="bottom" offset="10" />
 					<left anchor="left" offset="0" />
 					<right anchor="right" offset="0" />
@@ -91,13 +126,13 @@
 				<max>20</max>
 				<center />
 			</basicnumber>
-			<basicnumber name="number_charges">
-				<anchored to="number_cl" height="20">
+			<basicnumber name="charges">
+				<anchored to="cl" height="20">
 					<top anchor="bottom" offset="10" />
 					<left anchor="left" offset="0" />
 					<right anchor="right" offset="0" />
 				</anchored>
-				<min>1</min>
+				<min>0</min>
 				<max>50</max>
 				<center />
 			</basicnumber>
