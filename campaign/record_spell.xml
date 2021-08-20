@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!-- Please see the LICENSE.md file included with this distribution for attribution and copyright information. -->
+
+<root>
+	<windowclass name="spelldesc" merge="join">
+		<sheetdata>
+			<template_launch_button name="consumable_creator_button">
+				<state textres="consumable_creator_button_text" />
+				<script>
+					function onButtonPress()
+						local nodeSpell = window.getDatabaseNode();
+						
+						Interface.openWindow("consumable_creator_window", nodeSpell);
+						window.close();
+					end
+				</script>
+			</template_launch_button>
+		</sheetdata>
+	</windowclass>
+	
+	<windowclass name="consumable_creator_window">
+		<margins control="0,0,0,7" />
+		<script file="script/magic_item_generator.lua" />
+		<frame>recordsheet</frame>
+		<sizelimits>
+			<minimum width="370" height="350" />
+		</sizelimits>
+		<sheetdata>
+			<template_left_anchor />
+			<template_right_anchor />
+
+			<template_generate_button name="button_generate">
+				<anchored  width="100" height="50">
+					<top offset="20"/>
+					<left offset="135"/>
+				</anchored>
+				<script>
+					function onButtonPress()
+						local nodeSpell = window.getDatabaseNode();
+
+					end
+				</script>
+			</template_generate_button>
+
+			<template_label name="label_type">
+				<anchored>
+					<top parent="button_generate" anchor="bottom" offset="20" />
+					<left offset="20" />
+				</anchored>
+				<static textres="label_consumablescreator_type" />
+			</template_label>
+			<template_label name="label_cl">
+				<anchored>
+					<top parent="label_type" anchor="bottom" offset="10" />
+					<left offset="20" />
+				</anchored>
+				<static textres="label_consumablescreator_cl" />
+			</template_label>
+			<template_label name="label_charges">
+				<anchored>
+					<top parent="label_cl" anchor="bottom" offset="10" />
+					<left offset="20" />
+				</anchored>
+				<static textres="label_consumablescreator_charges" />
+			</template_label>
+
+			<template_combo_box name="combobox_type">
+				<anchored height="20">
+					<top parent="button_generate" anchor="bottom" offset="20" />
+					<left anchor="left" offset="120" />
+					<right anchor="right" offset="-20" />
+				</anchored>
+				<default textres="none" />
+				<script>
+					function onInit()
+						if super and super.onInit then
+							super.onInit();
+						end
+						addItems({"Scroll", "Wand", "Potion"})
+					end
+				</script>
+			</template_combo_box>
+			<basicnumber name="number_cl">
+				<anchored to="combobox_type" height="20">
+					<top anchor="bottom" offset="10" />
+					<left anchor="left" offset="0" />
+					<right anchor="right" offset="0" />
+				</anchored>
+				<min>1</min>
+				<max>20</max>
+				<center />
+			</basicnumber>
+			<basicnumber name="number_charges">
+				<anchored to="number_cl" height="10">
+					<top anchor="bottom" offset="20" />
+					<left anchor="left" offset="0" />
+					<right anchor="right" offset="0" />
+				</anchored>
+				<min>1</min>
+				<max>50</max>
+				<center />
+			</basicnumber>
+
+			<close_campaignlist/>
+		</sheetdata>
+	</windowclass>
+</root>
