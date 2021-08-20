@@ -35,12 +35,7 @@
 					<top offset="20"/>
 					<left offset="135"/>
 				</anchored>
-				<script>
-					function onButtonPress()
-						local nodeSpell = window.getDatabaseNode();
-
-					end
-				</script>
+				<script file="campaign/scripts/button_generate_consumables.lua" />
 			</template_generate_button>
 
 			<template_label name="label_type">
@@ -107,12 +102,7 @@
 						if super and super.onInit then
 							super.onInit();
 						end
-						addItems({
-							Interface.getString("consumable_creator_cleric"),
-								Interface.getString("consumable_creator_sorcerer"),
-								Interface.getString("consumable_creator_bard"),
-								Interface.getString("consumable_creator_paladin")
-							});
+						addItems({ "Cleric, Druid, Wizard", "Sorcerer", "Bard", "Paladin, Ranger" });
 					end
 				</script>
 			</template_combo_box>
