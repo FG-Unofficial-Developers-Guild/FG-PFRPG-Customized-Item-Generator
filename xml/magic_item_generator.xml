@@ -193,7 +193,7 @@
 					<left anchor="left" offset="120" />
 					<right anchor="right" offset="-20" />
 				</anchored>
-				<default textres="none" />
+				<default textres="itemnone" />
 				<script>
 					function onInit()
 						super.onInit();
