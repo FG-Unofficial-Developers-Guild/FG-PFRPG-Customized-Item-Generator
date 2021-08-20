@@ -1,8 +1,8 @@
 <root>
-    <string name="consumable_creator_button_text">Consumables</string>
-    <string name="label_consumablescreator_type">Type</string>
-    <string name="label_consumablescreator_cl">CL</string>
-    <string name="label_consumablescreator_charges">Charges</string>
+	<string name="label_consumablescreator_type">Type</string>
+	<string name="label_consumablescreator_class">Class</string>
+	<string name="label_consumablescreator_cl">CL</string>
+	<string name="label_consumablescreator_charges">Charges</string>
 
 	<string name="Error_1">Error : Cannot add a special ability if enhancement bonus is not at least +1.</string>
 	<string name="Error_2">Error : Effective bonus is higher than +10.</string>
@@ -14,6 +14,12 @@
 
 	<string name="magic_item_gen_error_8">Error : Item has no %s.</string>
 	<string name="magic_item_generator_button_text">Custom</string>
+	<string name="consumable_creator_button_text">Consumables</string>
+
+	<string name="consumable_creator_cleric">Cleric, Druid, Wizard</string>
+	<string name="consumable_creator_sorcerer">Sorcerer</string>
+	<string name="consumable_creator_bard">Bard</string>
+	<string name="consumable_creator_paladin">Paladin, Ranger</string>
 
 	<string name="label_bonus">Bonus</string>
 	<string name="label_special_material">Special material</string>
