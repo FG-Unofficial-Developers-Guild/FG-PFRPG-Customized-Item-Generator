@@ -78,11 +78,12 @@ function onButtonPress()
 	end
 
 	local nodeItem = DB.findNode("item").createChild();
+	DB.setValue(nodeItem, "locked", "number", 1);
 	DB.setValue(nodeItem, "name", "string", sItemName);
 	DB.setValue(nodeItem, "nonid_name", "string", "Magic " .. sType);
 	DB.setValue(nodeItem, "type", "string", sType);
-	DB.setValue(nodeItem, "description", "string", sDesc);
 	DB.setValue(nodeItem, "cl", "number", nCL);
+	DB.setValue(nodeItem, "description", "formattedtext", sDesc);
 	local sSchool = DB.getValue(nodeSpell, "school", ""):match("(%a+).*");
 	if sSchool and sSchool == "" then
 		DB.setValue(nodeItem, "aura", "string", sSchool);
