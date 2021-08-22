@@ -52,7 +52,7 @@ function onButtonPress()
 	local sSpellName = DB.getValue(nodeSpell, "name", "");
 	local sType = window.type.getValue() or "";
 	local sClass = window.class.getValue() or "";
-	-- local nCL = window.cl.getValue() or 0;
+	local nCL = window.cl.getValue() or 0;
 	if (not sClass or sClass == "") or (not sType or sType == "") or (not sSpellName or sSpellName == "") then
 		return
 	end
@@ -77,6 +77,7 @@ function onButtonPress()
 	DB.setValue(nodeItem, "name", "string", sItemName);
 	DB.setValue(nodeItem, "nonid_name", "string", "Magic " .. sType);
 	DB.setValue(nodeItem, "type", "string", sType);
+	DB.setValue(nodeItem, "cl", "number", nCL);
 	local sSchool = DB.getValue(nodeSpell, "school", ""):match("(%a+).*");
 	if sSchool and sSchool == "" then
 		DB.setValue(nodeItem, "aura", "string", sSchool);
