@@ -75,6 +75,9 @@ function onButtonPress()
 			local nCharges = window.charges.getValue() or 0;
 			if nCharges ~= 0 then
 				sItemName = sItemName .. " [" .. nCharges .. " charges]";
+				if nCharges ~= 50 then
+					nCost = nCost * (nCharges / 50)
+				end
 			end
 		elseif sType == "Scroll" then
 			sDesc = "A scroll is a spell (or collection of spells) that has been stored in written form. A spell on a scroll can be used only once. The writing vanishes from the scroll when the spell is activated. Using a scroll is basically like casting a spell.";
