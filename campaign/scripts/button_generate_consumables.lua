@@ -78,10 +78,10 @@ function onButtonPress()
 	DB.setValue(nodeItem, "nonid_name", "string", "Magic " .. sType);
 	DB.setValue(nodeItem, "type", "string", sType);
 	local sSchool = DB.getValue(nodeSpell, "school", ""):match("(%a+).*");
-	if sSchool or sSchool == "" then
+	if sSchool and sSchool == "" then
 		DB.setValue(nodeItem, "aura", "string", sSchool);
 	end
-	if sCost or sCost ~= "" then
+	if sCost and sCost ~= "" then
 		DB.setValue(nodeItem, "cost", "string", sCost .. " gp");
 	end
 end
