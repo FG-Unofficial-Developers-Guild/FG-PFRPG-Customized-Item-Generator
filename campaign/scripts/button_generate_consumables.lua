@@ -100,7 +100,7 @@ function onButtonPress()
 		DB.setValue(nodeItem, "cl", "number", nCL);
 		DB.setValue(nodeItem, "description", "formattedtext", sDesc);
 		local sSchool = string.lower(DB.getValue(nodeSpell, "school", ""):match("(%a+).*"));
-		if sSchool and sSchool ~= "" then
+		if sSchool and sSchool ~= "" and nCL ~= 0 then
 			sSchool = getAuraString(nCL, sSchool)
 			DB.setValue(nodeItem, "aura", "string", sSchool);
 		end
