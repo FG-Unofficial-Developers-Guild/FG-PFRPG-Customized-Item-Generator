@@ -101,7 +101,7 @@
 						if super and super.onInit then
 							super.onInit();
 						end
-						addItems({ "Cleric, Druid, Wizard", "Sorcerer", "Bard", "Paladin, Ranger" });
+						addItems({ "Cleric", "Druid", "Wizard", "Sorcerer", "Bard", "Paladin", "Ranger" });
 					end
 				</script>
 			</template_combo_box>

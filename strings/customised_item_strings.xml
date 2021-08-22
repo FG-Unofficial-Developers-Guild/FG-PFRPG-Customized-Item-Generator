@@ -16,10 +16,13 @@
 	<string name="magic_item_generator_button_text">Custom</string>
 	<string name="consumable_creator_button_text">Consumables</string>
 
-	<string name="consumable_creator_cleric">Cleric, Druid, Wizard</string>
+	<string name="consumable_creator_cleric">Cleric</string>
+	<string name="consumable_creator_druid">Druid</string>
+	<string name="consumable_creator_wizard">Wizard</string>
 	<string name="consumable_creator_sorcerer">Sorcerer</string>
 	<string name="consumable_creator_bard">Bard</string>
-	<string name="consumable_creator_paladin">Paladin, Ranger</string>
+	<string name="consumable_creator_paladin">Paladin</string>
+	<string name="consumable_creator_ranger">Ranger</string>
 
 	<string name="label_bonus">Bonus</string>
 	<string name="label_special_material">Special material</string>
