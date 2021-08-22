@@ -21,7 +21,6 @@
 	
 	<windowclass name="consumable_creator_window">
 		<margins control="0,0,0,7" />
-		<script file="script/magic_item_generator.lua" />
 		<frame>recordsheet</frame>
 		<placement>
 			<size width="370" height="240" />
