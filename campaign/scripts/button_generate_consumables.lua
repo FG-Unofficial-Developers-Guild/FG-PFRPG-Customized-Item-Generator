@@ -59,17 +59,21 @@ function onButtonPress()
 
 	local sItemName = sType .. " of " .. sSpellName;
 	
-	local sCost
+	local sCost, sDesc
 	local nSpellLevel = DB.getValue(nodeSpell, "level", ""):match("")
 	if sType == "Wand" then
+		sDesc = "A wand is a thin baton that contains a single spell of 4th level or lower. A wand has 50 charges when created—each charge allows the use of the wand’s spell one time. A wand that runs out of charges is just a stick."
+		Debug.chat(sClass, nSpellLevel)
 		sCost = aWandLevelCosts[sClass][nSpellLevel]
 		local nCharges = window.charges.getValue() or 0;
 		if nCharges ~= 0 then
 			sItemName = sItemName .. " [" .. nCharges .. " charges]";
 		end
 	elseif sType == "Scroll" then
+		sDesc = "A scroll is a spell (or collection of spells) that has been stored in written form. A spell on a scroll can be used only once. The writing vanishes from the scroll when the spell is activated. Using a scroll is basically like casting a spell."
 		sCost = aScrollLevelCosts[sClass][nSpellLevel]
 	else
+		sDesc = "A potion is a magic liquid that produces its effect when imbibed. Potions vary incredibly in appearance. Magic oils are similar to potions, except that oils are applied externally rather than imbibed. A potion or oil can be used only once. It can duplicate the effect of a spell of up to 3rd level that has a casting time of less than 1 minute and targets one or more creatures or objects."
 		sCost = aPotionLevelCosts[sClass][nSpellLevel]
 	end
 
@@ -77,6 +81,7 @@ function onButtonPress()
 	DB.setValue(nodeItem, "name", "string", sItemName);
 	DB.setValue(nodeItem, "nonid_name", "string", "Magic " .. sType);
 	DB.setValue(nodeItem, "type", "string", sType);
+	DB.setValue(nodeItem, "description", "string", sDesc);
 	DB.setValue(nodeItem, "cl", "number", nCL);
 	local sSchool = DB.getValue(nodeSpell, "school", ""):match("(%a+).*");
 	if sSchool and sSchool == "" then
