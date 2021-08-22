@@ -121,6 +121,7 @@
 					<left anchor="left" offset="0" />
 					<right anchor="right" offset="0" />
 				</anchored>
+				<default>50</default>
 				<min>0</min>
 				<max>50</max>
 				<center />
