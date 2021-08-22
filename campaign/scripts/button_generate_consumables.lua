@@ -5,25 +5,25 @@
 
 local aWandLevelCosts = {
 			["cleric"] = {
-					["0"] = 375,["1"] = 750, ["2"] = 4500, ["3"] = 11250, ["4"] = 21000
+					[0] = 375,[1] = 750, [2] = 4500, [3] = 11250, [4] = 21000
 				},
 			["druid"] = {
-					["0"] = 375,["1"] = 750, ["2"] = 4500, ["3"] = 11250, ["4"] = 21000
+					[0] = 375,[1] = 750, [2] = 4500, [3] = 11250, [4] = 21000
 				},
 			["wizard"] = {
-					["0"] = 375,["1"] = 750, ["2"] = 4500, ["3"] = 11250, ["4"] = 21000
+					[0] = 375,[1] = 750, [2] = 4500, [3] = 11250, [4] = 21000
 				},
 			["sorcerer"] = {
-					["0"] = 375,["1"] = 750, ["2"] = 6000, ["3"] = 13500, ["4"] = 24000
+					[0] = 375,[1] = 750, [2] = 6000, [3] = 13500, [4] = 24000
 				},
 			["bard"] = {
-					["0"] = 375,["1"] = 750, ["2"] = 6000, ["3"] = 15750, ["4"] = 30000
+					[0] = 375,[1] = 750, [2] = 6000, [3] = 15750, [4] = 30000
 				},
 			["paladin"] = {
-					["1"] = 750, ["2"] = 6000, ["3"] = 15750, ["4"] = 30000
+					[1] = 750, [2] = 6000, [3] = 15750, [4] = 30000
 				},
 			["ranger"] = {
-					["1"] = 750, ["2"] = 6000, ["3"] = 15750, ["4"] = 30000
+					[1] = 750, [2] = 6000, [3] = 15750, [4] = 30000
 				}
 		}
 local aScrollLevelCosts = {
@@ -104,8 +104,7 @@ function onButtonPress()
 	local sItemName = sType .. " of " .. sSpellName;
 
 	local sCost, sDesc
-	local nSpellLevel = tonumber(string.lower(DB.getValue(nodeSpell, "level", "")):match(sClass .. "%w*(%d+).*") or -1);
-	Debug.chat(sClass, nSpellLevel)
+	local nSpellLevel = tonumber(string.lower(DB.getValue(nodeSpell, "level", "")):match(".*" .. sClass .. " (%d+).*") or -1);
 	if nSpellLevel and nSpellLevel ~= -1 then
 		if sType == "Wand" then
 			sDesc = "A wand is a thin baton that contains a single spell of 4th level or lower. A wand has 50 charges when created—each charge allows the use of the wand’s spell one time. A wand that runs out of charges is just a stick."
