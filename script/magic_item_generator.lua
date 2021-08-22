@@ -6157,13 +6157,13 @@ function GenerateMagicItem(nodeItem)
 
 	local bBonus, bMaterial, nErrorCode, aConflicts = checkComboboxes(sType, sSubType, sBonus, sSpecialMaterial, aAbilities);
 	if nErrorCode == 1 then
-		Comm.addChatMessage({text = string.format(Interface.getString("Error_4"), aConflicts.sAbility1), secret = true, icon ="ct_faction_foe"}); 
+		Comm.addChatMessage({text = string.format(Interface.getString("magic_item_gen_error_4"), aConflicts.sAbility1), secret = true, icon ="ct_faction_foe"}); 
 		return false;
     elseif nErrorCode == 2 then
-		Comm.addChatMessage({text = string.format(Interface.getString("Error_5"), aConflicts.sAbility1, aConflicts.sAbility2), secret = true, icon ="ct_faction_foe"}); 
+		Comm.addChatMessage({text = string.format(Interface.getString("magic_item_gen_error_5"), aConflicts.sAbility1, aConflicts.sAbility2), secret = true, icon ="ct_faction_foe"}); 
 		return false;
     elseif nErrorCode == 3 then	
-		Comm.addChatMessage({text = string.format(Interface.getString("Error_6"), aConflicts.sAbility1), secret = true, icon ="ct_faction_foe"}); 
+		Comm.addChatMessage({text = string.format(Interface.getString("magic_item_gen_error_6"), aConflicts.sAbility1), secret = true, icon ="ct_faction_foe"}); 
 		return false;
 	end
 	
@@ -6183,7 +6183,7 @@ function GenerateMagicItem(nodeItem)
 	local iTotalAbilityBonus = 0;
 	
 	if (iEnchancementBonus == 0) and (next(aAbilities) ~= nil) then
-		Comm.addChatMessage({text = Interface.getString("Error_1"), secret = true, icon ="ct_faction_foe"}); 
+		Comm.addChatMessage({text = Interface.getString("magic_item_gen_error_1"), secret = true, icon ="ct_faction_foe"}); 
 		return false;
 	end
 
@@ -6209,12 +6209,12 @@ function GenerateMagicItem(nodeItem)
 	end
 
 	if iTotalAbilityBonus > 5 then
-		Comm.addChatMessage({text = Interface.getString("Error_7"), secret = true, icon = "ct_faction_foe"});
+		Comm.addChatMessage({text = Interface.getString("magic_item_gen_error_7"), secret = true, icon = "ct_faction_foe"});
 		return false;
 	end
 
 	if iEffectiveBonus > 10 then
-		Comm.addChatMessage({text = Interface.getString("Error_2"), secret = true, icon ="ct_faction_foe"}); 
+		Comm.addChatMessage({text = Interface.getString("magic_item_gen_error_2"), secret = true, icon ="ct_faction_foe"}); 
 		return false;
 	end
 

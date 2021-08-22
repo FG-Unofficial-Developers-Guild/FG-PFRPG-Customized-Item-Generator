@@ -12,7 +12,7 @@
 					local sItemType, sItemSubType = MagicItemGenerator.getItemType(nodeItem);
 					
 					if sItemType == "" or (sItemType == "Armor" and sItemSubType == "") then
-						Comm.addChatMessage({text = Interface.getString("Error_3"), secret = true, icon ="ct_faction_foe"}); 
+						Comm.addChatMessage({text = Interface.getString("magic_item_gen_error_3"), secret = true, icon ="ct_faction_foe"}); 
 					else
 						if not nodeItem.getParent().getModule() then
 							Interface.openWindow("MagicPropertiesWindow", nodeItem);

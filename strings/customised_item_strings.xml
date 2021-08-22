@@ -4,15 +4,16 @@
 	<string name="label_consumablescreator_cl">CL</string>
 	<string name="label_consumablescreator_charges">Charges</string>
 
-	<string name="Error_1">Error : Cannot add a special ability if enhancement bonus is not at least +1.</string>
-	<string name="Error_2">Error : Effective bonus is higher than +10.</string>
-	<string name="Error_3">Only weapon, armor, shield and ammunition can be customised.</string>
-	<string name="Error_4">Error : Two special abilities are the same. %s. Can only place one.</string>
-	<string name="Error_5">Error : Two special abilities are exclusive. %s, %s. Can only place one.</string>
-	<string name="Error_6">Error : Special ability missing sub-ability selection. %s.</string>
-	<string name="Error_7">Error : Special ability bonus is higher than +5.</string>
-
+	<string name="magic_item_gen_error_1">Error : Cannot add a special ability if enhancement bonus is not at least +1.</string>
+	<string name="magic_item_gen_error_2">Error : Effective bonus is higher than +10.</string>
+	<string name="magic_item_gen_error_3">Only weapon, armor, shield and ammunition can be customised.</string>
+	<string name="magic_item_gen_error_4">Error : Two special abilities are the same. %s. Can only place one.</string>
+	<string name="magic_item_gen_error_5">Error : Two special abilities are exclusive. %s, %s. Can only place one.</string>
+	<string name="magic_item_gen_error_6">Error : Special ability missing sub-ability selection. %s.</string>
+	<string name="magic_item_gen_error_7">Error : Special ability bonus is higher than +5.</string>
 	<string name="magic_item_gen_error_8">Error : Item has no %s.</string>
+	<string name="magic_item_gen_error_9">Error : Spell level not found for the chosen class.</string>
+
 	<string name="magic_item_generator_button_text">Custom</string>
 	<string name="consumable_creator_button_text">Consumables</string>
 
