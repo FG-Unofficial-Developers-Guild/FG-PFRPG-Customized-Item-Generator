@@ -1,2 +1,2 @@
 # FG PFRPG Customized Item Generator
- Simple generator for magic items.
+Simple generator for magic items and consumables.
