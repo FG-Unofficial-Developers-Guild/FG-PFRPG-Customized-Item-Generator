@@ -155,7 +155,7 @@
 					function onButtonPress()
 						local nodeItem = window.getDatabaseNode();
 
-						if MagicItemGenerator.GenerateMagicItem(nodeItem) then
+						if MagicItemGenerator.generateMagicItem(nodeItem) then
 							local magicWindow = Interface.openWindow("item", nodeItem);
 							window.close();
 						end

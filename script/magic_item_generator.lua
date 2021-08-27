@@ -6141,7 +6141,7 @@ local function getDamageBySize(sDamage, sOriginalSize, sItemSize)
 	return changeDamageBySizeDifference(sDamage, iSizeDifference);
 end
 
-function GenerateMagicItem(nodeItem)
+function generateMagicItem(nodeItem)
 	if not nodeItem then
 		return false;
 	end
