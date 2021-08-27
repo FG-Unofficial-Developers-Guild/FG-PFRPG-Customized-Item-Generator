@@ -96,6 +96,10 @@ function onButtonPress()
 			end
 		end
 
+		sDesc = sDesc .. '<linklist><link class="spelldesc" recordname=\"' .. 
+            UtilityManager.encodeXML(nodeSpell.getPath()) .. '\">' .. sSpellName .. 
+            '</link></linklist>'
+
 		local nodeItem = DB.findNode("item").createChild();
 		DB.setValue(nodeItem, "locked", "number", 1);
 		DB.setValue(nodeItem, "name", "string", sItemName);
