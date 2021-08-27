@@ -123,7 +123,7 @@ function update()
 		gmonly.setVisible(false);
 		if bOptionID and Session.IsHost then
 			if updateControl("gmonly", bReadOnly, true) then bSection7 = true; end
-		else
+		elseif Session.IsHost then
 			updateControl("gmonly", bReadOnly, false);
 		end
 		if Session.IsHost then 
