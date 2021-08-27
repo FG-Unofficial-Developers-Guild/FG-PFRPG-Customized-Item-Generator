@@ -12,7 +12,7 @@
 					local sItemType, sItemSubType = MagicItemGenerator.getItemType(nodeItem);
 					
 					if sItemType == "" or (sItemType == "Armor" and sItemSubType == "") then
-						Comm.addChatMessage({text = Interface.getString("Error_3"), secret = true, icon ="ct_faction_foe"}); 
+						Comm.addChatMessage({text = Interface.getString("magic_item_gen_error_3"), secret = true, icon ="ct_faction_foe"}); 
 					else
 						if not nodeItem.getParent().getModule() then
 							Interface.openWindow("MagicPropertiesWindow", nodeItem);
@@ -193,11 +193,11 @@
 					<left anchor="left" offset="120" />
 					<right anchor="right" offset="-20" />
 				</anchored>
-				<default textres="none" />
+				<default textres="itemnone" />
 				<script>
 					function onInit()
 						super.onInit();
-						addItems({Interface.getString("none"), Interface.getString("bonus_mwk"), Interface.getString("bonus_1"), Interface.getString("bonus_2"), Interface.getString("bonus_3"), Interface.getString("bonus_4"), Interface.getString("bonus_5")})
+						addItems({Interface.getString("itemnone"), Interface.getString("bonus_mwk"), Interface.getString("bonus_1"), Interface.getString("bonus_2"), Interface.getString("bonus_3"), Interface.getString("bonus_4"), Interface.getString("bonus_5")})
 					end
 				</script>
 			</template_combo_box>
@@ -208,7 +208,7 @@
 					<left anchor="left" offset="120" />
 					<right anchor="right" offset="-20" />
 				</anchored>
-				<default textres="none" />
+				<default textres="itemnone" />
 				<script>
 					function onInit()
 						super.onInit();
@@ -227,7 +227,7 @@
 						local bRangedWeapon = (sType == "weapon" and sSubType == "ranged");
 						local bAmmunition = (sType == "ammunition");
 						
-						addItems({Interface.getString("none")});
+						addItems({Interface.getString("itemnone")});
 						for key,value in pairs(MagicItemGenerator.aSpecialMaterials) do
 							if bLightArmor and value.bLightArmor then
 								add(key);
@@ -352,7 +352,7 @@
 					<top anchor="top" offset="0" />
 					<right anchor="left" offset="-5" />
 				</anchored>
-				<default textres="none" />
+				<default textres="itemnone" />
 				<script>
 					function onInit()
 						super.onInit();
@@ -385,7 +385,7 @@
 						local bBow = (sName:lower():match("bow") and (not bCrossbow) );
 						local bFirearm = (sType == "Firearm");
 						
-						addItems({Interface.getString("none")});
+						addItems({Interface.getString("itemnone")});
 						
 						for key,value in pairs(aAbilityList) do
 							if bMeleeWeapon and ((bSlashingWeapon and value.bSlashing) or (bPiercingWeapon and value.bPiercing) or (bBludgeoningWeapon and value.bBludgeoning)) then
@@ -419,12 +419,12 @@
 
 						if aAbilityList ~= nil and next(aAbilityList[sAbility].aSubSelection) ~= nil then
 							window.combobox_ability_sub_select.clear();
-							window.combobox_ability_sub_select.addItems({Interface.getString("none")});
+							window.combobox_ability_sub_select.addItems({Interface.getString("itemnone")});
 							for key,value in pairs(aAbilityList[sAbility].aSubSelection) do
 								window.combobox_ability_sub_select.add(key);
 							end
 							window.label_special_sub_ability.setValue(aAbilityList[sAbility].sSubSelectionLabel);
-							window.combobox_ability_sub_select.setValue(Interface.getString("none"));
+							window.combobox_ability_sub_select.setValue(Interface.getString("itemnone"));
 							window.combobox_ability_sub_select.setComboBoxVisible(true);
 						else
 							window.combobox_ability_sub_select.setComboBoxVisible(false);
@@ -464,7 +464,7 @@
 					<top parent="combobox_ability" anchor="bottom" offset="5" />
 					<left parent="combobox_ability" anchor="left" />
 				</anchored>
-				<default textres="none" />
+				<default textres="itemnone" />
 				<invisible />
 				<script>
 					function onValueChanged()
@@ -490,12 +490,12 @@
 						
 						if aSubSelection ~= nil and next(aSubSelection) ~= nil and next(aSubSelection.aSubSubSelection) ~= nil then
 							window.combobox_ability_sub_sub_select.clear();
-							window.combobox_ability_sub_sub_select.add(Interface.getString("none"));
+							window.combobox_ability_sub_sub_select.add(Interface.getString("itemnone"));
 							for key,value in pairs(aSubSelection.aSubSubSelection) do
 								window.combobox_ability_sub_sub_select.add(key);
 							end
 							window.label_special_sub_sub_ability.setValue(aSubSelection.sSubSubSelectionLabel);
-							window.combobox_ability_sub_sub_select.setValue(Interface.getString("none"));
+							window.combobox_ability_sub_sub_select.setValue(Interface.getString("itemnone"));
 							window.combobox_ability_sub_sub_select.setComboBoxVisible(true);
 						else
 							window.combobox_ability_sub_sub_select.setComboBoxVisible(false);
@@ -514,7 +514,7 @@
 					<top parent="combobox_ability_sub_select" anchor="bottom" offset="5" />
 					<left parent="combobox_ability_sub_select" anchor="left" />
 				</anchored>
-				<default textres="none" />
+				<default textres="itemnone" />
 				<invisible />
 				<script>
 					function onVisibilityChanged()
