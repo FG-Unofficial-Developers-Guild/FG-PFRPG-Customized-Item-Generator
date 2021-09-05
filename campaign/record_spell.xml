@@ -72,7 +72,7 @@
 					<left anchor="left" offset="120" />
 					<right anchor="right" offset="-25" />
 				</anchored>
-				<default textres="consumable_creator_cleric" />
+				<default textres="consumable_blank" />
 				<script>
 					function onInit()
 						if super and super.onInit then
@@ -121,7 +121,7 @@
 					<left anchor="left" offset="0" />
 					<right anchor="right" offset="0" />
 				</anchored>
-				<default textres="none" />
+				<default textres="consumable_blank" />
 				<script>
 					function onInit()
 						if super and super.onInit then
