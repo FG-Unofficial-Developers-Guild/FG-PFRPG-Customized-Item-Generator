@@ -3,6 +3,8 @@
 -- attribution and copyright information.
 --
 
+tArcaneClass = { ['bard'] = 1, ['sorcerer'] = 1, ['wizard'] = 1, ['magus'] = 1, ['summoner'] = 1, ['witch'] = 1, ['arcanist'] = 1, ['bloodrager'] = 1, ['skald'] = 1, ['unchained summoner'] = 1 }
+
 -- arrays of standard gp costs keyed to the appropriate spell level 
 aWandLevelCosts = {
 			["cleric"] = { [0] = 375, [1] = 750, [2] = 4500, [3] = 11250, [4] = 21000 },
@@ -83,6 +85,9 @@ function onButtonPress()
 		elseif sType == "Scroll" then
 			sDesc = "<p>A scroll is a spell (or collection of spells) that has been stored in written form. A spell on a scroll can be used only once. The writing vanishes from the scroll when the spell is activated. Using a scroll is basically like casting a spell.</p>";
 			nCost = aScrollLevelCosts[sClass][nSpellLevel];
+			if not tArcaneClass[sClass] then
+				sItemName = "Divine " .. sItemName
+			end
 			if nCost and nSpellLevel ~= 0 then
 				local nMinCL = (nSpellLevel * 2) - 1;
 				nCost = nCost + (25 * (nCL - nMinCL));
