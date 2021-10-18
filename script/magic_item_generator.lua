@@ -9,7 +9,7 @@ aSpecialMaterials = {
 		bRangedWeapon       = true,
 		bAmmunition         = true,
 		bAlwaysMasterwork   = true,
-		bFragile             = false,
+		bFragile            = false,
 	},
 	["Alchemical silver"] = {
 		sStringName         = "silver",
@@ -21,7 +21,7 @@ aSpecialMaterials = {
 		bRangedWeapon       = false,
 		bAmmunition         = false,
 		bAlwaysMasterwork   = false,
-		bFragile             = false,
+		bFragile            = false,
 	},
 	["Angelskin"] = {
 		sStringName         = "angelskin",
@@ -33,7 +33,7 @@ aSpecialMaterials = {
 		bRangedWeapon       = false,
 		bAmmunition         = false,
 		bAlwaysMasterwork   = true,
-		bFragile             = false,
+		bFragile            = false,
 	},
 	["Blood crystal"] = {
 		sStringName         = "blood crystal",
@@ -45,7 +45,7 @@ aSpecialMaterials = {
 		bRangedWeapon       = false,
 		bAmmunition         = true,
 		bAlwaysMasterwork   = false,
-		bFragile             = false,
+		bFragile            = false,
 	},
 	["Cold iron"] = {
 		sStringName         = "cold iron",
@@ -57,7 +57,7 @@ aSpecialMaterials = {
 		bRangedWeapon       = false,
 		bAmmunition         = true,
 		bAlwaysMasterwork   = false,
-		bFragile             = false,
+		bFragile            = false,
 	},
 	["Darkleaf cloth"] = {
 		sStringName         = "darkleaf cloth",
@@ -69,7 +69,7 @@ aSpecialMaterials = {
 		bRangedWeapon       = false,
 		bAmmunition         = false,
 		bAlwaysMasterwork   = true,
-		bFragile             = false,
+		bFragile            = false,
 	},
 	["Darkwood"] = {
 		sStringName         = "darkwood",
@@ -81,7 +81,7 @@ aSpecialMaterials = {
 		bRangedWeapon       = true,
 		bAmmunition         = true,
 		bAlwaysMasterwork   = true,
-		bFragile             = false,
+		bFragile            = false,
 	},
 	["Dragonhide"] = {
 		sStringName         = "dragonhide",
@@ -93,7 +93,7 @@ aSpecialMaterials = {
 		bRangedWeapon       = false,
 		bAmmunition         = false,
 		bAlwaysMasterwork   = true,
-		bFragile             = false,
+		bFragile            = false,
 	},
 	["Eel hide"] = {
 		sStringName         = "eel hide",
@@ -105,7 +105,7 @@ aSpecialMaterials = {
 		bRangedWeapon       = false,
 		bAmmunition         = false,
 		bAlwaysMasterwork   = true,
-		bFragile             = false,
+		bFragile            = false,
 	},
 	["Elysian bronze"] = {
 		sStringName         = "elysian bronze",
@@ -117,7 +117,7 @@ aSpecialMaterials = {
 		bRangedWeapon       = true,
 		bAmmunition         = true,
 		bAlwaysMasterwork   = false,
-		bFragile             = false,
+		bFragile            = false,
 	},
 	["Fire-forged steel"] = {
 		sStringName         = "fire forged steel",
@@ -129,7 +129,7 @@ aSpecialMaterials = {
 		bRangedWeapon       = true,
 		bAmmunition         = true,
 		bAlwaysMasterwork   = true,
-		bFragile             = false,
+		bFragile            = false,
 	},
 	["Frost-forged steel"] = {
 		sStringName         = "frost forged steel",
@@ -141,7 +141,7 @@ aSpecialMaterials = {
 		bRangedWeapon       = true,
 		bAmmunition         = true,
 		bAlwaysMasterwork   = true,
-		bFragile             = false,
+		bFragile            = false,
 	},
 	["Greenwood"] = {
 		sStringName         = "greenwood",
@@ -153,7 +153,7 @@ aSpecialMaterials = {
 		bRangedWeapon       = false,
 		bAmmunition         = false,
 		bAlwaysMasterwork   = true,
-		bFragile             = false,
+		bFragile            = false,
 	},
 	["Griffon mane"] = {
 		sStringName         = "griffon mane",
@@ -165,7 +165,7 @@ aSpecialMaterials = {
 		bRangedWeapon       = false,
 		bAmmunition         = false,
 		bAlwaysMasterwork   = false,
-		bFragile             = false,
+		bFragile            = false,
 	},
 	["Living steel"] = {
 		sStringName         = "living steel",
@@ -177,7 +177,7 @@ aSpecialMaterials = {
 		bRangedWeapon       = true,
 		bAmmunition         = true,
 		bAlwaysMasterwork   = false,
-		bFragile             = false,
+		bFragile            = false,
 	},
 	["Mithral"] = {
 		sStringName         = "mithral",
@@ -189,7 +189,7 @@ aSpecialMaterials = {
 		bRangedWeapon       = true,
 		bAmmunition         = true,
 		bAlwaysMasterwork   = true,
-		bFragile             = false,
+		bFragile            = false,
 	},
 	["Viridium"] = {
 		sStringName         = "viridium",
@@ -201,7 +201,7 @@ aSpecialMaterials = {
 		bRangedWeapon       = false,
 		bAmmunition         = true,
 		bAlwaysMasterwork   = false,
-		bFragile             = false,
+		bFragile            = false,
 	},
 	["Whipwood"] = {
 		sStringName         = "whipwood",
@@ -213,7 +213,7 @@ aSpecialMaterials = {
 		bRangedWeapon       = false,
 		bAmmunition         = true,
 		bAlwaysMasterwork   = false,
-		bFragile             = false,
+		bFragile            = false,
 	},
 	["Wyroot"] = {
 		sStringName         = "wyroot",
@@ -225,7 +225,7 @@ aSpecialMaterials = {
 		bRangedWeapon       = false,
 		bAmmunition         = false,
 		bAlwaysMasterwork   = false,
-		bFragile             = false,
+		bFragile            = false,
 	},
 	["Bone"] = {
 		sStringName         = "bone",
@@ -237,7 +237,7 @@ aSpecialMaterials = {
 		bRangedWeapon       = false,
 		bAmmunition         = false,
 		bAlwaysMasterwork   = false,
-		bFragile             = true,
+		bFragile            = true,
 	},
 	["Bronze"] = {
 		sStringName         = "bronze",
@@ -249,7 +249,7 @@ aSpecialMaterials = {
 		bRangedWeapon       = false,
 		bAmmunition         = true,
 		bAlwaysMasterwork   = false,
-		bFragile             = true,
+		bFragile            = true,
 	},
 	["Gold"] = {
 		sStringName         = "gold",
@@ -261,7 +261,7 @@ aSpecialMaterials = {
 		bRangedWeapon       = false,
 		bAmmunition         = false,
 		bAlwaysMasterwork   = false,
-		bFragile             = true,
+		bFragile            = true,
 	},
 	["Obsidian"] = {
 		sStringName         = "obsidian",
@@ -273,7 +273,7 @@ aSpecialMaterials = {
 		bRangedWeapon       = false,
 		bAmmunition         = true,
 		bAlwaysMasterwork   = false,
-		bFragile             = true,
+		bFragile            = true,
 	},
 	["Stone"] = {
 		sStringName         = "stone",
@@ -285,7 +285,7 @@ aSpecialMaterials = {
 		bRangedWeapon       = false,
 		bAmmunition         = true,
 		bAlwaysMasterwork   = false,
-		bFragile             = true,
+		bFragile            = true,
 	},
 }
 
