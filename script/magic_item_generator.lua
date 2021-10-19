@@ -46,6 +46,7 @@ aSpecialMaterials = {
 		bAmmunition         = true,
 		bAlwaysMasterwork   = false,
 		bFragile             = false,
+		sAddDescription		= "<p><b>Source:</b></p><p></p>
 	},
 	["Blood crystal"] = {
 		sStringName			= "blood crystal",
@@ -64,14 +65,15 @@ aSpecialMaterials = {
 		bAmmunition         = false,
 		bAlwaysMasterwork   = false,
 		bFragile             = false,
+		sAddDescription		= "<p><b>Source:</b></p><p></p>
 	},	
 	["Bone"] = {
 		sStringName			= "bone",
 		bLightArmor			= true,
 		bMediumArmor		= true,
 		bMeleeWeapon		= true,
-		bFragile			= true,
-		sAddDescription		= "",
+		bFragile			= true,		
+		sAddDescription		= "<p><b>Source:</b></p><p></p>
 	},
 	["Bronze"] = {
 		sStringName			= "bronze",
@@ -81,7 +83,7 @@ aSpecialMaterials = {
 		bMeleeWeapon		= true,
 		bAmmunition			= true,
 		bFragile			= true,
-		sAddDescription		= "",
+		sAddDescription		= "<p><b>Source:</b></p><p></p>
 	},
 	["Chitin"] = {
 		sStringName         = "chitin",
@@ -94,6 +96,7 @@ aSpecialMaterials = {
 		bAmmunition         = false,
 		bAlwaysMasterwork   = false,
 		bFragile             = false,
+		sAddDescription		= "<p><b>Source:</b></p><p></p>
 	},
 	["Clamshell"] = {
 		sStringName         = "clamshell",
@@ -106,11 +109,12 @@ aSpecialMaterials = {
 		bAmmunition         = false,
 		bAlwaysMasterwork   = false,
 		bFragile             = false,
+		sAddDescription		= "<p><b>Source:</b></p><p></p>
 	},	
 	["Cold iron"] = {
-		sStringName			= "cold iron",
+		sStringName		= "cold iron",
 		bMeleeWeapon		= true,
-		bAmmunition			= true,
+		bAmmunition		= true,
 		sAddDescription		= "<p><b>Source:</b> Ultimate Equipment pg. 49, PRPG Core Rulebook pg. 154</p><p>This iron, mined deep underground and known for its effectiveness against demons and fey creatures, is forged at a lower temperature to preserve its delicate properties. Weapons made of cold iron cost twice as much to make as their normal counterparts. Also, adding any magical enhancements to a cold iron weapon increases its price by 2,000 gp. This increase is applied the first time the item is enhanced, not once per ability added.</p><p>Items without metal parts cannot be made from cold iron. An arrow could be made of cold iron, but a quarterstaff could not. A double weapon with one cold iron half costs 50% more than normal.</p>",
 	},
 	["Coral"] = {
@@ -124,6 +128,7 @@ aSpecialMaterials = {
 		bAmmunition         = false,
 		bAlwaysMasterwork   = false,
 		bFragile             = false,
+		sAddDescription		= "<p><b>Source:</b></p><p></p>
 	},	
 	["Cryptstone"] = {
 		sStringName         = "crypt stone",
@@ -136,6 +141,7 @@ aSpecialMaterials = {
 		bAmmunition         = false,
 		bAlwaysMasterwork   = true,
 		bFragile             = false,
+		sAddDescription		= "<p><b>Source:</b> Ultimate Equipment pg. 48</p><p></p>
 	},
 	["Darkleaf cloth"] = {
 		sStringName			= "darkleaf cloth",
@@ -176,6 +182,7 @@ aSpecialMaterials = {
 		bAmmunition         = true,
 		bAlwaysMasterwork   = false,
 		bFragile             = false,
+		sAddDescription		= "<p><b>Source:</b></p><p></p>
 	},
 	["Eel hide"] = {
 		sStringName			= "eel hide",
@@ -225,7 +232,7 @@ aSpecialMaterials = {
 		bMediumArmor		= true,
 		bMeleeWeapon		= true,
 		bFragile			= true,
-		sAddDescription		= "",
+		sAddDescription		= "<p><b>Source:</b></p><p></p>
 	},
 	["Greenwood"] = {
 		sStringName			= "greenwood",
@@ -236,7 +243,7 @@ aSpecialMaterials = {
 	["Griffon mane"] = {
 		sStringName			= "griffon mane",
 		bLightArmor			= true,
-		sAddDescription		= "",
+		sAddDescription		= "<p><b>Source:</b></p><p></p>
 	},	
 	["Horacalcum"] = {
 		sStringName         = "horacalcum",
@@ -249,6 +256,7 @@ aSpecialMaterials = {
 		bAmmunition         = false,
 		bAlwaysMasterwork   = true,
 		bFragile             = false,
+		sAddDescription		= "<p><b>Source:</b></p><p></p>
 	},
 	["Inubrix"] = {
 		sStringName         = "horacalcum",
@@ -261,7 +269,7 @@ aSpecialMaterials = {
 		bAmmunition         = false,
 		bAlwaysMasterwork   = true,
 		bFragile             = false,
-		bBroken	= true,
+		sAddDescription		= "<p><b>Source:</b></p><p></p>
 	},
 	["Living steel"] = {
 		sStringName			= "living steel",
@@ -272,7 +280,7 @@ aSpecialMaterials = {
 		bMeleeWeapon		= true,
 		bRangedWeapon		= true,
 		bAmmunition			= true,
-		sAddDescription		= "",
+		sAddDescription		= "<p><b>Source:</b></p><p></p>
 	},
 	["Magic Bridge Basalt"] = {
 		sStringName         = "magic bridge basalt",
@@ -285,6 +293,7 @@ aSpecialMaterials = {
 		bAmmunition         = false,
 		bAlwaysMasterwork   = false,
 		bFragile             = false,
+		sAddDescription		= "<p><b>Source:</b></p><p></p>
 	},	
 	["Mindglass"] = {
 		sStringName         = "mindglass",
@@ -297,6 +306,7 @@ aSpecialMaterials = {
 		bAmmunition         = false,
 		bAlwaysMasterwork   = false,
 		bFragile             = false,
+		sAddDescription		= "<p><b>Source:</b></p><p></p>
 	},
 	["Mithral"] = {
 		sStringName			= "mithral",
@@ -308,7 +318,7 @@ aSpecialMaterials = {
 		bRangedWeapon		= true,
 		bAmmunition			= true,
 		bAlwaysMasterwork	= true,
-		sAddDescription		= "",
+		sAddDescription		= "<p><b>Source:</b></p><p></p>
 	},
 	["Noqual"] = {
 		sStringName         = "noqual",
@@ -321,13 +331,14 @@ aSpecialMaterials = {
 		bAmmunition         = false,
 		bAlwaysMasterwork   = false,
 		bFragile             = false,
+		sAddDescription		= "<p><b>Source:</b></p><p></p>
 	},
 	["Obsidian"] = {
 		sStringName			= "obsidian",
 		bMeleeWeapon		= true,
 		bAmmunition			= true,
 		bFragile			= true,
-		sAddDescription		= "",
+		sAddDescription		= "<p><b>Source:</b></p><p></p>
 	},
 	["Serpentstone"] = {
 		sStringName         = "serpentstone",
@@ -340,6 +351,7 @@ aSpecialMaterials = {
 		bAmmunition         = false,
 		bAlwaysMasterwork   = false,
 		bFragile             = false,
+		sAddDescription		= "<p><b>Source:</b></p><p></p>
 	},	
 	["Siccatite"] = {
 		sStringName         = "siccatite",
@@ -352,6 +364,7 @@ aSpecialMaterials = {
 		bAmmunition         = false,
 		bAlwaysMasterwork   = false,
 		bFragile             = false,
+		sAddDescription		= "<p><b>Source:</b></p><p></p>
 	},
 	["Silversheen"] = {
 		sStringName         = "silversheen",
@@ -364,6 +377,7 @@ aSpecialMaterials = {
 		bAmmunition         = false,
 		bAlwaysMasterwork   = true,
 		bFragile             = false,
+		sAddDescription		= "<p><b>Source:</b></p><p></p>
 	},	
 	["Spiresteel"] = {
 		sStringName         = "spiresteel",
@@ -376,6 +390,7 @@ aSpecialMaterials = {
 		bAmmunition         = true,
 		bAlwaysMasterwork   = true,
 		bFragile             = false,
+		sAddDescription		= "<p><b>Source:</b></p><p></p>
 	},
 	["Singing Steel"] = {
 		sStringName         = "singing steel",
@@ -388,6 +403,7 @@ aSpecialMaterials = {
 		bAmmunition         = true,
 		bAlwaysMasterwork   = true,
 		bFragile             = false,
+		sAddDescription		= "<p><b>Source:</b></p><p></p>
 	},
 	["Sunsilk"] = {
 		sStringName         = "sunsilk",
@@ -400,13 +416,14 @@ aSpecialMaterials = {
 		bAmmunition         = false,
 		bAlwaysMasterwork   = false,
 		bFragile             = false,
+		sAddDescription		= "<p><b>Source:</b></p><p></p>
 	},
 	["Stone"] = {
 		sStringName			= "stone",
 		bMeleeWeapon		= true,
 		bAmmunition			= true,
 		bFragile			= true,
-		sAddDescription		= "",
+		sAddDescription		= "<p><b>Source:</b></p><p></p>
 	},
 	["Sunsiver"] = {
 		sStringName         = "sunsilver",
@@ -419,12 +436,13 @@ aSpecialMaterials = {
 		bAmmunition         = false,
 		bAlwaysMasterwork   = true,
 		bFragile             = false,
+		sAddDescription		= "<p><b>Source:</b></p><p></p>
 	},
 	["Viridium"] = {
 		sStringName			= "viridium",
 		bMeleeWeapon		= true,
 		bAmmunition			= true,
-		sAddDescription		= "",
+		sAddDescription		= "<p><b>Source:</b> Ultimate Equipment pg. 48</p><p></p>
 	},
 	["Voidglass"] = {
 		sStringName         = "voidglass",
@@ -437,17 +455,18 @@ aSpecialMaterials = {
 		bAmmunition         = false,
 		bAlwaysMasterwork   = false,
 		bFragile             = false,
+		sAddDescription		= "<p><b>Source:</b></p><p></p>
 	},
 	["Whipwood"] = {
 		sStringName			= "whipwood",
 		bMeleeWeapon		= true,
 		bAmmunition			= true,
-		sAddDescription		= "",
+		sAddDescription		= "<p><b>Source:</b> Ultimate Equipment pg. 48</p><p></p>
 	},
 	["Wyroot"] = {
 		sStringName			= "wyroot",
 		bMeleeWeapon		= true,
-		sAddDescription		= "",
+		sAddDescription		= "<p><b>Source:</b> Ultimate Equipment pg. 48</p><p></p>
 	},	
 }
 
