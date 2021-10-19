@@ -46,7 +46,7 @@ aSpecialMaterials = {
 		bAmmunition         = true,
 		bAlwaysMasterwork   = false,
 		bFragile             = false,
-		sAddDescription		= "<p><b>Source:</b></p><p></p>
+		sAddDescription		= "<p><b>Source:</b></p><p></p>"
 	},
 	["Blood crystal"] = {
 		sStringName			= "blood crystal",
@@ -65,7 +65,7 @@ aSpecialMaterials = {
 		bAmmunition         = false,
 		bAlwaysMasterwork   = false,
 		bFragile             = false,
-		sAddDescription		= "<p><b>Source:</b></p><p></p>
+		sAddDescription		= "<p><b>Source:</b></p><p></p>"
 	},	
 	["Bone"] = {
 		sStringName			= "bone",
@@ -73,7 +73,7 @@ aSpecialMaterials = {
 		bMediumArmor		= true,
 		bMeleeWeapon		= true,
 		bFragile			= true,		
-		sAddDescription		= "<p><b>Source:</b></p><p></p>
+		sAddDescription		= "<p><b>Source:</b></p><p></p>"
 	},
 	["Bronze"] = {
 		sStringName			= "bronze",
@@ -83,7 +83,7 @@ aSpecialMaterials = {
 		bMeleeWeapon		= true,
 		bAmmunition			= true,
 		bFragile			= true,
-		sAddDescription		= "<p><b>Source:</b></p><p></p>
+		sAddDescription		= "<p><b>Source:</b></p><p></p>"
 	},
 	["Chitin"] = {
 		sStringName         = "chitin",
@@ -182,7 +182,7 @@ aSpecialMaterials = {
 		bAmmunition         = true,
 		bAlwaysMasterwork   = false,
 		bFragile             = false,
-		sAddDescription		= "<p><b>Source:</b></p><p></p>
+		sAddDescription		= "<p><b>Source:</b></p><p></p>"
 	},
 	["Eel hide"] = {
 		sStringName			= "eel hide",
@@ -232,7 +232,7 @@ aSpecialMaterials = {
 		bMediumArmor		= true,
 		bMeleeWeapon		= true,
 		bFragile			= true,
-		sAddDescription		= "<p><b>Source:</b></p><p></p>
+		sAddDescription		= "<p><b>Source:</b></p><p></p>"
 	},
 	["Greenwood"] = {
 		sStringName			= "greenwood",
@@ -318,7 +318,7 @@ aSpecialMaterials = {
 		bRangedWeapon		= true,
 		bAmmunition			= true,
 		bAlwaysMasterwork	= true,
-		sAddDescription		= "<p><b>Source:</b></p><p></p>
+		sAddDescription		= "<p><b>Source:</b></p><p></p>"
 	},
 	["Noqual"] = {
 		sStringName         = "noqual",
