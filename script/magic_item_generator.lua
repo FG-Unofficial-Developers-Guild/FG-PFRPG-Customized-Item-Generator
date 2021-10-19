@@ -5840,9 +5840,9 @@ function generateMagicItem(nodeItem)
 		end
 	end
 
-	local sItemDescription = DB.getValue(nodeItem, 'description', "")
+	local sItemDescription = DB.getValue(nodeItem, 'description', "");
 	if sAddDescription ~= "" then
-		sItemDescription = sItemDescription .. sAddDescription
+		sItemDescription = sItemDescription .. sAddDescription;
 	end
 
 	--Update fields in DB
@@ -5852,7 +5852,7 @@ function generateMagicItem(nodeItem)
 	populateItemField(nodeItem, 'cost', 'string', tostring(iTotalCost) .. " gp");
 	populateItemField(nodeItem, 'description', 'formattedtext', sItemDescription);
 	populateItemField(nodeItem, 'isidentified', 'number', 0);
-	populateItemField(nodeItem, 'locked', 'number', 1)
+	populateItemField(nodeItem, 'locked', 'number', 1);
 	populateItemField(nodeItem, 'name', 'string', StringManager.capitalize(sItemNewName));
 	populateItemField(nodeItem, 'nonid_name', 'string', StringManager.capitalize(sNewNonIdentifiedName));
 	populateItemField(nodeItem, 'properties', 'string', sItemProperties);
