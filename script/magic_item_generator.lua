@@ -5802,10 +5802,6 @@ function generateMagicItem(nodeItem)
 		sItemProperties = addProperty(sItemProperties, "fragile");
 	end
 
-	if sSpecialMaterial ~= Interface.getString("itemnone") then
-		sItemProperties = addProperty(sItemProperties, sSpecialMaterial);
-	end
-	
 	local iEnhancementCost = getEnchancementCost(iCostBonus, sType);
 	local iTotalCost = iMaterialCost + iMasterworkCost + iEnhancementCost + iExtraCost;
 	
