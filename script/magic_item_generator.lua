@@ -5838,7 +5838,7 @@ function generateMagicItem(nodeItem)
 
 	local sItemDescription = DB.getValue(nodeItem, 'description', "");
 	if sAddDescription ~= "" then
-		sItemDescription = sItemDescription .. sAddDescription;
+		sItemDescription = sItemDescription .. "<h>" .. sSpecialMaterial .. "</h>" .. sAddDescription;
 	end
 
 	--Update fields in DB
