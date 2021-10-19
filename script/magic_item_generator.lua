@@ -46,7 +46,7 @@ aSpecialMaterials = {
 		bAmmunition         = true,
 		bAlwaysMasterwork   = false,
 		bFragile             = false,
-		sAddDescription		= "<p><b>Source:</b></p><p></p>"
+		sAddDescription		= "<p><b>Source:</b></p><p></p>",
 	},
 	["Blood crystal"] = {
 		sStringName			= "blood crystal",
@@ -65,7 +65,7 @@ aSpecialMaterials = {
 		bAmmunition         = false,
 		bAlwaysMasterwork   = false,
 		bFragile             = false,
-		sAddDescription		= "<p><b>Source:</b></p><p></p>"
+		sAddDescription		= "<p><b>Source:</b></p><p></p>",
 	},	
 	["Bone"] = {
 		sStringName			= "bone",
@@ -73,7 +73,7 @@ aSpecialMaterials = {
 		bMediumArmor		= true,
 		bMeleeWeapon		= true,
 		bFragile			= true,		
-		sAddDescription		= "<p><b>Source:</b></p><p></p>"
+		sAddDescription		= "<p><b>Source:</b></p><p></p>",
 	},
 	["Bronze"] = {
 		sStringName			= "bronze",
@@ -83,7 +83,7 @@ aSpecialMaterials = {
 		bMeleeWeapon		= true,
 		bAmmunition			= true,
 		bFragile			= true,
-		sAddDescription		= "<p><b>Source:</b></p><p></p>"
+		sAddDescription		= "<p><b>Source:</b></p><p></p>",
 	},
 	["Chitin"] = {
 		sStringName         = "chitin",
@@ -96,7 +96,7 @@ aSpecialMaterials = {
 		bAmmunition         = false,
 		bAlwaysMasterwork   = false,
 		bFragile             = false,
-		sAddDescription		= "<p><b>Source:</b></p><p></p>
+		sAddDescription		= "<p><b>Source:</b></p><p></p>,
 	},
 	["Clamshell"] = {
 		sStringName         = "clamshell",
@@ -109,7 +109,7 @@ aSpecialMaterials = {
 		bAmmunition         = false,
 		bAlwaysMasterwork   = false,
 		bFragile             = false,
-		sAddDescription		= "<p><b>Source:</b></p><p></p>"
+		sAddDescription		= "<p><b>Source:</b></p><p></p>",
 	},	
 	["Cold iron"] = {
 		sStringName		= "cold iron",
@@ -128,7 +128,7 @@ aSpecialMaterials = {
 		bAmmunition         = false,
 		bAlwaysMasterwork   = false,
 		bFragile             = false,
-		sAddDescription		= "<p><b>Source:</b></p><p></p>"
+		sAddDescription		= "<p><b>Source:</b></p><p></p>",
 	},	
 	["Cryptstone"] = {
 		sStringName         = "crypt stone",
@@ -141,7 +141,7 @@ aSpecialMaterials = {
 		bAmmunition         = false,
 		bAlwaysMasterwork   = true,
 		bFragile             = false,
-		sAddDescription		= "<p><b>Source:</b> Ultimate Equipment pg. 48</p><p></p>"
+		sAddDescription		= "<p><b>Source:</b> Ultimate Equipment pg. 48</p><p></p>",
 	},
 	["Darkleaf cloth"] = {
 		sStringName			= "darkleaf cloth",
@@ -182,7 +182,7 @@ aSpecialMaterials = {
 		bAmmunition         = true,
 		bAlwaysMasterwork   = false,
 		bFragile             = false,
-		sAddDescription		= "<p><b>Source:</b></p><p></p>"
+		sAddDescription		= "<p><b>Source:</b></p><p></p>",
 	},
 	["Eel hide"] = {
 		sStringName			= "eel hide",
@@ -232,7 +232,7 @@ aSpecialMaterials = {
 		bMediumArmor		= true,
 		bMeleeWeapon		= true,
 		bFragile			= true,
-		sAddDescription		= "<p><b>Source:</b></p><p></p>"
+		sAddDescription		= "<p><b>Source:</b></p><p></p>",
 	},
 	["Greenwood"] = {
 		sStringName			= "greenwood",
@@ -243,7 +243,7 @@ aSpecialMaterials = {
 	["Griffon mane"] = {
 		sStringName			= "griffon mane",
 		bLightArmor			= true,
-		sAddDescription		= "<p><b>Source:</b></p><p></p>"
+		sAddDescription		= "<p><b>Source:</b></p><p></p>",
 	},	
 	["Horacalcum"] = {
 		sStringName         = "horacalcum",
@@ -256,7 +256,7 @@ aSpecialMaterials = {
 		bAmmunition         = false,
 		bAlwaysMasterwork   = true,
 		bFragile             = false,
-		sAddDescription		= "<p><b>Source:</b></p><p></p>"
+		sAddDescription		= "<p><b>Source:</b></p><p></p>",
 	},
 	["Inubrix"] = {
 		sStringName         = "horacalcum",
@@ -269,7 +269,7 @@ aSpecialMaterials = {
 		bAmmunition         = false,
 		bAlwaysMasterwork   = true,
 		bFragile             = false,
-		sAddDescription		= "<p><b>Source:</b></p><p></p>"
+		sAddDescription		= "<p><b>Source:</b></p><p></p>",
 	},
 	["Living steel"] = {
 		sStringName			= "living steel",
@@ -280,7 +280,7 @@ aSpecialMaterials = {
 		bMeleeWeapon		= true,
 		bRangedWeapon		= true,
 		bAmmunition			= true,
-		sAddDescription		= "<p><b>Source:</b></p><p></p>"
+		sAddDescription		= "<p><b>Source:</b></p><p></p>",
 	},
 	["Magic Bridge Basalt"] = {
 		sStringName         = "magic bridge basalt",
@@ -293,7 +293,7 @@ aSpecialMaterials = {
 		bAmmunition         = false,
 		bAlwaysMasterwork   = false,
 		bFragile             = false,
-		sAddDescription		= "<p><b>Source:</b></p><p></p>"
+		sAddDescription		= "<p><b>Source:</b></p><p></p>",
 	},	
 	["Mindglass"] = {
 		sStringName         = "mindglass",
@@ -306,7 +306,7 @@ aSpecialMaterials = {
 		bAmmunition         = false,
 		bAlwaysMasterwork   = false,
 		bFragile             = false,
-		sAddDescription		= "<p><b>Source:</b></p><p></p>"
+		sAddDescription		= "<p><b>Source:</b></p><p></p>",
 	},
 	["Mithral"] = {
 		sStringName			= "mithral",
@@ -318,7 +318,7 @@ aSpecialMaterials = {
 		bRangedWeapon		= true,
 		bAmmunition			= true,
 		bAlwaysMasterwork	= true,
-		sAddDescription		= "<p><b>Source:</b></p><p></p>"
+		sAddDescription		= "<p><b>Source:</b></p><p></p>",
 	},
 	["Noqual"] = {
 		sStringName         = "noqual",
@@ -331,14 +331,14 @@ aSpecialMaterials = {
 		bAmmunition         = false,
 		bAlwaysMasterwork   = false,
 		bFragile             = false,
-		sAddDescription		= "<p><b>Source:</b></p><p></p>"
+		sAddDescription		= "<p><b>Source:</b></p><p></p>",
 	},
 	["Obsidian"] = {
 		sStringName			= "obsidian",
 		bMeleeWeapon		= true,
 		bAmmunition			= true,
 		bFragile			= true,
-		sAddDescription		= "<p><b>Source:</b></p><p></p>"
+		sAddDescription		= "<p><b>Source:</b></p><p></p>",
 	},
 	["Serpentstone"] = {
 		sStringName         = "serpentstone",
@@ -351,7 +351,7 @@ aSpecialMaterials = {
 		bAmmunition         = false,
 		bAlwaysMasterwork   = false,
 		bFragile             = false,
-		sAddDescription		= "<p><b>Source:</b></p><p></p>"
+		sAddDescription		= "<p><b>Source:</b></p><p></p>",
 	},	
 	["Siccatite"] = {
 		sStringName         = "siccatite",
@@ -364,7 +364,7 @@ aSpecialMaterials = {
 		bAmmunition         = false,
 		bAlwaysMasterwork   = false,
 		bFragile             = false,
-		sAddDescription		= "<p><b>Source:</b></p><p></p>"
+		sAddDescription		= "<p><b>Source:</b></p><p></p>",
 	},
 	["Silversheen"] = {
 		sStringName         = "silversheen",
@@ -377,7 +377,7 @@ aSpecialMaterials = {
 		bAmmunition         = false,
 		bAlwaysMasterwork   = true,
 		bFragile             = false,
-		sAddDescription		= "<p><b>Source:</b></p><p></p>"
+		sAddDescription		= "<p><b>Source:</b></p><p></p>",
 	},	
 	["Spiresteel"] = {
 		sStringName         = "spiresteel",
@@ -390,7 +390,7 @@ aSpecialMaterials = {
 		bAmmunition         = true,
 		bAlwaysMasterwork   = true,
 		bFragile             = false,
-		sAddDescription		= "<p><b>Source:</b></p><p></p>"
+		sAddDescription		= "<p><b>Source:</b></p><p></p>",
 	},
 	["Singing Steel"] = {
 		sStringName         = "singing steel",
@@ -403,7 +403,7 @@ aSpecialMaterials = {
 		bAmmunition         = true,
 		bAlwaysMasterwork   = true,
 		bFragile             = false,
-		sAddDescription		= "<p><b>Source:</b></p><p></p>"
+		sAddDescription		= "<p><b>Source:</b></p><p></p>",
 	},
 	["Sunsilk"] = {
 		sStringName         = "sunsilk",
@@ -416,14 +416,14 @@ aSpecialMaterials = {
 		bAmmunition         = false,
 		bAlwaysMasterwork   = false,
 		bFragile             = false,
-		sAddDescription		= "<p><b>Source:</b></p><p></p>"
+		sAddDescription		= "<p><b>Source:</b></p><p></p>",
 	},
 	["Stone"] = {
 		sStringName			= "stone",
 		bMeleeWeapon		= true,
 		bAmmunition			= true,
 		bFragile			= true,
-		sAddDescription		= "<p><b>Source:</b></p><p></p>"
+		sAddDescription		= "<p><b>Source:</b></p><p></p>",
 	},
 	["Sunsiver"] = {
 		sStringName         = "sunsilver",
@@ -436,13 +436,13 @@ aSpecialMaterials = {
 		bAmmunition         = false,
 		bAlwaysMasterwork   = true,
 		bFragile             = false,
-		sAddDescription		= "<p><b>Source:</b></p><p></p>"
+		sAddDescription		= "<p><b>Source:</b></p><p></p>",
 	},
 	["Viridium"] = {
 		sStringName			= "viridium",
 		bMeleeWeapon		= true,
 		bAmmunition			= true,
-		sAddDescription		= "<p><b>Source:</b> Ultimate Equipment pg. 52</p><p>This deep green volcanic glass is similar to obsidian but is formed when molten rock is tainted with anomalous trace minerals from deep beneath the earth whose emanations are toxic to living things. It can be fragmented to razor sharpness, but even a tiny amount of viridium contacting the bloodstream can pass on a wasting sickness. Any successful hit with a viridium weapon causes the target to contract leprosy (Fortitude DC 12 negates). On a successful critical hit, a tiny fragment of viridium breaks off within the target, affecting it as though with greenblood oil (Fortitude DC 13 negates). A creature carrying a viridium weapon must save every 24 hours or contract leprosy unless the weapon is kept inside an extradimensional space (such as an efficient quiver) or a scabbard lined with lead. Oozes, plants, and outsiders are immune to the deadly emanations of viridium. Viridium weapons have half the hardness of their base weapon and have the fragile quality. Viridium can be magically strengthened at an additional cost of +1,000 gp for a weapon or +20 gp for ammunition. This removes the fragile quality from the item but does not otherwise affect its abilities.</p>"
+		sAddDescription		= "<p><b>Source:</b> Ultimate Equipment pg. 52</p><p>This deep green volcanic glass is similar to obsidian but is formed when molten rock is tainted with anomalous trace minerals from deep beneath the earth whose emanations are toxic to living things. It can be fragmented to razor sharpness, but even a tiny amount of viridium contacting the bloodstream can pass on a wasting sickness. Any successful hit with a viridium weapon causes the target to contract leprosy (Fortitude DC 12 negates). On a successful critical hit, a tiny fragment of viridium breaks off within the target, affecting it as though with greenblood oil (Fortitude DC 13 negates). A creature carrying a viridium weapon must save every 24 hours or contract leprosy unless the weapon is kept inside an extradimensional space (such as an efficient quiver) or a scabbard lined with lead. Oozes, plants, and outsiders are immune to the deadly emanations of viridium. Viridium weapons have half the hardness of their base weapon and have the fragile quality. Viridium can be magically strengthened at an additional cost of +1,000 gp for a weapon or +20 gp for ammunition. This removes the fragile quality from the item but does not otherwise affect its abilities.</p>",
 	},
 	["Voidglass"] = {
 		sStringName         = "voidglass",
@@ -455,18 +455,18 @@ aSpecialMaterials = {
 		bAmmunition         = false,
 		bAlwaysMasterwork   = false,
 		bFragile             = false,
-		sAddDescription		= "<p><b>Source: The Dragon's Demand pg. 35</b></p><p>Grioths wield weapons fashioned from a strange sort of transparent material called voidglass. This material is as hard as steel, but made of crystals that voidglass shapers on unknown worlds grow into the desired shapes. Voidglass resonates with a creature’s mind, bolstering thought and mental defenses. Any suit of armor normally made from metal can be made of voidglass. A suit of light voidglass armor grants a +1 resistance bonus on all saving throws against mind-affecting magic. This bonus increases to +2 for medium voidglass armor, and +3 for heavy voidglass armor. Voidglass armor isn’t often worn by grioths, but voidglass weapons are another story. The creatures (and perhaps other strange beings with similar psychic capabilities) can funnel violent bursts of psychic energy through these weapons on a hit. In the hands of any creature, a voidglass piercing or slashing weapon deals 1 additional damage on a hit—bludgeoning weapons gain no benefit. Voidglass has 30 hit points per inch of thickness and hardness 10. A pound of raw, unworked voidglass is worth 100 gp.</p>"
+		sAddDescription		= "<p><b>Source: The Dragon's Demand pg. 35</b></p><p>Grioths wield weapons fashioned from a strange sort of transparent material called voidglass. This material is as hard as steel, but made of crystals that voidglass shapers on unknown worlds grow into the desired shapes. Voidglass resonates with a creature’s mind, bolstering thought and mental defenses. Any suit of armor normally made from metal can be made of voidglass. A suit of light voidglass armor grants a +1 resistance bonus on all saving throws against mind-affecting magic. This bonus increases to +2 for medium voidglass armor, and +3 for heavy voidglass armor. Voidglass armor isn’t often worn by grioths, but voidglass weapons are another story. The creatures (and perhaps other strange beings with similar psychic capabilities) can funnel violent bursts of psychic energy through these weapons on a hit. In the hands of any creature, a voidglass piercing or slashing weapon deals 1 additional damage on a hit—bludgeoning weapons gain no benefit. Voidglass has 30 hit points per inch of thickness and hardness 10. A pound of raw, unworked voidglass is worth 100 gp.</p>",
 	},
 	["Whipwood"] = {
 		sStringName			= "whipwood",
 		bMeleeWeapon		= true,
 		bAmmunition			= true,
-		sAddDescription		= "<p><b>Source:</b> Advance Race Guide pg. 207,  Ultimate Equipment pg. 52</p><p>Vanara woodworkers craft this extremely flexible material in a time-consuming process. Whipwood is actually a composite of several bendable wooden fibers woven and fused together to form a flexible but sturdy unit. Only wooden weapons or weapons with wooden hafts (such as axes and spears) can be made out of whipwood. A creature wielding a whipwood weapon treats its CMD as +2 higher for the purpose of avoiding sunder attempts against that weapon. A whipwood weapon’s hit points increase by +5. Whipwood loses its special qualities if under the effect of an ironwood spell.</p>"
+		sAddDescription		= "<p><b>Source:</b> Advance Race Guide pg. 207,  Ultimate Equipment pg. 52</p><p>Vanara woodworkers craft this extremely flexible material in a time-consuming process. Whipwood is actually a composite of several bendable wooden fibers woven and fused together to form a flexible but sturdy unit. Only wooden weapons or weapons with wooden hafts (such as axes and spears) can be made out of whipwood. A creature wielding a whipwood weapon treats its CMD as +2 higher for the purpose of avoiding sunder attempts against that weapon. A whipwood weapon’s hit points increase by +5. Whipwood loses its special qualities if under the effect of an ironwood spell.</p>",
 	},
 	["Wyroot"] = {
 		sStringName			= "wyroot",
 		bMeleeWeapon		= true,
-		sAddDescription		= "<p><b>Source:</b> Advance Race Guide pg. 27,  Ultimate Equipment pg. 52</p><p>The root of the wyrwood tree has a peculiar quality. When a weapon constructed of wyroot confirms a critical hit, it absorbs some of the life force of the creature hit. The creature hit is unharmed and the wyroot weapon gains 1 life point. As a swift action, a wielder with a ki pool or an arcane pool can absorb 1 life point from the wyrwood weapon and convert it into either 1 ki point or 1 arcane pool point. A wyroot weapon can gain at most 1 life point per day and hold up to 1 life point at a time. More powerful wyroot weapons can gain up to 3 life points per day and hold up to 3 life points at a time. Any unspent life points dissipate at dusk. A creature can convert life points from only one wyroot weapon per day. Wyroot can be used to construct any melee weapon made entirely of wood or with a wooden haft. Constructing a weapon that can hold 1 life point increases the cost by 1,000 gp, constructing one that can hold up to 2 life points increases the cost by 2,000 gp, and constructing one that can hold up to 3 life points increases the cost by 4,000 gp.</p>"
+		sAddDescription		= "<p><b>Source:</b> Advance Race Guide pg. 27,  Ultimate Equipment pg. 52</p><p>The root of the wyrwood tree has a peculiar quality. When a weapon constructed of wyroot confirms a critical hit, it absorbs some of the life force of the creature hit. The creature hit is unharmed and the wyroot weapon gains 1 life point. As a swift action, a wielder with a ki pool or an arcane pool can absorb 1 life point from the wyrwood weapon and convert it into either 1 ki point or 1 arcane pool point. A wyroot weapon can gain at most 1 life point per day and hold up to 1 life point at a time. More powerful wyroot weapons can gain up to 3 life points per day and hold up to 3 life points at a time. Any unspent life points dissipate at dusk. A creature can convert life points from only one wyroot weapon per day. Wyroot can be used to construct any melee weapon made entirely of wood or with a wooden haft. Constructing a weapon that can hold 1 life point increases the cost by 1,000 gp, constructing one that can hold up to 2 life points increases the cost by 2,000 gp, and constructing one that can hold up to 3 life points increases the cost by 4,000 gp.</p>",
 	},	
 }
 
