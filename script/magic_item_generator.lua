@@ -10,6 +10,7 @@ aSpecialMaterials = {
 		bAmmunition         = true,
 		bAlwaysMasterwork   = false,
 		bFragile             = false,
+		sAddDescription = "<p><b> Source:</b> Shards of Sin pg. 70</p><p>This glowing, blue-green substance can be a source of great energy. It also causes those who spend extended amounts of time near it to grow ill and die unless proper precautions are taken. Abysium functions as steel when used for weapons and armor, but those who carry or wear abysium arms or armor become sickened for as long as the gear is carried or worn. Likewise, those in an area with heavy concentrations of abysium become sickened for as long as they remain in the area. This is a poison effect. Weapons and armor made from abysium glow with an intensity equal to that of a candle. Abysium can also be powdered and alchemically distilled with other rare catalysts and chemicals to form a much more potent toxin. A pound of Abysium is enough to make 1 dose of abysium powder.</p>",
 	},
 	["Adamantine"] = {
 		sStringName			= "adamantine",
