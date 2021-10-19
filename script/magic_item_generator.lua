@@ -8,19 +8,19 @@ aSpecialMaterials = {
 		bRangedWeapon		= true,
 		bAmmunition			= true,
 		bAlwaysMasterwork	= true,
-		sAddDescription		= "<p>Mined from rocks that fell from the heavens, this ultrahard metal adds to the quality of a weapon or suit of armor. Weapons fashioned from adamantine have a natural ability to bypass hardness when sundering weapons or attacking objects, ignoring hardness less than 20. Armor made from adamantine grants its wearer damage reduction of 1/— if it’s light armor, 2/— if it’s medium armor, and 3/— if it’s heavy armor. Adamantine is so costly that weapons and armor made from it are always of masterwork quality; the masterwork cost is included in the prices given below. Thus, adamantine weapons and ammunition have a +1 enhancement bonus on attack rolls, and the armor check penalty of adamantine armor is lessened by 1 compared to ordinary armor of its type. Items without metal parts cannot be made from adamantine. An arrow could be made of adamantine, but a quarterstaff could not.</p><p>Weapons and armor normally made of steel that are made of adamantine have one-third more hit points than normal. Adamantine has 40 hit points per inch of thickness and hardness 20.</p>",
+		sAddDescription		= "<p>Mined from rocks that fell from the heavens, this ultrahard metal adds to the quality of a weapon or suit of armor. Weapons fashioned from adamantine have a natural ability to bypass hardness when sundering weapons or attacking objects, ignoring hardness less than 20. Armor made from adamantine grants its wearer damage reduction of 1/— if it’s light armor, 2/— if it’s medium armor, and 3/— if it’s heavy armor. Adamantine is so costly that weapons and armor made from it are always of masterwork quality; the masterwork cost is included in the prices given below. Thus, adamantine weapons and ammunition have a +1 enhancement bonus on attack rolls, and the armor check penalty of adamantine armor is lessened by 1 compared to ordinary armor of its type. Items without metal parts cannot be made from adamantine. An arrow could be made of adamantine, but a quarterstaff could not.</p>",
 	},
 	["Alchemical silver"] = {
 		sStringName			= "silver",
 		bMeleeWeapon		= true,
-		sAddDescription		= "",
+		sAddDescription		= "<p>A complex process involving metallurgy and alchemy can bond silver to a weapon made of steel so that it bypasses the damage reduction of creatures such as lycanthropes.</p><p>On a successful attack with a silvered slashing or piercing weapon, the wielder takes a –1 penalty on the damage roll (with a minimum of 1 point of damage). The alchemical silvering process can’t be applied to nonmetal items, and it doesn’t work on rare metals such as adamantine, cold iron, and mithral.</p>",
 	},
 	["Angelskin"] = {
 		sStringName			= "angelskin",
 		bLightArmor			= true,
 		bMediumArmor		= true,
 		bAlwaysMasterwork	= true,
-		sAddDescription		= "",
+		sAddDescription		= "<p>The preserved skin of an angel retains a portion of celestial grace and can be crafted into leather, hide, or studded leather armor. Angelskin radiates a moderate good aura that masks malign auras. Any evil aura radiated by the wearer is reduced in strength by 10 Hit Dice. Auras reduced below 1 Hit Die can’t be detected by means such as detect evil; the creature doesn’t detect as evil, though this has no effect on other aspects of the creature’s alignment. For example, a weak chaotic creature wearing angelskin armor detects as chaotic, but not evil.</p><p>Spells and supernatural abilities that have special effects when cast on or used against creatures with evil alignments (even beneficial effects) have a 20% chance of treating an evil wearer as neutral instead. Ongoing effects such as smite evil make this roll the first time they are used against the creature; if the effect treats the target as neutral, it does so for the remainder of the effect’s duration. If the ongoing effect applies to an area and the wearer leaves that area, the percentage chance should be rolled again. Permanent magic items such as holy weapons always treat the wearer as evil. Armor constructed from angelskin is always of masterwork quality.</p>",
 	},
 	["Blood crystal"] = {
 		sStringName			= "blood crystal",
