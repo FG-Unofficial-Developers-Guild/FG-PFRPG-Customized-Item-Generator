@@ -8,7 +8,7 @@ aSpecialMaterials = {
 		bRangedWeapon		= true,
 		bAmmunition			= true,
 		bAlwaysMasterwork	= true,
-		sAddDescription		= "",
+		sAddDescription		= "<p>Mined from rocks that fell from the heavens, this ultrahard metal adds to the quality of a weapon or suit of armor. Weapons fashioned from adamantine have a natural ability to bypass hardness when sundering weapons or attacking objects, ignoring hardness less than 20. Armor made from adamantine grants its wearer damage reduction of 1/— if it’s light armor, 2/— if it’s medium armor, and 3/— if it’s heavy armor. Adamantine is so costly that weapons and armor made from it are always of masterwork quality; the masterwork cost is included in the prices given below. Thus, adamantine weapons and ammunition have a +1 enhancement bonus on attack rolls, and the armor check penalty of adamantine armor is lessened by 1 compared to ordinary armor of its type. Items without metal parts cannot be made from adamantine. An arrow could be made of adamantine, but a quarterstaff could not.</p><p>Weapons and armor normally made of steel that are made of adamantine have one-third more hit points than normal. Adamantine has 40 hit points per inch of thickness and hardness 20.</p>",
 	},
 	["Alchemical silver"] = {
 		sStringName			= "silver",
@@ -5842,7 +5842,7 @@ function generateMagicItem(nodeItem)
 
 	local sItemDescription = DB.getValue(nodeItem, 'description', "")
 	if sAddDescription ~= "" then
-		sItemDescription = sItemDescription .. "\n" .. sAddDescription
+		sItemDescription = sItemDescription .. sAddDescription
 	end
 
 	--Update fields in DB
@@ -5850,7 +5850,7 @@ function generateMagicItem(nodeItem)
 	populateItemField(nodeItem, 'bonus', 'number', iNewBonus);
 	populateItemField(nodeItem, 'cl', 'number', iCL);
 	populateItemField(nodeItem, 'cost', 'string', tostring(iTotalCost) .. " gp");
-	populateItemField(nodeItem, 'description', 'formattedtext', "");
+	populateItemField(nodeItem, 'description', 'formattedtext', sItemDescription);
 	populateItemField(nodeItem, 'isidentified', 'number', 0);
 	populateItemField(nodeItem, 'locked', 'number', 1)
 	populateItemField(nodeItem, 'name', 'string', StringManager.capitalize(sItemNewName));
