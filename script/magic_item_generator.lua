@@ -96,7 +96,7 @@ aSpecialMaterials = {
 		bAmmunition         = false,
 		bAlwaysMasterwork   = false,
 		bFragile             = false,
-		sAddDescription		= "<p><b>Source:</b></p><p></p>,
+		sAddDescription		= "<p><b>Source:</b></p><p></p>",
 	},
 	["Clamshell"] = {
 		sStringName         = "clamshell",
