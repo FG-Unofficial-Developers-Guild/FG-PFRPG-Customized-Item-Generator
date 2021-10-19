@@ -35,6 +35,19 @@ aSpecialMaterials = {
 		bAlwaysMasterwork	= true,
 		sAddDescription		= "<p><b>Source:</b> Ultimate Equipment pg. 48</p><p>The preserved skin of an angel retains a portion of celestial grace and can be crafted into leather, hide, or studded leather armor. Angelskin radiates a moderate good aura that masks malign auras. Any evil aura radiated by the wearer is reduced in strength by 10 Hit Dice. Auras reduced below 1 Hit Die can’t be detected by means such as detect evil. The creature doesn’t detect as evil, though this has no effect on other aspects of the creature’s alignment. For example, a weak chaotic creature wearing angelskin armor detects as chaotic, but not evil.</p><p>Spells and supernatural abilities that have special effects when cast on or used against creatures with evil alignments (even beneficial effects) have a 20% chance of treating an evil wearer as neutral instead. Ongoing effects such as smite evil make this roll the first time they are used against the creature; if the effect treats the target as neutral, it does so for the remainder of the effect’s duration. If the ongoing effect applies to an area and the wearer leaves that area, the percentage chance should be rolled again. Permanent magic items such as holy weapons always treat the wearer as evil. Armor constructed from angelskin is always of masterwork quality.</p>",
 	},
+	["Aszite"] = {
+		sStringName         = "aszite",
+		bLightArmor         = true,
+		bMediumArmor        = true,
+		bHeavyArmor         = true,
+		bShield             = false,
+		bMeleeWeapon        = false,
+		bRangedWeapon       = false,
+		bAmmunition         = false,
+		bAlwaysMasterwork   = false,
+		bFragile             = false,
+		sAddDescription		= "<p><b>Source: Distant Realms pg. 43 </b></p><p>The twin ores of aszite and druchite are found only on the Shadow Plane. These ores are highly sought after for structural construction, as well as for their use in enhancing armor and weapons. The navy-blue ore known as aszite is often used to reinforce buildings. While aszite cannot be properly worked into weapons, it can be added in the form of veinlike reinforcements to armor, where it absorbs and amplifies certain unique magical properties. Adding aszite veins to armor increases the item’s weight by 10%. The added veins are capable of absorbing extra power from spells with the darkness descriptor. The wearer of aszite-veined armor gains a +2 circumstance bonus on Stealth checks when affected by a spell with the darkness descriptor. In addition, spells with the darkness descriptor that last multiple rounds last 1 round longer when affecting a creature with aszite-veined armor. If the spell affects an object (such as a darkness spell) then targeting a piece of aszite-veined armor instead increases the spell’s duration by 50%. Aszite has hardness 15 and has 20 hit points per inch of thickness.</p>",
+	},
 	["Blight Quartz"] = {
 		sStringName         = "blight quartz",
 		bLightArmor         = false,
@@ -46,7 +59,9 @@ aSpecialMaterials = {
 		bAmmunition         = true,
 		bAlwaysMasterwork   = false,
 		bFragile             = false,
-		sAddDescription		= "<p><b>Source:</b></p><p></p>",
+		sAddDescription		= "<p><b>Source: Planar Adventures pg. 116 </b></p><p>Deposits of solidified negative energy, formed by the precipitation of the plane’s substance in regions oversaturated by raw entropy, can be found throughout the Negative Energy Plane. Known as blight quartz (although the crystals are not a form of traditional elemental material), these crystals appear as black or smoky gray gemstones that periodically shimmer or crackle with eerie, dark purple energy. The majority of blight quartz deposits are no larger than the size of a human fist. The process of crystallization diffuses the negative energy inherent in the material somewhat, but in large quantities the stuff can be debilitating. As long as a creature carries a pound or more of blight quartz or is within 5 feet of a deposit of blight quartz of a minimum of 10 pounds, that creature incurs 1 negative level. This negative level remains as long as the proximity to blight quartz continues, and disappears when these conditions end. This negative level never results in actual level loss, but cannot be overcome in any way (including via restoration) while proximity to the quartz continues. This is a negative energy effect. While blight quartz cannot be worked into armor, the material can be used to augment melee weapons, as well as arrowheads, spear tips, and similar ammunition. Doing so costs an additional 200 gp per piece of ammunition or an additional 2,500 gp for a weapon. A creature hit with a blight quartz weapon must succeed at a DC 15 Fortitude save or take 1 negative level. A negative level imparted by a blight quartz weapon or ammunition lasts for 1 minute before fading and never results in permanent level loss. Negative levels imparted by multiple hits reset the duration but do not otherwise stack, nor do they stack with any other negative levels the weapon may otherwise impart, or with any negative levels the creature struck may already have. This is a negative energy effect. Blight quartz has 10 hit points per inch of thickness and hardness 10, but the material decays rapidly when taken from the Negative Material Plane, taking 2d6 points of damage that bypasses its hardness each round until it crumbles away into nothingness.
+
+</p>",
 	},
 	["Blood crystal"] = {
 		sStringName			= "blood crystal",
@@ -293,8 +308,7 @@ aSpecialMaterials = {
 		bAmmunition         = false,
 		bAlwaysMasterwork   = false,
 		bFragile             = false,
-		sAddDescription		= "<p><b>Source:</b></p><p></p>",
-	},	
+		sAddDescription		= "<p><b>Source:</b></p><p>The stones are infused with a unique variant of ancient preservative magic. Scholars suspect that these features have grown in the stones of the bridge over the ages since an even older time, and were not originally intended or even anticipated by the structure’s architects. Bridge stones harvested from underwater rubble or mined from offshore pilings are not only of great value to builders and sculptors, but also of particular interest to those seeking to create stone constructs. Physical Properties: Magic bridge basalt is as hard as iron, while retaining its other stony features for carving and building. It has hardness 10 and typically fetches a price of about 5 sp per pound. Building Constructs: When a construct’s materials consist entirely of the stone, its Craft DC increases by +5 , but the required Caster Level decreases by 1. In addition, stone constructs crafted from Magic Bridge Basalt gain a +2 bonus to Strength and gain twice as many bonus hit points as normal from the construct type.</p>",	},	
 	["Mindglass"] = {
 		sStringName         = "mindglass",
 		bLightArmor         = false,
