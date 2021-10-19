@@ -5858,6 +5858,7 @@ function generateMagicItem(nodeItem)
 	populateItemField(nodeItem, 'properties', 'string', sItemProperties);
 	populateItemField(nodeItem, 'weight', 'number', iNewWeight);
 	populateItemField(nodeItem, 'damage', 'string', sNewDamage);
+	populateItemField(nodeItem, 'substance', 'string', sSpecialMaterial);
 	populateItemField(nodeItem, 'size', 'string', sItemSize);
 	
 	if sType == "weapon" or sType == "ammunition" then
