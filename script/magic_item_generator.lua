@@ -378,23 +378,14 @@ aSpecialMaterials = {
 		bHeavyArmor         = true,
 		bShield             = true,
 		bMeleeWeapon        = true,
-		bRangedWeapon       = true,
-		bAmmunition         = false,
-		bAlwaysMasterwork   = true,
-		bFragile             = false,
+		bRangedWeapon       = true,	
+		bAlwaysMasterwork   = true,		
 		sAddDescription		= "<p><b>Source:</b>Adventurer's Armory 2 pg. 29</p><p>An advanced form of alchemical silver, sunsilver is the pride of the Padishah Empire’s war smiths. A weapon made of sunsilver counts as alchemical silver for all purposes. Items not primarily made of metal are not meaningfully affected by being partially made of sunsilver. (For example, a scimitar or breastplate can be made of sunsilver, while a quarterstaff or hide armor cannot.) In addition, items made of sunsilver are immune to rust effects (such as rusting grasp). While in an area of bright light, a shield or suit of armor made of sunsilver shines brightly, allowing the wearer to reflect light at nearby foes as a move action. When she does so, creatures adjacent to the wearer must succeed at a DC 12 Fortitude save or be dazzled for 1 round. Armor and weapons made of sunsilver are always masterwork. To determine the price of a sunsilver item, add 25 gp per pound to the price of a masterwork version of that item. Sunsilver has 10 hit points per inch of thickness and hardness 8.</p>",
 	},
 	["Thronelass"] = {
-		sStringName         = "throneglass",
-		bLightArmor         = false,
-		bMediumArmor        = false,
-		bHeavyArmor         = false,
-		bShield             = false,
+		sStringName         = "throneglass",		
 		bMeleeWeapon        = true,
 		bRangedWeapon       = true,
-		bAmmunition         = false,
-		bAlwaysMasterwork   = false,
-		bFragile             = false,
 		sAddDescription		= "<p><b>Source:</b> Pathfinder #126: Beyond the Veiled Past pg. 49</p><p>The Imperial Palace in Azlant was a fabulous building that featured classic Azlanti architecture, including a famous skylight made of a single sheet of magically treated glass as durable as steel. Though the green-tinted substance was sturdy, it was still no match for the onslaught of Earthfall. As the meteors tore the continent to pieces, a direct hit razed the building, shattering the skylight. Years later, as survivors surveyed the damage, they discovered that the material had retained its durability and some manufactured the green shards into weapons, calling the material throneglass. The Knights of the Ioun Star were the most proficient in turning these remnants into potent weapons, especially after they unlocked and understood throneglass’s abilities. The material is typically forged into melee weapons, though it theoretically could be used for other functions. Throneglass is a special material as strong as steel that also provides the bearer with protection against an opponent’s psychic abilities. When a creature wielding a melee weapon made of throneglass succeeds at a saving throw against a psychic or mind-affecting effect from a creature, the weapon stores some of that energy and holds it for a future attack. A throneglass weapon can store this energy for a number of rounds equal to the level of the spell, or half the creature’s CR if the effect wasn’t a spell or spell-like ability. If the weapon hits a creature while still holding this energy, it suffuses the target with a disruptive field for 1 round. On a critical hit, the disruptive field effect instead lasts for a number of rounds equal to the weapon’s critical multiplier. While affected by this field, a target must succeed at a concentration check (DC = 15 + twice the spell’s level) to cast any spell or spell-like ability (in addition to any other required concentration checks). If the check is failed, the affected creature’s spell or spell-like ability is wasted. A Small or Medium weapon made of throneglass costs an additional 13,000 gp.</p>",
 	},
 	["Viridium"] = {
@@ -407,13 +398,8 @@ aSpecialMaterials = {
 		sStringName         = "voidglass",
 		bLightArmor         = true,
 		bMediumArmor        = true,
-		bHeavyArmor         = true,
-		bShield             = false,
-		bMeleeWeapon        = true,
-		bRangedWeapon       = false,
-		bAmmunition         = false,
-		bAlwaysMasterwork   = false,
-		bFragile             = false,
+		bHeavyArmor         = true,		
+		bMeleeWeapon        = true,,
 		sAddDescription		= "<p><b>Source: The Dragon's Demand pg. 35</b></p><p>Grioths wield weapons fashioned from a strange sort of transparent material called voidglass. This material is as hard as steel, but made of crystals that voidglass shapers on unknown worlds grow into the desired shapes. Voidglass resonates with a creature’s mind, bolstering thought and mental defenses. Any suit of armor normally made from metal can be made of voidglass. A suit of light voidglass armor grants a +1 resistance bonus on all saving throws against mind-affecting magic. This bonus increases to +2 for medium voidglass armor, and +3 for heavy voidglass armor. Voidglass armor isn’t often worn by grioths, but voidglass weapons are another story. The creatures (and perhaps other strange beings with similar psychic capabilities) can funnel violent bursts of psychic energy through these weapons on a hit. In the hands of any creature, a voidglass piercing or slashing weapon deals 1 additional damage on a hit—bludgeoning weapons gain no benefit. Voidglass has 30 hit points per inch of thickness and hardness 10. A pound of raw, unworked voidglass is worth 100 gp.</p>",
 	},
 	["Whipwood"] = {
@@ -6993,4 +6979,4 @@ function notifyMissingTypeData(sType, sSubType)
 		bNotified = true
 	end
 	return bNotified
-end
+end	
