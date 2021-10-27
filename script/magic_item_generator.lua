@@ -6134,7 +6134,11 @@ function getMaterialData(sMaterial, iEnhancingBonus, sType, aSubType, sFullSubTy
 	local iNewSpeed20 = iSpeed20;
 	local sNewProperties = sProperties;
 	local sNewDamageType = sDamageType;
-	local sAddDescription = aSpecialMaterials[sMaterial].sAddDescription or "";
+	local sAddDescription = "";
+
+	if aSpecialMaterials[sMaterial] and aSpecialMaterials[sMaterial].sAddDescription then
+		sAddDescription = aSpecialMaterials[sMaterial].sAddDescription;
+	end
 
 	if sMaterial == Interface.getString("adamantine") then
 		if aSubType == "light" then
