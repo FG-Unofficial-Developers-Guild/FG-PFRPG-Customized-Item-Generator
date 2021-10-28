@@ -6317,7 +6317,7 @@ function getMaterialData(sMaterial, iEnhancingBonus, sType, aSubType, sFullSubTy
 		iMaterialCost = iNewWeight / 4;
 	end
 	
-	if aSpecialMaterials[sMaterial].bAlwaysMasterwork and sType == "armor" and iNewArmorPenalty == iArmorPenalty then
+	if aSpecialMaterials[sMaterial] and aSpecialMaterials[sMaterial].bAlwaysMasterwork and sType == "armor" and iNewArmorPenalty == iArmorPenalty then
 		iNewArmorPenalty = iArmorPenalty + 1;
 	end
 	if iNewArmorPenalty > 0 then
