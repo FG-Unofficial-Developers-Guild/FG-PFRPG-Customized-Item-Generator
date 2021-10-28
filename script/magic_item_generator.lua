@@ -6324,7 +6324,17 @@ function getMaterialData(sMaterial, iEnhancingBonus, sType, aSubType, sFullSubTy
 		iNewArmorPenalty = 0;
 	end
 	
-	return iMaterialCost, iNewWeight, iNewArmorPenalty, iNewArmorMaxDex, iNewArmorSpellFailure, iNewSpeed30, iNewSpeed20, aSpecialMaterials[sMaterial].bAlwaysMasterwork, aSpecialMaterials[sMaterial].bFragile, sNewProperties, sNewDamageType, sAddDescription;
+	local bAlwaysMasterwork = false;
+	if aSpecialMaterials[sMaterial] and aSpecialMaterials[sMaterial].bAlwaysMasterwork then
+		bAlwaysMasterwork = aSpecialMaterials[sMaterial].bAlwaysMasterwork;
+	end
+	
+	local bFragile = false;
+	if aSpecialMaterials[sMaterial] and aSpecialMaterials[sMaterial].bFragile then
+		bFragile = aSpecialMaterials[sMaterial].bFragile;
+	end
+	
+	return iMaterialCost, iNewWeight, iNewArmorPenalty, iNewArmorMaxDex, iNewArmorSpellFailure, iNewSpeed30, iNewSpeed20, bAlwaysMasterwork, bFragile, sNewProperties, sNewDamageType, sAddDescription;
 end
 
 function getMasterworkPrice(sType, sProperties)
