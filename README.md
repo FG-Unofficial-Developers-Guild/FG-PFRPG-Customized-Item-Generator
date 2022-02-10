@@ -7,5 +7,5 @@ If you use [Advanced Effects](https://forge.fantasygrounds.com/shop/items/33/vie
 
 [Original extension by Faelwen](https://www.fantasygrounds.com/forums/showthread.php?38761-CustomisedItemGenerator-Extension) and with [further improvements by rmilmine](https://www.fantasygrounds.com/forums/showthread.php?57818-Customized-Item-Generator-for-3-5E-and-Pathfinder).
 
-# Compatibility and Instructions
-This extension has been tested with FantasyGrounds Unity 4.1.10 (2021-10-05).
+# Compatibility
+This extension has been tested with [FantasyGrounds Unity](https://www.fantasygrounds.com/home/FantasyGroundsUnity.php) 4.1.13 (2022-01-05).
