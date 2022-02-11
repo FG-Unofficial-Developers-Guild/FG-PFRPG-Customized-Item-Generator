@@ -6609,14 +6609,6 @@ local function usingAE()
 	return StringManager.contains(Extension.getExtensions(), "FG-PFRPG-Advanced-Effects");
 end
 
-local function usingKelrugemsAE()
-	return (StringManager.contains(Extension.getExtensions(), "Full OverlayPackage") or
-			StringManager.contains(Extension.getExtensions(), "Full OverlayPackage with alternative icons") or
-			StringManager.contains(Extension.getExtensions(), "Full OverlayPackage with other icons") or
-			StringManager.contains(Extension.getExtensions(), "StrainInjury with Full OverlayPackage") or
-			StringManager.contains(Extension.getExtensions(), "StrainInjury with Full OverlayPackage with new icons"));
-end
-
 function addEffectsForAbility(nodeItem, sType, sSubType, sAbility, sSubAbility, sSubSubAbility)
 	if not nodeItem then
 		return;
@@ -6660,7 +6652,7 @@ function addEffectsForAbility(nodeItem, sType, sSubType, sAbility, sSubAbility, 
 	end
 	if next(aEffects) ~= nil then
 		for _,aEffect in ipairs(aEffects) do
-			if not aEffect.bAERequired or (aEffect.bAERequired and usingKelrugemsAE()) then
+			if not aEffect.bAERequired or (aEffect.bAERequired and CombatManagerKel) then
 				if aEffect.nCritical == 0 or (aEffect.nCritical == nCritical) then
 					local sEffect = aEffect.sEffect;
 					if sType == "ammunition" and aEffect.sEffect:match("%%s") then
