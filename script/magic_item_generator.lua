@@ -6506,7 +6506,7 @@ function changeDamageBySizeDifference(sDamage, iSizeDifference)
 	local aDamageSplit = StringManager.split(sDamage, "/");
 
 	for kDamage, vDamage in ipairs(aDamageSplit) do
-		local diceDamage, nDamage = StringManager.convertStringToDice(vDamage);
+		local diceDamage, nDamage = DiceManager.convertStringToDice(vDamage);
 		local nDiceCount = 0;
 		local sDie = "";
 		for _,dice in pairs(diceDamage) do
