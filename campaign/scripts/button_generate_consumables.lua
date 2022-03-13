@@ -1,6 +1,5 @@
 -- 
--- Please see the LICENSE.md file included with this distribution for 
--- attribution and copyright information.
+-- Please see the LICENSE.md file included with this distribution for attribution and copyright information.
 --
 
 tArcaneClass = { ['bard'] = 1, ['sorcerer'] = 1, ['wizard'] = 1, ['magus'] = 1, ['summoner'] = 1, ['witch'] = 1, ['arcanist'] = 1, ['bloodrager'] = 1, ['skald'] = 1, ['unchained summoner'] = 1 }
