@@ -1,10 +1,21 @@
--- 
+--
 -- Please see the LICENSE.md file included with this distribution for attribution and copyright information.
 --
 
-tArcaneClass = { ['bard'] = 1, ['sorcerer'] = 1, ['wizard'] = 1, ['magus'] = 1, ['summoner'] = 1, ['witch'] = 1, ['arcanist'] = 1, ['bloodrager'] = 1, ['skald'] = 1, ['unchained summoner'] = 1 }
+tArcaneClass = {
+	['bard'] = 1,
+	['sorcerer'] = 1,
+	['wizard'] = 1,
+	['magus'] = 1,
+	['summoner'] = 1,
+	['witch'] = 1,
+	['arcanist'] = 1,
+	['bloodrager'] = 1,
+	['skald'] = 1,
+	['unchained summoner'] = 1
+}
 
--- arrays of standard gp costs keyed to the appropriate spell level 
+-- arrays of standard gp costs keyed to the appropriate spell level
 aWandLevelCosts = {
 			["cleric"] = { [0] = 375, [1] = 750, [2] = 4500, [3] = 11250, [4] = 21000 },
 			["druid"] = { [0] = 375, [1] = 750, [2] = 4500, [3] = 11250, [4] = 21000 },
@@ -63,12 +74,11 @@ function onButtonPress()
 
 	local sItemName = sType .. " of " .. sSpellName;
 
-	local nCost = 0
-	local sDesc = "<p></p>"
+	local nCost, sDesc
 	local nSpellLevel = tonumber(string.lower(DB.getValue(nodeSpell, "level", "")):match(".*" .. sClass .. " (%d+).*") or -1);
 	if nSpellLevel and nSpellLevel ~= -1 then
 		if sType == "Wand" then
-			sDesc = "<p>A wand is a thin baton that contains a single spell of 4th level or lower. A wand has 50 charges when created—each charge allows the use of the wand’s spell one time. A wand that runs out of charges is just a stick.</p>";
+			sDesc = "<p>A wand is a thin baton that contains a single spell of 4th level or lower. A wand has 50 charges when created—each charge allows the use of the wand’s spell one time. A wand that runs out of charges is just a stick.</p>"; -- luacheck: no max line length
 			nCost = aWandLevelCosts[sClass][nSpellLevel];
 			if nCost and nSpellLevel ~= 0 then
 				local nMinCL = (nSpellLevel * 2) - 1;
@@ -82,7 +92,7 @@ function onButtonPress()
 				end
 			end
 		elseif sType == "Scroll" then
-			sDesc = "<p>A scroll is a spell (or collection of spells) that has been stored in written form. A spell on a scroll can be used only once. The writing vanishes from the scroll when the spell is activated. Using a scroll is basically like casting a spell.</p>";
+			sDesc = "<p>A scroll is a spell (or collection of spells) that has been stored in written form. A spell on a scroll can be used only once. The writing vanishes from the scroll when the spell is activated. Using a scroll is basically like casting a spell.</p>"; -- luacheck: no max line length
 			nCost = aScrollLevelCosts[sClass][nSpellLevel];
 			if not tArcaneClass[sClass] then
 				sItemName = "Divine " .. sItemName

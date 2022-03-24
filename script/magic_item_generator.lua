@@ -1,3 +1,10 @@
+--
+-- Please see the LICENSE.md file included with this distribution for attribution and copyright information.
+--
+
+-- luacheck: no max line length
+
+-- luacheck: globals aSpecialMaterials
 aSpecialMaterials = {
 	["Adamantine"] = {
 		sStringName			= "adamantine",

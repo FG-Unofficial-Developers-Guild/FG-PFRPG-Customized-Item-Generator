@@ -1,4 +1,4 @@
--- 
+--
 -- Please see the LICENSE.md file included with this distribution for attribution and copyright information.
 --
 
@@ -22,7 +22,7 @@ function updateControl(sControl, bReadOnly, bID)
 	if not bID then
 		return self[sControl].update(bReadOnly, true);
 	end
-	
+
 	return self[sControl].update(bReadOnly);
 end
 
@@ -30,17 +30,17 @@ function update()
 	local nodeRecord = getDatabaseNode();
 	local bReadOnly = WindowManager.getReadOnlyState(nodeRecord);
 	local bID, bOptionID = ItemManager.getIDState(nodeRecord);
-	
+
 	local sType = string.lower(type.getValue());
 	local sSubType = string.lower(DB.getValue(nodeRecord, "subtype"));
-	
+
 	local bWeapon = (string.find(sType, "weapon") ~= nil);
 	local bArmor = (string.find(sType, "armor") ~= nil);
 	local bShield = (string.find(sSubType, "shield") ~= nil);
 	local bWand = (string.find(sType, "wand") ~= nil);
 	local bStaff = (string.find(sType, "staff") ~= nil);
 	local bWondrous = (string.find(sType, "wondrous item") ~= nil);
-	
+
 	local bSection1 = false;
 	if bOptionID and Session.IsHost then
 		if updateControl("nonid_name", bReadOnly, true) then bSection1 = true; end;
@@ -57,12 +57,12 @@ function update()
 	local bSection2 = false;
 	if updateControl("type", bReadOnly, bID) then bSection2 = true; end
 	if updateControl("subtype", bReadOnly, bID) then bSection2 = true; end
-	
+
 	local bSection3 = false;
 	if updateControl("cost", bReadOnly, bID) then bSection3 = true; end
 	if updateControl("weight", bReadOnly, bID) then bSection3 = true; end
 	if updateControl("size", bReadOnly, bID) then bSection3 = true; end
-	
+
 	local bSection8 = false;
 	local bUsingACIM = StringManager.contains(Extension.getExtensions(), "FG-PFRPG-Advanced-Item-Actions")
 	if bUsingACIM then
@@ -76,7 +76,7 @@ function update()
 		if updateControl("critical", bReadOnly, bID and bWeapon) then bSection4 = true; end
 		if updateControl("range", bReadOnly, bID and bWeapon) then bSection4 = true; end
 	end
-	
+
 	local bSection4 = false;
 	if updateControl("ac", bReadOnly, bID and bArmor) then bSection4 = true; end
 	if updateControl("maxstatbonus", bReadOnly, bID and bArmor) then bSection4 = true; end
@@ -103,13 +103,13 @@ function update()
 	end
 
 	if updateControl("properties", bReadOnly, bID and (bWeapon or bArmor)) then bSection4 = true; end
-	
+
 	local bSection5 = false;
 	if updateControl("bonus", bReadOnly, bID and (bWeapon or bArmor)) then bSection5 = true; end
 	if updateControl("aura", bReadOnly, bID) then bSection5 = true; end
 	if updateControl("cl", bReadOnly, bID) then bSection5 = true; end
 	if updateControl("prerequisites", bReadOnly, bID) then bSection5 = true; end
-	
+
 	local bSection6 = bID;
 	description.setVisible(bID);
 	description.setReadOnly(bReadOnly);
@@ -129,7 +129,7 @@ function update()
 			divider6.setVisible((bSection1 or bSection2 or bSection3 or bSection4 or bSection5) and bSection7);
 		end
 	end
-	
+
 	divider.setVisible(bSection1 and bSection2);
 	divider2.setVisible((bSection1 or bSection2) and bSection3);
 	if bUsingACIM then
