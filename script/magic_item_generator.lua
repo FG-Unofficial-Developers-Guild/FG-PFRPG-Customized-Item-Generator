@@ -142,14 +142,7 @@ aSpecialMaterials = {
 	['Viridium'] = { sStringName = 'viridium', bMeleeWeapon = true, bAmmunition = true, sAddDescription = '' },
 	['Whipwood'] = { sStringName = 'whipwood', bMeleeWeapon = true, bAmmunition = true, sAddDescription = '' },
 	['Wyroot'] = { sStringName = 'wyroot', bMeleeWeapon = true, sAddDescription = '' },
-	['Bone'] = {
-		sStringName = 'bone',
-		bLightArmor = true,
-		bMediumArmor = true,
-		bMeleeWeapon = true,
-		bFragile = true,
-		sAddDescription = '',
-	},
+	['Bone'] = { sStringName = 'bone', bLightArmor = true, bMediumArmor = true, bMeleeWeapon = true, bFragile = true, sAddDescription = '' },
 	['Bronze'] = {
 		sStringName = 'bronze',
 		bLightArmor = true,
@@ -160,14 +153,7 @@ aSpecialMaterials = {
 		bFragile = true,
 		sAddDescription = '',
 	},
-	['Gold'] = {
-		sStringName = 'gold',
-		bLightArmor = true,
-		bMediumArmor = true,
-		bMeleeWeapon = true,
-		bFragile = true,
-		sAddDescription = '',
-	},
+	['Gold'] = { sStringName = 'gold', bLightArmor = true, bMediumArmor = true, bMeleeWeapon = true, bFragile = true, sAddDescription = '' },
 	['Obsidian'] = { sStringName = 'obsidian', bMeleeWeapon = true, bAmmunition = true, bFragile = true, sAddDescription = '' },
 	['Stone'] = { sStringName = 'stone', bMeleeWeapon = true, bAmmunition = true, bFragile = true, sAddDescription = '' },
 }
@@ -297,22 +283,10 @@ aMeleeWeaponAbilities = {
 				sSubSubSelectionLabel = 'Humanoid Type',
 				aEffects = {},
 				aSubSubSelection = {
-					['Dwarf'] = {
-						sStringName = 'dwarf',
-						aEffects = { { sEffect = 'IFT: TYPE(dwarf); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } },
-					},
-					['Elf'] = {
-						sStringName = 'elf',
-						aEffects = { { sEffect = 'IFT: TYPE(elf); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } },
-					},
-					['Gnoll'] = {
-						sStringName = 'gnoll',
-						aEffects = { { sEffect = 'IFT: TYPE(gnoll); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } },
-					},
-					['Gnome'] = {
-						sStringName = 'gnome',
-						aEffects = { { sEffect = 'IFT: TYPE(gnome); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } },
-					},
+					['Dwarf'] = { sStringName = 'dwarf', aEffects = { { sEffect = 'IFT: TYPE(dwarf); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } } },
+					['Elf'] = { sStringName = 'elf', aEffects = { { sEffect = 'IFT: TYPE(elf); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } } },
+					['Gnoll'] = { sStringName = 'gnoll', aEffects = { { sEffect = 'IFT: TYPE(gnoll); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } } },
+					['Gnome'] = { sStringName = 'gnome', aEffects = { { sEffect = 'IFT: TYPE(gnome); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } } },
 					['Goblinoid'] = {
 						sStringName = 'goblinoid',
 						aEffects = { { sEffect = 'IFT: TYPE(goblinoid); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } },
@@ -321,14 +295,8 @@ aMeleeWeaponAbilities = {
 						sStringName = 'halfling',
 						aEffects = { { sEffect = 'IFT: TYPE(halfling); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } },
 					},
-					['Human'] = {
-						sStringName = 'human',
-						aEffects = { { sEffect = 'IFT: TYPE(human); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } },
-					},
-					['Orc'] = {
-						sStringName = 'orc',
-						aEffects = { { sEffect = 'IFT: TYPE(orc); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } },
-					},
+					['Human'] = { sStringName = 'human', aEffects = { { sEffect = 'IFT: TYPE(human); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } } },
+					['Orc'] = { sStringName = 'orc', aEffects = { { sEffect = 'IFT: TYPE(orc); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } } },
 					['Reptilian'] = {
 						sStringName = 'reptilian',
 						aEffects = { { sEffect = 'IFT: TYPE(reptilian); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } },
@@ -358,42 +326,21 @@ aMeleeWeaponAbilities = {
 				aEffect = {},
 				sSubSubSelectionLabel = 'Outsider Type',
 				aSubSubSelection = {
-					['Air'] = {
-						sStringName = 'air',
-						aEffects = { { sEffect = 'IFT: TYPE(air); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } },
-					},
-					['Angel'] = {
-						sStringName = 'angel',
-						aEffects = { { sEffect = 'IFT: TYPE(angel); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } },
-					},
+					['Air'] = { sStringName = 'air', aEffects = { { sEffect = 'IFT: TYPE(air); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } } },
+					['Angel'] = { sStringName = 'angel', aEffects = { { sEffect = 'IFT: TYPE(angel); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } } },
 					['Archon'] = {
 						sStringName = 'archon',
 						aEffects = { { sEffect = 'IFT: TYPE(archon); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } },
 					},
-					['Demon'] = {
-						sStringName = 'demon',
-						aEffects = { { sEffect = 'IFT: TYPE(demon); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } },
-					},
-					['Devil'] = {
-						sStringName = 'devil',
-						aEffects = { { sEffect = 'IFT: TYPE(devil); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } },
-					},
-					['Earth'] = {
-						sStringName = 'earth',
-						aEffects = { { sEffect = 'IFT: TYPE(earth); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } },
-					},
-					['Fire'] = {
-						sStringName = 'fire',
-						aEffects = { { sEffect = 'IFT: TYPE(fire); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } },
-					},
+					['Demon'] = { sStringName = 'demon', aEffects = { { sEffect = 'IFT: TYPE(demon); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } } },
+					['Devil'] = { sStringName = 'devil', aEffects = { { sEffect = 'IFT: TYPE(devil); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } } },
+					['Earth'] = { sStringName = 'earth', aEffects = { { sEffect = 'IFT: TYPE(earth); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } } },
+					['Fire'] = { sStringName = 'fire', aEffects = { { sEffect = 'IFT: TYPE(fire); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } } },
 					['Native'] = {
 						sStringName = 'native',
 						aEffects = { { sEffect = 'IFT: TYPE(native); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } },
 					},
-					['Water'] = {
-						sStringName = 'water',
-						aEffects = { { sEffect = 'IFT: TYPE(water); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } },
-					},
+					['Water'] = { sStringName = 'water', aEffects = { { sEffect = 'IFT: TYPE(water); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } } },
 				},
 			},
 			['Plants'] = {
@@ -1592,22 +1539,10 @@ aRangedWeaponAbilities = {
 				sSubSubSelectionLabel = 'Humanoid Type',
 				aEffects = {},
 				aSubSubSelection = {
-					['Dwarf'] = {
-						sStringName = 'dwarf',
-						aEffects = { { sEffect = 'IFT: TYPE(dwarf); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } },
-					},
-					['Elf'] = {
-						sStringName = 'elf',
-						aEffects = { { sEffect = 'IFT: TYPE(elf); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } },
-					},
-					['Gnoll'] = {
-						sStringName = 'gnoll',
-						aEffects = { { sEffect = 'IFT: TYPE(gnoll); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } },
-					},
-					['Gnome'] = {
-						sStringName = 'gnome',
-						aEffects = { { sEffect = 'IFT: TYPE(gnome); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } },
-					},
+					['Dwarf'] = { sStringName = 'dwarf', aEffects = { { sEffect = 'IFT: TYPE(dwarf); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } } },
+					['Elf'] = { sStringName = 'elf', aEffects = { { sEffect = 'IFT: TYPE(elf); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } } },
+					['Gnoll'] = { sStringName = 'gnoll', aEffects = { { sEffect = 'IFT: TYPE(gnoll); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } } },
+					['Gnome'] = { sStringName = 'gnome', aEffects = { { sEffect = 'IFT: TYPE(gnome); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } } },
 					['Goblinoid'] = {
 						sStringName = 'goblinoid',
 						aEffects = { { sEffect = 'IFT: TYPE(goblinoid); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } },
@@ -1616,14 +1551,8 @@ aRangedWeaponAbilities = {
 						sStringName = 'halfling',
 						aEffects = { { sEffect = 'IFT: TYPE(halfling); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } },
 					},
-					['Human'] = {
-						sStringName = 'human',
-						aEffects = { { sEffect = 'IFT: TYPE(human); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } },
-					},
-					['Orc'] = {
-						sStringName = 'orc',
-						aEffects = { { sEffect = 'IFT: TYPE(orc); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } },
-					},
+					['Human'] = { sStringName = 'human', aEffects = { { sEffect = 'IFT: TYPE(human); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } } },
+					['Orc'] = { sStringName = 'orc', aEffects = { { sEffect = 'IFT: TYPE(orc); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } } },
 					['Reptilian'] = {
 						sStringName = 'reptilian',
 						aEffects = { { sEffect = 'IFT: TYPE(reptilian); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } },
@@ -1653,42 +1582,21 @@ aRangedWeaponAbilities = {
 				aEffect = {},
 				sSubSubSelectionLabel = 'Outsider Type',
 				aSubSubSelection = {
-					['Air'] = {
-						sStringName = 'air',
-						aEffects = { { sEffect = 'IFT: TYPE(air); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } },
-					},
-					['Angel'] = {
-						sStringName = 'angel',
-						aEffects = { { sEffect = 'IFT: TYPE(angel); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } },
-					},
+					['Air'] = { sStringName = 'air', aEffects = { { sEffect = 'IFT: TYPE(air); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } } },
+					['Angel'] = { sStringName = 'angel', aEffects = { { sEffect = 'IFT: TYPE(angel); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } } },
 					['Archon'] = {
 						sStringName = 'archon',
 						aEffects = { { sEffect = 'IFT: TYPE(archon); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } },
 					},
-					['Demon'] = {
-						sStringName = 'demon',
-						aEffects = { { sEffect = 'IFT: TYPE(demon); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } },
-					},
-					['Devil'] = {
-						sStringName = 'devil',
-						aEffects = { { sEffect = 'IFT: TYPE(devil); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } },
-					},
-					['Earth'] = {
-						sStringName = 'earth',
-						aEffects = { { sEffect = 'IFT: TYPE(earth); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } },
-					},
-					['Fire'] = {
-						sStringName = 'fire',
-						aEffects = { { sEffect = 'IFT: TYPE(fire); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } },
-					},
+					['Demon'] = { sStringName = 'demon', aEffects = { { sEffect = 'IFT: TYPE(demon); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } } },
+					['Devil'] = { sStringName = 'devil', aEffects = { { sEffect = 'IFT: TYPE(devil); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } } },
+					['Earth'] = { sStringName = 'earth', aEffects = { { sEffect = 'IFT: TYPE(earth); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } } },
+					['Fire'] = { sStringName = 'fire', aEffects = { { sEffect = 'IFT: TYPE(fire); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } } },
 					['Native'] = {
 						sStringName = 'native',
 						aEffects = { { sEffect = 'IFT: TYPE(native); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } },
 					},
-					['Water'] = {
-						sStringName = 'water',
-						aEffects = { { sEffect = 'IFT: TYPE(water); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } },
-					},
+					['Water'] = { sStringName = 'water', aEffects = { { sEffect = 'IFT: TYPE(water); ATK: 2; DMG: 2d6', nActionOnly = 1, nCritical = 0 } } },
 				},
 			},
 			['Plants'] = {
@@ -2397,9 +2305,7 @@ aAmmunitionAbilities = {
 				sStringName = 'monstrous humanoid',
 				sSubSubSelectionLabel = '',
 				aSubSubSelection = {},
-				aEffects = {
-					{ sEffect = 'IF: CUSTOM(%s Attack); IFT: TYPE(monstrous humanoid); ATK: 2; DMG: 2d6', nActionOnly = 0, nCritical = 0 },
-				},
+				aEffects = { { sEffect = 'IF: CUSTOM(%s Attack); IFT: TYPE(monstrous humanoid); ATK: 2; DMG: 2d6', nActionOnly = 0, nCritical = 0 } },
 			},
 			['Oozes'] = {
 				sStringName = 'oozes',
@@ -2513,22 +2419,10 @@ aAmmunitionAbilities = {
 		sSubSelectionLabel = '',
 		aSubSelection = {},
 		aEffects = {
-			{ sEffect = 'IF: CUSTOM(%s Attack); DMG: 1d6 acid', nActionOnly = 0, nCritical = 0 }, {
-				sEffect = 'IF: CUSTOM(%s Attack); IF: CUSTOM(Crit2); DMG: 1d10 acid, critical',
-				nActionOnly = 0,
-				bAERequired = true,
-				nCritical = 0,
-			}, {
-				sEffect = 'IF: CUSTOM(%s Attack); IF: CUSTOM(Crit3); DMG: 2d10 acid, critical',
-				nActionOnly = 0,
-				bAERequired = true,
-				nCritical = 0,
-			}, {
-				sEffect = 'IF: CUSTOM(%s Attack); IF: CUSTOM(Crit3); DMG: 3d10 acid, critical',
-				nActionOnly = 0,
-				bAERequired = true,
-				nCritical = 0,
-			},
+			{ sEffect = 'IF: CUSTOM(%s Attack); DMG: 1d6 acid', nActionOnly = 0, nCritical = 0 },
+   { sEffect = 'IF: CUSTOM(%s Attack); IF: CUSTOM(Crit2); DMG: 1d10 acid, critical', nActionOnly = 0, bAERequired = true, nCritical = 0 },
+   { sEffect = 'IF: CUSTOM(%s Attack); IF: CUSTOM(Crit3); DMG: 2d10 acid, critical', nActionOnly = 0, bAERequired = true, nCritical = 0 },
+   { sEffect = 'IF: CUSTOM(%s Attack); IF: CUSTOM(Crit3); DMG: 3d10 acid, critical', nActionOnly = 0, bAERequired = true, nCritical = 0 },
 		},
 	},
 	['Cruel'] = {
@@ -2607,22 +2501,10 @@ aAmmunitionAbilities = {
 		sSubSelectionLabel = '',
 		aSubSelection = {},
 		aEffects = {
-			{ sEffect = 'IF: CUSTOM(%s Attack); DMG: 1d6 fire', nActionOnly = 0, nCritical = 0 }, {
-				sEffect = 'IF: CUSTOM(%s Attack); IF: CUSTOM(Crit2); DMG: 1d10 fire, critical',
-				nActionOnly = 0,
-				bAERequired = true,
-				nCritical = 0,
-			}, {
-				sEffect = 'IF: CUSTOM(%s Attack); IF: CUSTOM(Crit3); DMG: 2d10 fire, critical',
-				nActionOnly = 0,
-				bAERequired = true,
-				nCritical = 0,
-			}, {
-				sEffect = 'IF: CUSTOM(%s Attack); IF: CUSTOM(Crit4); DMG: 3d10 fire, critical',
-				nActionOnly = 0,
-				bAERequired = true,
-				nCritical = 0,
-			},
+			{ sEffect = 'IF: CUSTOM(%s Attack); DMG: 1d6 fire', nActionOnly = 0, nCritical = 0 },
+   { sEffect = 'IF: CUSTOM(%s Attack); IF: CUSTOM(Crit2); DMG: 1d10 fire, critical', nActionOnly = 0, bAERequired = true, nCritical = 0 },
+   { sEffect = 'IF: CUSTOM(%s Attack); IF: CUSTOM(Crit3); DMG: 2d10 fire, critical', nActionOnly = 0, bAERequired = true, nCritical = 0 },
+   { sEffect = 'IF: CUSTOM(%s Attack); IF: CUSTOM(Crit4); DMG: 3d10 fire, critical', nActionOnly = 0, bAERequired = true, nCritical = 0 },
 		},
 	},
 	['Frost'] = {
@@ -2671,22 +2553,10 @@ aAmmunitionAbilities = {
 		sSubSelectionLabel = '',
 		aSubSelection = {},
 		aEffects = {
-			{ sEffect = 'IF: CUSTOM(%s Attack); DMG: 1d6 cold', nActionOnly = 0, nCritical = 0 }, {
-				sEffect = 'IF: CUSTOM(%s Attack); IF: CUSTOM(Crit2); DMG: 1d10 cold, critical',
-				nActionOnly = 0,
-				bAERequired = true,
-				nCritical = 0,
-			}, {
-				sEffect = 'IF: CUSTOM(%s Attack); IF: CUSTOM(Crit3); DMG: 2d10 cold, critical',
-				nActionOnly = 0,
-				bAERequired = true,
-				nCritical = 0,
-			}, {
-				sEffect = 'IF: CUSTOM(%s Attack); IF: CUSTOM(Crit4); DMG: 3d10 cold, critical',
-				nActionOnly = 0,
-				bAERequired = true,
-				nCritical = 0,
-			},
+			{ sEffect = 'IF: CUSTOM(%s Attack); DMG: 1d6 cold', nActionOnly = 0, nCritical = 0 },
+   { sEffect = 'IF: CUSTOM(%s Attack); IF: CUSTOM(Crit2); DMG: 1d10 cold, critical', nActionOnly = 0, bAERequired = true, nCritical = 0 },
+   { sEffect = 'IF: CUSTOM(%s Attack); IF: CUSTOM(Crit3); DMG: 2d10 cold, critical', nActionOnly = 0, bAERequired = true, nCritical = 0 },
+   { sEffect = 'IF: CUSTOM(%s Attack); IF: CUSTOM(Crit4); DMG: 3d10 cold, critical', nActionOnly = 0, bAERequired = true, nCritical = 0 },
 		},
 	},
 	['Igniting'] = {
@@ -2779,7 +2649,8 @@ aAmmunitionAbilities = {
 		sSubSelectionLabel = '',
 		aSubSelection = {},
 		aEffects = {
-			{ sEffect = 'IF: CUSTOM(%s Attack); DMG: 1d6 electricity', nActionOnly = 0, nCritical = 0 }, {
+			{ sEffect = 'IF: CUSTOM(%s Attack); DMG: 1d6 electricity', nActionOnly = 0, nCritical = 0 },
+   {
 				sEffect = 'IF: CUSTOM(%s Attack); IF: CUSTOM(Crit2); DMG: 1d10 electricity, critical',
 				nActionOnly = 0,
 				bAERequired = true,
@@ -2807,22 +2678,9 @@ aAmmunitionAbilities = {
 		sSubSelectionLabel = '',
 		aSubSelection = {},
 		aEffects = {
-			{
-				sEffect = 'IF: CUSTOM(%s Attack); IF: CUSTOM(Crit2); DMG: 1d8 sonic, critical',
-				nActionOnly = 0,
-				bAERequired = true,
-				nCritical = 0,
-			}, {
-				sEffect = 'IF: CUSTOM(%s Attack); IF: CUSTOM(Crit3); DMG: 2d8 sonic, critical',
-				nActionOnly = 0,
-				bAERequired = true,
-				nCritical = 0,
-			}, {
-				sEffect = 'IF: CUSTOM(%s Attack); IF: CUSTOM(Crit4); DMG: 3d8 sonic, critical',
-				nActionOnly = 0,
-				bAERequired = true,
-				nCritical = 0,
-			},
+			{ sEffect = 'IF: CUSTOM(%s Attack); IF: CUSTOM(Crit2); DMG: 1d8 sonic, critical', nActionOnly = 0, bAERequired = true, nCritical = 0 },
+   { sEffect = 'IF: CUSTOM(%s Attack); IF: CUSTOM(Crit3); DMG: 2d8 sonic, critical', nActionOnly = 0, bAERequired = true, nCritical = 0 },
+   { sEffect = 'IF: CUSTOM(%s Attack); IF: CUSTOM(Crit4); DMG: 3d8 sonic, critical', nActionOnly = 0, bAERequired = true, nCritical = 0 },
 		},
 	},
 	['Unholy'] = {
@@ -3058,12 +2916,7 @@ aArmorAbilities = {
 				},
 			},
 			['Magical Beasts'] = { sStringName = 'magical beasts', sSubSubSelectionLabel = '', aSubSubSelection = {}, aEffects = {} },
-			['Monstrous Humanoids'] = {
-				sStringName = 'monstrous humanoid',
-				sSubSubSelectionLabel = '',
-				aSubSubSelection = {},
-				aEffects = {},
-			},
+			['Monstrous Humanoids'] = { sStringName = 'monstrous humanoid', sSubSubSelectionLabel = '', aSubSubSelection = {}, aEffects = {} },
 			['Oozes'] = { sStringName = 'oozes', sSubSubSelectionLabel = '', aSubSubSelection = {}, aEffects = {} },
 			['Outsiders'] = {
 				sStringName = 'outsiders',
@@ -4194,11 +4047,7 @@ function generateMagicItem(nodeItem)
 	local bBonus, bMaterial, nErrorCode, aConflicts = checkComboboxes(sType, sSubType, sBonus, sSpecialMaterial, aAbilities);
 	if nErrorCode == 1 then
 		Comm.addChatMessage(
-						{
-							text = string.format(Interface.getString('magic_item_gen_error_4'), aConflicts.sAbility1),
-							secret = true,
-							icon = 'ct_faction_foe',
-						}
+						{ text = string.format(Interface.getString('magic_item_gen_error_4'), aConflicts.sAbility1), secret = true, icon = 'ct_faction_foe' }
 		);
 		return false;
 	elseif nErrorCode == 2 then
@@ -4212,17 +4061,13 @@ function generateMagicItem(nodeItem)
 		return false;
 	elseif nErrorCode == 3 then
 		Comm.addChatMessage(
-						{
-							text = string.format(Interface.getString('magic_item_gen_error_6'), aConflicts.sAbility1),
-							secret = true,
-							icon = 'ct_faction_foe',
-						}
+						{ text = string.format(Interface.getString('magic_item_gen_error_6'), aConflicts.sAbility1), secret = true, icon = 'ct_faction_foe' }
 		);
 		return false;
 	end
 
-	local sItemName, iItemCost, iItemWeight, sFullSubType, sItemProperties, iArmorPenalty, iArmorMaxDex, iArmorSpellFailure,
-	      iSpeed30, iSpeed20, iRange, sDamageType, sDamage, sOriginalSize = getItemData(nodeItem);
+	local sItemName, iItemCost, iItemWeight, sFullSubType, sItemProperties, iArmorPenalty, iArmorMaxDex, iArmorSpellFailure, iSpeed30,
+	      iSpeed20, iRange, sDamageType, sDamage, sOriginalSize = getItemData(nodeItem);
 	local sNewDamage = '';
 
 	if sType == 'weapon' or sType == 'shield' then
@@ -4275,17 +4120,13 @@ function generateMagicItem(nodeItem)
 		return false;
 	end
 
-	local iMaterialCost, iNewWeight, iNewArmorPenalty, iNewArmorMaxDex, iNewArmorSpellFailure, iNewSpeed30, iNewSpeed20,
-	      bMasterworkMaterial, bFragileMaterial, sItemProperties, sDamageType, sAddDescription = getMaterialData(
-					                                                                                             sSpecialMaterial,
-					                                                                                             iEnchancementBonus, sType,
-					                                                                                             aSubType, sFullSubType,
-					                                                                                             iItemWeight, iArmorPenalty,
-					                                                                                             iArmorMaxDex,
-					                                                                                             iArmorSpellFailure, iSpeed30,
-					                                                                                             iSpeed20, iItemCost,
-					                                                                                             sItemProperties, sDamageType
-	                                                                                             );
+	local iMaterialCost, iNewWeight, iNewArmorPenalty, iNewArmorMaxDex, iNewArmorSpellFailure, iNewSpeed30, iNewSpeed20, bMasterworkMaterial,
+	      bFragileMaterial, sItemProperties, sDamageType, sAddDescription = getMaterialData(
+					                                                                        sSpecialMaterial, iEnchancementBonus, sType, aSubType,
+					                                                                        sFullSubType, iItemWeight, iArmorPenalty, iArmorMaxDex,
+					                                                                        iArmorSpellFailure, iSpeed30, iSpeed20, iItemCost,
+					                                                                        sItemProperties, sDamageType
+	                                                                        );
 
 	local iNewWeight = getWeightBySize(iNewWeight, sOriginalSize, sItemSize);
 
@@ -4305,8 +4146,7 @@ function generateMagicItem(nodeItem)
 	local iTotalCost = iMaterialCost + iMasterworkCost + iEnhancementCost + iExtraCost;
 
 	local sItemNewName = getItemNewName(
-					                     sItemName, sEnhancementBonus, iEnchancementBonus, sSpecialMaterial, aAbilities, bMasterworkMaterial,
-					                     sItemSize
+					                     sItemName, sEnhancementBonus, iEnchancementBonus, sSpecialMaterial, aAbilities, bMasterworkMaterial, sItemSize
 	                     )
 
 	local iNewBonus = 0;
@@ -4487,8 +4327,8 @@ function checkComboboxes(sType, sSubType, sBonus, sMaterial, aAbilities)
 			aConflicts.sAbility1 = aAbility1.sAbility;
 			return bBonus, bMaterial, 3, aConflicts;
 		elseif next(aAbilityList[aAbility1.sAbility].aSubSelection) ~= nil and
-						next(aAbilityList[aAbility1.sAbility].aSubSelection[aAbility1.sSubAbility].aSubSubSelection) ~= nil and
-						aAbility1.sSubSubAbility == Interface.getString('itemnone') then
+						next(aAbilityList[aAbility1.sAbility].aSubSelection[aAbility1.sSubAbility].aSubSubSelection) ~= nil and aAbility1.sSubSubAbility ==
+						Interface.getString('itemnone') then
 			aConflicts.sAbility1 = aAbility1.sAbility;
 			return bBonus, bMaterial, 3, aConflicts;
 		end
@@ -4795,8 +4635,8 @@ function getMaterialData(sMaterial, iEnhancingBonus, sType, aSubType, sFullSubTy
 	local bFragile = false;
 	if aSpecialMaterials[sMaterial] and aSpecialMaterials[sMaterial].bFragile then bFragile = aSpecialMaterials[sMaterial].bFragile; end
 
-	return iMaterialCost, iNewWeight, iNewArmorPenalty, iNewArmorMaxDex, iNewArmorSpellFailure, iNewSpeed30, iNewSpeed20,
-	       bAlwaysMasterwork, bFragile, sNewProperties, sNewDamageType, sAddDescription;
+	return iMaterialCost, iNewWeight, iNewArmorPenalty, iNewArmorMaxDex, iNewArmorSpellFailure, iNewSpeed30, iNewSpeed20, bAlwaysMasterwork,
+	       bFragile, sNewProperties, sNewDamageType, sAddDescription;
 end
 
 function getMasterworkPrice(sType, sProperties)
@@ -4833,9 +4673,8 @@ function getItemData(databasenode)
 	local dDamage = databasenode.getChild('damage');
 	local dSize = databasenode.getChild('size');
 
-	local sItemName, iItemCost, iItemWeight, sFullSubType, sItemProperties, iArmorPenalty, iArmorMaxDex, iArmorSpellFailure,
-	      iSpeed30, iSpeed20, sItemCost, sDamageType, iRange, sDamage, sOriginalSize = '', 0, 0, '', '', 0, 0, 0, 0, 0, '', '', 0,
-	                                                                                   '', '';
+	local sItemName, iItemCost, iItemWeight, sFullSubType, sItemProperties, iArmorPenalty, iArmorMaxDex, iArmorSpellFailure, iSpeed30,
+	      iSpeed20, sItemCost, sDamageType, iRange, sDamage, sOriginalSize = '', 0, 0, '', '', 0, 0, 0, 0, 0, '', '', 0, '', '';
 
 	if dItemName then sItemName = dItemName.getValue() end
 	if dItemProperties then
@@ -4870,8 +4709,8 @@ function getItemData(databasenode)
 			iItemCost = iItemCost / 100;
 		end
 	end
-	return sItemName, iItemCost, iItemWeight, sFullSubType, sItemProperties, iArmorPenalty, iArmorMaxDex, iArmorSpellFailure,
-	       iSpeed30, iSpeed20, iRange, sDamageType, sDamage, sOriginalSize;
+	return sItemName, iItemCost, iItemWeight, sFullSubType, sItemProperties, iArmorPenalty, iArmorMaxDex, iArmorSpellFailure, iSpeed30,
+	       iSpeed20, iRange, sDamageType, sDamage, sOriginalSize;
 end
 
 function getEnchancementCost(iEnchancementBonus, sType)
@@ -4902,8 +4741,7 @@ function figureAbilityName(sAbility, sSubAbility, sSubSubAbility)
 	return sAbilityName;
 end
 
-function getItemNewName(sItemName, sEnhancementBonus, iEnchancementBonus, sSpecialMaterial, aAbilities, bMasterworkMaterial,
-                        sItemSize)
+function getItemNewName(sItemName, sEnhancementBonus, iEnchancementBonus, sSpecialMaterial, aAbilities, bMasterworkMaterial, sItemSize)
 	local sItemNewName = '';
 	if sItemSize:lower() ~= Interface.getString('item_size_medium'):lower() then sItemNewName = sItemNewName .. sItemSize .. ' '; end
 	if sEnhancementBonus == Interface.getString('bonus_mwk') and (not bMasterworkMaterial) then
@@ -5133,8 +4971,7 @@ function addAmmoEffect(nodeItem)
 	if not nodeEffectList then nodeEffectList = nodeItem.createChild('effectlist'); end
 	local nBonus = DB.getValue(nodeItem, 'bonus', 0);
 	addEffect(
-					nodeEffectList, 'IF: CUSTOM(' .. getWeaponTypeName(nodeItem) .. ' Attack); ATK: ' .. nBonus .. ' ranged; DMG: ' .. nBonus, 0,
-					false
+					nodeEffectList, 'IF: CUSTOM(' .. getWeaponTypeName(nodeItem) .. ' Attack); ATK: ' .. nBonus .. ' ranged; DMG: ' .. nBonus, 0, false
 	);
 end
 

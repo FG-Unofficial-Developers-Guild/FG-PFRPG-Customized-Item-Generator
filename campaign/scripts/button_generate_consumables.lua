@@ -28,18 +28,7 @@ aScrollLevelCosts = {
 	['cleric'] = { [0] = 12.5, [1] = 25, [2] = 150, [3] = 375, [4] = 700, [5] = 1125, [6] = 1650, [7] = 2275, [8] = 3000, [9] = 3825 },
 	['druid'] = { [0] = 12.5, [1] = 25, [2] = 150, [3] = 375, [4] = 700, [5] = 1125, [6] = 1650, [7] = 2275, [8] = 3000, [9] = 3825 },
 	['wizard'] = { [0] = 12.5, [1] = 25, [2] = 150, [3] = 375, [4] = 700, [5] = 1125, [6] = 1650, [7] = 2275, [8] = 3000, [9] = 3825 },
-	['sorcerer'] = {
-		[0] = 12.5,
-		[1] = 25,
-		[2] = 200,
-		[3] = 450,
-		[4] = 800,
-		[5] = 1250,
-		[6] = 1800,
-		[7] = 2450,
-		[8] = 3200,
-		[9] = 4050,
-	},
+	['sorcerer'] = { [0] = 12.5, [1] = 25, [2] = 200, [3] = 450, [4] = 800, [5] = 1250, [6] = 1800, [7] = 2450, [8] = 3200, [9] = 4050 },
 	['bard'] = { [0] = 12.5, [1] = 25, [2] = 200, [3] = 525, [4] = 1000, [5] = 1625, [6] = 2400 },
 	['paladin'] = { [1] = 25, [2] = 200, [3] = 525, [4] = 1000 },
 	['ranger'] = { [1] = 25, [2] = 200, [3] = 525, [4] = 1000 },
@@ -117,8 +106,9 @@ function onButtonPress()
 			end
 		end
 
-		sDesc = sDesc .. '<linklist><link class="spelldesc" recordname=\"' .. UtilityManager.encodeXML(nodeSpell.getPath()) .. '\">' ..
-						        sSpellName .. '</link></linklist>'
+		sDesc =
+						sDesc .. '<linklist><link class="spelldesc" recordname=\"' .. UtilityManager.encodeXML(nodeSpell.getPath()) .. '\">' .. sSpellName ..
+										'</link></linklist>'
 
 		local nodeItem = DB.findNode('item').createChild();
 		DB.setValue(nodeItem, 'locked', 'number', 1);
