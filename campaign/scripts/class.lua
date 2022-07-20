@@ -2,7 +2,7 @@
 -- Please see the LICENSE.md file included with this distribution for attribution and copyright information.
 --
 
--- luacheck: globals onValueChanged
+-- luacheck: globals onValueChanged getValue add
 function onValueChanged()
 	if super and super.onValueChanged then
 		super.onValueChanged();

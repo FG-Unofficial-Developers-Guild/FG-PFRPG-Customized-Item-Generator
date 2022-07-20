@@ -1,7 +1,8 @@
 --
 -- Please see the LICENSE.md file included with this distribution for attribution and copyright information.
 --
-function onInit() update(); end
+
+-- luacheck: globals update updateControl VisDataCleared InvisDataAdded
 
 function VisDataCleared() update(); end
 
@@ -52,6 +53,7 @@ function update()
 	if updateControl('weight', bReadOnly, bID) then bSection3 = true; end
 	if updateControl('size', bReadOnly, bID) then bSection3 = true; end
 
+	local bSection4 = false;
 	local bSection8 = false;
 	local bUsingACIM = StringManager.contains(Extension.getExtensions(), 'FG-PFRPG-Advanced-Item-Actions')
 	if bUsingACIM then
@@ -66,7 +68,6 @@ function update()
 		if updateControl('range', bReadOnly, bID and bWeapon) then bSection4 = true; end
 	end
 
-	local bSection4 = false;
 	if updateControl('ac', bReadOnly, bID and bArmor) then bSection4 = true; end
 	if updateControl('maxstatbonus', bReadOnly, bID and bArmor) then bSection4 = true; end
 	if updateControl('checkpenalty', bReadOnly, bID and bArmor) then bSection4 = true; end
@@ -127,3 +128,5 @@ function update()
 	divider4.setVisible((bSection1 or bSection2 or bSection3 or bSection8 or bSection4) and bSection5);
 	divider5.setVisible((bSection1 or bSection2 or bSection3 or bSection8 or bSection4 or bSection5) and bSection6);
 end
+
+function onInit() update(); end

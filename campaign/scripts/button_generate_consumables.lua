@@ -1,6 +1,8 @@
 --
 -- Please see the LICENSE.md file included with this distribution for attribution and copyright information.
 --
+
+-- luacheck: globals tArcaneClass aWandLevelCosts aScrollLevelCosts aPotionLevelCosts onButtonPress
 tArcaneClass = {
 	['bard'] = 1,
 	['sorcerer'] = 1,
