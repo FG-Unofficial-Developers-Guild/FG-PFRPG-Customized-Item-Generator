@@ -1,6 +1,6 @@
 [![Build FG-Usable File](https://github.com/FG-Unofficial-Developers-Guild/FG-PFRPG-Customized-Item-Generator/actions/workflows/create-ext.yml/badge.svg)](https://github.com/FG-Unofficial-Developers-Guild/FG-PFRPG-Customized-Item-Generator/actions/workflows/create-ext.yml) [![Luacheck](https://github.com/FG-Unofficial-Developers-Guild/FG-PFRPG-Customized-Item-Generator/actions/workflows/luacheck.yml/badge.svg)](https://github.com/FG-Unofficial-Developers-Guild/FG-PFRPG-Customized-Item-Generator/actions/workflows/luacheck.yml)
 
-# PFRPG Customized Item Generator
+# Customized Item Generator
 This extension allows you to add enhancement bonuses, special qualities, and special materials to (and change the side of) weapons and armor.
 
 It also supports creation of wands, scrolls, and potions.
