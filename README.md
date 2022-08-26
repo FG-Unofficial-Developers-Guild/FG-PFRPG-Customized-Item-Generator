@@ -7,7 +7,7 @@ It also supports creation of wands, scrolls, and potions.
 
 If you use [Advanced Effects](https://forge.fantasygrounds.com/shop/items/33/view), some additional effects will be auto-added to newly created weapons such as Holy.
 
-[Original extension by Faelwen](https://www.fantasygrounds.com/forums/showthread.php?38761-CustomisedItemGenerator-Extension) and with [further improvements by rmilmine](https://www.fantasygrounds.com/forums/showthread.php?57818-Customized-Item-Generator-for-3-5E-and-Pathfinder).
+[Original extension by Faelwen](https://www.fantasygrounds.com/forums/showthread.php?38761-CustomisedItemGenerator-Extension) and with [further improvements by rmilmine](https://www.fantasygrounds.com/forums/showthread.php?57818-Customized-Item-Generator-for-3-5E-and-Pathfinder) and bmos.
 
 # Compatibility
-This extension has been tested with [FantasyGrounds Unity](https://www.fantasygrounds.com/home/FantasyGroundsUnity.php) 4.1.13 (2022-01-05).
+This extension has been tested with [FantasyGrounds Unity](https://www.fantasygrounds.com/home/FantasyGroundsUnity.php) 4.2.2 (2022-06-07).
