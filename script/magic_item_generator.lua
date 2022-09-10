@@ -4070,7 +4070,7 @@ function generateMagicItem(nodeItem)
 	      iSpeed20, iRange, sDamageType, sDamage, sOriginalSize = getItemData(nodeItem);
 	local sNewDamage = '';
 
-	if sType == 'weapon' or sType == 'shield' then
+	if ItemManager.isWeapon(nodeItem) or ItemManager.isShield(nodeItem) then
 		sNewDamage = getDamageBySize(sDamage, sOriginalSize, sItemSize);
 	else
 		sNewDamage = sDamage;
@@ -4153,7 +4153,7 @@ function generateMagicItem(nodeItem)
 	if iEnchancementBonus > 0 then
 		iNewBonus = iEnchancementBonus;
 		sDamageType = addProperty(sDamageType, 'magic');
-		if DataCommon.isPFRPG() and (sType == 'weapon' or sType == 'ammunition') then
+		if DataCommon.isPFRPG() and (ItemManager.isWeapon(nodeItem) or sType == 'ammunition') then
 			sDamageType = getDamageTypeByEnhancementBonus(sDamageType, iEnchancementBonus);
 		end
 	end
@@ -4193,12 +4193,12 @@ function generateMagicItem(nodeItem)
 	populateItemField(nodeItem, 'substance', 'string', sSpecialMaterial);
 	populateItemField(nodeItem, 'size', 'string', sItemSize);
 
-	if sType == 'weapon' or sType == 'ammunition' then
+	if ItemManager.isWeapon(nodeItem) or sType == 'ammunition' then
 		populateItemField(nodeItem, 'damagetype', 'string', sDamageType);
 		populateItemField(nodeItem, 'range', 'number', iRange);
 	end
 
-	if sType == 'armor' or sType == 'shield' then
+	if ItemManager.isArmor(nodeItem) or ItemManager.isShield(nodeItem) then
 		populateItemField(nodeItem, 'checkpenalty', 'number', iNewArmorPenalty);
 		populateItemField(nodeItem, 'maxstatbonus', 'number', iNewArmorMaxDex);
 		populateItemField(nodeItem, 'speed20', 'number', iNewSpeed20);
@@ -4208,7 +4208,7 @@ function generateMagicItem(nodeItem)
 	for _, aAbility in pairs(aAbilities) do
 		addEffectsForAbility(nodeItem, sType, sSubType, aAbility.sAbility, aAbility.sSubAbility, aAbility.sSubSubAbility);
 	end
-	if sType == 'weapon' and (sSubType == 'ranged' or sSubType == 'firearm') then addRangedEffect(nodeItem); end
+	if ItemManager.isWeapon(nodeItem) and (sSubType == 'ranged' or sSubType == 'firearm') then addRangedEffect(nodeItem); end
 	if sType == 'ammunition' then addAmmoEffect(nodeItem); end
 	Comm.addChatMessage({ text = 'Generated ' .. sItemNewName, secret = true, icon = 'ct_faction_friend' }); -- ]]
 
@@ -4894,7 +4894,7 @@ function addEffectsForAbility(nodeItem, sType, sSubType, sAbility, sSubAbility, 
 	if not nodeEffectList then nodeEffectList = nodeItem.createChild('effectlist'); end
 	local aAbility = {};
 	local nCritical = 0;
-	if sType == 'weapon' then
+	if ItemManager.isWeapon(nodeItem) then
 		if sSubType == 'melee' then
 			aAbility = aMeleeWeaponAbilities[sAbility];
 			nCritical = getCritical(nodeItem);
@@ -4904,9 +4904,9 @@ function addEffectsForAbility(nodeItem, sType, sSubType, sAbility, sSubAbility, 
 		end
 	elseif sType == 'ammunition' then
 		aAbility = aAmmunitionAbilities[sAbility];
-	elseif sType == 'armor' then
+	elseif ItemManager.isArmor(nodeItem) then
 		aAbility = aArmorAbilities[sAbility];
-	elseif sType == 'shield' then
+	elseif ItemManager.isShield(nodeItem) then
 		aAbility = aShieldAbilities[sAbility];
 	end
 
