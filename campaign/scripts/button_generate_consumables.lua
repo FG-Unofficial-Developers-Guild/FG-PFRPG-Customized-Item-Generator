@@ -100,7 +100,7 @@ function onButtonPress()
 			end
 		else
 			sDesc =
-							'<p>A potion is a magic liquid that produces its effect when imbibed. Potions vary incredibly in appearance. Magic oils are similar to potions, except that oils are applied externally rather than imbibed. A potion or oil can be used only once. It can duplicate the effect of a spell of up to 3rd level that has a casting time of less than 1 minute and targets one or more creatures or objects.</p>';
+							'<p>A potion is a magic liquid that produces its effect when imbibed. Potions vary incredibly in appearance. Magic oils are similar to potions, except that oils are applied externally rather than imbibed. A potion or oil can be used only once. It can duplicate the effect of a spell of up to 3rd level that has a casting time of less than 1 minute and targets one or more creatures or objects.</p>'; -- luacheck: no max line length
 			nCost = aPotionLevelCosts[sClass][nSpellLevel];
 			if nCost and nSpellLevel ~= 0 then
 				local nMinCL = (nSpellLevel * 2) - 1;
