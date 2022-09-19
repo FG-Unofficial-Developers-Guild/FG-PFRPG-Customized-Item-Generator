@@ -2,7 +2,9 @@
 -- Please see the LICENSE.md file included with this distribution for attribution and copyright information.
 --
 -- luacheck: no max line length
--- luacheck: globals aSpecialMaterials
+-- luacheck: globals aSpecialMaterials aMeleeWeaponAbilities aRangedWeaponAbilities aAmmunitionAbilities aArmorAbilities aShieldAbilities aItemSize
+-- luacheck: globals aDamageDice aPositionDamage aAltDamageDice1 aAltDamageDice2
+
 aSpecialMaterials = {
 	['Adamantine'] = {
 		sStringName = 'adamantine',
