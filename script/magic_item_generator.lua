@@ -4041,8 +4041,8 @@ end
 function generateMagicItem(nodeItem)
 	if not nodeItem then return false; end
 	sEnhancementBonus = DB.getValue(nodeItem, 'combobox_bonus', '');
-	sSpecialMaterial = DB.getValue(nodeItem, 'combobox_material', '');
-	sItemSize = DB.getValue(nodeItem, 'combobox_item_size', '');
+	local sSpecialMaterial = DB.getValue(nodeItem, 'combobox_material', '');
+	local sItemSize = DB.getValue(nodeItem, 'combobox_item_size', '');
 	local sType, sSubType = getItemType(nodeItem);
 	if notifyMissingTypeData(sType, sSubType) then return end
 
