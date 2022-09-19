@@ -3,7 +3,9 @@
 --
 -- luacheck: no max line length
 -- luacheck: globals aSpecialMaterials aMeleeWeaponAbilities aRangedWeaponAbilities aAmmunitionAbilities aArmorAbilities aShieldAbilities aItemSize
--- luacheck: globals aDamageDice aPositionDamage aAltDamageDice1 aAltDamageDice2
+-- luacheck: globals aDamageDice aPositionDamage aAltDamageDice1 aAltDamageDice2 aAltDamageDice3 populateItemField aWeightMultiplier generateMagicItem
+-- luacheck: globals ItemManager.isArmor ItemManager.isShield ItemManager.isWeapon addRangedEffect addAmmoEffect cleanAbility getAbilities getAbilityList
+-- luacheck: globals getItemType
 
 aSpecialMaterials = {
 	['Adamantine'] = {
