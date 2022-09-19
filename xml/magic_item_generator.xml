@@ -22,11 +22,12 @@
 							Interface.openWindow("MagicPropertiesWindow", nodeItem);
 						end
 
-							Interface.openWindow("MagicPropertiesWindow", nodeItem);
-							window.close();
+						Interface.openWindow("MagicPropertiesWindow", nodeItem);
+						window.close();
 					end
 				end
 			</script>
+			<tooltip textres="tooltip_magic_item_generator_button_text" />
 		</button_text_sm>
 	</template>
 	
