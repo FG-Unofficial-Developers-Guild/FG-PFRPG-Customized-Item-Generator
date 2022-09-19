@@ -25,6 +25,5 @@
 		<includefile source="campaign/record_item.xml" />
 		<includefile source="campaign/record_spell.xml" />
 		<includefile source="strings/customised_item_strings.xml" />
-		<includefile source="ref/ref_equipment.xml" />
 	</base>
 </root>
