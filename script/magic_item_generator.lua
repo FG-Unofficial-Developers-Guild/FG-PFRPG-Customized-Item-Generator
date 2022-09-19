@@ -4638,7 +4638,7 @@ end
 
 function getMasterworkPrice(sType, sProperties)
 	iMasterworkPrice = 0;
-	bDoubleProperty = sProperties:lower():match('double');
+	local bDoubleProperty = sProperties:lower():match('double');
 
 	if sType == 'armor' or sType == 'shield' then
 		iMasterworkPrice = 150;
@@ -4833,9 +4833,7 @@ function changeDamageBySizeDifference(sDamage, iSizeDifference)
 			bIsAlt3 = true;
 		end
 
-		local iNewPosition = iPosition;
-		local iChange = 0;
-
+		local iChange;
 		for iVar = 1, math.abs(iSizeDifference), 1 do
 			if iSizeDifference < 0 then
 				iChange = -1;
@@ -4845,6 +4843,7 @@ function changeDamageBySizeDifference(sDamage, iSizeDifference)
 			if aDamageDice[sNewDamage].iPosition > aDamageDice['1d6'].iPosition then iChange = iChange * 2; end
 			sNewDamage = aPositionDamage[aDamageDice[sNewDamage].iPosition + iChange].sDamage;
 		end
+
 		if bIsAlt1 then
 			if aPositionDamage[aDamageDice[sNewDamage].iPosition].sAltDamage1 ~= nil then
 				sNewDamage = aPositionDamage[aDamageDice[sNewDamage].iPosition].sAltDamage1;
@@ -4853,6 +4852,11 @@ function changeDamageBySizeDifference(sDamage, iSizeDifference)
 		if bIsAlt2 then
 			if aPositionDamage[aDamageDice[sNewDamage].iPosition].sAltDamage2 ~= nil then
 				sNewDamage = aPositionDamage[aDamageDice[sNewDamage].iPosition].sAltDamage2;
+			end
+		end
+		if bIsAlt3 then
+			if aPositionDamage[aDamageDice[sNewDamage].iPosition].sAltDamage3 ~= nil then
+				sNewDamage = aPositionDamage[aDamageDice[sNewDamage].iPosition].sAltDamage3;
 			end
 		end
 
