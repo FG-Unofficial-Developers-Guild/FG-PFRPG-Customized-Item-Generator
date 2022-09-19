@@ -4351,7 +4351,7 @@ function checkSelection(sSelection) return (sSelection ~= Interface.getString('i
 
 function areExclusive(sType, sSubType, sAbility1, sAbility2)
 	local aAbilityList = getAbilityList(sType, sSubType);
-	return contains(aAbilityList[sAbility1].aExclusions, sAbility2);
+	return StringManager.contains(aAbilityList[sAbility1].aExclusions, sAbility2);
 end
 
 function getEnhancementBonus(sEnhancementBonus)
@@ -4395,11 +4395,6 @@ function populateItemField(databasenode, field, fieldType, fieldValue)
 		databasenode.createChild(field, fieldType);
 		databasenode.getChild(field).setValue(fieldValue);
 	end
-end
-
-function contains(aArray, sString)
-	for key, value in ipairs(aArray) do if value == sString then return true; end end
-	return false;
 end
 
 function getAbilityBonusAndCost(sSpecialAbility, sType, aSubType)
