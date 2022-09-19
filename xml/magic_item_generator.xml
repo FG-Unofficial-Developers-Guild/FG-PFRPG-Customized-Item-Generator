@@ -3,7 +3,7 @@
 <root>
 	<template name="template_launch_button">
 		<button_text_sm>
-			<anchored position="insidetopright" offset="200" width="100"/>
+			<anchored position="insidetopleft" offset="45" width="80"/>
 			<state textres="magic_item_generator_button_text" />
 			<gmvisibleonly />
 			<script>
