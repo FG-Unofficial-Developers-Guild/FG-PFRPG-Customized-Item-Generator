@@ -15,14 +15,15 @@
 						Comm.addChatMessage({text = Interface.getString("magic_item_gen_error_3"), secret = true, icon ="ct_faction_foe"}); 
 					else
 						local bInModule = nodeItem.getParent().getModule() ~= nil;
-						if not bInModule and not Input.isControlPressed() then
+						if not bInModule and Input.isAltPressed() then
+							nodeItem = DB.copyNode(nodeItem, nodeItem.getParent().createChild());
+						elseif bInModule then
+							local nodeItem = DB.copyNode(nodeItem, DB.createChild('item'));
+							Interface.openWindow("MagicPropertiesWindow", nodeItem);
+						end
+
 							Interface.openWindow("MagicPropertiesWindow", nodeItem);
 							window.close();
-						else
-							local nodeClone = DB.copyNode(nodeItem, DB.createChild('item'));
-							Interface.openWindow("MagicPropertiesWindow", nodeClone);
-							window.close();
-						end
 					end
 				end
 			</script>
