@@ -4040,7 +4040,7 @@ end
 
 function generateMagicItem(nodeItem)
 	if not nodeItem then return false; end
-	sEnhancementBonus = DB.getValue(nodeItem, 'combobox_bonus', '');
+	local sEnhancementBonus = DB.getValue(nodeItem, 'combobox_bonus', '');
 	local sSpecialMaterial = DB.getValue(nodeItem, 'combobox_material', '');
 	local sItemSize = DB.getValue(nodeItem, 'combobox_item_size', '');
 	local sType, sSubType = getItemType(nodeItem);
@@ -4048,7 +4048,7 @@ function generateMagicItem(nodeItem)
 
 	local aAbilities = getAbilities(nodeItem, sType, sSubType);
 
-	local bBonus, bMaterial, nErrorCode, aConflicts = checkComboboxes(sType, sSubType, sBonus, sSpecialMaterial, aAbilities);
+	local _, bMaterial, nErrorCode, aConflicts = checkComboboxes(sType, sSubType, nil, sSpecialMaterial, aAbilities);
 	if nErrorCode == 1 then
 		Comm.addChatMessage(
 						{ text = string.format(Interface.getString('magic_item_gen_error_4'), aConflicts.sAbility1), secret = true, icon = 'ct_faction_foe' }
@@ -4072,12 +4072,10 @@ function generateMagicItem(nodeItem)
 
 	local sItemName, iItemCost, iItemWeight, sFullSubType, sItemProperties, iArmorPenalty, iArmorMaxDex, iArmorSpellFailure, iSpeed30,
 	      iSpeed20, iRange, sDamageType, sDamage, sOriginalSize = getItemData(nodeItem);
-	local sNewDamage = '';
+	local sNewDamage = sDamage;
 
 	if ItemManager.isWeapon(nodeItem) or ItemManager.isShield(nodeItem) then
 		sNewDamage = getDamageBySize(sDamage, sOriginalSize, sItemSize);
-	else
-		sNewDamage = sDamage;
 	end
 
 	local iEnchancementBonus = getEnhancementBonus(sEnhancementBonus);
@@ -4091,7 +4089,7 @@ function generateMagicItem(nodeItem)
 		return false;
 	end
 
-	local aAbilityBonus, aAbilityCostBonus, aAbilityExtraCost, aAbilityName, aCL, aAura, aEffectList = {}, {}, {}, {}, {}, {}, {};
+	local aCL, aAura = {}, {};
 	for _, aAbility in ipairs(aAbilities) do
 		local iAbilityBonus, iAbilityCostBonus, iAbilityExtraCost, sAbilityName, iCL, sAura = getAbilityBonusAndCost(
 						                                                                                      aAbility.sAbility, sType, sSubType
