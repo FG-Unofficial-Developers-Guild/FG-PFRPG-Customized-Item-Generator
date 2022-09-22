@@ -4,6 +4,25 @@
 
 -- luacheck: globals update
 
+local function sectionVis(tSections)
+	for k, v in ipairs(tSections) do
+		local num, bool = k, nil;
+		if k == 2 then
+			local bVis = self['divider'] and (self['divider'].getVisible and not self['divider'].getVisible())
+			if bVis then self['divider'].setVisible(v and tSections[k - 1]); end
+		elseif k > 2 then
+			repeat
+				num = num - 1;
+				bool = tSections[num] or bool;
+			until num == 1;
+
+			local sDivName = 'divider' .. tostring(k - 1);
+			local bVis = self[sDivName] and (self[sDivName].getVisible and not self[sDivName].getVisible())
+			if bVis then self[sDivName].setVisible(v and bool); end
+		end
+	end
+end
+
 function update(...)
 	if super and super.update then super.update(...); end
 
@@ -11,27 +30,25 @@ function update(...)
 	local bReadOnly = WindowManager.getReadOnlyState(nodeRecord);
 	local bID = LibraryData.getIDState("item", nodeRecord);
 
-	local bSection1 = false;
+	local tSections = {}
+
 	if Session.IsHost then
-		if self.updateControl("nonid_name", bReadOnly, true) then bSection1 = true; end;
+		if self.updateControl("nonid_name", bReadOnly, true) then tSections[1] = true; end;
 	else
 		self.updateControl("nonid_name", false);
 	end
 	if (Session.IsHost or not bID) then
-		if self.updateControl("nonidentified", bReadOnly, true) then bSection1 = true; end;
+		if self.updateControl("nonidentified", bReadOnly, true) then tSections[1] = true; end;
 	else
 		self.updateControl("nonidentified", false);
 	end
 
-	local bSection2 = false;
-	if self.updateControl("type", bReadOnly, bID) then bSection2 = true; end
-	if self.updateControl("subtype", bReadOnly, bID) then bSection2 = true; end
+	if self.updateControl("type", bReadOnly, bID) then tSections[2] = true; end
+	if self.updateControl("subtype", bReadOnly, bID) then tSections[2] = true; end
 
-	local bSection3 = false;
-	if self.updateControl("cost", bReadOnly, bID) then bSection3 = true; end
-	if self.updateControl("weight", bReadOnly, bID) then bSection3 = true; end
-	if self.updateControl("size", bReadOnly, bID) then bSection3 = true; end
+	if self.updateControl("cost", bReadOnly, bID) then tSections[3] = true; end
+	if self.updateControl("weight", bReadOnly, bID) then tSections[3] = true; end
+	if self.updateControl("size", bReadOnly, bID) then tSections[3] = true; end
 
-	if not divider.isVisible() then divider.setVisible(bSection1 and bSection2); end
-	if not divider2.isVisible() then divider2.setVisible((bSection1 or bSection2) and bSection3); end
+	sectionVis(tSections);
 end
