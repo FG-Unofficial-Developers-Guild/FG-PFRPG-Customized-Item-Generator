@@ -2,13 +2,23 @@
 -- Please see the LICENSE.md file included with this distribution for attribution and copyright information.
 --
 
+local function getSpellNode()
+	local _, sRecord = DB.getValue(window.getDatabaseNode(), 'spellshortcut', '');
+	if sRecord ~= '' then
+		return DB.findNode(sRecord)
+	end
+end
+
 -- luacheck: globals onValueChanged
 function onValueChanged()
 	if super and super.onValueChanged then super.onValueChanged(); end
 
 	local sClass = (self.getValue() or ""):lower();
 	if sClass ~= "" then
-		local sLevelData = DB.getValue(window.getDatabaseNode(), "level", ""):lower()
+		local nodeSpell = getSpellNode();
+		if not nodeSpell then return; end
+
+		local sLevelData = DB.getValue(nodeSpell, "level", ""):lower()
 		local nSpellLevel = tonumber(sLevelData:match(".*" .. sClass .. " (%d+).*") or -1);
 		if nSpellLevel and nSpellLevel ~= -1 then
 			if window.button_generate.aScrollLevelCosts[sClass][nSpellLevel] then
@@ -35,11 +45,14 @@ function onInit()
 	if super and super.onInit then super.onInit(); end
 	clear();
 
-	local sLevelData = DB.getValue(window.getDatabaseNode(), "level", ""):lower()
+	local nodeSpell = getSpellNode();
+	if not nodeSpell then return; end
+
+	local sLevelData = DB.getValue(nodeSpell, "level", ""):lower()
 	local tClasses = { "cleric", "druid", "wizard", "sorcerer", "bard", "paladin", "ranger" };
 	for _,v in ipairs(tClasses) do
 		if sLevelData:match(v) then
-			self.add(v);
+			self.add(v, StringManager.titleCase(v), false);
 		end
 	end
 end

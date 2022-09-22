@@ -10,9 +10,12 @@
 				<script>
 					function onButtonPress()
 						local nodeSpell = window.getDatabaseNode();
-						
-						Interface.openWindow("consumable_creator_window", nodeSpell);
-						window.close();
+						if DB.getValue(nodeSpell, 'level', '') ~= '' then	
+							local nodeItem = DB.findNode("item").createChild()
+							DB.setValue(nodeItem, 'spellshortcut', 'windowreference', 'item', nodeSpell.getNodeName());
+							Interface.openWindow("consumable_creator_window", nodeItem);
+							window.close();
+						end
 					end
 				</script>
 			</template_launch_button>
@@ -46,21 +49,21 @@
 			</template_label>
 			<template_label name="label_type">
 				<anchored>
-					<top parent="label_class" anchor="bottom" offset="10" />
+					<top parent="label_class" anchor="bottom" offset="15" />
 					<left offset="20" />
 				</anchored>
 				<static textres="label_consumablescreator_type" />
 			</template_label>
 			<template_label name="label_cl">
 				<anchored>
-					<top parent="label_type" anchor="bottom" offset="10" />
+					<top parent="label_type" anchor="bottom" offset="15" />
 					<left offset="20" />
 				</anchored>
 				<static textres="label_consumablescreator_cl" />
 			</template_label>
 			<template_label name="label_charges">
 				<anchored>
-					<top parent="label_cl" anchor="bottom" offset="10" />
+					<top parent="label_cl" anchor="bottom" offset="15" />
 					<left offset="20" />
 				</anchored>
 				<static textres="label_consumablescreator_charges" />
@@ -87,7 +90,6 @@
 						if super and super.onInit then
 							super.onInit();
 						end
-						clear();
 					end
 					function onValueChanged()
 						if super and super.onValueChanged then

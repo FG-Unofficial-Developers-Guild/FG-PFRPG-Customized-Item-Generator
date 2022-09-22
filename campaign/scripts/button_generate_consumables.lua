@@ -62,8 +62,16 @@ local function getAuraString(nCL, sSchool)
 	return sAuraStrength .. sSchool;
 end
 
+local function getSpellNode()
+	local _, sRecord = DB.getValue(window.getDatabaseNode(), 'spellshortcut', '');
+	if sRecord ~= '' then
+		return DB.findNode(sRecord)
+	end
+end
+
 function onButtonPress()
-	local nodeSpell = window.getDatabaseNode();
+	local nodeSpell = getSpellNode();
+	if not nodeSpell then return; end
 
 	local sSpellName = DB.getValue(nodeSpell, 'name', '');
 	local sType = window.type.getValue() or '';
@@ -112,7 +120,7 @@ function onButtonPress()
 						sDesc .. '<linklist><link class="spelldesc" recordname=\"' .. UtilityManager.encodeXML(nodeSpell.getPath()) .. '\">' .. sSpellName ..
 										'</link></linklist>'
 
-		local nodeItem = DB.findNode('item').createChild();
+		local nodeItem = window.getDatabaseNode();
 		DB.setValue(nodeItem, 'locked', 'number', 1);
 		DB.setValue(nodeItem, 'name', 'string', sItemName);
 		DB.setValue(nodeItem, 'nonid_name', 'string', 'Magic ' .. sType);

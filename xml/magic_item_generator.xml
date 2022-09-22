@@ -200,6 +200,7 @@
 				<script>
 					function onInit()
 						super.onInit();
+						clear();
 						addItems({Interface.getString("itemnone"), Interface.getString("bonus_mwk"), Interface.getString("bonus_1"), Interface.getString("bonus_2"), Interface.getString("bonus_3"), Interface.getString("bonus_4"), Interface.getString("bonus_5")})
 					end
 				</script>
