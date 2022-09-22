@@ -4,12 +4,11 @@
 
 -- luacheck: globals onValueChanged getValue add
 function onValueChanged()
-	if super and super.onValueChanged then
-		super.onValueChanged();
-	end
-	local sClass = string.lower(getValue() or "");
+	if super and super.onValueChanged then super.onValueChanged(); end
+
+	local sClass = (getValue() or ""):lower();
 	if sClass ~= "" then
-		local nSpellLevel = tonumber(string.lower(DB.getValue(window.getDatabaseNode(), "level", "")):match(".*" .. sClass .. " (%d+).*") or -1);
+		local nSpellLevel = tonumber(DB.getValue(window.getDatabaseNode(), "level", ""):lower():match(".*" .. sClass .. " (%d+).*") or -1);
 		if nSpellLevel and nSpellLevel ~= -1 then
 			if window.button_generate.aScrollLevelCosts[sClass][nSpellLevel] then
 				window.type.add("Scroll");
@@ -32,13 +31,12 @@ function onValueChanged()
 end
 
 function onInit()
-	if super and super.onInit then
-		super.onInit();
-	end
-	local tClasses = { "Cleric", "Druid", "Wizard", "Sorcerer", "Bard", "Paladin", "Ranger" };
+	if super and super.onInit then super.onInit(); end
 	clear();
+
+	local tClasses = { "Cleric", "Druid", "Wizard", "Sorcerer", "Bard", "Paladin", "Ranger" };
 	for _,v in ipairs(tClasses) do
-		if string.lower(DB.getValue(window.getDatabaseNode(), "level", "")):find(string.lower(v)) then
+		if DB.getValue(window.getDatabaseNode(), "level", ""):lower():find(v:lower()) then
 			add(v);
 		end
 	end
