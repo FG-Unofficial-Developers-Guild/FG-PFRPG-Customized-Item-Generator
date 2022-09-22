@@ -15,6 +15,8 @@
 							DB.setValue(nodeItem, 'spellshortcut', 'windowreference', 'item', nodeSpell.getNodeName());
 							Interface.openWindow("consumable_creator_window", nodeItem);
 							window.close();
+						else
+							Comm.addChatMessage({text = Interface.getString("magic_item_gen_error_10"), secret = true, icon ="ct_faction_foe"});
 						end
 					end
 				</script>

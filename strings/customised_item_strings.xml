@@ -13,6 +13,7 @@
 	<string name="magic_item_gen_error_7">Error : Special ability bonus is higher than +5.</string>
 	<string name="magic_item_gen_error_8">Error : Item has no %s.</string>
 	<string name="magic_item_gen_error_9">Error : Spell level not found for the chosen class.</string>
+	<string name="magic_item_gen_error_10">Error : Spell has no level data.</string>
 
 	<string name="magic_item_generator_button_text">Custom</string>
 	<string name="tooltip_magic_item_generator_button_text">Click to customize.\nAlt-click to customize a copy.</string>
