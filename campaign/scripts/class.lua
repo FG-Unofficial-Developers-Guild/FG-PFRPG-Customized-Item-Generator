@@ -8,7 +8,8 @@ function onValueChanged()
 
 	local sClass = (getValue() or ""):lower();
 	if sClass ~= "" then
-		local nSpellLevel = tonumber(DB.getValue(window.getDatabaseNode(), "level", ""):lower():match(".*" .. sClass .. " (%d+).*") or -1);
+		local sLevelData = DB.getValue(window.getDatabaseNode(), "level", ""):lower()
+		local nSpellLevel = tonumber(sLevelData:match(".*" .. sClass .. " (%d+).*") or -1);
 		if nSpellLevel and nSpellLevel ~= -1 then
 			if window.button_generate.aScrollLevelCosts[sClass][nSpellLevel] then
 				window.type.add("Scroll");
@@ -34,10 +35,12 @@ function onInit()
 	if super and super.onInit then super.onInit(); end
 	clear();
 
-	local tClasses = { "Cleric", "Druid", "Wizard", "Sorcerer", "Bard", "Paladin", "Ranger" };
+	local sLevelData = DB.getValue(window.getDatabaseNode(), "level", ""):lower()
+	local tClasses = { "cleric", "druid", "wizard", "sorcerer", "bard", "paladin", "ranger" };
 	for _,v in ipairs(tClasses) do
-		if DB.getValue(window.getDatabaseNode(), "level", ""):lower():find(v:lower()) then
+		if sLevelData:match(v) then
 			add(v);
 		end
 	end
+	onValueChanged()
 end

@@ -66,7 +66,7 @@
 				<static textres="label_consumablescreator_charges" />
 			</template_label>
 
-			<template_combo_box name="class">
+			<combobox name="class">
 				<anchored height="20">
 					<top parent="button_generate" anchor="bottom" offset="20" />
 					<left anchor="left" offset="120" />
@@ -74,8 +74,8 @@
 				</anchored>
 				<default textres="consumable_blank" />
 				<script file="campaign/scripts/class.lua" />
-			</template_combo_box>
-			<template_combo_box name="type">
+			</combobox>
+			<combobox name="type">
 				<anchored to="class" height="20">
 					<top anchor="bottom" offset="10" />
 					<left anchor="left" offset="0" />
@@ -97,7 +97,7 @@
 						window.charges.setVisible(getValue() == "Wand");
 					end
 				</script>
-			</template_combo_box>
+			</combobox>
 			<basicnumber name="cl">
 				<anchored to="type" height="20">
 					<top anchor="bottom" offset="10" />
