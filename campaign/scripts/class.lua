@@ -2,11 +2,11 @@
 -- Please see the LICENSE.md file included with this distribution for attribution and copyright information.
 --
 
--- luacheck: globals onValueChanged getValue add
+-- luacheck: globals onValueChanged
 function onValueChanged()
 	if super and super.onValueChanged then super.onValueChanged(); end
 
-	local sClass = (getValue() or ""):lower();
+	local sClass = (self.getValue() or ""):lower();
 	if sClass ~= "" then
 		local sLevelData = DB.getValue(window.getDatabaseNode(), "level", ""):lower()
 		local nSpellLevel = tonumber(sLevelData:match(".*" .. sClass .. " (%d+).*") or -1);
@@ -39,8 +39,7 @@ function onInit()
 	local tClasses = { "cleric", "druid", "wizard", "sorcerer", "bard", "paladin", "ranger" };
 	for _,v in ipairs(tClasses) do
 		if sLevelData:match(v) then
-			add(v);
+			self.add(v);
 		end
 	end
-	onValueChanged()
 end
