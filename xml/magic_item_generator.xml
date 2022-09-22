@@ -3,7 +3,7 @@
 <root>
 	<template name="template_launch_button">
 		<button_text_sm>
-			<anchored position="insidetopright" offset="200" width="100"/>
+			<anchored position="insidetopleft" offset="45" width="80"/>
 			<state textres="magic_item_generator_button_text" />
 			<gmvisibleonly />
 			<script>
@@ -14,17 +14,20 @@
 					if sItemType == "" or (sItemType == "Armor" and sItemSubType == "") then
 						Comm.addChatMessage({text = Interface.getString("magic_item_gen_error_3"), secret = true, icon ="ct_faction_foe"}); 
 					else
-						if not nodeItem.getParent().getModule() then
+						local bInModule = nodeItem.getParent().getModule() ~= nil;
+						if not bInModule and Input.isAltPressed() then
+							nodeItem = DB.copyNode(nodeItem, nodeItem.getParent().createChild());
+						elseif bInModule then
+							local nodeItem = DB.copyNode(nodeItem, DB.createChild('item'));
 							Interface.openWindow("MagicPropertiesWindow", nodeItem);
-							window.close();
-						else
-							local nodeClone = DB.copyNode(nodeItem, DB.createChild('item'));
-							Interface.openWindow("MagicPropertiesWindow", nodeClone);
-							window.close();
 						end
+
+						Interface.openWindow("MagicPropertiesWindow", nodeItem);
+						window.close();
 					end
 				end
 			</script>
+			<tooltip textres="tooltip_magic_item_generator_button_text" />
 		</button_text_sm>
 	</template>
 	
