@@ -18,7 +18,7 @@
 						if not bInModule and Input.isAltPressed() then
 							nodeItem = DB.copyNode(nodeItem, nodeItem.getParent().createChild());
 						elseif bInModule then
-							local nodeItem = DB.copyNode(nodeItem, DB.createChild('item'));
+							nodeItem = DB.copyNode(nodeItem, DB.createChild('item'));
 							Interface.openWindow("MagicPropertiesWindow", nodeItem);
 						end
 
@@ -159,7 +159,7 @@
 						local nodeItem = window.getDatabaseNode();
 
 						if MagicItemGenerator.generateMagicItem(nodeItem) then
-							local magicWindow = Interface.openWindow("item", nodeItem);
+							Interface.openWindow("item", nodeItem);
 							window.close();
 						end
 					end
