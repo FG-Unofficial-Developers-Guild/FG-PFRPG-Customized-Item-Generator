@@ -3,33 +3,25 @@
 --
 
 local function getSpellNode()
-	local _, sRecord = DB.getValue(window.getDatabaseNode(), 'spellshortcut', '');
-	if sRecord ~= '' then
-		return DB.findNode(sRecord)
-	end
+	local _, sRecord = DB.getValue(window.getDatabaseNode(), 'spellshortcut', '')
+	if sRecord ~= '' then return DB.findNode(sRecord) end
 end
 
 -- luacheck: globals onValueChanged
 function onValueChanged()
-	if super and super.onValueChanged then super.onValueChanged(); end
+	if super and super.onValueChanged then super.onValueChanged() end
 
-	local sClass = (self.getValue() or ""):lower();
-	if sClass ~= "" then
-		local nodeSpell = getSpellNode();
-		if not nodeSpell then return; end
+	local sClass = (self.getValue() or ''):lower()
+	if sClass ~= '' then
+		local nodeSpell = getSpellNode()
+		if not nodeSpell then return end
 
-		local sLevelData = DB.getValue(nodeSpell, "level", ""):lower()
-		local nSpellLevel = tonumber(sLevelData:match(".*" .. sClass .. " (%d+).*") or -1);
+		local sLevelData = DB.getValue(nodeSpell, 'level', ''):lower()
+		local nSpellLevel = tonumber(sLevelData:match('.*' .. sClass .. ' (%d+).*') or -1)
 		if nSpellLevel and nSpellLevel ~= -1 then
-			if window.button_generate.aScrollLevelCosts[sClass][nSpellLevel] then
-				window.type.add("Scroll");
-			end
-			if window.button_generate.aPotionLevelCosts[sClass][nSpellLevel] then
-				window.type.add("Potion");
-			end
-			if window.button_generate.aWandLevelCosts[sClass][nSpellLevel] then
-				window.type.add("Wand");
-			end
+			if window.button_generate.aScrollLevelCosts[sClass][nSpellLevel] then window.type.add('Scroll') end
+			if window.button_generate.aPotionLevelCosts[sClass][nSpellLevel] then window.type.add('Potion') end
+			if window.button_generate.aWandLevelCosts[sClass][nSpellLevel] then window.type.add('Wand') end
 			if nSpellLevel == 0 then
 				window.cl.setValue(1)
 			else
@@ -42,17 +34,15 @@ function onValueChanged()
 end
 
 function onInit()
-	if super and super.onInit then super.onInit(); end
-	clear();
+	if super and super.onInit then super.onInit() end
+	clear()
 
-	local nodeSpell = getSpellNode();
-	if not nodeSpell then return; end
+	local nodeSpell = getSpellNode()
+	if not nodeSpell then return end
 
-	local sLevelData = DB.getValue(nodeSpell, "level", ""):lower()
-	local tClasses = { "cleric", "druid", "wizard", "sorcerer", "bard", "paladin", "ranger" };
-	for _,v in ipairs(tClasses) do
-		if sLevelData:match(v) then
-			self.add(v, StringManager.titleCase(v), false);
-		end
+	local sLevelData = DB.getValue(nodeSpell, 'level', ''):lower()
+	local tClasses = { 'cleric', 'druid', 'wizard', 'sorcerer', 'bard', 'paladin', 'ranger' }
+	for _, v in ipairs(tClasses) do
+		if sLevelData:match(v) then self.add(v, StringManager.titleCase(v), false) end
 	end
 end
