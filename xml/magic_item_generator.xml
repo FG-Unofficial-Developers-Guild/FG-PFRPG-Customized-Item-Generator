@@ -156,10 +156,10 @@
 				</anchored>
 				<script>
 					function onButtonPress()
-						local nodeItem = window.getDatabaseNode();
+						local node = window.getDatabaseNode();
 
-						if MagicItemGenerator.generateMagicItem(nodeItem) then
-							Interface.openWindow("item", nodeItem);
+						if MagicItemGenerator.generateMagicItem(node) then
+							Interface.openWindow("item", node);
 							window.close();
 						end
 					end
@@ -215,7 +215,7 @@
 				<default textres="itemnone" />
 				<script>
 					function onInit()
-						super.onInit();
+						if super and super.onInit then super.onInit(); end
 						local nodeItem = window.getDatabaseNode();
 
 						local sType, sSubType = MagicItemGenerator.getItemType(nodeItem);
@@ -262,7 +262,7 @@
 				<default textres="item_size_medium" />
 				<script>
 					function onInit()
-						super.onInit();
+						if super and super.onInit then super.onInit(); end
 						for key,value in pairs(MagicItemGenerator.aItemSize) do
 							add(key);
 						end
@@ -359,9 +359,8 @@
 				<default textres="itemnone" />
 				<script>
 					function onInit()
-						super.onInit();
-						local databasenode = window.getDatabaseNode();
-						local nodeItem = DB.getChild(databasenode, "...");
+						if super and super.onInit then super.onInit(); end
+						local nodeItem = window.getDatabaseNode().getChild("...");
 						if not nodeItem then
 							return;
 						end
@@ -407,8 +406,8 @@
 					end
 					
 					function onValueChanged()
-						local databasenode = window.getDatabaseNode();
-						local nodeItem = DB.getChild(databasenode, "...");
+						if super and super.onValueChanged then super.onValueChanged(); end
+						local nodeItem = window.getDatabaseNode().getChild("...");
 						if not nodeItem then
 							return;
 						end
@@ -472,8 +471,8 @@
 				<invisible />
 				<script>
 					function onValueChanged()
-						local databasenode = window.getDatabaseNode();
-						local nodeItem = DB.getChild(databasenode, "...");
+						if super and super.onValueChanged then super.onValueChanged(); end
+						local nodeItem = window.getDatabaseNode().getChild("...");
 						if not nodeItem then
 							return;
 						end
