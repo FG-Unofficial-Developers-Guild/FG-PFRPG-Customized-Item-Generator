@@ -4935,41 +4935,28 @@ function populateItemField(databasenode, field, fieldType, fieldValue)
 end
 
 function getAbilityBonusAndCost(sSpecialAbility, sType, aSubType)
-	local iBonus, iBonusCost, iExtraCost, sAbilityName, iCL, sAura = 0, 0, 0, '', 0, ''
-
+	local tAbilities
 	if aSubType == 'melee' then
-		iBonus = aMeleeWeaponAbilities[sSpecialAbility].iBonus
-		iExtraCost = aMeleeWeaponAbilities[sSpecialAbility].iCost
-		sAbilityName = aMeleeWeaponAbilities[sSpecialAbility].sStringName
-		iCL = aMeleeWeaponAbilities[sSpecialAbility].iCL
-		sAura = aMeleeWeaponAbilities[sSpecialAbility].sAura
+		tAbilities = aMeleeWeaponAbilities[sSpecialAbility]
 	elseif aSubType == 'ranged' then
-		iBonus = aRangedWeaponAbilities[sSpecialAbility].iBonus
-		iExtraCost = aRangedWeaponAbilities[sSpecialAbility].iCost
-		sAbilityName = aRangedWeaponAbilities[sSpecialAbility].sStringName
-		iCL = aRangedWeaponAbilities[sSpecialAbility].iCL
-		sAura = aRangedWeaponAbilities[sSpecialAbility].sAura
+		tAbilities = aRangedWeaponAbilities[sSpecialAbility]
 	elseif sType == 'armor' then
-		iBonus = aArmorAbilities[sSpecialAbility].iBonus
-		iExtraCost = aArmorAbilities[sSpecialAbility].iCost
-		sAbilityName = aArmorAbilities[sSpecialAbility].sStringName
-		iCL = aArmorAbilities[sSpecialAbility].iCL
-		sAura = aArmorAbilities[sSpecialAbility].sAura
+		tAbilities = aArmorAbilities[sSpecialAbility]
 	elseif sType == 'shield' then
-		iBonus = aShieldAbilities[sSpecialAbility].iBonus
-		iExtraCost = aShieldAbilities[sSpecialAbility].iCost
-		sAbilityName = aShieldAbilities[sSpecialAbility].sStringName
-		iCL = aShieldAbilities[sSpecialAbility].iCL
-		sAura = aShieldAbilities[sSpecialAbility].sAura
+		tAbilities = aShieldAbilities[sSpecialAbility]
 	elseif sType == 'ammunition' then
-		iBonus = aAmmunitionAbilities[sSpecialAbility].iBonus
-		iExtraCost = aAmmunitionAbilities[sSpecialAbility].iCost
-		sAbilityName = aAmmunitionAbilities[sSpecialAbility].sStringName
-		iCL = aAmmunitionAbilities[sSpecialAbility].iCL
-		sAura = aAmmunitionAbilities[sSpecialAbility].sAura
+		tAbilities = aAmmunitionAbilities[sSpecialAbility]
 	end
 
+	local iBonus = tAbilities.iBonus or 0
+	local iBonusCost = 0
+	local iExtraCost = tAbilities.iCost or 0
+	local sAbilityName = tAbilities.sStringName or ''
+	local iCL = tAbilities.iCL or 0
+	local sAura = tAbilities.sAura or ''
+
 	if iExtraCost == 0 then iBonusCost = iBonus end
+
 	return iBonus, iBonusCost, iExtraCost, sAbilityName, iCL, sAura
 end
 
