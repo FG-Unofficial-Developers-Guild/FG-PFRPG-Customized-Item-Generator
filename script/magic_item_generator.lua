@@ -1395,7 +1395,7 @@ aMeleeWeaponAbilities = {
 	},
 	['Transformative'] = {
 		sStringName = 'transformative',
-		iBonus = 5,
+		iBonus = 0,
 		iCost = 10000,
 		bSlashing = true,
 		bPiercing = true,
