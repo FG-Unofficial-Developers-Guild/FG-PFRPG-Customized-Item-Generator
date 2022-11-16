@@ -4652,7 +4652,7 @@ function generateMagicItem(nodeItem)
 		table.insert(aAura, sAura)
 	end
 
-	if iEffectiveBonus == iTotalAbilityBonus then
+	if iEffectiveBonus == iTotalAbilityBonus and iTotalAbilityBonus ~= 0 then
 		Comm.addChatMessage({
 			text = Interface.getString('magic_item_gen_error_7'),
 			secret = true,
