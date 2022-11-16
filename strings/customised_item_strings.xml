@@ -10,7 +10,7 @@
 	<string name="magic_item_gen_error_4">Error : Two special abilities are the same. %s. Can only place one.</string>
 	<string name="magic_item_gen_error_5">Error : Two special abilities are exclusive. %s, %s. Can only place one.</string>
 	<string name="magic_item_gen_error_6">Error : Special ability missing sub-ability selection. %s.</string>
-	<string name="magic_item_gen_error_7">Error : Special ability bonus is higher than +5.</string>
+	<string name="magic_item_gen_error_7">Error : Items with special abilities must have at least a +1 enhancement bonus.</string>
 	<string name="magic_item_gen_error_8">Error : Item has no %s.</string>
 	<string name="magic_item_gen_error_9">Error : Spell level not found for the chosen class.</string>
 	<string name="magic_item_gen_error_10">Error : Spell has no level data.</string>

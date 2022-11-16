@@ -4528,6 +4528,8 @@ aWeightMultiplier = {
 	['colossal'] = { nMultiplier = 12 },
 }
 
+local nMaxTotalBonus = 10 -- must have no more than 10 bonus points
+
 local function addProperty(sItemProperties, sProperty)
 	local sNewItemProperties = ''
 	if sItemProperties == '' then
@@ -4624,7 +4626,7 @@ function generateMagicItem(nodeItem)
 		table.insert(aAura, sAura)
 	end
 
-	if iTotalAbilityBonus > 5 then
+	if iEffectiveBonus == iTotalAbilityBonus then
 		Comm.addChatMessage({
 			text = Interface.getString('magic_item_gen_error_7'),
 			secret = true,
@@ -4633,7 +4635,7 @@ function generateMagicItem(nodeItem)
 		return false
 	end
 
-	if iEffectiveBonus > 10 then
+	if iEffectiveBonus > nMaxTotalBonus then
 		Comm.addChatMessage({
 			text = Interface.getString('magic_item_gen_error_2'),
 			secret = true,
