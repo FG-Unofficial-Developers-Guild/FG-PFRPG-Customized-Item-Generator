@@ -6,7 +6,7 @@
 		<name>Feature: Customized Item Generator</name>
 		<version>1.11</version>
 		<loadorder>55</loadorder>
-		<author>Faelwen with modifications by rmilmine and bmos</author>
+		<author>Faelwen, with modifications by rmilmine and bmos</author>
 		<description>Simple generator for magic items and consumables</description>
 		<ruleset>
 			<name>3.5E</name>
