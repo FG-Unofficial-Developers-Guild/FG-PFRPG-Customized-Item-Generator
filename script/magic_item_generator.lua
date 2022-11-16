@@ -4549,6 +4549,32 @@ local function getDamageBySize(sDamage, sOriginalSize, sItemSize)
 	return changeDamageBySizeDifference(sDamage, iSizeDifference)
 end
 
+function getAbilityBonusAndCost(sSpecialAbility, sType, aSubType)
+	local tAbilities
+	if aSubType == 'melee' then
+		tAbilities = aMeleeWeaponAbilities[sSpecialAbility]
+	elseif aSubType == 'ranged' then
+		tAbilities = aRangedWeaponAbilities[sSpecialAbility]
+	elseif sType == 'armor' then
+		tAbilities = aArmorAbilities[sSpecialAbility]
+	elseif sType == 'shield' then
+		tAbilities = aShieldAbilities[sSpecialAbility]
+	elseif sType == 'ammunition' then
+		tAbilities = aAmmunitionAbilities[sSpecialAbility]
+	end
+
+	local iBonus = tAbilities.iBonus or 0
+	local iBonusCost = 0
+	local iExtraCost = tAbilities.iCost or 0
+	local sAbilityName = tAbilities.sStringName or ''
+	local iCL = tAbilities.iCL or 0
+	local sAura = tAbilities.sAura or ''
+
+	if iExtraCost == 0 then iBonusCost = iBonus end
+
+	return iBonus, iBonusCost, iExtraCost, sAbilityName, iCL, sAura
+end
+
 function generateMagicItem(nodeItem)
 	if not nodeItem then return false end
 	local sEnhancementBonus = DB.getValue(nodeItem, 'combobox_bonus', '')
@@ -4934,32 +4960,6 @@ function populateItemField(databasenode, field, fieldType, fieldValue)
 		databasenode.createChild(field, fieldType)
 		databasenode.getChild(field).setValue(fieldValue)
 	end
-end
-
-function getAbilityBonusAndCost(sSpecialAbility, sType, aSubType)
-	local tAbilities
-	if aSubType == 'melee' then
-		tAbilities = aMeleeWeaponAbilities[sSpecialAbility]
-	elseif aSubType == 'ranged' then
-		tAbilities = aRangedWeaponAbilities[sSpecialAbility]
-	elseif sType == 'armor' then
-		tAbilities = aArmorAbilities[sSpecialAbility]
-	elseif sType == 'shield' then
-		tAbilities = aShieldAbilities[sSpecialAbility]
-	elseif sType == 'ammunition' then
-		tAbilities = aAmmunitionAbilities[sSpecialAbility]
-	end
-
-	local iBonus = tAbilities.iBonus or 0
-	local iBonusCost = 0
-	local iExtraCost = tAbilities.iCost or 0
-	local sAbilityName = tAbilities.sStringName or ''
-	local iCL = tAbilities.iCL or 0
-	local sAura = tAbilities.sAura or ''
-
-	if iExtraCost == 0 then iBonusCost = iBonus end
-
-	return iBonus, iBonusCost, iExtraCost, sAbilityName, iCL, sAura
 end
 
 function getMaterialData(
