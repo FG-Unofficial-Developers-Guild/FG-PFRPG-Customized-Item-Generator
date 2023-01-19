@@ -14,9 +14,9 @@
 					if sItemType == "" or (sItemType == "Armor" and sItemSubType == "") then
 						Comm.addChatMessage({text = Interface.getString("magic_item_gen_error_3"), secret = true, icon ="ct_faction_foe"});
 					else
-						local bInModule = nodeItem.getParent().getModule() ~= nil;
+						local bInModule = DB.getParent(nodeItem).getModule() ~= nil;
 						if not bInModule and Input.isAltPressed() then
-							nodeItem = DB.copyNode(nodeItem, nodeItem.getParent().createChild());
+							nodeItem = DB.copyNode(nodeItem, DB.createChild(DB.getParent(nodeItem)));
 						elseif bInModule then
 							nodeItem = DB.copyNode(nodeItem, DB.createChild('item'));
 							Interface.openWindow("MagicPropertiesWindow", nodeItem);
@@ -371,8 +371,8 @@
 						
 						local aAbilityList = MagicItemGenerator.getAbilityList(sType, sSubType);
 						
-						local dDamageType = nodeItem.getChild("damagetype");
-						local sName = nodeItem.getChild("name").getValue();
+						local dDamageType = DB.getChild(nodeItem, "damagetype");
+						local sName = DB.getChild(nodeItem, "name").getValue();
 						
 						local bMeleeWeapon = (sType == "Weapon" and sSubType == "Melee");
 						local bRangedWeapon = (sType == "Weapon" and sSubType == "Ranged");

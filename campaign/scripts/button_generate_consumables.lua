@@ -160,7 +160,7 @@ function onButtonPress()
 
 		sDesc = sDesc
 			.. '<linklist><link class="spelldesc" recordname="'
-			.. UtilityManager.encodeXML(nodeSpell.getPath())
+			.. UtilityManager.encodeXML(DB.getPath(nodeSpell))
 			.. '">'
 			.. sSpellName
 			.. '</link></linklist>'
