@@ -3,7 +3,7 @@
 --
 -- luacheck: no max line length
 -- luacheck: globals aSpecialMaterials aMeleeWeaponAbilities aRangedWeaponAbilities aAmmunitionAbilities aArmorAbilities aShieldAbilities aItemSize
--- luacheck: globals aDamageDice aPositionDamage aAltDamageDice1 aAltDamageDice2 aAltDamageDice3 populateItemField aWeightMultiplier generateMagicItem
+-- luacheck: globals aDamageDice aPositionDamage aAltDamageDice1 aAltDamageDice2 aAltDamageDice3 aWeightMultiplier generateMagicItem
 -- luacheck: globals ItemManager.isArmor ItemManager.isShield ItemManager.isWeapon addRangedEffect addAmmoEffect cleanAbility getAbilities getAbilityList
 -- luacheck: globals getItemType
 
@@ -4549,11 +4549,11 @@ local function getDamageBySize(sDamage, sOriginalSize, sItemSize)
 	return changeDamageBySizeDifference(sDamage, iSizeDifference)
 end
 
-function getAbilityBonusAndCost(sSpecialAbility, sType, aSubType)
+function getAbilityBonusAndCost(sSpecialAbility, sType, sSubType)
 	local tAbilities
-	if aSubType == 'melee' then
+	if sSubType == 'melee' then
 		tAbilities = aMeleeWeaponAbilities[sSpecialAbility]
-	elseif aSubType == 'ranged' then
+	elseif sSubType == 'ranged' then
 		tAbilities = aRangedWeaponAbilities[sSpecialAbility]
 	elseif sType == 'armor' then
 		tAbilities = aArmorAbilities[sSpecialAbility]
@@ -4675,7 +4675,7 @@ function generateMagicItem(nodeItem)
 			sSpecialMaterial,
 			iEnchancementBonus,
 			sType,
-			aSubType,
+			sSubType,
 			sFullSubType,
 			iItemWeight,
 			iArmorPenalty,
@@ -4741,32 +4741,32 @@ function generateMagicItem(nodeItem)
 	if sAddDescription ~= '' then sItemDescription = sItemDescription .. '<h>' .. sSpecialMaterial .. '</h>' .. sAddDescription end
 
 	-- Update fields in DB
-	populateItemField(nodeItem, 'aura', 'string', sAura)
-	populateItemField(nodeItem, 'bonus', 'number', iNewBonus)
-	populateItemField(nodeItem, 'cl', 'number', iCL)
-	populateItemField(nodeItem, 'cost', 'string', tostring(iTotalCost) .. ' gp')
-	populateItemField(nodeItem, 'description', 'formattedtext', sItemDescription)
-	populateItemField(nodeItem, 'isidentified', 'number', 0)
-	populateItemField(nodeItem, 'locked', 'number', 1)
-	populateItemField(nodeItem, 'name', 'string', StringManager.capitalize(sItemNewName))
-	populateItemField(nodeItem, 'nonid_name', 'string', StringManager.capitalize(sNewNonIdentifiedName))
-	populateItemField(nodeItem, 'properties', 'string', sItemProperties)
-	populateItemField(nodeItem, 'weight', 'number', iNewWeight)
-	populateItemField(nodeItem, 'damage', 'string', sNewDamage)
-	populateItemField(nodeItem, 'substance', 'string', sSpecialMaterial)
-	populateItemField(nodeItem, 'size', 'string', sItemSize)
+	DB.setValue(nodeItem, 'aura', 'string', sAura)
+	DB.setValue(nodeItem, 'bonus', 'number', iNewBonus)
+	DB.setValue(nodeItem, 'cl', 'number', iCL)
+	DB.setValue(nodeItem, 'cost', 'string', tostring(iTotalCost) .. ' gp')
+	DB.setValue(nodeItem, 'description', 'formattedtext', sItemDescription)
+	DB.setValue(nodeItem, 'isidentified', 'number', 0)
+	DB.setValue(nodeItem, 'locked', 'number', 1)
+	DB.setValue(nodeItem, 'name', 'string', StringManager.capitalize(sItemNewName))
+	DB.setValue(nodeItem, 'nonid_name', 'string', StringManager.capitalize(sNewNonIdentifiedName))
+	DB.setValue(nodeItem, 'properties', 'string', sItemProperties)
+	DB.setValue(nodeItem, 'weight', 'number', iNewWeight)
+	DB.setValue(nodeItem, 'damage', 'string', sNewDamage)
+	DB.setValue(nodeItem, 'substance', 'string', sSpecialMaterial)
+	DB.setValue(nodeItem, 'size', 'string', sItemSize)
 
 	if ItemManager.isWeapon(nodeItem) or sType == 'ammunition' then
-		populateItemField(nodeItem, 'damagetype', 'string', sDamageType)
-		populateItemField(nodeItem, 'range', 'number', iRange)
+		DB.setValue(nodeItem, 'damagetype', 'string', sDamageType)
+		DB.setValue(nodeItem, 'range', 'number', iRange)
 	end
 
 	if ItemManager.isArmor(nodeItem) or ItemManager.isShield(nodeItem) then
-		populateItemField(nodeItem, 'checkpenalty', 'number', iNewArmorPenalty)
-		populateItemField(nodeItem, 'maxstatbonus', 'number', iNewArmorMaxDex)
-		populateItemField(nodeItem, 'speed20', 'number', iNewSpeed20)
-		populateItemField(nodeItem, 'speed30', 'number', iNewSpeed30)
-		populateItemField(nodeItem, 'spellfailure', 'number', iNewArmorSpellFailure)
+		DB.setValue(nodeItem, 'checkpenalty', 'number', iNewArmorPenalty)
+		DB.setValue(nodeItem, 'maxstatbonus', 'number', iNewArmorMaxDex)
+		DB.setValue(nodeItem, 'speed20', 'number', iNewSpeed20)
+		DB.setValue(nodeItem, 'speed30', 'number', iNewSpeed30)
+		DB.setValue(nodeItem, 'spellfailure', 'number', iNewArmorSpellFailure)
 	end
 	for _, aAbility in pairs(aAbilities) do
 		addEffectsForAbility(nodeItem, sType, sSubType, aAbility.sAbility, aAbility.sSubAbility, aAbility.sSubSubAbility)
@@ -4835,8 +4835,8 @@ end
 function getItemType(nodeItem)
 	local sItemType = ''
 	local sItemSubType = ''
-	local sType = string.lower(nodeItem.getChild('type').getValue() or '')
-	local sSubType = string.lower(nodeItem.getChild('subtype').getValue() or '')
+	local sType = string.lower(DB.getChild(nodeItem, 'type').getValue() or '')
+	local sSubType = string.lower(DB.getChild(nodeItem, 'subtype').getValue() or '')
 	if sType == 'weapon' then
 		sItemType = 'weapon'
 	elseif sType == 'armor' then
@@ -4952,21 +4952,11 @@ function getDamageTypeByEnhancementBonus(sDamageType, iEnchancementBonus)
 	return sNewDamageType
 end
 
-function populateItemField(databasenode, field, fieldType, fieldValue)
-	local databaseChild = databasenode.getChild(field)
-	if databaseChild then
-		databaseChild.setValue(fieldValue)
-	else
-		databasenode.createChild(field, fieldType)
-		databasenode.getChild(field).setValue(fieldValue)
-	end
-end
-
 function getMaterialData(
 	sMaterial,
 	iEnhancingBonus,
 	sType,
-	aSubType,
+	sSubType,
 	sFullSubType,
 	iWeight,
 	iArmorPenalty,
@@ -4994,11 +4984,11 @@ function getMaterialData(
 	end
 
 	if sMaterial == Interface.getString('adamantine') then
-		if aSubType == 'light' then
+		if sSubType == 'light' then
 			iMaterialCost = iMaterialCost + 5000
-		elseif aSubType == 'medium' then
+		elseif sSubType == 'medium' then
 			iMaterialCost = iMaterialCost + 10000
-		elseif aSubType == 'heavy' then
+		elseif sSubType == 'heavy' then
 			iMaterialCost = iMaterialCost + 15000
 		elseif sType == 'weapon' then
 			iMaterialCost = iMaterialCost + 3000
@@ -5023,9 +5013,9 @@ function getMaterialData(
 		end
 		sNewDamageType = addProperty(sNewDamageType, 'silver')
 	elseif sMaterial == Interface.getString('angelskin') then
-		if aSubType == 'light' then
+		if sSubType == 'light' then
 			iMaterialCost = iMaterialCost + 1000
-		elseif aSubType == 'medium' then
+		elseif sSubType == 'medium' then
 			iMaterialCost = iMaterialCost + 2000
 		end
 	elseif sMaterial == Interface.getString('blood_crystal') then
@@ -5039,9 +5029,9 @@ function getMaterialData(
 		if iEnhancingBonus > 0 then iMaterialCost = iMaterialCost + 2000 end
 		sNewDamageType = addProperty(sNewDamageType, 'cold iron')
 	elseif sMaterial == Interface.getString('darkleaf_cloth') then
-		if aSubType == 'light' then
+		if sSubType == 'light' then
 			iMaterialCost = iMaterialCost + 750
-		elseif aSubType == 'medium' then
+		elseif sSubType == 'medium' then
 			iMaterialCost = iMaterialCost + 1500
 		else
 			iMaterialCost = iMaterialCost + 375 * iWeight
@@ -5057,20 +5047,20 @@ function getMaterialData(
 	elseif sMaterial == Interface.getString('dragonhide') then
 		iMaterialCost = 2 * getMasterworkPrice(sType, sProperties)
 	elseif sMaterial == Interface.getString('eel_hide') then
-		if aSubType == 'light' then
+		if sSubType == 'light' then
 			iMaterialCost = iMaterialCost + 1200
-		elseif aSubType == 'medium' then
+		elseif sSubType == 'medium' then
 			iMaterialCost = iMaterialCost + 1800
 		end
 		iNewArmorPenalty = iArmorPenalty + 1
 		iNewArmorMaxDex = iNewArmorMaxDex + 1
 		iNewArmorSpellFailure = iNewArmorSpellFailure - 10
 	elseif sMaterial == Interface.getString('elysian_bronze') then
-		if aSubType == 'light' then
+		if sSubType == 'light' then
 			iMaterialCost = iMaterialCost + 1000
-		elseif aSubType == 'medium' then
+		elseif sSubType == 'medium' then
 			iMaterialCost = iMaterialCost + 2000
-		elseif aSubType == 'heavy' then
+		elseif sSubType == 'heavy' then
 			iMaterialCost = iMaterialCost + 3000
 		elseif sType == 'weapon' then
 			iMaterialCost = iMaterialCost + 1000
@@ -5078,11 +5068,11 @@ function getMaterialData(
 			iMaterialCost = iMaterialCost + 20
 		end
 	elseif sMaterial == Interface.getString('fire_forged_steel') or sMaterial == Interface.getString('frost_forged_steel') then
-		if aSubType == 'light' then
+		if sSubType == 'light' then
 			iMaterialCost = iMaterialCost + 1000
-		elseif aSubType == 'medium' then
+		elseif sSubType == 'medium' then
 			iMaterialCost = iMaterialCost + 2500
-		elseif aSubType == 'heavy' then
+		elseif sSubType == 'heavy' then
 			iMaterialCost = iMaterialCost + 3000
 		elseif sType == 'weapon' then
 			iMaterialCost = iMaterialCost + 600
@@ -5092,17 +5082,17 @@ function getMaterialData(
 	elseif sMaterial == Interface.getString('greenwood') then
 		iMaterialCost = iWeight * 50 + getMasterworkPrice(sType, sProperties)
 	elseif sMaterial == Interface.getString('griffon_mane') then
-		if aSubType == 'light' then
+		if sSubType == 'light' then
 			iMaterialCost = iMaterialCost + 200
 		else
 			iMaterialCost = iMaterialCost + iWeight * 50
 		end
 	elseif sMaterial == Interface.getString('living_steel') then
-		if aSubType == 'light' then
+		if sSubType == 'light' then
 			iMaterialCost = iMaterialCost + 500
-		elseif aSubType == 'medium' then
+		elseif sSubType == 'medium' then
 			iMaterialCost = iMaterialCost + 1000
-		elseif aSubType == 'heavy' then
+		elseif sSubType == 'heavy' then
 			iMaterialCost = iMaterialCost + 1500
 		elseif sType == 'weapon' then
 			iMaterialCost = iMaterialCost + 500
@@ -5116,13 +5106,13 @@ function getMaterialData(
 	elseif sMaterial == Interface.getString('mithral') then
 		sNewDamageType = addProperty(sNewDamageType, 'silver')
 		iNewWeight = iNewWeight / 2
-		if aSubType == 'light' then
+		if sSubType == 'light' then
 			iMaterialCost = iMaterialCost + 1000
-		elseif aSubType == 'medium' then
+		elseif sSubType == 'medium' then
 			iMaterialCost = iMaterialCost + 4000
 			iNewSpeed30 = 30
 			iNewSpeed20 = 20
-		elseif aSubType == 'heavy' then
+		elseif sSubType == 'heavy' then
 			iMaterialCost = iMaterialCost + 9000
 			iNewSpeed30 = 20
 			iNewSpeed20 = 15
@@ -5206,20 +5196,20 @@ function getMasterworkPrice(sType, sProperties)
 end
 
 function getItemData(databasenode)
-	local dItemName = databasenode.getChild('name')
-	local dItemProperties = databasenode.getChild('properties')
-	local dItemWeight = databasenode.getChild('weight')
-	local dItemCost = databasenode.getChild('cost')
-	local dSubtype = databasenode.getChild('subtype')
-	local dArmorPenalty = databasenode.getChild('checkpenalty')
-	local dArmorMaxDex = databasenode.getChild('maxstatbonus')
-	local dArmorSpellFailure = databasenode.getChild('spellfailure')
-	local dSpeed30 = databasenode.getChild('speed30')
-	local dSpeed20 = databasenode.getChild('speed20')
-	local dDamageType = databasenode.getChild('damagetype')
-	local dRange = databasenode.getChild('range')
-	local dDamage = databasenode.getChild('damage')
-	local dSize = databasenode.getChild('size')
+	local dItemName = DB.getChild(databasenode, 'name')
+	local dItemProperties = DB.getChild(databasenode, 'properties')
+	local dItemWeight = DB.getChild(databasenode, 'weight')
+	local dItemCost = DB.getChild(databasenode, 'cost')
+	local dSubtype = DB.getChild(databasenode, 'subtype')
+	local dArmorPenalty = DB.getChild(databasenode, 'checkpenalty')
+	local dArmorMaxDex = DB.getChild(databasenode, 'maxstatbonus')
+	local dArmorSpellFailure = DB.getChild(databasenode, 'spellfailure')
+	local dSpeed30 = DB.getChild(databasenode, 'speed30')
+	local dSpeed20 = DB.getChild(databasenode, 'speed20')
+	local dDamageType = DB.getChild(databasenode, 'damagetype')
+	local dRange = DB.getChild(databasenode, 'range')
+	local dDamage = DB.getChild(databasenode, 'damage')
+	local dSize = DB.getChild(databasenode, 'size')
 
 	local sItemName, iItemCost, iItemWeight, sFullSubType, sItemProperties, iArmorPenalty, iArmorMaxDex, iArmorSpellFailure, iSpeed30, iSpeed20, sItemCost, sDamageType, iRange, sDamage, sOriginalSize =
 		'', 0, 0, '', '', 0, 0, 0, 0, 0, '', '', 0, '', ''
@@ -5455,7 +5445,7 @@ function addEffectsForAbility(nodeItem, sType, sSubType, sAbility, sSubAbility, 
 	if not nodeItem then return end
 	if not usingAE() then return end
 	local nodeEffectList = DB.getChild(nodeItem, 'effectlist')
-	if not nodeEffectList then nodeEffectList = nodeItem.createChild('effectlist') end
+	if not nodeEffectList then nodeEffectList = DB.createChild(nodeItem, 'effectlist') end
 	local aAbility = {}
 	local nCritical = 0
 	if ItemManager.isWeapon(nodeItem) then
@@ -5523,7 +5513,7 @@ function addRangedEffect(nodeItem)
 	if not nodeItem then return end
 	if not usingAE() then return end
 	local nodeEffectList = DB.getChild(nodeItem, 'effectlist')
-	if not nodeEffectList then nodeEffectList = nodeItem.createChild('effectlist') end
+	if not nodeEffectList then nodeEffectList = DB.createChild(nodeItem, 'effectlist') end
 	addEffect(nodeEffectList, getWeaponTypeName(nodeItem) .. ' Attack', 1, true)
 	addEffect(nodeEffectList, 'Crit' .. getCritical(nodeItem), 1, true)
 end
@@ -5532,7 +5522,7 @@ function addAmmoEffect(nodeItem)
 	if not nodeItem then return end
 	if not usingAE() then return end
 	local nodeEffectList = DB.getChild(nodeItem, 'effectlist')
-	if not nodeEffectList then nodeEffectList = nodeItem.createChild('effectlist') end
+	if not nodeEffectList then nodeEffectList = DB.createChild(nodeItem, 'effectlist') end
 	local nBonus = DB.getValue(nodeItem, 'bonus', 0)
 	addEffect(nodeEffectList, 'IF: CUSTOM(' .. getWeaponTypeName(nodeItem) .. ' Attack); ATK: ' .. nBonus .. ' ranged; DMG: ' .. nBonus, 0, false)
 end
