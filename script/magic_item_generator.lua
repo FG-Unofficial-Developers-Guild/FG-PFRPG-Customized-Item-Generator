@@ -5178,21 +5178,17 @@ function getMaterialData(
 end
 
 function getMasterworkPrice(sType, sProperties)
-	iMasterworkPrice = 0
-	local bDoubleProperty = sProperties:lower():match('double')
-
 	if sType == 'armor' or sType == 'shield' then
-		iMasterworkPrice = 150
+		return 150
 	elseif sType == 'ammunition' then
-		iMasterworkPrice = 6
+		return 6
 	elseif sType == 'weapon' then
-		if bDoubleProperty then
-			iMasterworkPrice = 600
-		else
-			iMasterworkPrice = 300
+		if sProperties:lower():match('double') then
+			return 600
 		end
+		return 300
 	end
-	return iMasterworkPrice
+	return 0
 end
 
 function getItemData(databasenode)
