@@ -270,6 +270,12 @@ aSpecialMaterials = {
 		bAmmunition = true,
 		bFragile = true,
 	},
+	['Silversheen'] = {
+		sStringName = 'silversheen',
+		bMeleeWeapon = true,
+		bAlwaysMasterwork = true,
+		sAddDescription = '<p><b>Source:</b>Qadira, Gateway to the East pg. 25</p><p>Blades made of this special metal count as alchemical silver weapons and are immune to rust, including that of rust monsters, the rusting grasp spell, and so on. They are always masterwork weapons—most often scimitars or longswords; the listed price includes the cost of the masterwork bonus. No aura (nonmagical property); CL —; Craft (alchemy) 5 ranks, Craft (weaponsmithing) 5 ranks; Price +750 gp.</p>',
+	},
 	['Singing Steel'] = {
 		sStringName = 'singing steel',
 		bLightArmor = true,
