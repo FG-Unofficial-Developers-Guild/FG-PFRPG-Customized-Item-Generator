@@ -96,6 +96,10 @@ aSpecialMaterials = {
 		bAlwaysMasterwork = true,
 		sAddDescription = '<p><b>Source:</b> Ultimate Equipment pg. 49, PRPG Core Rulebook pg. 154</p><p>This rare magic wood is as hard as normal wood but very light. Any wooden or mostly wooden item (such as a bow or spear) made from darkwood is considered a masterwork item and weighs only half as much as a normal wooden item of that type. Items not normally made of wood or only partially of wood (such as a battleaxe or a mace) either cannot be made from darkwood or do not gain any special benefit from being made of darkwood. The armor check penalty of a darkwood shield is lessened by 2 compared to an ordinary shield of its type. To determine the price of a darkwood item, use the original weight but add 10 gp per pound to the price of a masterwork version of that item. Darkwood has 10 hit points per inch of thickness and hardness 5.</p>',
 	},
+	['Djezet'] = {
+		sStringName = 'djezet',
+		sAddDescription = '<p><b>Source:</b> Pathfinder #61: Shards of Sin pg. 70</b></p><p>One of the strangest of the seven known types of skymetal, rust-red djezet is liquid at all temperatures. This makes the metal relatively useless for crafting metal objects (although many gifted metallurgists, such as Xin himself, have had some success creating djezet alloys), but most who seek out this metal intend to use it instead as an additional material component for spellcasting, since it possesses an ability to enhance magic. Djezet is associated with enchantment magic, love, and lust. Used as an additional material component, a dose of djezet increases the effective level of a spell by +1, as if it were being modified by the Heighten Spell feat. In order to function as an additional material component, the spellcaster must use a number of doses of djezet equal to the spell’s level—additional djezet used beyond this amount does nothing. Djezet costs 200 gp per dose.</p>',
+	},
 	['Dragonhide'] = {
 		sStringName = 'dragonhide',
 		bLightArmor = true,
