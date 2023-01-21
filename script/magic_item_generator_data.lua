@@ -69,7 +69,13 @@ aSpecialMaterials = {
 		sStringName = 'cold iron',
 		bMeleeWeapon = true,
 		bAmmunition = true,
-		sAddDescription = '<p><b>Source:</b> Ultimate Equipment pg. 49, PRPG Core Rulebook pg. 154</p><p>This iron, mined deep underground and known for its effectiveness against demons and fey creatures, is forged at a lower temperature to preserve its delicate properties. Weapons made of cold iron cost twice as much to make as their normal counterparts. Also, adding any magical enhancements to a cold iron weapon increases its price by 2,000 gp. This increase is applied the first time the item is enhanced, not once per ability added.</p><p>Items without metal parts cannot be made from cold iron. An arrow could be made of cold iron, but a quarterstaff could not. A double weapon with one cold iron half costs 50% more than normal.</p>',
+		sAddDescription = '<p><b>Source:</b> Ultimate Equipment pg. 49, PRPG Core Rulebook pg. 154</p><p>This iron, mined deep underground and known for its effectiveness against demons and fey creatures, is forged at a lower temperature to preserve its delicate properties. Weapons made of cold iron cost twice as much to make as their normal counterparts. Also, adding any magical enhancements to a cold iron weapon increases its price by 2,000 gp. This increase is applied the first time the item is enhanced, not once per ability added.</p><p>Items without metal parts cannot be made from cold iron. An arrow could be made of cold iron, but a quarterstaff could not. A double weapon with one cold iron half costs 50% more than normal. Cold iron has 30 hit points per inch of thickness and hardness 10.</p>',
+	},
+	['Cryptstone'] = {
+		sStringName = 'crypt stone',
+		bMeleeWeapon = true,
+		bAlwaysMasterwork = true,
+		sAddDescription = '<p><b>Source:</b> Pathfinder #139: The Dead Road pg. 63, Ultimate Equipment pg. 48</p><p>Cryptstone is a dense gray stone scavenged from the mausoleums of the Graveyard of Souls in the Boneyard. While cryptstone may appear ancient and pitted, the supernatural essence of the Boneyard has infused it with power over the eons. A weapon made of cryptstone grants a +1 bonus on weapon damage rolls against undead creatures; this damage is multiplied on a critical hit. Additionally, any nonmagical weapon made of cryptstone affects incorporeal undead as if it were a magic weapon, and weapons made of cryptstone that have the disruption special ability increase the DC of that ability by +1. Cryptstone can be used to craft bludgeoning melee weapons and ammunition that deals bludgeoning damage. Weapons made of cryptstone are always considered masterwork, and the masterwork costs are included in the listed prices. Items not primarily made from stone are not meaningfully affected by being partially made from cryptstone. Cryptstone has the same hit points and hardness as steel.</p>',
 	},
 	['Darkleaf cloth'] = {
 		sStringName = 'darkleaf cloth',
