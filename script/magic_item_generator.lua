@@ -42,7 +42,8 @@ function getAbilityBonusAndCost(sSpecialAbility, sType, sSubType)
 end
 
 local function getDamageForSize(sDamage, sOriginalSize, sNewSize)
-	local iSizeDifference = MagicItemGeneratorData.aItemSize[sNewSize:lower()].iPosition - MagicItemGeneratorData.aItemSize[sOriginalSize:lower()].iPosition
+	local iSizeDifference = MagicItemGeneratorData.aItemSize[sNewSize:lower()].iPosition
+		- MagicItemGeneratorData.aItemSize[sOriginalSize:lower()].iPosition
 	if iSizeDifference == 0 then return sDamage end
 
 	return changeDamageBySizeDifference(sDamage, iSizeDifference)
@@ -625,14 +626,14 @@ function getMaterialData(
 	local bAlwaysMasterwork = false
 	if MagicItemGeneratorData.aSpecialMaterials[sMaterial] and MagicItemGeneratorData.aSpecialMaterials[sMaterial].bAlwaysMasterwork then
 		bAlwaysMasterwork = MagicItemGeneratorData.aSpecialMaterials[sMaterial].bAlwaysMasterwork
-		if sType == 'armor' and iNewArmorPenalty == iArmorPenalty then
-			iNewArmorPenalty = iArmorPenalty + 1
-		end
+		if sType == 'armor' and iNewArmorPenalty == iArmorPenalty then iNewArmorPenalty = iArmorPenalty + 1 end
 	end
 	if iNewArmorPenalty > 0 then iNewArmorPenalty = 0 end
 
 	local bFragile = false
-	if MagicItemGeneratorData.aSpecialMaterials[sMaterial] and MagicItemGeneratorData.aSpecialMaterials[sMaterial].bFragile then bFragile = MagicItemGeneratorData.aSpecialMaterials[sMaterial].bFragile end
+	if MagicItemGeneratorData.aSpecialMaterials[sMaterial] and MagicItemGeneratorData.aSpecialMaterials[sMaterial].bFragile then
+		bFragile = MagicItemGeneratorData.aSpecialMaterials[sMaterial].bFragile
+	end
 
 	return iMaterialCost,
 		iNewWeight,
@@ -654,9 +655,7 @@ function getMasterworkPrice(sType, sProperties)
 	elseif sType == 'ammunition' then
 		return 6
 	elseif sType == 'weapon' then
-		if sProperties:lower():match('double') then
-			return 600
-		end
+		if sProperties:lower():match('double') then return 600 end
 		return 300
 	end
 	return 0
@@ -860,7 +859,9 @@ function changeDamageBySizeDifference(sDamage, iSizeDifference)
 			else
 				iChange = 1
 			end
-			if MagicItemGeneratorData.aDamageDice[sNewDamage].iPosition > MagicItemGeneratorData.aDamageDice['1d6'].iPosition then iChange = iChange * 2 end
+			if MagicItemGeneratorData.aDamageDice[sNewDamage].iPosition > MagicItemGeneratorData.aDamageDice['1d6'].iPosition then
+				iChange = iChange * 2
+			end
 			sNewDamage = MagicItemGeneratorData.aArmorAbilities[MagicItemGeneratorData.aDamageDice[sNewDamage].iPosition + iChange].sDamage
 		end
 
@@ -1019,7 +1020,9 @@ end
 
 function getWeightBySize(iItemWeight, sOriginalSize, sItemSize)
 	if sOriginalSize:lower() == sItemSize:lower() then return iItemWeight end
-	return iItemWeight / MagicItemGeneratorData.aWeightMultiplier[sOriginalSize:lower()].nMultiplier * MagicItemGeneratorData.aWeightMultiplier[sItemSize:lower()].nMultiplier
+	return iItemWeight
+		/ MagicItemGeneratorData.aWeightMultiplier[sOriginalSize:lower()].nMultiplier
+		* MagicItemGeneratorData.aWeightMultiplier[sItemSize:lower()].nMultiplier
 end
 
 ---	This function returns true if either supplied string is nil or blank.
