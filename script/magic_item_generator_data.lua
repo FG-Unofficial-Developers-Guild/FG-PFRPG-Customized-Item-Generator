@@ -276,7 +276,7 @@ aSpecialMaterials = {
 		bMeleeWeapon = true,
 		bAmmunition = true,
 		bFragile = true,
-		sAddDescription = '',
+		sAddDescription = '<p><b>Source:</b></p>Ultimate Equipment pg. 53<p>Stone Age weapons almost always utilize stone in some way. From rocks lashed to wooden hafts to create early maces and axes, to flint knives and stone arrowheads, these primitive weapons are still deadly. Stone weapons cost a quarter as much as base items of their type, and weigh 75% of what base items of their type do. Light and one-handed bludgeoning weapons, spears, axes, daggers, and arrowheads can all be made of stone. Weapons made of stone have half the hardness of their base weapons, and have the fragile condition. With a few exceptions (such as stoneplate, see page 14), armor cannot usually be constructed from stone. Magically strengthened stone does not have the fragile quality.</p>',
 	},
 }
 
