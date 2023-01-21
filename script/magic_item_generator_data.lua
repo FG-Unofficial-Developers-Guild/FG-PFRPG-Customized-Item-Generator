@@ -270,6 +270,18 @@ aSpecialMaterials = {
 		bAmmunition = true,
 		bFragile = true,
 	},
+	['Singing Steel'] = {
+		sStringName = 'singing steel',
+		bLightArmor = true,
+		bMediumArmor = true,
+		bHeavyArmor = true,
+		bShield = true,
+		bMeleeWeapon = true,
+		bRangedWeapon = true,
+		bAmmunition = true,
+		bAlwaysMasterwork = true,
+		sAddDescription = "<p><b>Source:</b>Adventurer's Armory 2 pg. 28</p><p>This lustrous golden metal emits beautiful bell-like tones when struck. An alloy of gold and mithral, singing steel was originally created by the elves of Jinin, although the secrets of working singing steel have spread to Hwanggot, Minkai, and Tianjing. Instruments made of this metal are especially popular among bards and other performers who worship the goddess Shelyn. A weapon made of singing steel counts as alchemical silver for all purposes, including the –1 penalty on damage rolls with singing steel weapons. Most armor made of singing steel is treated as one category lighter (heavy armors are treated as medium, and medium armors are treated as light, but light armors are still treated as light). The armor or shield’s arcane spell failure chance is reduced by 5%, its maximum Dexterity bonus is increased by 1, and its armor check penalty is reduced by 1 (to a minimum of 0). When wielding a singing steel weapon, shield, or item weighing at least 5 pounds, or wearing medium or heavy singing steel armor, the wielder or wearer can strike the singing steel as part of beginning a bardic performance. If the wielder can normally start a bardic performance as a standard action, he can do so as a move action instead. If the wielder can normally start a bardic performance as a move action, he can do so as a swift action instead. This ability does not function in the area of a silence spell or similar effect. After using the singing steel in this fashion, the steel must be carefully brushed to remove any lingering vibrations, a process that takes 10 minutes. Singing steel items are always masterwork; this cost is included in the price. Singing steel has 20 hp per inch of thickness and hardness 10. Although formed partially from mithral, singing steel items weigh as much as their normal counterparts.</p>",
+	},
 	['Spiresteel'] = {
 		sStringName = 'spiresteel',
 		bLightArmor = true,
