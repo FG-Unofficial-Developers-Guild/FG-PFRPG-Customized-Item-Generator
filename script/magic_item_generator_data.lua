@@ -60,6 +60,13 @@ aSpecialMaterials = {
 		bAmmunition = true,
 		sAddDescription = '<p><b>Source:</b> Ultimate Equipment pg. 48</p><p>Mysterious radiation deep below the surface of the earth warps once-ordinary quartz into bloodcraving stone. If an attack with a piercing or slashing blood crystal weapon hits a target suffering from a bleed effect, the creature takes 1 additional point of damage from the attack as the blood crystal drains blood from the wound. This applies even if the creature was taking bleed damage before the attack with the blood crystal weapon. This does not increase the amount of the bleed effect.</p><p>Unfed blood crystal has a pale pink hue, darkening toward deep crimson as it becomes saturated with blood. Piercing or slashing weapons composed entirely or partially of metal can be made from blood crystal. Unworked blood crystal has a value of 500 gp per pound. Weapons made with blood crystal have one-half the normal hit points. Armor and shields cannot be made of blood crystal, as they would feed on the wearer’s own wounds.</p>',
 	},
+	['Bulette Armor'] = {
+		sStringName = 'bulette armor',
+		bLightArmor = true,
+		bMediumArmor = true,
+		bHeavyArmor = true,
+		sAddDescription = '<p><b>Source:</b> Dungeon Denizens Revisited pg. 7</p><p>Dwarves have long treasured bulettes for their thick hides and armor plating. In fact, some dwarf clans require their young to travel on long pilgrimages to areas thick with land sharks to hunt the reclusive and vicious beasts, intent on harvesting their plates for armor. A single adult male bulette has enough armor plating and hide to produce two sets of Medium bulette plate mail and four sets of Medium leather or studded leather armor. These armor sets are more often than not imbued with the delving armor quality, and veteran dwarf bulette hunters are rarely seen without their +1 delving bulette full plate while on the hunt. Creating bulette armor from the creature’s hide requires a skilled armorer; crafted bulette armor may be normal or masterwork quality. A set of bulette plate is functionally similar to metal full plate, but is prized by wealthy collectors and military commanders the world over, and tends to sell for up to 10 times more than a normal set. Bulette full plate is slightly heavier (65 pounds) than regular steel plate, but is more flexible and durable (max Dex bonus +2, hardness 12). A suit of bulette leather armor weighs 20 pounds, and its appearance matches the coloration of the landshark from which it was made. It sells for 50 gp, but has the same statistics as studded leather.</p>',
+	},
 	['Caphorite'] = {
 		sStringName = 'caphorite',
 		bAmmunition = true,
