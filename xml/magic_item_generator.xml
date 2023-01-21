@@ -319,8 +319,6 @@
 				<anchored to="abilities_list_iedit" position="lefthigh" offset="5,0" />
 				<target>item_ability_list</target>
 			</button_iadd>
-
-			<close_campaignlist/>
 		</sheetdata>
 	</windowclass>
 
