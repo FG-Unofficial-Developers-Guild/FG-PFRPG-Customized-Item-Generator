@@ -4528,4 +4528,4 @@ aWeightMultiplier = {
 	['colossal'] = { nMultiplier = 12 },
 }
 
-local nMaxTotalBonus = 10 -- must have no more than 10 bonus points
+nMaxTotalBonus = 10 -- must have no more than 10 bonus points
