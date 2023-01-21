@@ -16,7 +16,7 @@
 		</ruleset>
 	</properties>
 
-	<announcement text="https://www.fantasygrounds.com/forums/showthread.php?57818-Customized-Item-Generator-for-3-5E-and-Pathfinder\rCustomised Item Generator v1.13\rBy Faelwen with updates by rmilmine and bmos." font="emotefont" icon="module_loaded" />
+	<announcement text="https://www.fantasygrounds.com/forums/showthread.php?57818-Customized-Item-Generator-for-3-5E-and-Pathfinder\rCustomised Item Generator v1.13-hotfix.1\rBy Faelwen with updates by rmilmine and bmos." font="emotefont" icon="module_loaded" />
 
 	<base>
 		<script name="MagicItemGenerator" file="script/magic_item_generator.lua"/>

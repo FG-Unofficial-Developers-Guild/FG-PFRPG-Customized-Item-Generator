@@ -496,7 +496,7 @@ function getMaterialData(
 			iMaterialCost = iMaterialCost + 30
 		end
 	elseif sMaterial == Interface.getString('cold_iron') then
-		iMaterialCost = 2 * iMaterialCost
+		iMaterialCost = iMaterialCost * 2
 		if iEnhancingBonus > 0 then iMaterialCost = iMaterialCost + 2000 end
 		sNewDamageType = addCSV(sNewDamageType, 'cold iron')
 	elseif sMaterial == Interface.getString('darkleaf_cloth') then
@@ -512,11 +512,12 @@ function getMaterialData(
 		iNewArmorSpellFailure = iNewArmorSpellFailure - 10
 		if iNewArmorSpellFailure < 5 then iNewArmorSpellFailure = 5 end
 	elseif sMaterial == Interface.getString('darkwood') then
-		if sType == 'shield' then iNewArmorPenalty = iNewArmorPenalty + 2 end
-		iMaterialCost = iWeight * 10 + getMasterworkPrice(sType, sProperties)
+		iMaterialCost = iMaterialCost + (iWeight * 10)
 		iNewWeight = iNewWeight / 2
+		iNewArmorPenalty = iArmorPenalty - 2
+		if sType == 'shield' then iNewArmorPenalty = iNewArmorPenalty + 2 end
 	elseif sMaterial == Interface.getString('dragonhide') then
-		iMaterialCost = 2 * getMasterworkPrice(sType, sProperties)
+		iMaterialCost = (iMaterialCost * 2) + getMasterworkPrice(sType, sProperties)
 	elseif sMaterial == Interface.getString('eel_hide') then
 		if sSubType == 'light' then
 			iMaterialCost = iMaterialCost + 1200
@@ -551,7 +552,7 @@ function getMaterialData(
 			iMaterialCost = iMaterialCost + 15
 		end
 	elseif sMaterial == Interface.getString('greenwood') then
-		iMaterialCost = iWeight * 50 + getMasterworkPrice(sType, sProperties)
+		iMaterialCost = iMaterialCost + (iWeight * 50)
 	elseif sMaterial == Interface.getString('griffon_mane') then
 		if sSubType == 'light' then
 			iMaterialCost = iMaterialCost + 200
@@ -612,13 +613,13 @@ function getMaterialData(
 	elseif sMaterial == Interface.getString('gold') then
 		iNewArmorPenalty = iNewArmorPenalty - 2
 		iNewWeight = iNewWeight * 1.5
-		iMaterialCost = 10 * iMaterialCost
+		iMaterialCost = iMaterialCost * 10
 	elseif sMaterial == Interface.getString('obsidian') then
 		iNewWeight = iNewWeight * 0.75
-		iMaterialCost = iNewWeight / 2
+		iMaterialCost = iMaterialCost + (iNewWeight / 2)
 	elseif sMaterial == Interface.getString('stone') then
 		iNewWeight = iNewWeight * 0.75
-		iMaterialCost = iNewWeight / 4
+		iMaterialCost = iMaterialCost + (iNewWeight / 4)
 	end
 
 	local bAlwaysMasterwork = false
