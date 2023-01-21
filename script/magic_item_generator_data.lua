@@ -270,6 +270,18 @@ aSpecialMaterials = {
 		bAmmunition = true,
 		bFragile = true,
 	},
+	['Spiresteel'] = {
+		sStringName = 'spiresteel',
+		bLightArmor = true,
+		bMediumArmor = true,
+		bHeavyArmor = true,
+		bShield = true,
+		bMeleeWeapon = true,
+		bRangedWeapon = true,
+		bAmmunition = true,
+		bAlwaysMasterwork = true,
+		sAddDescription = '<p><b>Source:</b>Pathfinder #139: The Dead Road pg. 64</p><p>Philosophers speculate that the Spire upon which the Boneyard rests is composed of a condensed form of pure quintessence, but those brave enough to acquire some the substance report that ore mined from the Spire can be smelted and worked into weapons and armor. This substance, called spiresteel, exhibits an innate attraction for soul energy. Armor crafted from spiresteel protects the wearer’s essence, applying half of its armor bonus to AC against attacks made by incorporeal creatures. Weapons crafted from spiresteel appear hungry for the very substance of the foes they are wielded against. When the wielder confirms a critical hit with a spiresteel weapon, the target must succeed at a Will save (DC = 10 + double the weapon’s enhancement bonus), or be staggered for 1 round as a portion of its soul is carved away. Spiresteel can be used to craft any armor or weapon that is typically made of steel. Items made of spiresteel are always considered masterwork, and the masterwork costs are included in the listed prices. Spiresteel has the same hit points and hardness as steel.</p>',
+	},
 	['Sunsilk'] = {
 		sStringName = 'sunsilk',
 		bLightArmor = true,
