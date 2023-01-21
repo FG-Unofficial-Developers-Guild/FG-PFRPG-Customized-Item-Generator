@@ -608,7 +608,7 @@ function getMaterialData(
 	elseif sMaterial == Interface.getString('wyroot') then
 		iMaterialCost = iMaterialCost + 1000
 	elseif sMaterial == Interface.getString('bone') then
-		iMaterialCost = iItemBaseCost / 2
+		--iMaterialCost = iMaterialCost / 2 -- disabled as could not find source
 		-- elseif sMaterial == Interface.getString("bronze") then
 	elseif sMaterial == Interface.getString('gold') then
 		iNewArmorPenalty = iNewArmorPenalty - 2
@@ -616,10 +616,10 @@ function getMaterialData(
 		iMaterialCost = iMaterialCost * 10
 	elseif sMaterial == Interface.getString('obsidian') then
 		iNewWeight = iNewWeight * 0.75
-		iMaterialCost = iMaterialCost + (iNewWeight / 2)
+		iMaterialCost = iMaterialCost / 2
 	elseif sMaterial == Interface.getString('stone') then
 		iNewWeight = iNewWeight * 0.75
-		iMaterialCost = iMaterialCost + (iNewWeight / 4)
+		iMaterialCost = iMaterialCost / 4
 	end
 
 	local bAlwaysMasterwork = false
