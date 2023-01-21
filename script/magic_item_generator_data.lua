@@ -124,7 +124,7 @@ aSpecialMaterials = {
 		bLightArmor = true,
 		bMediumArmor = true,
 		bAlwaysMasterwork = true,
-		sAddDescription = '<p><b>Source:</b> Ultimate Equipment pg. 50</p><p>This supple material offers as much protection as leather, but is more flexible and resistant to electricity. Leather, hide, or studded leather armor can be produced with eel hide. The armor check penalty of such armor is reduced by 1 (to a minimum of 0) and the maximum Dexterity bonus of the armor is increased by 1. Additionally, wearing eel hide grants the wearer electricity resistance 2. Armor crafted from eel hide is always considered masterwork, and the masterwork costs are included in the listed prices.</p>',
+		sAddDescription = '<p><b>Source:</b> Ultimate Equipment pg. 50</p><p>This supple material offers as much protection as leather, but is more flexible and resistant to electricity. Leather, hide, or studded leather armor can be produced with eel hide. The armor check penalty of such armor is reduced by 1 (to a minimum of 0) and the maximum Dexterity bonus of the armor is increased by 1. Additionally, wearing eel hide grants the wearer electricity resistance 2. Armor crafted from eel hide is always considered masterwork, and the masterwork costs are included in the listed prices. Eel hide has the same hit points and hardness as leather.</p>',
 	},
 	['Elysian bronze'] = {
 		sStringName = 'elysian bronze',
