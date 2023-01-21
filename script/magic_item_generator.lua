@@ -164,10 +164,8 @@ function generateMagicItem(nodeItem)
 	local iNewWeight = getWeightBySize(iNewWeight, sOriginalSize, sItemSize)
 
 	local iMasterworkCost = 0
-	if not bMasterworkMaterial or (not sEnhancementBonus == Interface.getString('itemnone')) then
-		iMasterworkCost = getMasterworkPrice(sType, sItemProperties)
-	end
 	if bMasterworkMaterial or sEnhancementBonus ~= Interface.getString('itemnone') then
+		iMasterworkCost = getMasterworkPrice(sType, sItemProperties)
 		sItemProperties = addCSV(sItemProperties, 'masterwork')
 		iNewArmorPenalty = iNewArmorPenalty + 1
 		if iNewArmorPenalty > 0 then iNewArmorPenalty = 0 end
