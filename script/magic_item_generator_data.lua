@@ -271,6 +271,10 @@ aSpecialMaterials = {
 		bFragile = true,
 		sAddDescription = '<p><b>Source:</b> Ultimate Equipment pg. 53</p><p>This black volcanic glass is extremely sharp, and can be shaped into a variety of weapons that deal piercing and slashing damage. Bits of obsidian inserted into a length of tempered wood create effective swords called terbutjes (see page 38). Obsidian weapons cost half as much as base items of their type, and weigh 75% of what base items of their type do. Obsidian can be used to craft light and one-handed weapons that deal piercing or slashing damage, as well as spear tips and arrowheads. Obsidian weapons have half the hardness of their base weapons and have the fragile quality. The fragile glass nature of obsidian is perfect for creating sharp points and blades, but those same qualities make it unsuitable for creating armor. Armor cannot be constructed from obsidian. Magically strengthened obsidian does not have the fragile quality, and can be made into any armor or weapon that can be made of stone.</p>',
 	},
+	['Serpentstone'] = {
+		sStringName = 'serpentstone',
+		sAddDescription = '<p><b>Source:</b> Pathfinder #41: The Thousand Fangs Below pg. 63</p><p></p>',
+	},
 	['Siccatite'] = {
 		sStringName = 'siccatite',
 		bLightArmor = true,
