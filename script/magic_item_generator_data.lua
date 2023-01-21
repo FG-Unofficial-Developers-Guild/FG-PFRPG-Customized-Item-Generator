@@ -161,6 +161,14 @@ aSpecialMaterials = {
 		bAlwaysMasterwork = true,
 		sAddDescription = '<p><b>Source:</b> Ultimate Equipment pg. 50</p><p>This material is the same substance as fire-forged steel with a subtle difference in the alignment of the metal during crafting. Instead of channeling heat away from the wearer, it channels heat toward the wearer. Frost-forged steel works similarly to fire-forged steel, except its effects apply to cold damage rather than fire damage. This means frost-forged steel weapons are less useful than their fire-forged counterparts, as there are few nonmagical sources of cold that can quickly imbue it with enough cold energy to deal bonus damage.</p><p>Armor and weapons made from frost-forged steel are always considered masterwork, and the masterwork costs are included in the listed prices.</p>',
 	},
+	['Glaucite'] = {
+		sStringName = 'glaucite',
+		bLightArmor = true,
+		bMediumArmor = true,
+		bMeleeWeapon = true,
+		bRangedWeapon = true,
+		sAddDescription = '<p><b>Source:</b>Pathfinder #85: Fires of Creation pg. 18</p><p>When the phrase “Numerian Steel” is used, the speaker is usually, knowingly or not, referring to an iron/adamantine alloy called glaucite. This dark gray metal is the material of choice for hulls and starship superstructures, and is what constitutes the walls, floors, and ceilings of the strange ruins found throughout Numeria. Without more advanced technology, glaucite is extremely difficult to work with. Because the metal isn’t much better than steel for forging weapons or armor, and the process of extracting the adamantine from it is so expensive and time consuming that the resulting adamantine isn’t worth the effort, Numerian scavengers have, by and large, left the walls and floors of the structures buried in the region untouched. It’s simply easier to scavenge smaller objects or work with normal iron or steel in the long run. Glaucite has 30 hit points per inch of thickness (the same as steel) and hardness 15. It is half again as heavy as steel, and the difficulty of working with the material triples the object’s total cost to create. As a result, glaucite armor and weapons are generally commissioned only by eccentrics and collectors and rarely see use in the field, given that steel weapons and armor work just as well and are less encumbering. </p>',
+	},
 	['Greenwood'] = {
 		sStringName = 'greenwood',
 		bMeleeWeapon = true,
