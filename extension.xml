@@ -20,6 +20,7 @@
 
 	<base>
 		<script name="MagicItemGenerator" file="script/magic_item_generator.lua"/>
+		<script name="MagicItemGeneratorData" file="script/magic_item_generator_data.lua"/>
 
 		<includefile source="xml/magic_item_generator.xml" />
 		<includefile source="campaign/record_item.xml" />

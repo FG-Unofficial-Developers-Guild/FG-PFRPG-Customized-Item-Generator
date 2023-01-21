@@ -232,7 +232,7 @@
 						local bAmmunition = (sType == "ammunition");
 						
 						addItems({Interface.getString("itemnone")});
-						for key,value in pairs(MagicItemGenerator.aSpecialMaterials) do
+						for key,value in pairs(MagicItemGeneratorData.aSpecialMaterials) do
 							if bLightArmor and value.bLightArmor then
 								add(key);
 							elseif bMediumArmor and value.bMediumArmor then
@@ -263,7 +263,7 @@
 				<script>
 					function onInit()
 						if super and super.onInit then super.onInit(); end
-						for key,value in pairs(MagicItemGenerator.aItemSize) do
+						for key,value in pairs(MagicItemGeneratorData.aItemSize) do
 							add(key);
 						end
 					end
