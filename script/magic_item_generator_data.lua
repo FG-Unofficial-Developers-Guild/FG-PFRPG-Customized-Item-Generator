@@ -60,6 +60,24 @@ aSpecialMaterials = {
 		bAmmunition = true,
 		sAddDescription = '<p><b>Source:</b> Ultimate Equipment pg. 48</p><p>Mysterious radiation deep below the surface of the earth warps once-ordinary quartz into bloodcraving stone. If an attack with a piercing or slashing blood crystal weapon hits a target suffering from a bleed effect, the creature takes 1 additional point of damage from the attack as the blood crystal drains blood from the wound. This applies even if the creature was taking bleed damage before the attack with the blood crystal weapon. This does not increase the amount of the bleed effect.</p><p>Unfed blood crystal has a pale pink hue, darkening toward deep crimson as it becomes saturated with blood. Piercing or slashing weapons composed entirely or partially of metal can be made from blood crystal. Unworked blood crystal has a value of 500 gp per pound. Weapons made with blood crystal have one-half the normal hit points. Armor and shields cannot be made of blood crystal, as they would feed on the wearer’s own wounds.</p>',
 	},
+	['Bone'] = {
+		sStringName = 'bone',
+		bLightArmor = true,
+		bMediumArmor = true,
+		bMeleeWeapon = true,
+		bFragile = true,
+		sAddDescription = '<p><b>Source:</b> Ultimate Equipment pg. 52</p><p>Bone can be used in place of wood and steel in weapons and armor. Other animal-based materials like horn, shell, and ivory also use the rules for bone weapon and armor. The cost of a bone weapon or bone armor is half the price of a normal weapon or armor of its type. Light and one-handed melee weapons, as well as twohanded weapons that deal bludgeoning damage only, can be crafted from bone. Hafted two-handed weapons such as spears can be crafted with bone tips, as can arrowheads. Other two-handed weapons cannot be constructed of bone. Bone weapons have half the hardness of their base weapons and have the fragile weapon quality. Masterwork bone weapons also have the fragile quality, but magic bone weapons do not. Bone weapons take a –2 penalty on damage rolls (minimum 1 damage). Studded leather, scale mail, breastplates, and wooden shields can all be constructed using bone. Bone either replaces the metal components of the armor, or in the case of wooden shields, large pieces of bone or shell replace the wood. Bone armor has hardness 5 and has the fragile armor quality. Masterwork bone armor also has the fragile quality, but magic bone armor does not. The armor/shield bonus of bone armor is reduced by 1, but in the case of studded leather, the armor check penalty is also reduced by 1 (to 0). Magically strengthened bone does not have the fragile quality or reduced armor/shield bonus.</p>',
+	},
+	['Bronze'] = {
+		sStringName = 'bronze',
+		bLightArmor = true,
+		bMediumArmor = true,
+		bShield = true,
+		bMeleeWeapon = true,
+		bAmmunition = true,
+		bFragile = true,
+		sAddDescription = '<p><b>Source:</b> Ultimate Equipment pg. 53</p><p>Before the advent of iron and steel, bronze ruled the world. This easily worked metal can be used in place of steel for both weapons and armor. For simplicity’s sake, similar or component metals such as brass, copper, or even tin can use the following rules, even though in reality bronze is both harder and more reliable than those metals. Light and one-handed weapons can be crafted from bronze. Likewise, spear points, arrowheads, and axe heads can be crafted from bronze, even those that are parts of twohanded weapons. Bronze is too weak to be used for twohanded weapons made entirely out of metal, and cannot typically be used to craft polearms, with the exception of the rhomphaia (see page 35). Bronze weapons have the hardness of their base weapons but also have the fragile quality. Bronze weapons deal the same damage as steel weapons of the same type, and have the same cost and weight. Bronze can be used to create any medium or light armor that are made entirely of metal or that have metal components. Bronze armor protects a creature as well as steel armor does, but it has the fragile quality. Bronze armor has the same cost and weight as normal steel armor of its type. Bronze armor has hardness 9. Magically strengthened bronze does not have the fragile quality and can be made into heavy armor.</p>',
+	},
 	['Bulette Armor'] = {
 		sStringName = 'bulette armor',
 		bLightArmor = true,
@@ -176,6 +194,14 @@ aSpecialMaterials = {
 		bRangedWeapon = true,
 		sAddDescription = '<p><b>Source:</b> Pathfinder #85: Fires of Creation pg. 18</p><p>When the phrase “Numerian Steel” is used, the speaker is usually, knowingly or not, referring to an iron/adamantine alloy called glaucite. This dark gray metal is the material of choice for hulls and starship superstructures, and is what constitutes the walls, floors, and ceilings of the strange ruins found throughout Numeria. Without more advanced technology, glaucite is extremely difficult to work with. Because the metal isn’t much better than steel for forging weapons or armor, and the process of extracting the adamantine from it is so expensive and time consuming that the resulting adamantine isn’t worth the effort, Numerian scavengers have, by and large, left the walls and floors of the structures buried in the region untouched. It’s simply easier to scavenge smaller objects or work with normal iron or steel in the long run. Glaucite has 30 hit points per inch of thickness (the same as steel) and hardness 15. It is half again as heavy as steel, and the difficulty of working with the material triples the object’s total cost to create. As a result, glaucite armor and weapons are generally commissioned only by eccentrics and collectors and rarely see use in the field, given that steel weapons and armor work just as well and are less encumbering. </p>',
 	},
+	['Gold'] = {
+		sStringName = 'gold',
+		bLightArmor = true,
+		bMediumArmor = true,
+		bMeleeWeapon = true,
+		bFragile = true,
+		sAddDescription = '<p><b>Source:</b> Ultimate Equipment pg. 53</p><p>Typically only used for ceremonial weapons and armor and for display, metal equipment made from gold is fragile, heavy, and expensive. Often golden armor is gold-plated rather than constructed entirely from gold. Gold-plated items triple the base price of weapons and armor and have the same properties as the item the gold is plating. Items constructed purely of gold cost 10 times the normal price for items of their type. G old items weigh 50% more than typical weapons or armor of their type. Gold is often too soft to hold a decent edge, but light weapons that deal piercing or slashing damage can be constructed of gold or some nearly gold alloy. They take a –2 penalty on damage rolls (minimum 1 damage). Gold weapons have half the hardness of their base weapons and also have the fragile quality. Gold can be fashioned into light or medium metal armor. The softness and the weight of the metal decrease the armor/ shield bonus by 2, and increase the armor check penalty by 2. Gold armor has hardness 5 and the fragile quality. Magically strengthened gold is the equivalent of steel and can be made into any armor or weapon that can be made of steel.</p>',
+	},
 	['Greenwood'] = {
 		sStringName = 'greenwood',
 		bMeleeWeapon = true,
@@ -246,35 +272,6 @@ aSpecialMaterials = {
 		bAmmunition = true,
 		bAlwaysMasterwork = true,
 		sAddDescription = '<p><b>Source:</b> Ultimate Equipment pg. 51</p><p>Mithral is a rare, silvery metal that is lighter than steel but just as hard. When worked like steel, it can be used to create amazing armor, and is occasionally used for other items as well. Most mithral armors are one category lighter than normal for purposes of movement and other limitations. Heavy armors are treated as medium, and medium armors are treated as light, but light armors are still treated as light. This decrease does not apply to proficiency in wearing the armor. A character wearing mithral full plate must be proficient in wearing heavy armor to avoid adding the armor’s check penalty on all his attack rolls and skill checks that involve moving. Spell failure chances for armors and shields made from mithral are decreased by 10%, maximum Dexterity bonuses are increased by 2, and armor check penalties are decreased by 3 (to a minimum of 0). An item made from mithral weighs half as much as the same item made from other metals. In the case of weapons, this lighter weight does not change a weapon’s size category or the ease with which it can be wielded (whether it is light, one-handed, or two-handed). Items not primarily of metal are not meaningfully affected by being partially made of mithral. (A longsword can be a mithral weapon, while a quarterstaff cannot.) Mithral weapons count as silver for the purpose of overcoming damage reduction. Weapons and armors fashioned from mithral are always masterwork items as well; the masterwork cost is included in the prices given below. Mithral has 30 hit points per inch of thickness and hardness 15.</p>',
-	},
-	['Viridium'] = { sStringName = 'viridium', bMeleeWeapon = true, bAmmunition = true, sAddDescription = '' },
-	['Whipwood'] = { sStringName = 'whipwood', bMeleeWeapon = true, bAmmunition = true, sAddDescription = '' },
-	['Wyroot'] = { sStringName = 'wyroot', bMeleeWeapon = true, sAddDescription = '' },
-	['Bone'] = {
-		sStringName = 'bone',
-		bLightArmor = true,
-		bMediumArmor = true,
-		bMeleeWeapon = true,
-		bFragile = true,
-		sAddDescription = '<p><b>Source:</b> Ultimate Equipment pg. 52</p><p>Bone can be used in place of wood and steel in weapons and armor. Other animal-based materials like horn, shell, and ivory also use the rules for bone weapon and armor. The cost of a bone weapon or bone armor is half the price of a normal weapon or armor of its type. Light and one-handed melee weapons, as well as twohanded weapons that deal bludgeoning damage only, can be crafted from bone. Hafted two-handed weapons such as spears can be crafted with bone tips, as can arrowheads. Other two-handed weapons cannot be constructed of bone. Bone weapons have half the hardness of their base weapons and have the fragile weapon quality. Masterwork bone weapons also have the fragile quality, but magic bone weapons do not. Bone weapons take a –2 penalty on damage rolls (minimum 1 damage). Studded leather, scale mail, breastplates, and wooden shields can all be constructed using bone. Bone either replaces the metal components of the armor, or in the case of wooden shields, large pieces of bone or shell replace the wood. Bone armor has hardness 5 and has the fragile armor quality. Masterwork bone armor also has the fragile quality, but magic bone armor does not. The armor/shield bonus of bone armor is reduced by 1, but in the case of studded leather, the armor check penalty is also reduced by 1 (to 0). Magically strengthened bone does not have the fragile quality or reduced armor/shield bonus.</p>',
-	},
-	['Bronze'] = {
-		sStringName = 'bronze',
-		bLightArmor = true,
-		bMediumArmor = true,
-		bShield = true,
-		bMeleeWeapon = true,
-		bAmmunition = true,
-		bFragile = true,
-		sAddDescription = '<p><b>Source:</b> Ultimate Equipment pg. 53</p><p>Before the advent of iron and steel, bronze ruled the world. This easily worked metal can be used in place of steel for both weapons and armor. For simplicity’s sake, similar or component metals such as brass, copper, or even tin can use the following rules, even though in reality bronze is both harder and more reliable than those metals. Light and one-handed weapons can be crafted from bronze. Likewise, spear points, arrowheads, and axe heads can be crafted from bronze, even those that are parts of twohanded weapons. Bronze is too weak to be used for twohanded weapons made entirely out of metal, and cannot typically be used to craft polearms, with the exception of the rhomphaia (see page 35). Bronze weapons have the hardness of their base weapons but also have the fragile quality. Bronze weapons deal the same damage as steel weapons of the same type, and have the same cost and weight. Bronze can be used to create any medium or light armor that are made entirely of metal or that have metal components. Bronze armor protects a creature as well as steel armor does, but it has the fragile quality. Bronze armor has the same cost and weight as normal steel armor of its type. Bronze armor has hardness 9. Magically strengthened bronze does not have the fragile quality and can be made into heavy armor.</p>',
-	},
-	['Gold'] = {
-		sStringName = 'gold',
-		bLightArmor = true,
-		bMediumArmor = true,
-		bMeleeWeapon = true,
-		bFragile = true,
-		sAddDescription = '<p><b>Source:</b> Ultimate Equipment pg. 53</p><p>Typically only used for ceremonial weapons and armor and for display, metal equipment made from gold is fragile, heavy, and expensive. Often golden armor is gold-plated rather than constructed entirely from gold. Gold-plated items triple the base price of weapons and armor and have the same properties as the item the gold is plating. Items constructed purely of gold cost 10 times the normal price for items of their type. G old items weigh 50% more than typical weapons or armor of their type. Gold is often too soft to hold a decent edge, but light weapons that deal piercing or slashing damage can be constructed of gold or some nearly gold alloy. They take a –2 penalty on damage rolls (minimum 1 damage). Gold weapons have half the hardness of their base weapons and also have the fragile quality. Gold can be fashioned into light or medium metal armor. The softness and the weight of the metal decrease the armor/ shield bonus by 2, and increase the armor check penalty by 2. Gold armor has hardness 5 and the fragile quality. Magically strengthened gold is the equivalent of steel and can be made into any armor or weapon that can be made of steel.</p>',
 	},
 	['Obsidian'] = {
 		sStringName = 'obsidian',
@@ -357,7 +354,7 @@ aSpecialMaterials = {
 		bRangedWeapon = true,
 		sAddDescription = '<p><b>Source:</b> Pathfinder #126: Beyond the Veiled Past pg. 49</p><p>The Imperial Palace in Azlant was a fabulous building that featured classic Azlanti architecture, including a famous skylight made of a single sheet of magically treated glass as durable as steel. Though the green-tinted substance was sturdy, it was still no match for the onslaught of Earthfall. As the meteors tore the continent to pieces, a direct hit razed the building, shattering the skylight. Years later, as survivors surveyed the damage, they discovered that the material had retained its durability and some manufactured the green shards into weapons, calling the material throneglass. The Knights of the Ioun Star were the most proficient in turning these remnants into potent weapons, especially after they unlocked and understood throneglass’s abilities. The material is typically forged into melee weapons, though it theoretically could be used for other functions. Throneglass is a special material as strong as steel that also provides the bearer with protection against an opponent’s psychic abilities. When a creature wielding a melee weapon made of throneglass succeeds at a saving throw against a psychic or mind-affecting effect from a creature, the weapon stores some of that energy and holds it for a future attack. A throneglass weapon can store this energy for a number of rounds equal to the level of the spell, or half the creature’s CR if the effect wasn’t a spell or spell-like ability. If the weapon hits a creature while still holding this energy, it suffuses the target with a disruptive field for 1 round. On a critical hit, the disruptive field effect instead lasts for a number of rounds equal to the weapon’s critical multiplier. While affected by this field, a target must succeed at a concentration check (DC = 15 + twice the spell’s level) to cast any spell or spell-like ability (in addition to any other required concentration checks). If the check is failed, the affected creature’s spell or spell-like ability is wasted. A Small or Medium weapon made of throneglass costs an additional 13,000 gp.</p>',
 	},
-	},
+	['Viridium'] = { sStringName = 'viridium', bMeleeWeapon = true, bAmmunition = true, sAddDescription = '' },
 	['Voidglass'] = {
 		sStringName = 'voidglass',
 		bLightArmor = true,
@@ -366,6 +363,8 @@ aSpecialMaterials = {
 		bMeleeWeapon = true,
 		sAddDescription = "<p><b>Source: The Dragon's Demand pg. 35</b></p><p>Grioths wield weapons fashioned from a strange sort of transparent material called voidglass. This material is as hard as steel, but made of crystals that voidglass shapers on unknown worlds grow into the desired shapes. Voidglass resonates with a creature’s mind, bolstering thought and mental defenses. Any suit of armor normally made from metal can be made of voidglass. A suit of light voidglass armor grants a +1 resistance bonus on all saving throws against mind-affecting magic. This bonus increases to +2 for medium voidglass armor, and +3 for heavy voidglass armor. Voidglass armor isn’t often worn by grioths, but voidglass weapons are another story. The creatures (and perhaps other strange beings with similar psychic capabilities) can funnel violent bursts of psychic energy through these weapons on a hit. In the hands of any creature, a voidglass piercing or slashing weapon deals 1 additional damage on a hit—bludgeoning weapons gain no benefit. Voidglass has 30 hit points per inch of thickness and hardness 10. A pound of raw, unworked voidglass is worth 100 gp.</p>",
 	},
+	['Whipwood'] = { sStringName = 'whipwood', bMeleeWeapon = true, bAmmunition = true, sAddDescription = '' },
+	['Wyroot'] = { sStringName = 'wyroot', bMeleeWeapon = true, sAddDescription = '' },
 }
 
 aMeleeWeaponAbilities = {
