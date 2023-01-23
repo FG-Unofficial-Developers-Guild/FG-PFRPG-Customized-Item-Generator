@@ -11,7 +11,7 @@
 					function onButtonPress()
 						local nodeSpell = window.getDatabaseNode();
 						if DB.getValue(nodeSpell, 'level', '') ~= '' then	
-							local nodeItem = DB.findNode("item").createChild()
+							local nodeItem = DB.createChild(DB.findNode("item"))
 							DB.setValue(nodeItem, 'spellshortcut', 'windowreference', 'item', nodeSpell.getNodeName());
 							Interface.openWindow("consumable_creator_window", nodeItem);
 							window.close();
