@@ -253,7 +253,7 @@ end
 function getAbilities(nodeItem, sType, sSubType)
 	if not nodeItem then return end
 	local aAbilities = {}
-	for _, nodeAbility in pairs(DB.getChildren(nodeItem, 'abilitieslist')) do
+	for _, nodeAbility in ipairs(DB.getChildList(nodeItem, 'abilitieslist')) do
 		local aAbility = {}
 		aAbility.sAbility = DB.getValue(nodeAbility, 'combobox_ability')
 		aAbility.sSubAbility = DB.getValue(nodeAbility, 'combobox_ability_sub_select')
