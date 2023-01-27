@@ -12,7 +12,7 @@
 						local nodeSpell = window.getDatabaseNode();
 						if DB.getValue(nodeSpell, 'level', '') ~= '' then	
 							local nodeItem = DB.createChild(DB.findNode("item"))
-							DB.setValue(nodeItem, 'spellshortcut', 'windowreference', 'item', nodeSpell.getNodeName());
+							DB.setValue(nodeItem, 'spellshortcut', 'windowreference', 'item', DB.getPath(nodeSpell));
 							Interface.openWindow("consumable_creator_window", nodeItem);
 							window.close();
 						else
