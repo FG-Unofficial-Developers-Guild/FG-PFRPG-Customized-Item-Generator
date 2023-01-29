@@ -358,7 +358,7 @@
 				<script>
 					function onInit()
 						if super and super.onInit then super.onInit(); end
-						local nodeItem = window.getDatabaseNode().getChild("...");
+						local nodeItem = DB.getChild(window.getDatabaseNode(), "...");
 						if not nodeItem then
 							return;
 						end
@@ -405,7 +405,7 @@
 					
 					function onValueChanged()
 						if super and super.onValueChanged then super.onValueChanged(); end
-						local nodeItem = window.getDatabaseNode().getChild("...");
+						local nodeItem = DB.getChild(window.getDatabaseNode(), "...");
 						if not nodeItem then
 							return;
 						end
@@ -470,7 +470,7 @@
 				<script>
 					function onValueChanged()
 						if super and super.onValueChanged then super.onValueChanged(); end
-						local nodeItem = window.getDatabaseNode().getChild("...");
+						local nodeItem = DB.getChild(window.getDatabaseNode(), "...");
 						if not nodeItem then
 							return;
 						end
