@@ -307,8 +307,8 @@ end
 function getItemType(nodeItem)
 	local sItemType = ''
 	local sItemSubType = ''
-	local sType = string.lower(DB.getChild(nodeItem, 'type').getValue() or '')
-	local sSubType = string.lower(DB.getChild(nodeItem, 'subtype').getValue() or '')
+	local sType = string.lower(DB.getValue(nodeItem, 'type') or '')
+	local sSubType = string.lower(DB.getValue(nodeItem, 'subtype') or '')
 	if sType == 'weapon' then
 		sItemType = 'weapon'
 	elseif sType == 'armor' then

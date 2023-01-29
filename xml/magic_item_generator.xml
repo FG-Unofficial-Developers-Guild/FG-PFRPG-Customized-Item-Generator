@@ -370,7 +370,7 @@
 						local aAbilityList = MagicItemGenerator.getAbilityList(sType, sSubType);
 						
 						local dDamageType = DB.getChild(nodeItem, "damagetype");
-						local sName = DB.getChild(nodeItem, "name").getValue();
+						local sName = DB.getValue(nodeItem, "name");
 						
 						local bMeleeWeapon = (sType == "Weapon" and sSubType == "Melee");
 						local bRangedWeapon = (sType == "Weapon" and sSubType == "Ranged");
