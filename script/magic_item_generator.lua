@@ -41,6 +41,67 @@ function getAbilityBonusAndCost(sSpecialAbility, sType, sSubType)
 	return iBonus, iBonusCost, iExtraCost, sAbilityName, iCL, sAura
 end
 
+local function usingAE() return StringManager.contains(Extension.getExtensions(), 'FG-PFRPG-Advanced-Effects') end
+
+local function getCritical(nodeItem)
+	if not nodeItem then return 0 end
+	local nCritical = 2
+	local sCritical = DB.getValue(nodeItem, 'critical')
+	if sCritical then
+		sCritical = sCritical:match('x%d+')
+		if sCritical then nCritical = tonumber(sCritical:match('%d+')) end
+	end
+	return nCritical
+end
+
+local function addEffectsForAbility(nodeItem, sType, sSubType, sAbility, sSubAbility, sSubSubAbility)
+	if not nodeItem then return end
+	if not usingAE() then return end
+	local nodeEffectList = DB.getChild(nodeItem, 'effectlist')
+	if not nodeEffectList then nodeEffectList = DB.createChild(nodeItem, 'effectlist') end
+	local aAbility = {}
+	local nCritical = 0
+	if ItemManager.isWeapon(nodeItem) then
+		if sSubType == 'melee' then
+			aAbility = MagicItemGeneratorData.aMeleeWeaponAbilities[sAbility]
+			nCritical = getCritical(nodeItem)
+		elseif sSubType == 'ranged' or sSubType == 'firearm' then
+			aAbility = MagicItemGeneratorData.aRangedWeaponAbilities[sAbility]
+			nCritical = getCritical(nodeItem)
+		end
+	elseif sType == 'ammunition' then
+		aAbility = MagicItemGeneratorData.aAmmunitionAbilities[sAbility]
+	elseif ItemManager.isArmor(nodeItem) then
+		aAbility = MagicItemGeneratorData.aArmorAbilities[sAbility]
+	elseif ItemManager.isShield(nodeItem) then
+		aAbility = MagicItemGeneratorData.aShieldAbilities[sAbility]
+	end
+
+	local aEffects = {}
+	if aAbility then
+		if sSubAbility ~= Interface.getString('itemnone') and next(aAbility.aSubSelection) ~= nil then
+			if sSubSubAbility ~= Interface.getString('itemnone') and next(aAbility.aSubSelection[sSubAbility].aSubSubSelection) ~= nil then
+				aEffects = aAbility.aSubSelection[sSubAbility].aSubSubSelection[sSubSubAbility].aEffects
+			else
+				aEffects = aAbility.aSubSelection[sSubAbility].aEffects
+			end
+		else
+			aEffects = aAbility.aEffects
+		end
+	end
+	if next(aEffects) ~= nil then
+		for _, aEffect in ipairs(aEffects) do
+			if not aEffect.bAERequired or (aEffect.bAERequired and CombatManagerKel) then
+				if aEffect.nCritical == 0 or (aEffect.nCritical == nCritical) then
+					local sEffect = aEffect.sEffect
+					if sType == 'ammunition' and aEffect.sEffect:match('%%s') then sEffect = sEffect:format(getWeaponTypeName(nodeItem)) end
+					addEffect(nodeEffectList, sEffect, aEffect.nActionOnly, false)
+				end
+			end
+		end
+	end
+end
+
 local function getDamageForSize(sDamage, sOriginalSize, sNewSize)
 	local iSizeDifference = MagicItemGeneratorData.aItemSize[sNewSize:lower()].iPosition
 		- MagicItemGeneratorData.aItemSize[sOriginalSize:lower()].iPosition
@@ -59,7 +120,7 @@ function generateMagicItem(nodeItem)
 
 	local aAbilities = getAbilities(nodeItem, sType, sSubType)
 
-	local _, bMaterial, nErrorCode, aConflicts = checkComboboxes(sType, sSubType, nil, sSpecialMaterial, aAbilities)
+	local _, _, nErrorCode, aConflicts = checkComboboxes(sType, sSubType, nil, sSpecialMaterial, aAbilities)
 	if nErrorCode == 1 then
 		Comm.addChatMessage({
 			text = string.format(Interface.getString('magic_item_gen_error_4'), aConflicts.sAbility1),
@@ -106,7 +167,7 @@ function generateMagicItem(nodeItem)
 
 	local aCL, aAura = {}, {}
 	for _, aAbility in ipairs(aAbilities) do
-		local iAbilityBonus, iAbilityCostBonus, iAbilityExtraCost, sAbilityName, iCL, sAura =
+		local iAbilityBonus, iAbilityCostBonus, iAbilityExtraCost, _, iCL, sAura =
 			getAbilityBonusAndCost(aAbility.sAbility, sType, sSubType)
 		iEffectiveBonus = iEffectiveBonus + iAbilityBonus
 		iTotalAbilityBonus = iTotalAbilityBonus + iAbilityBonus
@@ -608,7 +669,7 @@ function getMaterialData(
 		iMaterialCost = iMaterialCost + 500
 	elseif sMaterial == Interface.getString('wyroot') then
 		iMaterialCost = iMaterialCost + 1000
-	elseif sMaterial == Interface.getString('bone') then
+	--elseif sMaterial == Interface.getString('bone') then
 		--iMaterialCost = iMaterialCost / 2 -- disabled as could not find source
 		-- elseif sMaterial == Interface.getString("bronze") then
 	elseif sMaterial == Interface.getString('gold') then
@@ -804,12 +865,32 @@ function getSpecialAbilityData(sSpecialAbility, sDamageType, iRange)
 	return sNewDamageType, iNewRange
 end
 
+local function mergeDamage(aDamage)
+	local sNewDamage = aDamage.dice
+	if aDamage.mod > 0 then
+		sNewDamage = sNewDamage .. '+' .. aDamage.mod
+	elseif aDamage.mod < 0 then
+		sNewDamage = sNewDamage .. aDamage.mod
+	end
+	return sNewDamage
+end
+
+local function getDamageString(aDamage)
+	local sNewDamage = ''
+	if aDamage[2] then sNewDamage = mergeDamage(aDamage[2]) end
+	if aDamage[1] then
+		--if sNewDamage ~= '' then sNewDamage = sNewDamage .. '/' end
+		sNewDamage = mergeDamage(aDamage[1])
+	end
+	return sNewDamage
+end
+
 function changeDamageBySizeDifference(sDamage, iSizeDifference)
 	if sDamage == '' or sDamage == nil then return sDamage end
 	local aDamage = {}
 	local aDamageSplit = StringManager.split(sDamage, '/')
 
-	for kDamage, vDamage in ipairs(aDamageSplit) do
+	for _, vDamage in ipairs(aDamageSplit) do
 		local diceDamage, nDamage = DiceManager.convertStringToDice(vDamage)
 		local nDiceCount = 0
 		local sDie = ''
@@ -887,76 +968,6 @@ function changeDamageBySizeDifference(sDamage, iSizeDifference)
 	return getDamageString(aNewDamage)
 end
 
-local function mergeDamage(aDamage)
-	local sNewDamage = aDamage.dice
-	if aDamage.mod > 0 then
-		sNewDamage = sNewDamage .. '+' .. aDamage.mod
-	elseif aDamage.mod < 0 then
-		sNewDamage = sNewDamage .. aDamage.mod
-	end
-	return sNewDamage
-end
-
-function getDamageString(aDamage)
-	local sNewDamage = ''
-	if aDamage[2] then sNewDamage = mergeDamage(aDamage[2]) end
-	if aDamage[1] then
-		if sNewDamage ~= '' then sNewDamage = sNewDamage .. '/' end
-		sNewDamage = mergeDamage(aDamage[1])
-	end
-	return sNewDamage
-end
-
-local function usingAE() return StringManager.contains(Extension.getExtensions(), 'FG-PFRPG-Advanced-Effects') end
-
-function addEffectsForAbility(nodeItem, sType, sSubType, sAbility, sSubAbility, sSubSubAbility)
-	if not nodeItem then return end
-	if not usingAE() then return end
-	local nodeEffectList = DB.getChild(nodeItem, 'effectlist')
-	if not nodeEffectList then nodeEffectList = DB.createChild(nodeItem, 'effectlist') end
-	local aAbility = {}
-	local nCritical = 0
-	if ItemManager.isWeapon(nodeItem) then
-		if sSubType == 'melee' then
-			aAbility = MagicItemGeneratorData.aMeleeWeaponAbilities[sAbility]
-			nCritical = getCritical(nodeItem)
-		elseif sSubType == 'ranged' or sSubType == 'firearm' then
-			aAbility = MagicItemGeneratorData.aRangedWeaponAbilities[sAbility]
-			nCritical = getCritical(nodeItem)
-		end
-	elseif sType == 'ammunition' then
-		aAbility = MagicItemGeneratorData.aAmmunitionAbilities[sAbility]
-	elseif ItemManager.isArmor(nodeItem) then
-		aAbility = MagicItemGeneratorData.aArmorAbilities[sAbility]
-	elseif ItemManager.isShield(nodeItem) then
-		aAbility = MagicItemGeneratorData.aShieldAbilities[sAbility]
-	end
-
-	local aEffects = {}
-	if aAbility then
-		if sSubAbility ~= Interface.getString('itemnone') and next(aAbility.aSubSelection) ~= nil then
-			if sSubSubAbility ~= Interface.getString('itemnone') and next(aAbility.aSubSelection[sSubAbility].aSubSubSelection) ~= nil then
-				aEffects = aAbility.aSubSelection[sSubAbility].aSubSubSelection[sSubSubAbility].aEffects
-			else
-				aEffects = aAbility.aSubSelection[sSubAbility].aEffects
-			end
-		else
-			aEffects = aAbility.aEffects
-		end
-	end
-	if next(aEffects) ~= nil then
-		for _, aEffect in ipairs(aEffects) do
-			if not aEffect.bAERequired or (aEffect.bAERequired and CombatManagerKel) then
-				if aEffect.nCritical == 0 or (aEffect.nCritical == nCritical) then
-					local sEffect = aEffect.sEffect
-					if sType == 'ammunition' and aEffect.sEffect:match('%%s') then sEffect = sEffect:format(getWeaponTypeName(nodeItem)) end
-					addEffect(nodeEffectList, sEffect, aEffect.nActionOnly, false)
-				end
-			end
-		end
-	end
-end
-
 function addEffect(nodeEffectList, sEffect, nActionOnly, bIsLabel)
 	if (not nodeEffectList or not sEffect) and sEffect ~= '' then return end
 	local nodeEffect = DB.createChild(nodeEffectList)
@@ -964,17 +975,6 @@ function addEffect(nodeEffectList, sEffect, nActionOnly, bIsLabel)
 	if bIsLabel then DB.setValue(nodeEffect, 'type', 'string', 'label') end
 	DB.setValue(nodeEffect, 'effect', 'string', sEffect)
 	DB.setValue(nodeEffect, 'actiononly', 'number', nActionOnly)
-end
-
-function getCritical(nodeItem)
-	if not nodeItem then return 0 end
-	local nCritical = 2
-	local sCritical = DB.getValue(nodeItem, 'critical')
-	if sCritical then
-		sCritical = sCritical:match('x%d+')
-		if sCritical then nCritical = tonumber(sCritical:match('%d+')) end
-	end
-	return nCritical
 end
 
 function addRangedEffect(nodeItem)
