@@ -5,7 +5,7 @@
 -- luacheck: no max line length
 -- luacheck: globals aSpecialMaterials aMeleeWeaponAbilities aRangedWeaponAbilities aAmmunitionAbilities
 -- luacheck: globals aArmorAbilities aShieldAbilities aItemSize aDamageDice aPositionDamage
--- luacheck: globals aAltDamageDice1 aAltDamageDice2 aAltDamageDice3 aWeightMultiplier
+-- luacheck: globals aAltDamageDice1 aAltDamageDice2 aAltDamageDice3 aWeightMultiplier nMaxTotalBonus
 
 aSpecialMaterials = {
 	['Abysium'] = {

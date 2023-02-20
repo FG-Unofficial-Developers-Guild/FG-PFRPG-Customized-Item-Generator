@@ -358,7 +358,7 @@
 				<script>
 					function onInit()
 						if super and super.onInit then super.onInit(); end
-						local nodeItem = window.getDatabaseNode().getChild("...");
+						local nodeItem = DB.getChild(window.getDatabaseNode(), "...");
 						if not nodeItem then
 							return;
 						end
@@ -370,7 +370,7 @@
 						local aAbilityList = MagicItemGenerator.getAbilityList(sType, sSubType);
 						
 						local dDamageType = DB.getChild(nodeItem, "damagetype");
-						local sName = DB.getChild(nodeItem, "name").getValue();
+						local sName = DB.getValue(nodeItem, "name");
 						
 						local bMeleeWeapon = (sType == "Weapon" and sSubType == "Melee");
 						local bRangedWeapon = (sType == "Weapon" and sSubType == "Ranged");
@@ -405,7 +405,7 @@
 					
 					function onValueChanged()
 						if super and super.onValueChanged then super.onValueChanged(); end
-						local nodeItem = window.getDatabaseNode().getChild("...");
+						local nodeItem = DB.getChild(window.getDatabaseNode(), "...");
 						if not nodeItem then
 							return;
 						end
@@ -470,7 +470,7 @@
 				<script>
 					function onValueChanged()
 						if super and super.onValueChanged then super.onValueChanged(); end
-						local nodeItem = window.getDatabaseNode().getChild("...");
+						local nodeItem = DB.getChild(window.getDatabaseNode(), "...");
 						if not nodeItem then
 							return;
 						end
