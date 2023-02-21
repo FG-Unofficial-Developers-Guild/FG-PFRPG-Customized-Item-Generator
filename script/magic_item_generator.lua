@@ -198,7 +198,7 @@ function generateMagicItem(nodeItem)
 
 	if iEffectiveBonus > MagicItemGeneratorData.nMaxTotalBonus then
 		Comm.addChatMessage({
-			text = Interface.getString('magic_item_gen_error_2'),
+			text = string.format(Interface.getString('magic_item_gen_error_2'), tostring(MagicItemGeneratorData.nMaxTotalBonus)),
 			secret = true,
 			icon = 'ct_faction_foe',
 		})

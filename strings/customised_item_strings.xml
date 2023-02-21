@@ -5,7 +5,7 @@
 	<string name="label_consumablescreator_charges">Charges</string>
 
 	<string name="magic_item_gen_error_1">Error : Cannot add a special ability if enhancement bonus is not at least +1.</string>
-	<string name="magic_item_gen_error_2">Error : Effective bonus is higher than +10.</string>
+	<string name="magic_item_gen_error_2">Error : Effective bonus is higher than +%s.</string>
 	<string name="magic_item_gen_error_3">Only weapon, armor, shield and ammunition can be customised.</string>
 	<string name="magic_item_gen_error_4">Error : Two special abilities are the same. %s. Can only place one.</string>
 	<string name="magic_item_gen_error_5">Error : Two special abilities are exclusive. %s, %s. Can only place one.</string>
