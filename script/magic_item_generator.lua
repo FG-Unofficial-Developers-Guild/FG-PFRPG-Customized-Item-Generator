@@ -167,8 +167,7 @@ function generateMagicItem(nodeItem)
 
 	local aCL, aAura = {}, {}
 	for _, aAbility in ipairs(aAbilities) do
-		local iAbilityBonus, iAbilityCostBonus, iAbilityExtraCost, _, iCL, sAura =
-			getAbilityBonusAndCost(aAbility.sAbility, sType, sSubType)
+		local iAbilityBonus, iAbilityCostBonus, iAbilityExtraCost, _, iCL, sAura = getAbilityBonusAndCost(aAbility.sAbility, sType, sSubType)
 		iEffectiveBonus = iEffectiveBonus + iAbilityBonus
 		iTotalAbilityBonus = iTotalAbilityBonus + iAbilityBonus
 		iCostBonus = iCostBonus + iAbilityCostBonus
