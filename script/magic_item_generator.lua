@@ -206,6 +206,7 @@ function generateMagicItem(nodeItem)
 
 	local iMaterialCost, iNewWeight, iNewArmorPenalty, iNewArmorMaxDex, iNewArmorSpellFailure, iNewSpeed30, iNewSpeed20, bMasterworkMaterial, bFragileMaterial, sItemProperties, sDamageType, sAddDescription =
 		getMaterialData(
+			nodeItem,
 			sSpecialMaterial,
 			iEnchancementBonus,
 			sType,
@@ -485,6 +486,7 @@ function getDamageTypeByEnhancementBonus(sDamageType, iEnchancementBonus)
 end
 
 function getMaterialData(
+	nodeItem,
 	sMaterial,
 	iEnhancingBonus,
 	sType,
@@ -579,6 +581,12 @@ function getMaterialData(
 		if sType == 'shield' then iNewArmorPenalty = iNewArmorPenalty + 2 end
 	elseif sMaterial == Interface.getString('dragonhide') then
 		iMaterialCost = (iMaterialCost * 2) + getMasterworkPrice(sType, sProperties)
+	elseif sMaterial == Interface.getString('siccatite') then
+		if ItemManager.isArmor(nodeItem) then
+			iMaterialCost = iMaterialCost + 6000
+		elseif ItemManager.isWeapon(nodeItem) then
+			iMaterialCost = iMaterialCost + 1000
+		end
 	elseif sMaterial == Interface.getString('eel_hide') then
 		if sSubType == 'light' then
 			iMaterialCost = iMaterialCost + 1200
