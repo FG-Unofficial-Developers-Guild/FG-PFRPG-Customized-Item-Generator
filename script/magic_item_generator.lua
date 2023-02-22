@@ -943,22 +943,22 @@ function changeDamageBySizeDifference(sDamage, iSizeDifference)
 			if MagicItemGeneratorData.aDamageDice[sNewDamage].iPosition > MagicItemGeneratorData.aDamageDice['1d6'].iPosition then
 				iChange = iChange * 2
 			end
-			sNewDamage = MagicItemGeneratorData.aArmorAbilities[MagicItemGeneratorData.aDamageDice[sNewDamage].iPosition + iChange].sDamage
+			sNewDamage = MagicItemGeneratorData.aPositionDamage[MagicItemGeneratorData.aDamageDice[sNewDamage].iPosition + iChange].sDamage
 		end
 
 		if bIsAlt1 then
-			if MagicItemGeneratorData.aArmorAbilities[MagicItemGeneratorData.aDamageDice[sNewDamage].iPosition].sAltDamage1 ~= nil then
-				sNewDamage = MagicItemGeneratorData.aArmorAbilities[MagicItemGeneratorData.aDamageDice[sNewDamage].iPosition].sAltDamage1
+			if MagicItemGeneratorData.aPositionDamage[MagicItemGeneratorData.aDamageDice[sNewDamage].iPosition].sAltDamage1 ~= nil then
+				sNewDamage = MagicItemGeneratorData.aPositionDamage[MagicItemGeneratorData.aDamageDice[sNewDamage].iPosition].sAltDamage1
 			end
 		end
 		if bIsAlt2 then
-			if MagicItemGeneratorData.aArmorAbilities[MagicItemGeneratorData.aDamageDice[sNewDamage].iPosition].sAltDamage2 ~= nil then
-				sNewDamage = MagicItemGeneratorData.aArmorAbilities[MagicItemGeneratorData.aDamageDice[sNewDamage].iPosition].sAltDamage2
+			if MagicItemGeneratorData.aPositionDamage[MagicItemGeneratorData.aDamageDice[sNewDamage].iPosition].sAltDamage2 ~= nil then
+				sNewDamage = MagicItemGeneratorData.aPositionDamage[MagicItemGeneratorData.aDamageDice[sNewDamage].iPosition].sAltDamage2
 			end
 		end
 		if bIsAlt3 then
-			if MagicItemGeneratorData.aArmorAbilities[MagicItemGeneratorData.aDamageDice[sNewDamage].iPosition].sAltDamage3 ~= nil then
-				sNewDamage = MagicItemGeneratorData.aArmorAbilities[MagicItemGeneratorData.aDamageDice[sNewDamage].iPosition].sAltDamage3
+			if MagicItemGeneratorData.aPositionDamage[MagicItemGeneratorData.aDamageDice[sNewDamage].iPosition].sAltDamage3 ~= nil then
+				sNewDamage = MagicItemGeneratorData.aPositionDamage[MagicItemGeneratorData.aDamageDice[sNewDamage].iPosition].sAltDamage3
 			end
 		end
 
