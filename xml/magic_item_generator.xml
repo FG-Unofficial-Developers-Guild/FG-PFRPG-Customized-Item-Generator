@@ -10,7 +10,7 @@
 				function onButtonPress()
 					local nodeItem = window.getDatabaseNode();
 					local sItemType, sItemSubType = MagicItemGenerator.getItemType(nodeItem);
-					
+
 					if sItemType == "" or (sItemType == "Armor" and sItemSubType == "") then
 						Comm.addChatMessage({text = Interface.getString("magic_item_gen_error_3"), secret = true, icon ="ct_faction_foe"});
 					else
@@ -30,14 +30,14 @@
 			<tooltip textres="tooltip_magic_item_generator_button_text" />
 		</button_text_sm>
 	</template>
-	
+
 	<template name="template_generate_button">
 		<button_text_sm>
 			<state textres="label_generate" />
 			<gmvisibleonly />
 		</button_text_sm>
 	</template>
-	
+
 	<template name="template_frame_control">
 		<genericcontrol>
 			<anchored>
@@ -50,7 +50,7 @@
 			<disabled />
 		</genericcontrol>
 	</template>
-	
+
 	<template name="template_left_anchor">
 		<genericcontrol name="left_anchor_control">
 			<anchored position="insidetopleft" height="0" width="0" />
@@ -66,7 +66,7 @@
 			<invisible />
 		</genericcontrol>
 	</template>
-	
+
 	<template name="template_label">
 		<stringcontrol>
 			<font>sheetlabel</font>
@@ -76,7 +76,7 @@
 			<noreset />
 		</stringcontrol>
 	</template>
-	
+
 	<template name="template_combo_box">
 		<combobox>
 			<frame>
@@ -105,13 +105,13 @@
 				function onInit()
 					registerMenuItem(Interface.getString("list_menu_createitem"), "insert", 5);
 				end
-				
+
 				function onMenuSelection(selection)
 					if selection == 5 then
 						self.addEntry(true);
 					end
 				end
-				
+
 				function onListChanged()
 					update();
 				end
@@ -122,7 +122,7 @@
 						w.idelete.setVisibility(bEdit);
 					end
 				end
-				
+
 				function addEntry(bFocus)
 					update();
 					return createWindow();
@@ -130,14 +130,14 @@
 			</script>
 		</windowlist>
 	</template>
-	
+
 	<windowclass name="Magic_generator_header">
 		<margins control="0,0,0,7" />
 		<sheetdata>
 			<anchor_record_header_right />
 		</sheetdata>
 	</windowclass>
-		
+
 	<windowclass name="MagicPropertiesWindow">
 		<margins control="0,0,0,7" />
 		<script file="script/magic_item_generator.lua" />
@@ -149,7 +149,7 @@
 		<sheetdata>
 		<template_left_anchor />
 		<template_right_anchor />
-		
+
 			<template_generate_button name="button_generate">
 				<anchored  width="100" height="50">
 					<top offset="20"/>
@@ -174,7 +174,7 @@
 				</anchored>
 				<static textres="label_bonus" />
 			</template_label>
-			
+
 			<template_label name="label_special_material">
 				<anchored>
 					<top parent="label_bonus" anchor="bottom" offset="10" />
@@ -190,7 +190,7 @@
 				</anchored>
 				<static textres="label_item_size" />
 			</template_label>
-			
+
 			<template_combo_box name="combobox_bonus">
 				<anchored height="20">
 					<top parent="button_generate" anchor="bottom" offset="20" />
@@ -206,7 +206,7 @@
 					end
 				</script>
 			</template_combo_box>
-			
+
 			<template_combo_box name="combobox_material">
 				<anchored height="20">
 					<top parent="combobox_bonus" anchor="bottom" offset="5" />
@@ -223,7 +223,7 @@
 						if MagicItemGenerator.notifyMissingTypeData(sType, sSubType) then
 							return
 						end
-						
+
 						local bLightArmor = (sType == "armor" and sSubType == "light") ;
 						local bMediumArmor = (sType == "armor" and sSubType == "medium");
 						local bHeavyArmor = (sType == "armor" and sSubType == "heavy");
@@ -231,7 +231,7 @@
 						local bMeleeWeapon = (sType == "weapon" and sSubType == "melee");
 						local bRangedWeapon = (sType == "weapon" and sSubType == "ranged");
 						local bAmmunition = (sType == "ammunition");
-						
+
 						addItems({Interface.getString("itemnone")});
 						for key,value in pairs(MagicItemGeneratorData.aSpecialMaterials) do
 							if bLightArmor and value.bLightArmor then
@@ -293,13 +293,13 @@
 				<script>
 					function addEntry(bFocus)
 						local n = getWindowCount();
-						
+
 						local w = createWindow();
 						return w;
 					end
 				</script>
 			</list_editor_item_ability>
-			
+
 			<scrollbar_list>
 				<anchored to="item_ability_list" />
 				<target>item_ability_list</target>
@@ -310,7 +310,7 @@
  				<script>
 					function onValueChanged()
 						local bEditMode = (getValue() == 1);
-						
+
 						window.abilities_list_iadd.setVisible(bEditMode);
 						window.item_ability_list.update();
 					end
@@ -341,7 +341,7 @@
 				</anchored>
 				<invisible />
 			</genericcontrol>
-			
+
 			<!-- delete button if in edit mode -->
 			<button_idelete name="idelete">
 				<anchored to="rightanchor">
@@ -367,12 +367,12 @@
 						if MagicItemGenerator.notifyMissingTypeData(sType, sSubType) then
 							return
 						end
-						
+
 						local aAbilityList = MagicItemGenerator.getAbilityList(sType, sSubType);
-						
+
 						local dDamageType = DB.getChild(nodeItem, "damagetype");
 						local sName = DB.getValue(nodeItem, "name");
-						
+
 						local bMeleeWeapon = (sType == "Weapon" and sSubType == "Melee");
 						local bRangedWeapon = (sType == "Weapon" and sSubType == "Ranged");
 						local bSlashingWeapon = false;
@@ -386,9 +386,9 @@
 						local bCrossbow = (sName:lower():match("crossbow"));
 						local bBow = (sName:lower():match("bow") and (not bCrossbow) );
 						local bFirearm = (sType == "Firearm");
-						
+
 						addItems({Interface.getString("itemnone")});
-						
+
 						for key,value in pairs(aAbilityList) do
 							if bMeleeWeapon and ((bSlashingWeapon and value.bSlashing) or (bPiercingWeapon and value.bPiercing) or (bBludgeoningWeapon and value.bBludgeoning)) then
 								add(key);
@@ -403,7 +403,7 @@
 							end
 						end
 					end
-					
+
 					function onValueChanged()
 						if super and super.onValueChanged then super.onValueChanged(); end
 						local nodeItem = DB.getChild(window.getDatabaseNode(), "...");
@@ -414,9 +414,9 @@
 						if MagicItemGenerator.notifyMissingTypeData(sType, sSubType) then
 							return
 						end
-						
+
 						local aAbilityList = MagicItemGenerator.getAbilityList(sType, sSubType);
-						
+
 						local sAbility = getValue();
 
 						if aAbilityList ~= nil and next(aAbilityList[sAbility].aSubSelection) ~= nil then
@@ -479,9 +479,9 @@
 						if MagicItemGenerator.notifyMissingTypeData(sType, sSubType) then
 							return
 						end
-						
+
 						local aAbilityList = MagicItemGenerator.getAbilityList(sType, sSubType);
-						
+
 						local sAbility = window.combobox_ability.getValue();
 						local sSelection = getValue();
 						local aSubSelection = {};
@@ -489,7 +489,7 @@
 						if aAbilityList ~= nil and next(aAbilityList[sAbility].aSubSelection) ~= nil then
 							aSubSelection = aAbilityList[sAbility].aSubSelection[sSelection];
 						end
-						
+
 						if aSubSelection ~= nil and next(aSubSelection) ~= nil and next(aSubSelection.aSubSubSelection) ~= nil then
 							window.combobox_ability_sub_sub_select.clear();
 							window.combobox_ability_sub_sub_select.add(Interface.getString("itemnone"));
@@ -503,7 +503,7 @@
 							window.combobox_ability_sub_sub_select.setComboBoxVisible(false);
 						end
 					end
-					
+
 					function onVisibilityChanged()
 						window.combobox_ability_sub_sub_select.setComboBoxVisible(false);
 						window.label_special_sub_ability.setVisible(isVisible());
