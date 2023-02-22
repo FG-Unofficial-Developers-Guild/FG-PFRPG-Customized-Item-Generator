@@ -3455,6 +3455,17 @@ aArmorAbilities = {
 		aSubSelection = {},
 		aEffects = {},
 	},
+	['Amorphous'] = {
+		sStringName = 'adhesive',
+		iCost = 4500,
+		iCL = 8,
+		sAura = 'moderate transmutation',
+		aExclusions = {},
+		sSubSelectionLabel = '',
+		aSubSelection = {},
+		aEffects = {},
+		sAddDescription = 'Armor with this special ability grants its wearer a +5 competence bonus on Escape Artist checks and to CMD against grapple combat maneuvers. Additionally, once per day on command, the wearer (along with any gear she is wearing) can take the form of viscous liquid that can pass through any space through which thick mud could reasonably flow. While using this ability, the wearer’s speed is reduced by 10 feet, and she can take only move actions. The wearer can take this form for 1 minute or until she spends a move action to return to her normal form. Amorphous armor must be made primarily of leather, fabric, or another flexible, organic material.\nSource Advanced Class Guide pg. 209',
+	},
 	['Balanced'] = {
 		sStringName = 'balanced',
 		iBonus = 1,
