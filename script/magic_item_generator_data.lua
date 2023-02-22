@@ -3444,6 +3444,17 @@ aAmmunitionAbilities = {
 }
 
 aArmorAbilities = {
+	['Advancing'] = {
+		sStringName = 'advancing',
+		iBonus = 1,
+		iCost = 0,
+		iCL = 5,
+		sAura = 'faint necromancy',
+		aExclusions = {},
+		sSubSelectionLabel = '',
+		aSubSelection = {},
+		aEffects = {},
+	},
 	['Adhesive'] = {
 		sStringName = 'adhesive',
 		iBonus = 3,
