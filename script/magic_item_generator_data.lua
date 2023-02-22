@@ -3457,7 +3457,6 @@ aArmorAbilities = {
 	},
 	['Adhesive'] = {
 		sStringName = 'adhesive',
-		iBonus = 3,
 		iCost = 7000,
 		iCL = 10,
 		sAura = 'moderate transmutation',
@@ -3665,7 +3664,6 @@ aArmorAbilities = {
 	},
 	['Delving'] = {
 		sStringName = 'delving',
-		iBonus = 3,
 		iCost = 10000,
 		iCL = 5,
 		sAura = 'faint transmutation',
@@ -3676,7 +3674,6 @@ aArmorAbilities = {
 	},
 	['Determination'] = {
 		sStringName = 'determination',
-		iBonus = 5,
 		iCost = 30000,
 		iCL = 10,
 		sAura = 'moderate conjuration',
@@ -3687,7 +3684,6 @@ aArmorAbilities = {
 	},
 	['Energy resistance'] = {
 		sStringName = 'energy resistance',
-		iBonus = 4,
 		iCost = 18000,
 		iCL = 3,
 		sAura = 'faint abjuration',
@@ -4287,7 +4283,6 @@ aArmorAbilities = {
 	},
 	['Burdenless'] = {
 		sStringName = 'burdenless',
-		iBonus = 0,
 		iCost = 4000,
 		iCL = 5,
 		sAura = 'faint transmutation',
