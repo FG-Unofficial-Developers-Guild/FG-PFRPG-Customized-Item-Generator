@@ -144,6 +144,7 @@
 		<frame>recordsheet</frame>
 		<sizelimits>
 			<minimum width="370" height="350" />
+			<dynamic />
 		</sizelimits>
 		<sheetdata>
 		<template_left_anchor />
