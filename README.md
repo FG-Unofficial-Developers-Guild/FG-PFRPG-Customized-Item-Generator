@@ -10,4 +10,4 @@ If you use [Advanced Effects](https://forge.fantasygrounds.com/shop/items/33/vie
 [Original extension by Faelwen](https://www.fantasygrounds.com/forums/showthread.php?38761-CustomisedItemGenerator-Extension) and with [further improvements by rmilmine](https://www.fantasygrounds.com/forums/showthread.php?57818-Customized-Item-Generator-for-3-5E-and-Pathfinder) and bmos.
 
 # Compatibility
-This extension has been tested with [FantasyGrounds Unity](https://www.fantasygrounds.com/home/FantasyGroundsUnity.php) 4.3.3 (2023-02-21).
+This extension has been tested with [FantasyGrounds Unity](https://www.fantasygrounds.com/home/FantasyGroundsUnity.php) 4.3.3 (2023-02-23).

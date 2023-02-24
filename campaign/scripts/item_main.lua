@@ -33,22 +33,22 @@ function update(...)
 	local tSections = {}
 
 	if Session.IsHost then
-		if self.updateControl('nonid_name', bReadOnly, true) then tSections[1] = true end
+		if WindowManager.callSafeControlUpdate(self, 'nonid_name', bReadOnly) then tSections[1] = true end
 	else
-		self.updateControl('nonid_name', false)
+		WindowManager.callSafeControlUpdate(self, 'nonid_name', true)
 	end
 	if Session.IsHost or not bID then
-		if self.updateControl('nonidentified', bReadOnly, true) then tSections[1] = true end
+		if WindowManager.callSafeControlUpdate(self, 'nonidentified', bReadOnly) then tSections[1] = true end
 	else
-		self.updateControl('nonidentified', false)
+		WindowManager.callSafeControlUpdate(self, 'nonidentified', true)
 	end
 
-	if self.updateControl('type', bReadOnly, bID) then tSections[2] = true end
-	if self.updateControl('subtype', bReadOnly, bID) then tSections[2] = true end
+	if WindowManager.callSafeControlUpdate(self, 'type', bReadOnly, not bID) then tSections[2] = true end
+	if WindowManager.callSafeControlUpdate(self, 'subtype', bReadOnly, not bID) then tSections[2] = true end
 
-	if self.updateControl('cost', bReadOnly, bID) then tSections[3] = true end
-	if self.updateControl('weight', bReadOnly, bID) then tSections[3] = true end
-	if self.updateControl('size', bReadOnly, bID) then tSections[3] = true end
+	if WindowManager.callSafeControlUpdate(self, 'cost', bReadOnly, not bID) then tSections[3] = true end
+	if WindowManager.callSafeControlUpdate(self, 'weight', bReadOnly, not bID) then tSections[3] = true end
+	if WindowManager.callSafeControlUpdate(self, 'size', bReadOnly, not bID) then tSections[3] = true end
 
 	sectionVis(tSections)
 end
