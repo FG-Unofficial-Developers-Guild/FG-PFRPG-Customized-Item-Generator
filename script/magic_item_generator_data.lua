@@ -3454,6 +3454,7 @@ aArmorAbilities = {
 		sSubSelectionLabel = '',
 		aSubSelection = {},
 		aEffects = {},
+		sAddDescription = "<p><b>Source:</b>Armor Master's Handbook pg. 28</p><p>A suit of armor with the advancing special ability allows its wearer to move through fallen enemies to the forefront of any conflict. Once per round when the wearer of a suit of advancing armor reduces an opponent to 0 hit points or fewer with a melee attack, she can immediately move up to 10 feet as a free action. This movement does not provoke attacks of opportunity. If this armor is created as barding, the effect is triggered if either the mount or its rider reduces an opponent to 0 hit points or fewer, and allows the mount to move up to 10 feet. The advancing special ability can be applied only to heavy armor.",
 	},
 	['Adhesive'] = {
 		sStringName = 'adhesive',
@@ -3464,6 +3465,7 @@ aArmorAbilities = {
 		sSubSelectionLabel = '',
 		aSubSelection = {},
 		aEffects = {},
+		sAddDescription = '<p><b>Source:</b>Ultimate Equipment pg. 114</p><p>On command, the hands and feet of this armor’s wearer become incredibly sticky, granting her a climb speed of 20 feet. The stickiness grants the wearer a +2 enhancement bonus on combat maneuver checks made to disarm, grapple, reposition, steal, or trip when the wearer is using a natural weapon or unarmed strike to attempt the maneuver. The wearer can gain these benefits for 10 rounds per day. These rounds need not be consecutive, but they must be spent in 1-round intervals. Ending the effect is a free action. Adhesive cannot be placed on armor with any version of the slick special ability.',
 	},
 	['Amorphous'] = {
 		sStringName = 'adhesive',
@@ -3474,7 +3476,7 @@ aArmorAbilities = {
 		sSubSelectionLabel = '',
 		aSubSelection = {},
 		aEffects = {},
-		sAddDescription = 'Armor with this special ability grants its wearer a +5 competence bonus on Escape Artist checks and to CMD against grapple combat maneuvers. Additionally, once per day on command, the wearer (along with any gear she is wearing) can take the form of viscous liquid that can pass through any space through which thick mud could reasonably flow. While using this ability, the wearer’s speed is reduced by 10 feet, and she can take only move actions. The wearer can take this form for 1 minute or until she spends a move action to return to her normal form. Amorphous armor must be made primarily of leather, fabric, or another flexible, organic material.\nSource Advanced Class Guide pg. 209',
+		sAddDescription = '<p><b>Source:</b>Advanced Class Guide pg. 209</p><p>Armor with this special ability grants its wearer a +5 competence bonus on Escape Artist checks and to CMD against grapple combat maneuvers. Additionally, once per day on command, the wearer (along with any gear she is wearing) can take the form of viscous liquid that can pass through any space through which thick mud could reasonably flow. While using this ability, the wearer’s speed is reduced by 10 feet, and she can take only move actions. The wearer can take this form for 1 minute or until she spends a move action to return to her normal form. Amorphous armor must be made primarily of leather, fabric, or another flexible, organic material.',
 	},
 	['Balanced'] = {
 		sStringName = 'balanced',
@@ -3486,6 +3488,7 @@ aArmorAbilities = {
 		sSubSelectionLabel = '',
 		aSubSelection = {},
 		aEffects = {},
+		sAddDescription = '<p><b>Source:</b>Ultimate Equipment pg. 115</p><p>As an immediate action, the wearer of a suit of balanced armor can reduce the enhancement bonus of the armor to gain an equal enhancement bonus on one type of saving throw (Fortitude, Reflex, or Will) designated when the armor is created. This effect lasts until the beginning of the wearer’s next turn. This ability can be applied only to medium armor.',
 	},
 	['Benevolent'] = {
 		sStringName = 'benevolent',
@@ -3497,6 +3500,7 @@ aArmorAbilities = {
 		sSubSelectionLabel = '',
 		aSubSelection = {},
 		aEffects = {},
+		sAddDescription = '<p><b>Source:</b>Ultimate Equipment pg. 115</p><p>This suit of armor best serves a wearer who focuses on assisting and protecting his allies. Benevolent armor is usually decorated with motifs of prosperity, plenty, and generosity, such as helping hands, cornucopias, and flourishing plants. When the wearer of a suit of benevolent armor uses the aid another action to give an ally a bonus to AC against an opponent’s next attack, he also adds the benevolent armor’s enhancement bonus to the ally’s AC.',
 	},
 	['Bitter'] = {
 		sStringName = 'bitter',
@@ -4181,6 +4185,7 @@ aArmorAbilities = {
 		sSubSelectionLabel = '',
 		aSubSelection = {},
 		aEffects = {},
+		sAddDescription = '<p><b> Source:</b>Ultimate Equipment pg. 122</p><p>A stanching suit of armor helps stop the flow of blood from the wearer’s wounds, automatically tightening like a tourniquet in the appropriate places while also magically reducing the severity of the wound. Stanching armor reduces hit point damage, ability damage, or ability drain by an amount equal to its enhancement bonus if the damage or drain was from a bleed effect. The wearer also adds the armor’s enhancement bonus to Constitution checks to become stable.',
 	},
 	['Titanic'] = {
 		sStringName = 'titanic',
