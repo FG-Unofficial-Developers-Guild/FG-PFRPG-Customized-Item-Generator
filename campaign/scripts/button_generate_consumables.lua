@@ -26,6 +26,7 @@ aWandLevelCosts = {
 	['paladin'] = { [1] = 750, [2] = 6000, [3] = 15750, [4] = 30000 },
 	['ranger'] = { [1] = 750, [2] = 6000, [3] = 15750, [4] = 30000 },
 }
+
 aScrollLevelCosts = {
 	['cleric'] = {
 		[0] = 12.5,
@@ -79,6 +80,7 @@ aScrollLevelCosts = {
 	['paladin'] = { [1] = 25, [2] = 200, [3] = 525, [4] = 1000 },
 	['ranger'] = { [1] = 25, [2] = 200, [3] = 525, [4] = 1000 },
 }
+
 aPotionLevelCosts = {
 	['cleric'] = { [0] = 25, [1] = 50, [2] = 300, [3] = 750 },
 	['druid'] = { [0] = 25, [1] = 50, [2] = 300, [3] = 750 },
@@ -89,30 +91,27 @@ aPotionLevelCosts = {
 	['ranger'] = { [1] = 50, [2] = 400, [3] = 1050 },
 }
 
-local function getAuraString(nCL, sSchool)
-	local sAuraStrength
+local function auraStrength(nCL)
 	if nCL > 9 then
-		sAuraStrength = 'Overwhelming '
+		return 'Overwhelming '
 	elseif nCL > 6 then
-		sAuraStrength = 'Strong '
+		return 'Strong '
 	elseif nCL > 3 then
-		sAuraStrength = 'Moderate '
+		return 'Moderate '
 	elseif nCL > 0 then
-		sAuraStrength = 'Faint '
-	else
-		sAuraStrength = ''
+		return 'Faint '
 	end
 
-	return sAuraStrength .. sSchool
+	return ''
 end
 
-local function getSpellNode()
+local function spellNode()
 	local _, sRecord = DB.getValue(window.getDatabaseNode(), 'spellshortcut', '')
 	if sRecord ~= '' then return DB.findNode(sRecord) end
 end
 
 function onButtonPress()
-	local nodeSpell = getSpellNode()
+	local nodeSpell = spellNode()
 	if not nodeSpell then return end
 
 	local sSpellName = DB.getValue(nodeSpell, 'name', '')
@@ -172,12 +171,11 @@ function onButtonPress()
 		DB.setValue(nodeItem, 'type', 'string', sType)
 		DB.setValue(nodeItem, 'cl', 'number', nCL)
 		DB.setValue(nodeItem, 'description', 'formattedtext', sDesc)
-
 		if nCost ~= 0 then DB.setValue(nodeItem, 'cost', 'string', nCost .. ' gp') end
+
 		local sSchool = string.lower(DB.getValue(nodeSpell, 'school', ''):match('(%a+).*'))
 		if sSchool and sSchool ~= '' and nCL ~= 0 then
-			sSchool = getAuraString(nCL, sSchool)
-			DB.setValue(nodeItem, 'aura', 'string', sSchool)
+			DB.setValue(nodeItem, 'aura', 'string', auraStrength(nCL) .. sSchool)
 		end
 
 		Interface.openWindow('item', nodeItem)

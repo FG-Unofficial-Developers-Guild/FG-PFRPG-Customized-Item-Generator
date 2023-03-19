@@ -12,24 +12,25 @@ function onValueChanged()
 	if super and super.onValueChanged then super.onValueChanged() end
 
 	local sClass = (self.getValue() or ''):lower()
-	if sClass ~= '' then
-		local nodeSpell = getSpellNode()
-		if not nodeSpell then return end
+	if sClass == '' then return end
 
-		local sLevelData = DB.getValue(nodeSpell, 'level', ''):lower()
-		local nSpellLevel = tonumber(sLevelData:match('.*' .. sClass .. ' (%d+).*') or -1)
-		if nSpellLevel and nSpellLevel ~= -1 then
-			if window.button_generate.aScrollLevelCosts[sClass][nSpellLevel] then window.type.add('Scroll') end
-			if window.button_generate.aPotionLevelCosts[sClass][nSpellLevel] then window.type.add('Potion') end
-			if window.button_generate.aWandLevelCosts[sClass][nSpellLevel] then window.type.add('Wand') end
-			if nSpellLevel == 0 then
-				window.cl.setValue(1)
-			else
-				local nMinCL = (nSpellLevel * 2) - 1
-				window.cl.setMinValue(nMinCL)
-				window.cl.setValue(nMinCL)
-			end
-		end
+	local nodeSpell = getSpellNode()
+	if not nodeSpell then return end
+
+	local sLevelData = DB.getValue(nodeSpell, 'level', ''):lower()
+	local nSpellLevel = tonumber(sLevelData:match('.*' .. sClass .. ' (%d+).*') or -1)
+	if not nSpellLevel or nSpellLevel == -1 then return end
+
+	if window.button_generate.aScrollLevelCosts[sClass][nSpellLevel] then window.type.add('Scroll') end
+	if window.button_generate.aPotionLevelCosts[sClass][nSpellLevel] then window.type.add('Potion') end
+	if window.button_generate.aWandLevelCosts[sClass][nSpellLevel] then window.type.add('Wand') end
+
+	if nSpellLevel == 0 then
+		window.cl.setValue(1)
+	else
+		local nMinCL = (nSpellLevel * 2) - 1
+		window.cl.setMinValue(nMinCL)
+		window.cl.setValue(nMinCL)
 	end
 end
 
