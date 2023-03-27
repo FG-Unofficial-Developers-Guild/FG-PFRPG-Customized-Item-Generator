@@ -174,9 +174,7 @@ function onButtonPress()
 		if nCost ~= 0 then DB.setValue(nodeItem, 'cost', 'string', nCost .. ' gp') end
 
 		local sSchool = string.lower(DB.getValue(nodeSpell, 'school', ''):match('(%a+).*'))
-		if sSchool and sSchool ~= '' and nCL ~= 0 then
-			DB.setValue(nodeItem, 'aura', 'string', auraStrength(nCL) .. sSchool)
-		end
+		if sSchool and sSchool ~= '' and nCL ~= 0 then DB.setValue(nodeItem, 'aura', 'string', auraStrength(nCL) .. sSchool) end
 
 		Interface.openWindow('item', nodeItem)
 		window.close()
