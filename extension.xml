@@ -4,7 +4,7 @@
 
 	<properties>
 		<name>Feature: Customized Item Generator</name>
-		<version>1.14</version>
+		<version>1.15</version>
 		<loadorder>55</loadorder>
 		<author>Faelwen, with modifications by rmilmine and bmos</author>
 		<description>Simple generator for magic items and consumables</description>
@@ -16,7 +16,7 @@
 		</ruleset>
 	</properties>
 
-	<announcement text="https://www.fantasygrounds.com/forums/showthread.php?57818-Customized-Item-Generator-for-3-5E-and-Pathfinder\rCustomised Item Generator v1.14\rBy Faelwen with updates by rmilmine and bmos." font="emotefont" icon="module_loaded" />
+	<announcement text="https://www.fantasygrounds.com/forums/showthread.php?57818-Customized-Item-Generator-for-3-5E-and-Pathfinder\rCustomised Item Generator v1.15\rBy Faelwen with updates by rmilmine and bmos." font="emotefont" icon="module_loaded" />
 
 	<base>
 		<script name="MagicItemGenerator" file="script/magic_item_generator.lua"/>
