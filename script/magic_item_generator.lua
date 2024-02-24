@@ -225,7 +225,7 @@ local function changeDamageBySizeDifference(sDamage, iSizeDifference)
 		end
 
 		local iChange
-		for iVar = 1, math.abs(iSizeDifference), 1 do
+		for _ = 1, math.abs(iSizeDifference), 1 do
 			if iSizeDifference < 0 then
 				iChange = -1
 			else
@@ -260,7 +260,9 @@ local function changeDamageBySizeDifference(sDamage, iSizeDifference)
 end
 
 local function getDamageForSize(sDamage, sOriginalSize, sNewSize)
-	local iSizeDifference = MagicItemGeneratorData.aItemSize[sNewSize:lower()].iPosition - MagicItemGeneratorData.aItemSize[sOriginalSize:lower()].iPosition
+	local oldSize = MagicItemGeneratorData.aItemSize[sOriginalSize:lower()].iPosition
+	local newSize = MagicItemGeneratorData.aItemSize[sNewSize:lower()].iPosition
+	local iSizeDifference = newSize - oldSize
 	if iSizeDifference == 0 then
 		return sDamage
 	end
@@ -1056,7 +1058,7 @@ function generateMagicItem(nodeItem)
 		return false
 	end
 
-	local iMaterialCost, iNewWeight, iNewArmorPenalty, iNewArmorMaxDex, iNewArmorSpellFailure, iNewSpeed30, iNewSpeed20, bMasterworkMaterial, bFragileMaterial, sItemProperties, sDamageType, sAddDescription =
+	local iMaterialCost, iNewWeight, iNewArmorPenalty, iNewArmorMaxDex, iNewArmorSpellFailure, iNewSpeed30, iNewSpeed20, bMasterworkMaterial, bFragileMaterial, sMaterialItemProperties, sMaterialDamageType, sAddDescription =
 		getMaterialData(
 			nodeItem,
 			sSpecialMaterial,
@@ -1074,7 +1076,8 @@ function generateMagicItem(nodeItem)
 			sItemProperties,
 			sDamageType
 		)
-
+	sDamageType = sMaterialDamageType
+	sItemProperties = sMaterialItemProperties
 	iNewWeight = getWeightBySize(iNewWeight, sOriginalSize, sItemSize)
 
 	local iMasterworkCost = 0
