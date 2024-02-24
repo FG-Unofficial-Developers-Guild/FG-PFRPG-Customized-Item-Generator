@@ -107,18 +107,24 @@ end
 
 local function spellNode()
 	local _, sRecord = DB.getValue(window.getDatabaseNode(), 'spellshortcut', '')
-	if sRecord ~= '' then return DB.findNode(sRecord) end
+	if sRecord ~= '' then
+		return DB.findNode(sRecord)
+	end
 end
 
 function onButtonPress()
 	local nodeSpell = spellNode()
-	if not nodeSpell then return end
+	if not nodeSpell then
+		return
+	end
 
 	local sSpellName = DB.getValue(nodeSpell, 'name', '')
 	local sType = window.type.getValue() or ''
 	local sClass = string.lower(window.class.getValue() or '')
 	local nCL = window.cl.getValue() or 0
-	if (not sClass or sClass == '') or (not sType or sType == '') or (not sSpellName or sSpellName == '') then return end
+	if (not sClass or sClass == '') or (not sType or sType == '') or (not sSpellName or sSpellName == '') then
+		return
+	end
 
 	local sItemName = sType .. ' of ' .. sSpellName
 
@@ -136,13 +142,17 @@ function onButtonPress()
 			local nCharges = window.charges.getValue() or 0
 			if nCharges ~= 0 then
 				sItemName = sItemName .. ' [' .. nCharges .. ' charges]'
-				if nCharges ~= 50 then nCost = nCost * (nCharges / 50) end
+				if nCharges ~= 50 then
+					nCost = nCost * (nCharges / 50)
+				end
 			end
 		elseif sType == 'Scroll' then
 			sDesc =
 				'<p>A scroll is a spell (or collection of spells) that has been stored in written form. A spell on a scroll can be used only once. The writing vanishes from the scroll when the spell is activated. Using a scroll is basically like casting a spell.</p>' -- luacheck: no max line length
 			nCost = aScrollLevelCosts[sClass][nSpellLevel]
-			if not tArcaneClass[sClass] then sItemName = 'Divine ' .. sItemName end
+			if not tArcaneClass[sClass] then
+				sItemName = 'Divine ' .. sItemName
+			end
 			if nCost and nSpellLevel ~= 0 then
 				local nMinCL = (nSpellLevel * 2) - 1
 				nCost = nCost + (25 * (nCL - nMinCL))
@@ -171,10 +181,14 @@ function onButtonPress()
 		DB.setValue(nodeItem, 'type', 'string', sType)
 		DB.setValue(nodeItem, 'cl', 'number', nCL)
 		DB.setValue(nodeItem, 'description', 'formattedtext', sDesc)
-		if nCost ~= 0 then DB.setValue(nodeItem, 'cost', 'string', nCost .. ' gp') end
+		if nCost ~= 0 then
+			DB.setValue(nodeItem, 'cost', 'string', nCost .. ' gp')
+		end
 
 		local sSchool = string.lower(DB.getValue(nodeSpell, 'school', ''):match('(%a+).*'))
-		if sSchool and sSchool ~= '' and nCL ~= 0 then DB.setValue(nodeItem, 'aura', 'string', auraStrength(nCL) .. sSchool) end
+		if sSchool and sSchool ~= '' and nCL ~= 0 then
+			DB.setValue(nodeItem, 'aura', 'string', auraStrength(nCL) .. sSchool)
+		end
 
 		Interface.openWindow('item', nodeItem)
 		window.close()
