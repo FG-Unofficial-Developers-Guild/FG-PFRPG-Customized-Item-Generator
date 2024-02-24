@@ -4,7 +4,7 @@
 
 	<properties>
 		<name>Feature: Customized Item Generator</name>
-		<version>1.15</version>
+		<version>2.0</version>
 		<loadorder>55</loadorder>
 		<author>Faelwen, with modifications by rmilmine and bmos</author>
 		<description>Simple generator for magic items and consumables</description>
@@ -16,15 +16,15 @@
 		</ruleset>
 	</properties>
 
-	<announcement text="https://www.fantasygrounds.com/forums/showthread.php?57818-Customized-Item-Generator-for-3-5E-and-Pathfinder\rCustomised Item Generator v1.15\rBy Faelwen with updates by rmilmine and bmos." font="emotefont" icon="module_loaded" />
+	<announcement text="https://www.fantasygrounds.com/forums/showthread.php?57818-Customized-Item-Generator-for-3-5E-and-Pathfinder\rCustomised Item Generator v2.0\rBy Faelwen with updates by rmilmine and bmos." font="emotefont" icon="module_loaded" />
 
 	<base>
-		<script name="MagicItemGenerator" file="script/magic_item_generator.lua"/>
-		<script name="MagicItemGeneratorData" file="script/magic_item_generator_data.lua"/>
-
-		<includefile source="xml/magic_item_generator.xml" />
+		<includefile source="utility/create_consumable.xml" />
+		<includefile source="utility/customize_item.xml" />
 		<includefile source="campaign/record_item.xml" />
 		<includefile source="campaign/record_spell.xml" />
-		<includefile source="strings/customised_item_strings.xml" />
+		<includefile source="graphics/graphics_buttons.xml" />
+		<includefile source="strings/CIG_strings.xml" />
+		<script name="CustomItemGenToolbar" file="scripts/CIG_toolbar_buttons.lua"/>
 	</base>
 </root>

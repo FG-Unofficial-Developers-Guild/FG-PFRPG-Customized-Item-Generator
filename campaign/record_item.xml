@@ -8,18 +8,18 @@
 <!--  Added button to windowclass -->
 <root>
 	<windowclass name="item" merge="join">
-		<sheetdata>
-			<template_launch_button name="magic_item_generator_button" />
-		</sheetdata>
-	</windowclass>
-
-	<windowclass name="item_main" merge="join">
-		<script file="campaign/scripts/item_main.lua" />
-		<sheetdata>
-			<label_column name="size_label" insertbefore="divider3">
-				<static textres="label_item_size" />
-			</label_column>
-			<string_columnh name="size" insertbefore="divider3" />
-		</sheetdata>
+        <sheetdata>
+            <windowmenubar_utilitybox name="menubar">
+                <script>
+                    function onInit()
+                        if super and super.onInit then
+                            super.onInit()
+                        end
+                        ToolbarManager.addSeparator(subwindow, "right");
+                        ToolbarManager.addButton(subwindow, "bmos_customizeitem", "right");
+                    end
+                </script>
+            </windowmenubar_utilitybox>
+        </sheetdata>
 	</windowclass>
 </root>
