@@ -14,21 +14,29 @@ local function addCSV(sString, sAppend)
 	return sString .. ', ' .. sAppend
 end
 
-local function usingAE() return StringManager.contains(Extension.getExtensions(), 'FG-PFRPG-Advanced-Effects') end
+local function usingAE()
+	return StringManager.contains(Extension.getExtensions(), 'FG-PFRPG-Advanced-Effects')
+end
 
 local function getCritical(nodeItem)
-	if not nodeItem then return 0 end
+	if not nodeItem then
+		return 0
+	end
 	local nCritical = 2
 	local sCritical = DB.getValue(nodeItem, 'critical')
 	if sCritical then
 		sCritical = sCritical:match('x%d+')
-		if sCritical then nCritical = tonumber(sCritical:match('%d+')) end
+		if sCritical then
+			nCritical = tonumber(sCritical:match('%d+'))
+		end
 	end
 	return nCritical
 end
 
 local function getWeaponTypeName(nodeItem)
-	if not nodeItem then return '' end
+	if not nodeItem then
+		return ''
+	end
 	local sItemName = string.lower(DB.getValue(nodeItem, 'name', ''))
 	local sSubType = string.lower(DB.getValue(nodeItem, 'subtype', ''))
 	local sType = string.lower(DB.getValue(nodeItem, 'type', ''))
@@ -51,19 +59,31 @@ local function getWeaponTypeName(nodeItem)
 end
 
 local function addEffect(nodeEffectList, sEffect, nActionOnly, bIsLabel)
-	if (not nodeEffectList or not sEffect) and sEffect ~= '' then return end
+	if (not nodeEffectList or not sEffect) and sEffect ~= '' then
+		return
+	end
 	local nodeEffect = DB.createChild(nodeEffectList)
-	if not nodeEffect then return end
-	if bIsLabel then DB.setValue(nodeEffect, 'type', 'string', 'label') end
+	if not nodeEffect then
+		return
+	end
+	if bIsLabel then
+		DB.setValue(nodeEffect, 'type', 'string', 'label')
+	end
 	DB.setValue(nodeEffect, 'effect', 'string', sEffect)
 	DB.setValue(nodeEffect, 'actiononly', 'number', nActionOnly)
 end
 
 local function addEffectsForAbility(nodeItem, sType, sSubType, aAbility)
-	if not nodeItem then return end
-	if not usingAE() then return end
+	if not nodeItem then
+		return
+	end
+	if not usingAE() then
+		return
+	end
 	local nodeEffectList = DB.getChild(nodeItem, 'effectlist')
-	if not nodeEffectList then nodeEffectList = DB.createChild(nodeItem, 'effectlist') end
+	if not nodeEffectList then
+		nodeEffectList = DB.createChild(nodeItem, 'effectlist')
+	end
 	local aAbilityLookup = {}
 	local nCritical = 0
 	if ItemManager.isWeapon(nodeItem) then
@@ -102,7 +122,9 @@ local function addEffectsForAbility(nodeItem, sType, sSubType, aAbility)
 			if not aEffect.bAERequired or (aEffect.bAERequired and CombatManagerKel) then
 				if aEffect.nCritical == 0 or (aEffect.nCritical == nCritical) then
 					local sEffect = aEffect.sEffect
-					if sType == 'ammunition' and aEffect.sEffect:match('%%s') then sEffect = sEffect:format(getWeaponTypeName(nodeItem)) end
+					if sType == 'ammunition' and aEffect.sEffect:match('%%s') then
+						sEffect = sEffect:format(getWeaponTypeName(nodeItem))
+					end
 					addEffect(nodeEffectList, sEffect, aEffect.nActionOnly, false)
 				end
 			end
@@ -147,7 +169,9 @@ end
 
 local function getDamageString(aDamage)
 	local sNewDamage = ''
-	if aDamage[2] then sNewDamage = mergeDamage(aDamage[2]) end
+	if aDamage[2] then
+		sNewDamage = mergeDamage(aDamage[2])
+	end
 	if aDamage[1] then
 		--if sNewDamage ~= '' then sNewDamage = sNewDamage .. '/' end
 		sNewDamage = mergeDamage(aDamage[1])
@@ -156,7 +180,9 @@ local function getDamageString(aDamage)
 end
 
 local function changeDamageBySizeDifference(sDamage, iSizeDifference)
-	if sDamage == '' or sDamage == nil then return sDamage end
+	if sDamage == '' or sDamage == nil then
+		return sDamage
+	end
 	local aDamage = {}
 	local aDamageSplit = StringManager.split(sDamage, '/')
 
@@ -165,7 +191,9 @@ local function changeDamageBySizeDifference(sDamage, iSizeDifference)
 		local nDiceCount = 0
 		local sDie = ''
 		for _, dice in pairs(diceDamage) do
-			if sDie == '' then sDie = dice end
+			if sDie == '' then
+				sDie = dice
+			end
 			nDiceCount = nDiceCount + 1
 		end
 		table.insert(aDamage, { dice = nDiceCount .. sDie, mod = nDamage })
@@ -232,9 +260,10 @@ local function changeDamageBySizeDifference(sDamage, iSizeDifference)
 end
 
 local function getDamageForSize(sDamage, sOriginalSize, sNewSize)
-	local iSizeDifference = MagicItemGeneratorData.aItemSize[sNewSize:lower()].iPosition
-		- MagicItemGeneratorData.aItemSize[sOriginalSize:lower()].iPosition
-	if iSizeDifference == 0 then return sDamage end
+	local iSizeDifference = MagicItemGeneratorData.aItemSize[sNewSize:lower()].iPosition - MagicItemGeneratorData.aItemSize[sOriginalSize:lower()].iPosition
+	if iSizeDifference == 0 then
+		return sDamage
+	end
 
 	return changeDamageBySizeDifference(sDamage, iSizeDifference)
 end
@@ -246,7 +275,7 @@ function notifyMissingTypeData(sType, sSubType)
 		ChatManager.SystemMessage(string.format(Interface.getString('magic_item_gen_error_8'), 'type'))
 		bNotified = true
 	end
-	if (not sSubType or sSubType == '') and not sType == 'ammunition' then
+	if (not sSubType or sSubType == '') and sType ~= 'ammunition' then
 		ChatManager.SystemMessage(string.format(Interface.getString('magic_item_gen_error_8'), 'subtype'))
 		bNotified = true
 	end
@@ -261,17 +290,23 @@ local function getDamageTypeByEnhancementBonus(sDamageType, iEnchancementBonus)
 		sNewDamageType = addCSV(sNewDamageType, 'good')
 		sNewDamageType = addCSV(sNewDamageType, 'lawful')
 	end
-	if iEnchancementBonus >= 4 then sNewDamageType = addCSV(sNewDamageType, 'adamantine') end
+	if iEnchancementBonus >= 4 then
+		sNewDamageType = addCSV(sNewDamageType, 'adamantine')
+	end
 	if iEnchancementBonus >= 3 then
 		sNewDamageType = addCSV(sNewDamageType, 'cold iron')
 		sNewDamageType = addCSV(sNewDamageType, 'silver')
 	end
-	if iEnchancementBonus >= 1 then sNewDamageType = addCSV(sNewDamageType, 'magic') end
+	if iEnchancementBonus >= 1 then
+		sNewDamageType = addCSV(sNewDamageType, 'magic')
+	end
 	return sNewDamageType
 end
 
 local function getWeightBySize(iItemWeight, sOriginalSize, sItemSize)
-	if sOriginalSize:lower() == sItemSize:lower() then return iItemWeight end
+	if sOriginalSize:lower() == sItemSize:lower() then
+		return iItemWeight
+	end
 	return iItemWeight
 		/ MagicItemGeneratorData.aWeightMultiplier[sOriginalSize:lower()].nMultiplier
 		* MagicItemGeneratorData.aWeightMultiplier[sItemSize:lower()].nMultiplier
@@ -282,7 +317,9 @@ local function figureAbilityName(sAbility, sSubAbility, sSubSubAbility)
 	sAbilityName = sAbilityName .. sAbility
 	if sSubAbility ~= Interface.getString('itemnone') then
 		sAbilityName = sAbilityName .. '(' .. sSubAbility
-		if sSubSubAbility ~= Interface.getString('itemnone') then sAbilityName = sAbilityName .. '(' .. sSubSubAbility .. ')' end
+		if sSubSubAbility ~= Interface.getString('itemnone') then
+			sAbilityName = sAbilityName .. '(' .. sSubSubAbility .. ')'
+		end
 		sAbilityName = sAbilityName .. ')'
 	end
 	sAbilityName = sAbilityName .. ' '
@@ -291,9 +328,15 @@ end
 
 local function getItemNewName(sItemName, sEnhancementBonus, iEnchancementBonus, sSpecialMaterial, aAbilities, bMasterworkMaterial, sItemSize)
 	local sItemNewName = ''
-	if sItemSize:lower() ~= Interface.getString('item_size_medium'):lower() then sItemNewName = sItemNewName .. sItemSize .. ' ' end
-	if sEnhancementBonus == Interface.getString('bonus_mwk') and not bMasterworkMaterial then sItemNewName = sItemNewName .. 'masterwork' .. ' ' end
-	if iEnchancementBonus > 0 then sItemNewName = sItemNewName .. '+' .. tostring(iEnchancementBonus) .. ' ' end
+	if sItemSize:lower() ~= Interface.getString('item_size_medium'):lower() then
+		sItemNewName = sItemNewName .. sItemSize .. ' '
+	end
+	if sEnhancementBonus == Interface.getString('bonus_mwk') and not bMasterworkMaterial then
+		sItemNewName = sItemNewName .. 'masterwork' .. ' '
+	end
+	if iEnchancementBonus > 0 then
+		sItemNewName = sItemNewName .. '+' .. tostring(iEnchancementBonus) .. ' '
+	end
 	if sSpecialMaterial ~= Interface.getString('itemnone') then
 		sItemNewName = sItemNewName .. MagicItemGeneratorData.aSpecialMaterials[sSpecialMaterial].sStringName .. ' '
 	end
@@ -332,7 +375,9 @@ local function getMasterworkPrice(sType, sProperties)
 	elseif sType == 'ammunition' then
 		return 6
 	elseif sType == 'weapon' then
-		if sProperties:lower():match('double') then return 600 end
+		if sProperties:lower():match('double') then
+			return 600
+		end
 		return 300
 	end
 	return 0
@@ -368,7 +413,9 @@ local function checkForAbilitySelectionError(sType, sSubType, aAbility1, aAbilit
 	return 0
 end
 
-local function checkSelection(sSelection) return (sSelection ~= Interface.getString('itemnone')) end
+local function checkSelection(sSelection)
+	return (sSelection ~= Interface.getString('itemnone'))
+end
 
 local function checkComboboxes(sType, sSubType, sBonus, sMaterial, aAbilities)
 	local bBonus = checkSelection(sBonus)
@@ -423,25 +470,39 @@ local function getAbilityBonusAndCost(sSpecialAbility, sType, sSubType)
 	local iCL = tAbilities.iCL or 0
 	local sAura = tAbilities.sAura or ''
 
-	if iExtraCost == 0 then iBonusCost = iBonus end
+	if iExtraCost == 0 then
+		iBonusCost = iBonus
+	end
 
 	return iBonus, iBonusCost, iExtraCost, sAbilityName, iCL, sAura
 end
 
 local function addRangedEffect(nodeItem)
-	if not nodeItem then return end
-	if not usingAE() then return end
+	if not nodeItem then
+		return
+	end
+	if not usingAE() then
+		return
+	end
 	local nodeEffectList = DB.getChild(nodeItem, 'effectlist')
-	if not nodeEffectList then nodeEffectList = DB.createChild(nodeItem, 'effectlist') end
+	if not nodeEffectList then
+		nodeEffectList = DB.createChild(nodeItem, 'effectlist')
+	end
 	addEffect(nodeEffectList, getWeaponTypeName(nodeItem) .. ' Attack', 1, true)
 	addEffect(nodeEffectList, 'Crit' .. getCritical(nodeItem), 1, true)
 end
 
 local function addAmmoEffect(nodeItem)
-	if not nodeItem then return end
-	if not usingAE() then return end
+	if not nodeItem then
+		return
+	end
+	if not usingAE() then
+		return
+	end
 	local nodeEffectList = DB.getChild(nodeItem, 'effectlist')
-	if not nodeEffectList then nodeEffectList = DB.createChild(nodeItem, 'effectlist') end
+	if not nodeEffectList then
+		nodeEffectList = DB.createChild(nodeItem, 'effectlist')
+	end
 	local nBonus = DB.getValue(nodeItem, 'bonus', 0)
 	addEffect(nodeEffectList, 'IF: CUSTOM(' .. getWeaponTypeName(nodeItem) .. ' Attack); ATK: ' .. nBonus .. ' ranged; DMG: ' .. nBonus, 0, false)
 end
@@ -450,7 +511,9 @@ local function cleanAbility(aAbility, sType, sSubType)
 	local aNewAbility = {}
 	local aAbilityList = getAbilityList(sType, sSubType)
 
-	if aAbility.sAbility == Interface.getString('itemnone') then return aNewAbility end
+	if aAbility.sAbility == Interface.getString('itemnone') then
+		return aNewAbility
+	end
 	aNewAbility.sAbility = aAbility.sAbility
 
 	if next(aAbilityList[aAbility.sAbility].aSubSelection) == nil then
@@ -471,7 +534,9 @@ local function cleanAbility(aAbility, sType, sSubType)
 end
 
 local function getAbilities(nodeItem, sType, sSubType)
-	if not nodeItem then return end
+	if not nodeItem then
+		return
+	end
 	local aAbilities = {}
 	for _, nodeAbility in ipairs(DB.getChildList(nodeItem, 'abilitieslist')) do
 		local aAbility = {}
@@ -479,7 +544,9 @@ local function getAbilities(nodeItem, sType, sSubType)
 		aAbility.sSubAbility = DB.getValue(nodeAbility, 'combobox_ability_sub_select')
 		aAbility.sSubSubAbility = DB.getValue(nodeAbility, 'combobox_ability_sub_sub_select')
 		aAbility = cleanAbility(aAbility, sType, sSubType)
-		if next(aAbility) ~= nil then table.insert(aAbilities, aAbility) end
+		if next(aAbility) ~= nil then
+			table.insert(aAbilities, aAbility)
+		end
 	end
 	return aAbilities
 end
@@ -515,7 +582,9 @@ function getItemType(nodeItem)
 		end
 	end
 
-	if sSubType:match('ammunition') or sType == 'ammo' or sSubType == 'ammo' then sItemType = 'ammunition' end
+	if sSubType:match('ammunition') or sType == 'ammo' or sSubType == 'ammo' then
+		sItemType = 'ammunition'
+	end
 
 	if sType == 'weapon' then
 		if sSubType:match('melee') then
@@ -614,7 +683,9 @@ local function getMaterialData(
 		end
 	elseif sMaterial == Interface.getString('cold_iron') then
 		iMaterialCost = iMaterialCost * 2
-		if iEnhancingBonus > 0 then iMaterialCost = iMaterialCost + 2000 end
+		if iEnhancingBonus > 0 then
+			iMaterialCost = iMaterialCost + 2000
+		end
 		sNewDamageType = addCSV(sNewDamageType, 'cold iron')
 	elseif sMaterial == Interface.getString('darkleaf_cloth') then
 		if sSubType == 'light' then
@@ -627,12 +698,16 @@ local function getMaterialData(
 		iNewArmorPenalty = iArmorPenalty + 3
 		iNewArmorMaxDex = iNewArmorMaxDex + 2
 		iNewArmorSpellFailure = iNewArmorSpellFailure - 10
-		if iNewArmorSpellFailure < 5 then iNewArmorSpellFailure = 5 end
+		if iNewArmorSpellFailure < 5 then
+			iNewArmorSpellFailure = 5
+		end
 	elseif sMaterial == Interface.getString('darkwood') then
 		iMaterialCost = iMaterialCost + (iWeight * 10)
 		iNewWeight = iNewWeight / 2
 		iNewArmorPenalty = iArmorPenalty - 2
-		if sType == 'shield' then iNewArmorPenalty = iNewArmorPenalty + 2 end
+		if sType == 'shield' then
+			iNewArmorPenalty = iNewArmorPenalty + 2
+		end
 	elseif sMaterial == Interface.getString('dragonhide') then
 		iMaterialCost = (iMaterialCost * 2) + getMasterworkPrice(sType, sProperties)
 	elseif sMaterial == Interface.getString('siccatite') then
@@ -717,9 +792,13 @@ local function getMaterialData(
 			iMaterialCost = iMaterialCost + 500 * iWeight
 		end
 		iNewArmorPenalty = iArmorPenalty + 3
-		if iNewArmorMaxDex > 0 then iNewArmorMaxDex = iNewArmorMaxDex + 2 end
+		if iNewArmorMaxDex > 0 then
+			iNewArmorMaxDex = iNewArmorMaxDex + 2
+		end
 		iNewArmorSpellFailure = iNewArmorSpellFailure - 10
-		if iNewArmorSpellFailure < 0 then iNewArmorSpellFailure = 0 end
+		if iNewArmorSpellFailure < 0 then
+			iNewArmorSpellFailure = 0
+		end
 	elseif sMaterial == Interface.getString('viridium') then
 		if sType == 'weapon' then
 			iMaterialCost = iMaterialCost + 200
@@ -748,9 +827,13 @@ local function getMaterialData(
 	local bAlwaysMasterwork = false
 	if MagicItemGeneratorData.aSpecialMaterials[sMaterial] and MagicItemGeneratorData.aSpecialMaterials[sMaterial].bAlwaysMasterwork then
 		bAlwaysMasterwork = MagicItemGeneratorData.aSpecialMaterials[sMaterial].bAlwaysMasterwork
-		if sType == 'armor' and iNewArmorPenalty == iArmorPenalty then iNewArmorPenalty = iArmorPenalty + 1 end
+		if sType == 'armor' and iNewArmorPenalty == iArmorPenalty then
+			iNewArmorPenalty = iArmorPenalty + 1
+		end
 	end
-	if iNewArmorPenalty > 0 then iNewArmorPenalty = 0 end
+	if iNewArmorPenalty > 0 then
+		iNewArmorPenalty = 0
+	end
 
 	local bFragile = false
 	if MagicItemGeneratorData.aSpecialMaterials[sMaterial] and MagicItemGeneratorData.aSpecialMaterials[sMaterial].bFragile then
@@ -791,24 +874,54 @@ local function getItemData(databasenode)
 	local sItemName, iItemCost, iItemWeight, sFullSubType, sItemProperties, iArmorPenalty, iArmorMaxDex, iArmorSpellFailure, iSpeed30, iSpeed20, sItemCost, sDamageType, iRange, sDamage, sOriginalSize =
 		'', 0, 0, '', '', 0, 0, 0, 0, 0, '', '', 0, '', ''
 
-	if dItemName then sItemName = dItemName.getValue() end
+	if dItemName then
+		sItemName = dItemName.getValue()
+	end
 	if dItemProperties then
 		sItemProperties = dItemProperties.getValue()
-		if sItemProperties == '-' then sItemProperties = '' end
+		if sItemProperties == '-' then
+			sItemProperties = ''
+		end
 	end
-	if dItemWeight then iItemWeight = dItemWeight.getValue() end
-	if dItemCost then sItemCost = dItemCost.getValue() end
-	if dSubtype then sFullSubType = dSubtype.getValue() end
-	if dArmorPenalty then iArmorPenalty = dArmorPenalty.getValue() end
-	if dArmorMaxDex then iArmorMaxDex = dArmorMaxDex.getValue() end
-	if dArmorSpellFailure then iArmorSpellFailure = dArmorSpellFailure.getValue() end
-	if dSpeed30 then iSpeed30 = dSpeed30.getValue() end
-	if dSpeed20 then iSpeed20 = dSpeed20.getValue() end
-	if dDamageType then sDamageType = dDamageType.getValue() end
-	if dRange then iRange = dRange.getValue() end
-	if dDamage then sDamage = dDamage.getValue() end
-	if dSize then sOriginalSize = dSize.getValue() end
-	if not sOriginalSize or sOriginalSize == '' then sOriginalSize = Interface.getString('item_size_medium') end
+	if dItemWeight then
+		iItemWeight = dItemWeight.getValue()
+	end
+	if dItemCost then
+		sItemCost = dItemCost.getValue()
+	end
+	if dSubtype then
+		sFullSubType = dSubtype.getValue()
+	end
+	if dArmorPenalty then
+		iArmorPenalty = dArmorPenalty.getValue()
+	end
+	if dArmorMaxDex then
+		iArmorMaxDex = dArmorMaxDex.getValue()
+	end
+	if dArmorSpellFailure then
+		iArmorSpellFailure = dArmorSpellFailure.getValue()
+	end
+	if dSpeed30 then
+		iSpeed30 = dSpeed30.getValue()
+	end
+	if dSpeed20 then
+		iSpeed20 = dSpeed20.getValue()
+	end
+	if dDamageType then
+		sDamageType = dDamageType.getValue()
+	end
+	if dRange then
+		iRange = dRange.getValue()
+	end
+	if dDamage then
+		sDamage = dDamage.getValue()
+	end
+	if dSize then
+		sOriginalSize = dSize.getValue()
+	end
+	if not sOriginalSize or sOriginalSize == '' then
+		sOriginalSize = Interface.getString('item_size_medium')
+	end
 
 	local sCoinValue, sCoin = sItemCost:match('^%s*([%d,]+)%s*([^%d]*)$')
 	if not sCoinValue then
@@ -843,12 +956,16 @@ local function getItemData(databasenode)
 end
 
 function generateMagicItem(nodeItem)
-	if not nodeItem then return false end
+	if not nodeItem then
+		return false
+	end
 	local sEnhancementBonus = DB.getValue(nodeItem, 'combobox_bonus', '')
 	local sSpecialMaterial = DB.getValue(nodeItem, 'combobox_material', '')
 	local sItemSize = DB.getValue(nodeItem, 'combobox_item_size', '')
 	local sType, sSubType = getItemType(nodeItem)
-	if notifyMissingTypeData(sType, sSubType) then return end
+	if notifyMissingTypeData(sType, sSubType) then
+		return
+	end
 
 	local aAbilities = getAbilities(nodeItem, sType, sSubType)
 
@@ -881,7 +998,9 @@ function generateMagicItem(nodeItem)
 		getItemData(nodeItem)
 	local sNewDamage = sDamage
 
-	if ItemManager.isWeapon(nodeItem) or ItemManager.isShield(nodeItem) then sNewDamage = getDamageForSize(sDamage, sOriginalSize, sItemSize) end
+	if ItemManager.isWeapon(nodeItem) or ItemManager.isShield(nodeItem) then
+		sNewDamage = getDamageForSize(sDamage, sOriginalSize, sItemSize)
+	end
 
 	local iEnchancementBonus = getEnhancementBonus(sEnhancementBonus)
 	local iEffectiveBonus = iEnchancementBonus
@@ -963,16 +1082,19 @@ function generateMagicItem(nodeItem)
 		iMasterworkCost = getMasterworkPrice(sType, sItemProperties)
 		sItemProperties = addCSV(sItemProperties, 'masterwork')
 		iNewArmorPenalty = iNewArmorPenalty + 1
-		if iNewArmorPenalty > 0 then iNewArmorPenalty = 0 end
+		if iNewArmorPenalty > 0 then
+			iNewArmorPenalty = 0
+		end
 	end
 
-	if bFragileMaterial then sItemProperties = addCSV(sItemProperties, 'fragile') end
+	if bFragileMaterial then
+		sItemProperties = addCSV(sItemProperties, 'fragile')
+	end
 
 	local iEnhancementCost = getEnchancementCost(iCostBonus, sType)
 	local iTotalCost = iMaterialCost + iMasterworkCost + iEnhancementCost + iExtraCost
 
-	local sItemNewName =
-		getItemNewName(sItemName, sEnhancementBonus, iEnchancementBonus, sSpecialMaterial, aAbilities, bMasterworkMaterial, sItemSize)
+	local sItemNewName = getItemNewName(sItemName, sEnhancementBonus, iEnchancementBonus, sSpecialMaterial, aAbilities, bMasterworkMaterial, sItemSize)
 
 	local iNewBonus = 0
 	if iEnchancementBonus > 0 then
@@ -1003,13 +1125,21 @@ function generateMagicItem(nodeItem)
 			break
 		end
 		local aAbilityLookup = addEffectsForAbility(nodeItem, sType, sSubType, aAbility)
-		if aAbilityLookup and aAbilityLookup.sAddDescription then sAddDescription = sAddDescription .. aAbilityLookup.sAddDescription end
+		if aAbilityLookup and aAbilityLookup.sAddDescription then
+			sAddDescription = sAddDescription .. aAbilityLookup.sAddDescription
+		end
 	end
-	if ItemManager.isWeapon(nodeItem) and (sSubType == 'ranged' or sSubType == 'firearm') then addRangedEffect(nodeItem) end
-	if sType == 'ammunition' then addAmmoEffect(nodeItem) end
+	if ItemManager.isWeapon(nodeItem) and (sSubType == 'ranged' or sSubType == 'firearm') then
+		addRangedEffect(nodeItem)
+	end
+	if sType == 'ammunition' then
+		addAmmoEffect(nodeItem)
+	end
 
 	local sItemDescription = DB.getValue(nodeItem, 'description', '')
-	if sAddDescription ~= '' then sItemDescription = sItemDescription .. '<h>' .. sSpecialMaterial .. '</h>' .. sAddDescription end
+	if sAddDescription ~= '' then
+		sItemDescription = sItemDescription .. '<h>' .. sSpecialMaterial .. '</h>' .. sAddDescription
+	end
 
 	-- Update fields in DB
 	DB.setValue(nodeItem, 'aura', 'string', sAura)
