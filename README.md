@@ -1,4 +1,4 @@
-[![Build FG-Usable File](https://github.com/FG-Unofficial-Developers-Guild/FG-PFRPG-Customized-Item-Generator/actions/workflows/create-ext.yml/badge.svg)](https://github.com/FG-Unofficial-Developers-Guild/FG-PFRPG-Customized-Item-Generator/actions/workflows/create-ext.yml) [![Luacheck](https://github.com/FG-Unofficial-Developers-Guild/FG-PFRPG-Customized-Item-Generator/actions/workflows/luacheck.yml/badge.svg)](https://github.com/FG-Unofficial-Developers-Guild/FG-PFRPG-Customized-Item-Generator/actions/workflows/luacheck.yml)
+[![Build FG-Usable File](https://github.com/FG-Unofficial-Developers-Guild/FG-PFRPG-Customized-Item-Generator/actions/workflows/release.yml/badge.svg)](https://github.com/FG-Unofficial-Developers-Guild/FG-PFRPG-Customized-Item-Generator/actions/workflows/release.yml) [![Luacheck](https://github.com/FG-Unofficial-Developers-Guild/FG-PFRPG-Customized-Item-Generator/actions/workflows/luacheck.yml/badge.svg)](https://github.com/FG-Unofficial-Developers-Guild/FG-PFRPG-Customized-Item-Generator/actions/workflows/luacheck.yml)
 
 # Customized Item Generator
 This extension allows you to add enhancement bonuses, special qualities, and special materials to (and change the side of) weapons and armor.
@@ -10,4 +10,4 @@ If you use [Advanced Effects](https://forge.fantasygrounds.com/shop/items/33/vie
 [Original extension by Faelwen](https://www.fantasygrounds.com/forums/showthread.php?38761-CustomisedItemGenerator-Extension) and with [further improvements by rmilmine](https://www.fantasygrounds.com/forums/showthread.php?57818-Customized-Item-Generator-for-3-5E-and-Pathfinder) and bmos.
 
 # Compatibility
-This extension has been tested with [FantasyGrounds Unity](https://www.fantasygrounds.com/home/FantasyGroundsUnity.php) v4.3.5 (2023-03-07).
+This extension has been tested with [FantasyGrounds Unity](https://www.fantasygrounds.com/home/FantasyGroundsUnity.php) v4.5.0 (2024-02-21).
