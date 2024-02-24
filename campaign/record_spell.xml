@@ -5,126 +5,17 @@
 <root>
 	<windowclass name="spelldesc" merge="join">
 		<sheetdata>
-			<template_launch_button name="consumable_creator_button">
-				<state textres="consumable_creator_button_text" />
-				<script>
-					function onButtonPress()
-						local nodeSpell = window.getDatabaseNode();
-						if DB.getValue(nodeSpell, 'level', '') ~= '' then	
-							local nodeItem = DB.createChild(DB.findNode("item"))
-							DB.setValue(nodeItem, 'spellshortcut', 'windowreference', 'item', DB.getPath(nodeSpell));
-							Interface.openWindow("consumable_creator_window", nodeItem);
-							window.close();
-						else
-							Comm.addChatMessage({text = Interface.getString("magic_item_gen_error_10"), secret = true, icon ="ct_faction_foe"});
-						end
-					end
-				</script>
-			</template_launch_button>
-		</sheetdata>
-	</windowclass>
-	
-	<windowclass name="consumable_creator_window">
-		<margins control="0,0,0,7" />
-		<frame>recordsheet</frame>
-		<placement>
-			<size width="370" height="240" />
-		</placement>
-		<sheetdata>
-			<template_left_anchor />
-			<template_right_anchor />
-
-			<template_generate_button name="button_generate">
-				<anchored  width="100" height="50">
-					<top offset="20"/>
-					<left offset="135"/>
-				</anchored>
-				<script file="campaign/scripts/button_generate_consumables.lua" />
-			</template_generate_button>
-
-			<template_label name="label_class">
-				<anchored>
-					<top parent="button_generate" anchor="bottom" offset="20" />
-					<left offset="20" />
-				</anchored>
-				<static textres="label_consumablescreator_class" />
-			</template_label>
-			<template_label name="label_type">
-				<anchored>
-					<top parent="label_class" anchor="bottom" offset="15" />
-					<left offset="20" />
-				</anchored>
-				<static textres="label_consumablescreator_type" />
-			</template_label>
-			<template_label name="label_cl">
-				<anchored>
-					<top parent="label_type" anchor="bottom" offset="15" />
-					<left offset="20" />
-				</anchored>
-				<static textres="label_consumablescreator_cl" />
-			</template_label>
-			<template_label name="label_charges">
-				<anchored>
-					<top parent="label_cl" anchor="bottom" offset="15" />
-					<left offset="20" />
-				</anchored>
-				<static textres="label_consumablescreator_charges" />
-			</template_label>
-
-			<combobox name="class">
-				<anchored height="20">
-					<top parent="button_generate" anchor="bottom" offset="20" />
-					<left anchor="left" offset="120" />
-					<right anchor="right" offset="-25" />
-				</anchored>
-				<default textres="consumable_blank" />
-				<script file="campaign/scripts/class.lua" />
-			</combobox>
-			<combobox name="type">
-				<anchored to="class" height="20">
-					<top anchor="bottom" offset="10" />
-					<left anchor="left" offset="0" />
-					<right anchor="right" offset="0" />
-				</anchored>
-				<default textres="consumable_blank" />
-				<script>
-					function onInit()
-						if super and super.onInit then
-							super.onInit();
-						end
-					end
-					function onValueChanged()
-						if super and super.onValueChanged then
-							super.onValueChanged();
-						end
-						window.label_charges.setVisible(getValue() == "Wand");
-						window.charges.setVisible(getValue() == "Wand");
-					end
-				</script>
-			</combobox>
-			<basicnumber name="cl">
-				<anchored to="type" height="20">
-					<top anchor="bottom" offset="10" />
-					<left anchor="left" offset="0" />
-					<right anchor="right" offset="0" />
-				</anchored>
-				<min>1</min>
-				<max>20</max>
-				<center />
-			</basicnumber>
-			<basicnumber name="charges">
-				<anchored to="cl" height="20">
-					<top anchor="bottom" offset="10" />
-					<left anchor="left" offset="0" />
-					<right anchor="right" offset="0" />
-				</anchored>
-				<default>50</default>
-				<min>0</min>
-				<max>50</max>
-				<center />
-			</basicnumber>
-
-			<close_recordsheet />
+            <windowmenubar_utilitybox name="menubar">
+                <script>
+                    function onInit()
+                        if super and super.onInit then
+                            super.onInit()
+                        end
+                        ToolbarManager.addSeparator(subwindow, "right");
+                        ToolbarManager.addButton(subwindow, "bmos_createconsumable", "right");
+                    end
+                </script>
+            </windowmenubar_utilitybox>
 		</sheetdata>
 	</windowclass>
 </root>
