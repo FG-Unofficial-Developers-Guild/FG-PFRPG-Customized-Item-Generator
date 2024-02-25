@@ -9,8 +9,7 @@ end
 
 local function customizeItem(c)
 	local nodeSpell = c.window.getDatabaseNode()
-	local nodeConsumableOptions = DB.createChild(nodeSpell, 'bmos_consumables')
-	Interface.openWindow('bmos_customizeitem_window', nodeConsumableOptions)
+	Interface.openWindow('bmos_customizeitem_window', nodeSpell)
 end
 
 function onInit()
