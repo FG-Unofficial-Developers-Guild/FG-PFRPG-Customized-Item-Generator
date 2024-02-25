@@ -6,6 +6,18 @@
 
 	<windowclass name="bmos_createconsumable_window_main">
 		<margins control="0,0,0,2" />
+		<script>
+			function onClose()
+				if super and super.onClose then
+					super.onClose()
+				end
+				local nodeSpell = getDatabaseNode()
+				local nodeConsumableOptions = DB.getChild(nodeSpell, "bmos_consumables")
+				if nodeConsumableOptions then
+					DB.deleteNode(nodeConsumableOptions)
+				end
+			end
+		</script>
 		<sheetdata>
 			<anchor_column name="columnanchor" />
 
@@ -58,7 +70,7 @@
 			</number_column>
 
 			<button_text_column_center name="button_generate">
-				<state textres="button_bmos_generate" />
+				<state textres="button_bmos_createconsumable" />
 				<script file="utility/scripts/button_generate_consumable.lua" />
 			</button_text_column_center>
         </sheetdata>

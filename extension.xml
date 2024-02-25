@@ -27,7 +27,8 @@
 
 		<includefile source="graphics/graphics_buttons.xml" />
 
-		<includefile source="strings/CIG_strings.xml" />
+		<includefile source="strings/strings_generate_consumables.xml" />
+		<includefile source="strings/strings_customize_item.xml" />
 
 		<script name="CustomItemGenToolbar" file="scripts/CIG_toolbar_buttons.lua"/>
 		<script name="CustomItemGenConsumablesData" file="scripts/CIG_consumables_data.lua"/>

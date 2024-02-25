@@ -74,14 +74,16 @@ end
 
 local function getSpellLevel(nodeSpell, sClass)
 	local sSpellLevels = string.lower(DB.getValue(nodeSpell, 'level', ''))
+	if sSpellLevels == '' then
+		ChatManager.SystemMessage(Interface.getString('error_bmos_consumable_spellhasnoleveldata'))
+	end
 	local sSpellLevel = string.match(sSpellLevels, '.*' .. sClass .. ' (%d+).*') or '-1'
-	return tonumber(sSpellLevel) or -1
+	return tonumber(sSpellLevel)
 end
 
 local function createConsumable(nodeSpell, sSpellName, sType, sClass, nSpellLevel)
 	local nCL = window.casterlevel.getValue() or 0
 	local sItemName, nCost, sDesc = self[string.format('get%sData', sType)](sSpellName, nCL, sClass, nSpellLevel)
-	sDesc = sDesc .. getSpellLink(nodeSpell)
 
 	local nodeItem = DB.createChild(DB.createNode('item'))
 	DB.setValue(nodeItem, 'locked', 'number', 1)
@@ -89,7 +91,7 @@ local function createConsumable(nodeSpell, sSpellName, sType, sClass, nSpellLeve
 	DB.setValue(nodeItem, 'nonid_name', 'string', string.format('Magic %s', sType))
 	DB.setValue(nodeItem, 'type', 'string', sType)
 	DB.setValue(nodeItem, 'cl', 'number', nCL)
-	DB.setValue(nodeItem, 'description', 'formattedtext', sDesc)
+	DB.setValue(nodeItem, 'description', 'formattedtext', sDesc .. getSpellLink(nodeSpell))
 	DB.setValue(nodeItem, 'cost', 'string', string.format('%d gp', nCost))
 
 	local sSchool = string.lower(DB.getValue(nodeSpell, 'school', ''):match('(%a+).*'))
@@ -113,11 +115,11 @@ function onButtonPress()
 
 	local nSpellLevel = getSpellLevel(nodeSpell, sClass)
 	if nSpellLevel == -1 then
-		ChatManager.SystemMessage(Interface.getString('error_bmos_spelllevelnotlistedforclass'))
+		ChatManager.SystemMessage(Interface.getString('error_bmos_consumable_spelllevelnotlistedforclass'))
 		return
 	end
 
 	local nodeItem = createConsumable(nodeSpell, sSpellName, sType, sClass, nSpellLevel)
 	Interface.openWindow('item', nodeItem)
-	DB.deleteChild(nodeSpell, 'bmos_consumables')
+	window.parentcontrol.window.close()
 end
