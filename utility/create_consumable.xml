@@ -6,33 +6,21 @@
 
 	<windowclass name="bmos_createconsumable_window_main">
 		<margins control="0,0,0,2" />
-		<script>
-			function onClose()
-				if super and super.onClose then
-					super.onClose()
-				end
-				local nodeSpell = getDatabaseNode()
-				local nodeConsumableOptions = DB.getChild(nodeSpell, "bmos_createconsumable")
-				if nodeConsumableOptions then
-					DB.deleteNode(nodeConsumableOptions)
-				end
-			end
-		</script>
 		<sheetdata>
 			<anchor_column name="columnanchor" />
 
 			<label_column name="class_label">
 				<static textres="label_bmos_createconsumable_class" />
 			</label_column>
-			<combobox_column name="class" source="bmos_createconsumable.class">
+			<comboboxc_column name="class">
 				<default textres="blank_bmos_createconsumable" />
 				<script file="utility/scripts/combobox_consumable_class.lua" />
-			</combobox_column>
+			</comboboxc_column>
 
 			<label_column name="type_label">
 				<static textres="label_bmos_createconsumable_type" />
 			</label_column>
-			<combobox_column name="type" source="bmos_createconsumable.type">
+			<comboboxc_column name="type">
 				<default textres="blank_bmos_createconsumable" />
 				<script>
 					function onInit()
@@ -48,40 +36,31 @@
 						window.charges.setVisible(getValue() == "Wand");
 					end
 				</script>
-			</combobox_column>
+			</comboboxc_column>
 
 			<label_column name="casterlevel_label">
 				<static textres="label_bmos_createconsumable_cl" />
 			</label_column>
-			<number_column name="casterlevel" source="bmos_createconsumable.cl">
+			<numberc_column name="casterlevel">
 				<min>1</min>
 				<max>20</max>
-			</number_column>
+			</numberc_column>
 
 			<label_column name="charges_label">
 				<static textres="label_bmos_createconsumable_charges" />
 				<invisible />
 			</label_column>
-			<number_column name="charges">
+			<numberc_column name="charges">
 				<default>50</default>
 				<min>0</min>
 				<max>50</max>
 				<invisible />
-			</number_column>
+			</numberc_column>
 
-			<button_text_column_center name="button_generate">
+			<button_text_column name="button_generate">
 				<state textres="button_bmos_createconsumable" />
 				<script file="utility/scripts/button_generate_consumable.lua" />
-			</button_text_column_center>
+			</button_text_column>
         </sheetdata>
 	</windowclass>
-
-	<template name="button_text_column_center">
-		<button_text>
-			<anchored to="columnanchor" width="140">
-				<top parent="columnanchor" anchor="bottom" relation="relative" offset="10" />
-				<left offset="97" />
-			</anchored>
-		</button_text>
-	</template>
 </root>
