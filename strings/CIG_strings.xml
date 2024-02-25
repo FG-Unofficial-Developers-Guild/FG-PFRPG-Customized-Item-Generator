@@ -1,4 +1,32 @@
 <root>
 	<string name="tooltip_bmos_customizeitem">Generate custom item</string>
 	<string name="tooltip_bmos_createconsumable">Generate consumable</string>
+
+	<string name="title_bmos_customizeitem">Consumable Creation</string>
+	<string name="title_bmos_createconsumable">Item Customization</string>
+
+	<string name="button_bmos_generate">Generate Consumable</string>
+
+	<string name="label_bmos_createconsumable_class">Class</string>
+	<string name="label_bmos_createconsumable_type">Item Type</string>
+	<string name="label_bmos_createconsumable_cl">Caster Level</string>
+	<string name="label_bmos_createconsumable_charges">Charges</string>
+	<string name="label_bmos_item_size">Size</string>
+
+	<string name="blank_bmos_createconsumable"></string>
+
+	<string name="desc_bmos_wand"><p>A wand is a thin baton that contains a single spell of 4th level or lower. A wand has 50 charges when created—each charge allows the use of the wand’s spell one time. A wand that runs out of charges is just a stick.</p></string>
+	<string name="desc_bmos_scroll"><p>A scroll is a spell (or collection of spells) that has been stored in written form. A spell on a scroll can be used only once. The writing vanishes from the scroll when the spell is activated. Using a scroll is basically like casting a spell.</p></string>
+	<string name="desc_bmos_potion"><p>A potion is a magic liquid that produces its effect when imbibed. Potions vary incredibly in appearance. Magic oils are similar to potions, except that oils are applied externally rather than imbibed. A potion or oil can be used only once. It can duplicate the effect of a spell of up to 3rd level that has a casting time of less than 1 minute and targets one or more creatures or objects.</p></string>
+
+	<string name="error_bmos_enhancementbonustoolow">Error : Cannot add a special ability if enhancement bonus is not at least +1.</string>
+	<string name="error_bmos_effectivebonustoohigh">Error : Effective bonus is higher than +%s.</string>
+	<string name="error_bmos_invaliditemtype">Only weapon, armor, shield and ammunition can be customised.</string>
+	<string name="error_bmos_identicalabilities">Error : Two special abilities are the same. %s. Can only place one.</string>
+	<string name="error_bmos_conflictingabilities">Error : Two special abilities are exclusive. %s, %s. Can only place one.</string>
+	<string name="error_bmos_subabilitynotconfigured">Error : Special ability missing sub-ability selection. %s.</string>
+	<string name="error_bmos_needsenhancementbonus">Error : Items with special abilities must have at least a +1 enhancement bonus.</string>
+	<string name="error_bmos_itemhasno">Error : Item has no %s.</string>
+	<string name="error_bmos_spelllevelnotlistedforclass">Error : Spell level not found for the chosen class.</string>
+	<string name="error_bmos_spellhasnoleveldata">Error : Spell has no level data.</string>
 </root>
