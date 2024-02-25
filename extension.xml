@@ -21,10 +21,15 @@
 	<base>
 		<includefile source="utility/create_consumable.xml" />
 		<includefile source="utility/customize_item.xml" />
+
 		<includefile source="campaign/record_item.xml" />
 		<includefile source="campaign/record_spell.xml" />
+
 		<includefile source="graphics/graphics_buttons.xml" />
+
 		<includefile source="strings/CIG_strings.xml" />
+
 		<script name="CustomItemGenToolbar" file="scripts/CIG_toolbar_buttons.lua"/>
+		<script name="CustomItemGenConsumablesData" file="scripts/CIG_consumables_data.lua"/>
 	</base>
 </root>

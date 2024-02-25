@@ -2,27 +2,30 @@
 -- Please see the LICENSE.md file included with this distribution for attribution and copyright information.
 --
 
-local function createConsumable()
-    --whatever
+local function createConsumable(c)
+	local nodeSpell = c.window.getDatabaseNode()
+	Interface.openWindow('bmos_createconsumable_window', nodeSpell)
 end
 
-local function customizeItem()
-    --whatever
+local function customizeItem(c)
+	local nodeSpell = c.window.getDatabaseNode()
+	local nodeConsumableOptions = DB.createChild(nodeSpell, 'bmos_consumables')
+	Interface.openWindow('bmos_customizeitem_window', nodeConsumableOptions)
 end
 
 function onInit()
-    ToolbarManager.registerButton("bmos_customizeitem",
-        {
-            sType = "action",
-            sIcon = "button_bmos_customizeitem",
-            sTooltipRes = "tooltip_bmos_customizeitem",
-            fnActivate = customizeItem,
-        });
-    ToolbarManager.registerButton("bmos_createconsumable",
-        {
-            sType = "action",
-            sIcon = "button_bmos_customizeitem",
-            sTooltipRes = "tooltip_bmos_createconsumable",
-            fnActivate = createConsumable,
-        });
+	ToolbarManager.registerButton('bmos_customizeitem', {
+		sType = 'action',
+		sIcon = 'button_bmos_customizeitem',
+		sTooltipRes = 'tooltip_bmos_customizeitem',
+		fnActivate = customizeItem,
+		bHostOnly = true,
+	})
+	ToolbarManager.registerButton('bmos_createconsumable', {
+		sType = 'action',
+		sIcon = 'button_bmos_customizeitem',
+		sTooltipRes = 'tooltip_bmos_createconsumable',
+		fnActivate = createConsumable,
+		bHostOnly = true,
+	})
 end
