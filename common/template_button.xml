@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<root>
+	<template name="button_text_column">
+		<button_text>
+			<anchored to="columnanchor" width="140">
+				<top parent="columnanchor" anchor="bottom" relation="relative" offset="10" />
+				<left offset="97" />
+			</anchored>
+		</button_text>
+	</template>
+</root>
