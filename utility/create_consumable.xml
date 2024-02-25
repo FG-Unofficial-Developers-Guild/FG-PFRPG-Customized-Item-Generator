@@ -12,7 +12,7 @@
 					super.onClose()
 				end
 				local nodeSpell = getDatabaseNode()
-				local nodeConsumableOptions = DB.getChild(nodeSpell, "bmos_consumables")
+				local nodeConsumableOptions = DB.getChild(nodeSpell, "bmos_createconsumable")
 				if nodeConsumableOptions then
 					DB.deleteNode(nodeConsumableOptions)
 				end
@@ -24,7 +24,7 @@
 			<label_column name="class_label">
 				<static textres="label_bmos_createconsumable_class" />
 			</label_column>
-			<combobox_column name="class" source="bmos_consumables.class">
+			<combobox_column name="class" source="bmos_createconsumable.class">
 				<default textres="blank_bmos_createconsumable" />
 				<script file="utility/scripts/combobox_consumable_class.lua" />
 			</combobox_column>
@@ -32,7 +32,7 @@
 			<label_column name="type_label">
 				<static textres="label_bmos_createconsumable_type" />
 			</label_column>
-			<combobox_column name="type" source="bmos_consumables.type">
+			<combobox_column name="type" source="bmos_createconsumable.type">
 				<default textres="blank_bmos_createconsumable" />
 				<script>
 					function onInit()
@@ -53,7 +53,7 @@
 			<label_column name="casterlevel_label">
 				<static textres="label_bmos_createconsumable_cl" />
 			</label_column>
-			<number_column name="casterlevel" source="bmos_consumables.cl">
+			<number_column name="casterlevel" source="bmos_createconsumable.cl">
 				<min>1</min>
 				<max>20</max>
 			</number_column>
