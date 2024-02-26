@@ -6,6 +6,7 @@
 
 	<windowclass name="bmos_createconsumable_window_main">
 		<margins control="0,0,0,2" />
+		<script file="utility/scripts/CIG_generate_consumable.lua" />
 		<sheetdata>
 			<anchor_column name="columnanchor" />
 
@@ -30,10 +31,12 @@
 					end
 					function onValueChanged()
 						if super and super.onValueChanged then
-							super.onValueChanged();
+							super.onValueChanged()
 						end
-						window.charges_label.setVisible(getValue() == "Wand");
-						window.charges.setVisible(getValue() == "Wand");
+						if getValue() == "Wand" then
+							window.charges_label.setVisible(true)
+							window.charges.setVisible(true)
+						end
 					end
 				</script>
 			</comboboxc_column>
@@ -57,10 +60,31 @@
 				<invisible />
 			</numberc_column>
 
-			<button_text_column name="button_generate">
+			<button_text_bottom_center name="button_generate">
 				<state textres="button_bmos_createconsumable" />
-				<script file="utility/scripts/button_generate_consumable.lua" />
-			</button_text_column>
+				<script>
+					function onButtonPress()
+						local nodeSpell = window.getDatabaseNode()
+					
+						local sSpellName = DB.getValue(nodeSpell, 'name', '')
+						local sType = window.type.getValue() or ''
+						local sClass = string.lower(window.class.getValue() or '')
+						if StringManager.contains({ sSpellName, sType, sClass }, '') then
+							return
+						end
+					
+						local nSpellLevel = window.getSpellLevel(nodeSpell, sClass)
+						if nSpellLevel == -1 then
+							ChatManager.SystemMessage(Interface.getString('error_bmos_createconsumable_spelllevelnotlistedforclass'))
+							return
+						end
+					
+						local nodeItem = window.createConsumable(nodeSpell, sSpellName, sType, sClass, nSpellLevel)
+						Interface.openWindow('item', nodeItem)
+						window.parentcontrol.window.close()
+					end
+				</script>
+			</button_text_bottom_center>
         </sheetdata>
 	</windowclass>
 </root>

@@ -1,8 +1,6 @@
 <root>
 	<string name="tooltip_bmos_createconsumable">Generate consumable</string>
 
-	<string name="title_bmos_createconsumable">Consumable Creation</string>
-
 	<string name="button_bmos_createconsumable">Generate Consumable</string>
 
 	<string name="blank_bmos_createconsumable"></string>

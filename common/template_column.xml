@@ -9,4 +9,9 @@
 			</anchored>
 		</basicnumberc>
 	</template>
+	<template name="comboboxc_columnh">
+		<comboboxc_column>
+			<script file="common/scripts/column_combobox.lua" />
+		</comboboxc_column>
+	</template>
 </root>

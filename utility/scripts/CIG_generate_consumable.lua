@@ -12,7 +12,7 @@ function getWandData(sSpellName, nCL, sClass, nSpellLevel)
 		nCost = nCost + (750 * (nCL - nMinCL))
 	end
 
-	local nCharges = window.charges.getValue() or 50
+	local nCharges = charges.getValue() or 50
 	sItemName = string.format('%s [%d charges]', sItemName, nCharges)
 	if nCharges ~= 50 then
 		nCost = nCost * (nCharges / 50)
@@ -72,17 +72,20 @@ local function getAuraStrength(nCL)
 	return ''
 end
 
-local function getSpellLevel(nodeSpell, sClass)
+-- luacheck: globals getSpellLevel
+function getSpellLevel(nodeSpell, sClass)
 	local sSpellLevels = string.lower(DB.getValue(nodeSpell, 'level', ''))
 	if sSpellLevels == '' then
-		ChatManager.SystemMessage(Interface.getString('error_bmos_consumable_spellhasnoleveldata'))
+		ChatManager.SystemMessage(Interface.getString('error_bmos_createconsumable_spellhasnoleveldata'))
 	end
+
 	local sSpellLevel = string.match(sSpellLevels, '.*' .. sClass .. ' (%d+).*') or '-1'
 	return tonumber(sSpellLevel)
 end
 
-local function createConsumable(nodeSpell, sSpellName, sType, sClass, nSpellLevel)
-	local nCL = window.casterlevel.getValue() or 0
+-- luacheck: globals createConsumable casterlevel
+function createConsumable(nodeSpell, sSpellName, sType, sClass, nSpellLevel)
+	local nCL = casterlevel.getValue() or 0
 	local sItemName, nCost, sDesc = self[string.format('get%sData', sType)](sSpellName, nCL, sClass, nSpellLevel)
 
 	local nodeItem = DB.createChild(DB.createNode('item'))
@@ -100,26 +103,4 @@ local function createConsumable(nodeSpell, sSpellName, sType, sClass, nSpellLeve
 	end
 
 	return nodeItem
-end
-
--- luacheck: globals onButtonPress
-function onButtonPress()
-	local nodeSpell = window.getDatabaseNode()
-
-	local sSpellName = DB.getValue(nodeSpell, 'name', '')
-	local sType = window.type.getValue() or ''
-	local sClass = string.lower(window.class.getValue() or '')
-	if StringManager.contains({ sSpellName, sType, sClass }, '') then
-		return
-	end
-
-	local nSpellLevel = getSpellLevel(nodeSpell, sClass)
-	if nSpellLevel == -1 then
-		ChatManager.SystemMessage(Interface.getString('error_bmos_consumable_spelllevelnotlistedforclass'))
-		return
-	end
-
-	local nodeItem = createConsumable(nodeSpell, sSpellName, sType, sClass, nSpellLevel)
-	Interface.openWindow('item', nodeItem)
-	window.parentcontrol.window.close()
 end

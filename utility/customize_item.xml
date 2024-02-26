@@ -1,4 +1,350 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 
 <root>
+	<windowclass name="bmos_customizeitem_window" copy="record_window" />
+	<windowclass name="bmos_customizeitem_window_header" copy="record_header" />
+
+	<windowclass name="bmos_customizeitem_window_main">
+		<margins control="0,0,0,2" />
+		<sheetdata>
+			<anchor_column name="columnanchor" />
+
+			<label_column name="bonus_label">
+				<static textres="label_bmos_customizeitem_bonus" />
+			</label_column>
+			<comboboxc_column name="bonus">
+				<default textres="bmos_customizeitem_bonus_none" />
+				<unsorted />
+				<script>
+					function onInit()
+						if super and super.onInit then super.onInit() end
+						clear()
+						addItems({
+							Interface.getString("bmos_customizeitem_bonus_none"),
+							Interface.getString("bmos_customizeitem_bonus_mwk"),
+							Interface.getString("bmos_customizeitem_bonus_1"),
+							Interface.getString("bmos_customizeitem_bonus_2"),
+							Interface.getString("bmos_customizeitem_bonus_3"),
+							Interface.getString("bmos_customizeitem_bonus_4"),
+							Interface.getString("bmos_customizeitem_bonus_5")
+						})
+					end
+				</script>
+			</comboboxc_column>
+
+			<label_column name="material_label">
+				<static textres="label_bmos_customizeitem_special_material" />
+			</label_column>
+			<comboboxc_column name="material">
+				<default textres="bmos_customizeitem_bonus_none" />
+				<script>
+					function onInit()
+						if super and super.onInit then super.onInit() end
+						local nodeItem = window.getDatabaseNode()
+
+						local sType, sSubType = CustomItemGen.getItemType(nodeItem)
+						if CustomItemGen.notifyMissingTypeData(sType, sSubType) then
+							return
+						end
+
+						local bLightArmor = (sType == "armor" and sSubType == "light")
+						local bMediumArmor = (sType == "armor" and sSubType == "medium")
+						local bHeavyArmor = (sType == "armor" and sSubType == "heavy")
+						local bShield = (sType == "shield")
+						local bMeleeWeapon = (sType == "weapon" and sSubType == "melee")
+						local bRangedWeapon = (sType == "weapon" and sSubType == "ranged")
+						local bAmmunition = (sType == "ammunition")
+
+						addItems({Interface.getString("bmos_customizeitem_bonus_none")})
+						for key, value in pairs(CustomItemGenItemData.aSpecialMaterials) do
+							if bLightArmor and value.bLightArmor then
+								add(key)
+							elseif bMediumArmor and value.bMediumArmor then
+								add(key)
+							elseif bHeavyArmor and value.bHeavyArmor then
+								add(key)
+							elseif bShield and value.bShield then
+								add(key)
+							elseif bMeleeWeapon and value.bMeleeWeapon then
+								add(key)
+							elseif bRangedWeapon and value.bRangedWeapon then
+								add(key)
+							elseif bAmmunition and value.bAmmunition then
+								add(key)
+							end
+						end
+					end
+				</script>
+			</comboboxc_column>
+
+			<label_column name="size_label">
+				<static textres="label_bmos_customizeitem_item_size" />
+			</label_column>
+			<comboboxc_column name="size">
+				<default textres="bmos_customizeitem_size_medium" />
+				<unsorted />
+				<script>
+					function onInit()
+						if super and super.onInit then super.onInit() end
+						for key,value in pairs(CustomItemGenItemData.aItemSize) do
+							add(key)
+						end
+					end
+				</script>
+			</comboboxc_column>
+
+			<anchor_content_top />
+			<anchor_content_bottom />
+
+			<button_text_bottom_center name="button_generate">
+				<state textres="button_bmos_customizeitem" />
+				<script>
+					function onButtonPress()
+						local nodeItem = CustomItemGen.generateMagicItem(window.getDatabaseNode())
+						Interface.openWindow('item', nodeItem)
+						window.parentcontrol.window.close()
+					end
+				</script>
+			</button_text_bottom_center>
+
+			<header_column name="item_abilities_label">
+				<static textres="header_bmos_customizeitem_abilities" />
+				<center />
+			</header_column>
+
+			<list_editor_item_ability name="item_ability_list">
+				<anchored>
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="0" />
+					<left />
+					<right />
+				</anchored>
+				<datasource>.abilitieslist</datasource>
+				<class>item_ability_entry</class>
+			</list_editor_item_ability>
+
+			<button_iedit name="list_iedit">
+				<anchored to="item_abilities_label" position="insidetopright" offset="-5,0" />
+ 				<target>item_ability_list</target>
+			</button_iedit>
+			<button_iadd name="list_iadd">
+				<anchored to="list_iedit" position="lefthigh" offset="5,0" />
+				<target>item_ability_list</target>
+			</button_iadd>
+
+			<scrollbar_list>
+				<anchored to="item_ability_list" />
+				<target>item_ability_list</target>
+			</scrollbar_list>
+		</sheetdata>
+	</windowclass>
+
+	<windowclass name="item_ability_entry">
+		<margins control="0,2,0,2" />
+		<sheetdata>
+			<genericcontrol name="rightanchor">
+				<anchored width="0" height="0">
+					<top offset="5" />
+					<right />
+				</anchored>
+				<invisible />
+			</genericcontrol>
+			<!-- delete button if in edit mode -->
+			<button_idelete name="idelete">
+				<anchored to="rightanchor">
+					<top offset="-2" />
+					<right anchor="left" relation="relative" offset="0" />
+				</anchored>
+			</button_idelete>
+
+			<anchor_column name="columnanchor" />
+
+			<label_column name="combobox_ability_select_label">
+				<static textres="label_bmos_customizeitem_special_ability" />
+			</label_column>
+			<comboboxc_column name="combobox_ability_select">
+				<default textres="bmos_customizeitem_bonus_none" />
+				<listmaxsize>5</listmaxsize>
+				<script>
+					function onInit()
+						if super and super.onInit then super.onInit() end
+						local nodeItem = DB.getChild(window.getDatabaseNode(), "...")
+						if not nodeItem then
+							return
+						end
+						local sType, sSubType = CustomItemGen.getItemType(nodeItem)
+						if CustomItemGen.notifyMissingTypeData(sType, sSubType) then
+							return
+						end
+
+						local aAbilityList = CustomItemGen.getAbilityList(sType, sSubType)
+
+						local dDamageType = DB.getChild(nodeItem, "damagetype")
+						local sName = DB.getValue(nodeItem, "name")
+
+						local bMeleeWeapon = (sType == "Weapon" and sSubType == "Melee")
+						local bRangedWeapon = (sType == "Weapon" and sSubType == "Ranged")
+						local bSlashingWeapon = false
+						local bPiercingWeapon = false
+						local bBludgeoningWeapon = false
+						if dDamageType then
+							bSlashingWeapon = dDamageType.getValue():lower():match("slashing")
+							bPiercingWeapon = dDamageType.getValue():lower():match("piercing")
+							bBludgeoningWeapon = dDamageType.getValue():lower():match("bludgeoning")
+						end
+						local bCrossbow = (sName:lower():match("crossbow"))
+						local bBow = (sName:lower():match("bow") and (not bCrossbow) )
+						local bFirearm = (sType == "Firearm")
+
+						addItems({Interface.getString("bmos_customizeitem_bonus_none")})
+
+						for key,value in pairs(aAbilityList) do
+							if bMeleeWeapon and ((bSlashingWeapon and value.bSlashing) or (bPiercingWeapon and value.bPiercing) or (bBludgeoningWeapon and value.bBludgeoning)) then
+								add(key)
+							elseif bRangedWeapon then
+								if (value.bCrossbow or value.bBow or value.bFirearm) and ((bCrossbow and value.bCrossbow) or (bBow and value.bBow) or (bFirearm and value.bFirearm)) then
+									add(key)
+								elseif not (value.bCrossbow or value.bBow or value.bFirearm or value.bThrown) then
+									add(key)
+								end
+							else
+								add(key)
+							end
+						end
+					end
+
+					function onValueChanged()
+						if super and super.onValueChanged then super.onValueChanged() end
+						local nodeItem = DB.getChild(window.getDatabaseNode(), "...")
+						if not nodeItem then
+							return
+						end
+						local sType, sSubType = CustomItemGen.getItemType(nodeItem)
+						if CustomItemGen.notifyMissingTypeData(sType, sSubType) then
+							return
+						end
+
+						local aAbilityList = CustomItemGen.getAbilityList(sType, sSubType)
+
+						local sAbility = getValue()
+
+						if aAbilityList ~= nil and next(aAbilityList[sAbility].aSubSelection) ~= nil then
+							window.combobox_ability_sub_select.clear()
+							window.combobox_ability_sub_select.addItems({Interface.getString("bmos_customizeitem_bonus_none")})
+							for key,value in pairs(aAbilityList[sAbility].aSubSelection) do
+								window.combobox_ability_sub_select.add(key)
+							end
+							window.combobox_ability_sub_select.setValue(Interface.getString("bmos_customizeitem_bonus_none"))
+							window.combobox_ability_sub_select.setComboBoxVisible(true)
+							window.combobox_ability_sub_select_label.setVisible(true)
+						else
+							window.combobox_ability_sub_select.setComboBoxVisible(false)
+							window.combobox_ability_sub_select_label.setVisible(false)
+						end
+					end
+				</script>
+			</comboboxc_column>
+
+			<label_column name="combobox_ability_sub_select_label">
+				<static textres="label_bmos_customizeitem_special_subability" />
+				<invisible />
+			</label_column>
+			<comboboxc_column name="combobox_ability_sub_select">
+				<default textres="bmos_customizeitem_bonus_none" />
+				<listmaxsize>5</listmaxsize>
+				<invisible />
+				<script>
+					function onValueChanged()
+						if super and super.onValueChanged then super.onValueChanged() end
+						local nodeItem = DB.getChild(window.getDatabaseNode(), "...")
+						if not nodeItem then
+							return
+						end
+						local sType, sSubType = CustomItemGen.getItemType(nodeItem)
+						if CustomItemGen.notifyMissingTypeData(sType, sSubType) then
+							return
+						end
+
+						local aAbilityList = CustomItemGen.getAbilityList(sType, sSubType)
+
+						local sAbility = window.combobox_ability_select.getValue()
+						local sSelection = getValue()
+						local aSubSelection = {}
+
+						if aAbilityList ~= nil and next(aAbilityList[sAbility].aSubSelection) ~= nil then
+							aSubSelection = aAbilityList[sAbility].aSubSelection[sSelection]
+						end
+
+						if aSubSelection ~= nil and next(aSubSelection) ~= nil and next(aSubSelection.aSubSubSelection) ~= nil then
+							window.combobox_ability_sub_sub_select.clear()
+							window.combobox_ability_sub_sub_select.add(Interface.getString("bmos_customizeitem_bonus_none"))
+							for key,value in pairs(aSubSelection.aSubSubSelection) do
+								window.combobox_ability_sub_sub_select.add(key)
+							end
+							window.combobox_ability_sub_sub_select.setValue(Interface.getString("bmos_customizeitem_bonus_none"))
+							window.combobox_ability_sub_sub_select.setComboBoxVisible(true)
+							window.combobox_ability_sub_sub_select_label.setVisible(true)
+						else
+							window.combobox_ability_sub_sub_select.setComboBoxVisible(false)
+							window.combobox_ability_sub_sub_select_label.setVisible(false)
+						end
+					end
+
+					function onVisibilityChanged()
+						window.combobox_ability_sub_sub_select.setComboBoxVisible(false)
+						window.combobox_ability_sub_sub_select_label.setVisible(false)
+					end
+				</script>
+			</comboboxc_column>
+
+			<label_column name="combobox_ability_sub_sub_select_label">
+				<static textres="label_bmos_customizeitem_special_subsubability" />
+				<invisible />
+			</label_column>
+			<comboboxc_column name="combobox_ability_sub_sub_select">
+				<default textres="bmos_customizeitem_bonus_none" />
+				<listmaxsize>5</listmaxsize>
+				<invisible />
+			</comboboxc_column>
+		</sheetdata>
+	</windowclass>
+
+	<template name="list_editor_item_ability">
+		<windowlist name="list">
+			<anchored>
+				<top anchor="bottom" relation="relative" offset="0" />
+				<left />
+				<right />
+			</anchored>
+			<allowdelete />
+			<child></child>
+			<child><backcolor>1A40301E</backcolor></child>
+			<script>
+				function onInit()
+					registerMenuItem(Interface.getString("list_menu_createitem"), "insert", 5)
+				end
+
+				function onMenuSelection(selection)
+					if selection == 5 then
+						self.addEntry(true)
+					end
+				end
+
+				function onListChanged()
+					update()
+				end
+
+				function update()
+					local bEdit = (window.list_iedit.getValue() == 1)
+					for _,w in ipairs(getWindows()) do
+						w.idelete.setVisibility(bEdit)
+					end
+				end
+
+				function addEntry(bFocus)
+					update()
+					return createWindow()
+				end
+			</script>
+		</windowlist>
+	</template>
 </root>

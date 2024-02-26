@@ -19,8 +19,10 @@
 	<announcement text="https://www.fantasygrounds.com/forums/showthread.php?57818-Customized-Item-Generator-for-3-5E-and-Pathfinder\rCustomised Item Generator v2.0\rBy Faelwen with updates by rmilmine and bmos." font="emotefont" icon="module_loaded" />
 
 	<base>
-		<script name="CustomItemGenToolbar" file="scripts/CIG_toolbar_buttons.lua"/>
 		<script name="CustomItemGenConsumablesData" file="scripts/CIG_consumables_data.lua"/>
+		<script name="CustomItemGenItemData" file="scripts/CIG_item_data.lua"/>
+		<script name="CustomItemGenToolbar" file="scripts/CIG_toolbar_buttons.lua"/>
+		<script name="CustomItemGen" file="scripts/CIG_customize_item.lua"/>
 
 		<includefile source="campaign/record_item.xml" />
 		<includefile source="campaign/record_spell.xml" />

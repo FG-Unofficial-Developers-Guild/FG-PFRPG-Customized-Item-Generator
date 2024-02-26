@@ -3,9 +3,18 @@
 <root>
 	<template name="button_text_column">
 		<button_text>
-			<anchored to="columnanchor" width="140">
-				<top parent="columnanchor" anchor="bottom" relation="relative" offset="10" />
+			<anchored>
+				<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
 				<left offset="97" />
+				<right offset="-5" />
+			</anchored>
+		</button_text>
+	</template>
+	<template name="button_text_bottom_center">
+		<button_text>
+			<anchored width="150" height="20">
+				<bottom anchor="bottom" relation="relative" offset="-7" />
+				<left anchor="center" offset="-75" />
 			</anchored>
 		</button_text>
 	</template>
