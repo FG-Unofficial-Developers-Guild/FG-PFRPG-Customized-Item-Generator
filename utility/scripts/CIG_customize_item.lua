@@ -847,57 +847,46 @@ local function getMaterialData(
 end
 
 local function getItemData(databasenode)
-	local sItemName = DB.getValue(databasenode, 'name', '')
-	local sItemProperties = DB.getValue(databasenode, 'properties', '')
-	local iItemWeight = DB.getValue(databasenode, 'weight', 0)
 	local sItemCost = DB.getValue(databasenode, 'cost', '')
-	local sSubtype = DB.getValue(databasenode, 'subtype', '')
-	local iArmorPenalty = DB.getValue(databasenode, 'checkpenalty', 0)
-	local iArmorMaxDex = DB.getValue(databasenode, 'maxstatbonus', 0)
-	local iArmorSpellFailure = DB.getValue(databasenode, 'spellfailure', 0)
-	local iSpeed30 = DB.getValue(databasenode, 'speed30', 0)
-	local iSpeed20 = DB.getValue(databasenode, 'speed20', 0)
-	local sDamageType = DB.getValue(databasenode, 'damagetype', '')
-	local iRange = DB.getValue(databasenode, 'range', 0)
-	local sDamage = DB.getValue(databasenode, 'damage', '')
-	local sSize = DB.getValue(databasenode, 'size', '')
-
-	if sItemProperties == '-' then
-		sItemProperties = ''
-	end
-	if sSize == '' then
-		sSize = Interface.getString('bmos_customizeitem_size_medium')
-	end
-
-	local iItemCost = 0
 	local sCoinValue, sCoin = sItemCost:match('^%s*([%d,]+)%s*([^%d]*)$')
 	if not sCoinValue then
 		sCoin, sCoinValue = sItemCost:match('^%s*([^%d]+)%s*([%d,]+)%s*$')
 	end
+	local nItemCost = 0
 	if sCoinValue then
 		sCoinValue = string.gsub(sCoinValue, ',', '')
-		iItemCost = tonumber(sCoinValue) or 0
+		nItemCost = tonumber(sCoinValue) or 0
 		sCoin = StringManager.trim(sCoin)
 
 		local tCurrency = CurrencyManager.getCurrencyRecord(sCoin)
 		if tCurrency then
-			iItemCost = iItemCost * tCurrency['nValue']
+			nItemCost = nItemCost * tCurrency['nValue']
 		end
 	end
 
-	return sItemName,
-		iItemCost,
-		iItemWeight,
-		sSubtype,
+	local sItemProperties = DB.getValue(databasenode, 'properties', '')
+	if sItemProperties == '-' then
+		sItemProperties = ''
+	end
+
+	local sSize = DB.getValue(databasenode, 'size', '')
+	if sSize == '' then
+		sSize = Interface.getString('bmos_customizeitem_size_medium')
+	end
+
+	return DB.getValue(databasenode, 'name', ''),
+		nItemCost,
+		DB.getValue(databasenode, 'weight', 0),
+		DB.getValue(databasenode, 'subtype', ''),
 		sItemProperties,
-		iArmorPenalty,
-		iArmorMaxDex,
-		iArmorSpellFailure,
-		iSpeed30,
-		iSpeed20,
-		iRange,
-		sDamageType,
-		sDamage,
+		DB.getValue(databasenode, 'checkpenalty', 0),
+		DB.getValue(databasenode, 'maxstatbonus', 0),
+		DB.getValue(databasenode, 'spellfailure', 0),
+		DB.getValue(databasenode, 'speed30', 0),
+		DB.getValue(databasenode, 'speed20', 0),
+		DB.getValue(databasenode, 'range', 0),
+		DB.getValue(databasenode, 'damagetype', ''),
+		DB.getValue(databasenode, 'damage', ''),
 		sSize
 end
 
