@@ -33,10 +33,9 @@
 						if super and super.onValueChanged then
 							super.onValueChanged()
 						end
-						if getValue() == "Wand" then
-							window.charges_label.setVisible(true)
-							window.charges.setVisible(true)
-						end
+						local isWand = getValue() == "Wand"
+						window.charges_label.setVisible(isWand)
+						window.charges.setVisible(isWand)
 					end
 				</script>
 			</comboboxc_column>
