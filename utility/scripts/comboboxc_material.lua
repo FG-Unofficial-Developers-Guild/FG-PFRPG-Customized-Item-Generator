@@ -9,8 +9,8 @@ function onInit()
 	end
 	local nodeItem = window.getDatabaseNode()
 
-	local sType, sSubType = CustomItemGen.getItemType(nodeItem)
-	if CustomItemGen.notifyMissingTypeData(sType, sSubType) then
+	local sType, sSubType = window.getItemType(nodeItem)
+	if window.notifyMissingTypeData(sType, sSubType) then
 		return
 	end
 

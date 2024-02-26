@@ -13,7 +13,7 @@
 	<template name="button_text_bottom_center">
 		<button_text>
 			<anchored width="150" height="20">
-				<bottom anchor="bottom" relation="relative" offset="-7" />
+				<bottom anchor="bottom" relation="relative" />
 				<left anchor="center" offset="-75" />
 			</anchored>
 		</button_text>
