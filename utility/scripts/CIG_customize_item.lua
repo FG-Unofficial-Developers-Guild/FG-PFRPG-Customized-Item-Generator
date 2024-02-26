@@ -428,10 +428,7 @@ local function checkComboboxes(sType, sSubType, sBonus, sMaterial, aAbilities)
 			end
 		end
 		local aAbilityList = getAbilityList(sType, sSubType)
-		if
-			next(aAbilityList[aAbility1.sAbility].aSubSelection) ~= nil
-			and aAbility1.sSubAbility == Interface.getString('bmos_customizeitem_bonus_none')
-		then
+		if next(aAbilityList[aAbility1.sAbility].aSubSelection) ~= nil and aAbility1.sSubAbility == Interface.getString('bmos_customizeitem_bonus_none') then
 			aConflicts.sAbility1 = aAbility1.sAbility
 			return bBonus, bMaterial, 3, aConflicts
 		elseif
@@ -850,74 +847,29 @@ local function getMaterialData(
 end
 
 local function getItemData(databasenode)
-	local dItemName = DB.getChild(databasenode, 'name')
-	local dItemProperties = DB.getChild(databasenode, 'properties')
-	local dItemWeight = DB.getChild(databasenode, 'weight')
-	local dItemCost = DB.getChild(databasenode, 'cost')
-	local dSubtype = DB.getChild(databasenode, 'subtype')
-	local dArmorPenalty = DB.getChild(databasenode, 'checkpenalty')
-	local dArmorMaxDex = DB.getChild(databasenode, 'maxstatbonus')
-	local dArmorSpellFailure = DB.getChild(databasenode, 'spellfailure')
-	local dSpeed30 = DB.getChild(databasenode, 'speed30')
-	local dSpeed20 = DB.getChild(databasenode, 'speed20')
-	local dDamageType = DB.getChild(databasenode, 'damagetype')
-	local dRange = DB.getChild(databasenode, 'range')
-	local dDamage = DB.getChild(databasenode, 'damage')
-	local dSize = DB.getChild(databasenode, 'size')
+	local sItemName = DB.getValue(databasenode, 'name', '')
+	local sItemProperties = DB.getValue(databasenode, 'properties', '')
+	local iItemWeight = DB.getValue(databasenode, 'weight', 0)
+	local sItemCost = DB.getValue(databasenode, 'cost', '')
+	local sSubtype = DB.getValue(databasenode, 'subtype', '')
+	local iArmorPenalty = DB.getValue(databasenode, 'checkpenalty', 0)
+	local iArmorMaxDex = DB.getValue(databasenode, 'maxstatbonus', 0)
+	local iArmorSpellFailure = DB.getValue(databasenode, 'spellfailure', 0)
+	local iSpeed30 = DB.getValue(databasenode, 'speed30', 0)
+	local iSpeed20 = DB.getValue(databasenode, 'speed20', 0)
+	local sDamageType = DB.getValue(databasenode, 'damagetype', '')
+	local iRange = DB.getValue(databasenode, 'range', 0)
+	local sDamage = DB.getValue(databasenode, 'damage', '')
+	local sSize = DB.getValue(databasenode, 'size', '')
 
-	-- luacheck: no max line length
-	local sItemName, iItemCost, iItemWeight, sFullSubType, sItemProperties, iArmorPenalty, iArmorMaxDex, iArmorSpellFailure, iSpeed30, iSpeed20, sItemCost, sDamageType, iRange, sDamage, sOriginalSize =
-		'', 0, 0, '', '', 0, 0, 0, 0, 0, '', '', 0, '', ''
-
-	if dItemName then
-		sItemName = dItemName.getValue()
+	if sItemProperties == '-' then
+		sItemProperties = ''
 	end
-	if dItemProperties then
-		sItemProperties = dItemProperties.getValue()
-		if sItemProperties == '-' then
-			sItemProperties = ''
-		end
-	end
-	if dItemWeight then
-		iItemWeight = dItemWeight.getValue()
-	end
-	if dItemCost then
-		sItemCost = dItemCost.getValue()
-	end
-	if dSubtype then
-		sFullSubType = dSubtype.getValue()
-	end
-	if dArmorPenalty then
-		iArmorPenalty = dArmorPenalty.getValue()
-	end
-	if dArmorMaxDex then
-		iArmorMaxDex = dArmorMaxDex.getValue()
-	end
-	if dArmorSpellFailure then
-		iArmorSpellFailure = dArmorSpellFailure.getValue()
-	end
-	if dSpeed30 then
-		iSpeed30 = dSpeed30.getValue()
-	end
-	if dSpeed20 then
-		iSpeed20 = dSpeed20.getValue()
-	end
-	if dDamageType then
-		sDamageType = dDamageType.getValue()
-	end
-	if dRange then
-		iRange = dRange.getValue()
-	end
-	if dDamage then
-		sDamage = dDamage.getValue()
-	end
-	if dSize then
-		sOriginalSize = dSize.getValue()
-	end
-	if not sOriginalSize or sOriginalSize == '' then
-		sOriginalSize = Interface.getString('bmos_customizeitem_size_medium')
+	if sSize == '' then
+		sSize = Interface.getString('bmos_customizeitem_size_medium')
 	end
 
+	local iItemCost = 0
 	local sCoinValue, sCoin = sItemCost:match('^%s*([%d,]+)%s*([^%d]*)$')
 	if not sCoinValue then
 		sCoin, sCoinValue = sItemCost:match('^%s*([^%d]+)%s*([%d,]+)%s*$')
@@ -926,18 +878,17 @@ local function getItemData(databasenode)
 		sCoinValue = string.gsub(sCoinValue, ',', '')
 		iItemCost = tonumber(sCoinValue) or 0
 		sCoin = StringManager.trim(sCoin)
-		if sCoin == 'pp' then
-			iItemCost = 10 * iItemCost
-		elseif sCoin == 'sp' then
-			iItemCost = iItemCost / 10
-		elseif sCoin == 'cp' then
-			iItemCost = iItemCost / 100
+
+		local tCurrency = CurrencyManager.getCurrencyRecord(sCoin)
+		if tCurrency then
+			iItemCost = iItemCost * tCurrency['nValue']
 		end
 	end
+
 	return sItemName,
 		iItemCost,
 		iItemWeight,
-		sFullSubType,
+		sSubtype,
 		sItemProperties,
 		iArmorPenalty,
 		iArmorMaxDex,
@@ -947,7 +898,7 @@ local function getItemData(databasenode)
 		iRange,
 		sDamageType,
 		sDamage,
-		sOriginalSize
+		sSize
 end
 
 -- luacheck: globals generateMagicItem material
