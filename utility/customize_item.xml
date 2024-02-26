@@ -69,9 +69,6 @@
 				</anchored>
 				<datasource>.abilitieslist</datasource>
 				<class>item_ability_entry</class>
-				<!-- <allowdelete /> -->
-				<!-- <child></child> -->
-				<!-- <child><backcolor>1A40301E</backcolor></child> -->
 				<script file="utility/scripts/item_ability_list.lua" />
 			</windowlist>
 
@@ -94,6 +91,8 @@
 	<windowclass name="item_ability_entry">
 		<margins control="0,2,0,2" />
 		<sheetdata>
+			<anchor_column name="columnanchor" />
+
 			<genericcontrol name="rightanchor">
 				<anchored width="0" height="0">
 					<top offset="5" />
@@ -101,7 +100,6 @@
 				</anchored>
 				<invisible />
 			</genericcontrol>
-			<!-- delete button if in edit mode -->
 			<button_idelete name="idelete">
 				<anchored to="rightanchor">
 					<top offset="-2" />
@@ -109,12 +107,13 @@
 				</anchored>
 			</button_idelete>
 
-			<anchor_column name="columnanchor" />
-
 			<label_column name="ability_select_label">
 				<static textres="label_bmos_customizeitem_special_ability" />
 			</label_column>
 			<comboboxc_column name="ability_select">
+				<anchored>
+					<right parent="rightanchor" anchor="left" relation="relative" offset="-5" />
+				</anchored>
 				<default textres="bmos_customizeitem_bonus_none" />
 				<listmaxsize>5</listmaxsize>
 				<script file="utility/scripts/combobox_ability_select.lua" />
@@ -125,6 +124,9 @@
 				<invisible />
 			</label_column>
 			<comboboxc_column name="ability_sub_select">
+				<anchored>
+					<right parent="ability_select" anchor="right" />
+				</anchored>
 				<default textres="bmos_customizeitem_bonus_none" />
 				<listmaxsize>5</listmaxsize>
 				<invisible />
@@ -136,10 +138,14 @@
 				<invisible />
 			</label_column>
 			<comboboxc_column name="ability_sub_sub_select">
+				<anchored>
+					<right parent="ability_sub_select" anchor="right" />
+				</anchored>
 				<default textres="bmos_customizeitem_bonus_none" />
 				<listmaxsize>5</listmaxsize>
 				<invisible />
 			</comboboxc_column>
 		</sheetdata>
 	</windowclass>
+
 </root>

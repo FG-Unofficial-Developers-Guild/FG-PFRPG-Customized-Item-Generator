@@ -7,25 +7,23 @@ function onValueChanged()
 	if super and super.onValueChanged then
 		super.onValueChanged()
 	end
+
 	local nodeItem = DB.getChild(window.getDatabaseNode(), '...')
 	if not nodeItem then
 		return
 	end
+
 	local sType, sSubType = CustomItemGen.getItemType(nodeItem)
 	if CustomItemGen.notifyMissingTypeData(sType, sSubType) then
 		return
 	end
 
 	local aAbilityList = CustomItemGen.getAbilityList(sType, sSubType)
-
-	local sAbility = window.combobox_ability_select.getValue()
-	local sSelection = getValue()
+	local sAbility = window.ability_select.getValue()
 	local aSubSelection = {}
-
 	if aAbilityList ~= nil and next(aAbilityList[sAbility].aSubSelection) ~= nil then
-		aSubSelection = aAbilityList[sAbility].aSubSelection[sSelection]
+		aSubSelection = aAbilityList[sAbility].aSubSelection[getValue()]
 	end
-
 	if aSubSelection ~= nil and next(aSubSelection) ~= nil and next(aSubSelection.aSubSubSelection) ~= nil then
 		window.ability_sub_sub_select.clear()
 		window.ability_sub_sub_select.add(Interface.getString('bmos_customizeitem_bonus_none'))
@@ -35,10 +33,11 @@ function onValueChanged()
 		window.ability_sub_sub_select.setValue(Interface.getString('bmos_customizeitem_bonus_none'))
 		window.ability_sub_sub_select.setComboBoxVisible(true)
 		window.ability_sub_sub_select_label.setVisible(true)
-	else
-		window.ability_sub_sub_select.setComboBoxVisible(false)
-		window.ability_sub_sub_select_label.setVisible(false)
+		return
 	end
+
+	window.ability_sub_sub_select.setComboBoxVisible(false)
+	window.ability_sub_sub_select_label.setVisible(false)
 end
 
 function onVisibilityChanged()
