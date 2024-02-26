@@ -173,7 +173,6 @@ local function getDamageString(aDamage)
 		sNewDamage = mergeDamage(aDamage[2])
 	end
 	if aDamage[1] then
-		--if sNewDamage ~= '' then sNewDamage = sNewDamage .. '/' end
 		sNewDamage = mergeDamage(aDamage[1])
 	end
 	return sNewDamage
@@ -348,17 +347,14 @@ local function getItemNewName(sItemName, sEnhancementBonus, iEnchancementBonus, 
 end
 
 local function getEnchancementCost(iEnchancementBonus, sType)
-	local aBonusPriceArmor = { 0, 1000, 4000, 9000, 16000, 25000, 36000, 49000, 64000, 81000, 100000 }
-	local aBonusPriceWeapon = { 0, 2000, 8000, 18000, 32000, 50000, 72000, 98000, 128000, 162000, 200000 }
-	local aBonusPriceAmmunition = { 0, 40, 160, 360, 640, 1000, 1440, 1960, 2560, 3240, 4000 }
 	local iEnchantmentCost = 0
 
 	if sType == 'weapon' then
-		iEnchantmentCost = aBonusPriceWeapon[iEnchancementBonus + 1]
+		iEnchantmentCost = CustomItemGenItemData.aBonusPriceWeapon[iEnchancementBonus + 1]
 	elseif sType == 'armor' or sType == 'shield' then
-		iEnchantmentCost = aBonusPriceArmor[iEnchancementBonus + 1]
+		iEnchantmentCost = CustomItemGenItemData.aBonusPriceArmor[iEnchancementBonus + 1]
 	elseif sType == 'ammunition' then
-		iEnchantmentCost = aBonusPriceAmmunition[iEnchancementBonus + 1]
+		iEnchantmentCost = CustomItemGenItemData.aBonusPriceAmmunition[iEnchancementBonus + 1]
 	end
 	return iEnchantmentCost
 end

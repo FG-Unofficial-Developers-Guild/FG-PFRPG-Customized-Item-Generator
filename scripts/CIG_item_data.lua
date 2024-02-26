@@ -6,8 +6,13 @@
 -- luacheck: globals aSpecialMaterials aMeleeWeaponAbilities aRangedWeaponAbilities aAmmunitionAbilities
 -- luacheck: globals aArmorAbilities aShieldAbilities aItemSize aDamageDice aPositionDamage
 -- luacheck: globals aAltDamageDice1 aAltDamageDice2 aAltDamageDice3 aWeightMultiplier nMaxTotalBonus
+-- luacheck: globals aBonusPriceArmor aBonusPriceWeapon aBonusPriceAmmunition
 
 nMaxTotalBonus = 10 -- must have no more than 10 bonus points
+
+aBonusPriceArmor = { 0, 1000, 4000, 9000, 16000, 25000, 36000, 49000, 64000, 81000, 100000 }
+aBonusPriceWeapon = { 0, 2000, 8000, 18000, 32000, 50000, 72000, 98000, 128000, 162000, 200000 }
+aBonusPriceAmmunition = { 0, 40, 160, 360, 640, 1000, 1440, 1960, 2560, 3240, 4000 }
 
 aSpecialMaterials = {
 	['Abysium'] = {
