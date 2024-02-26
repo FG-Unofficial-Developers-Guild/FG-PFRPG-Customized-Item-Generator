@@ -13,12 +13,12 @@ function onInit()
 		return
 	end
 
-	local sType, sSubType = CustomItemGen.getItemType(nodeItem)
-	if CustomItemGen.notifyMissingTypeData(sType, sSubType) then
+	local sType, sSubType = window.windowlist.window.getItemType(nodeItem)
+	if window.windowlist.window.notifyMissingTypeData(sType, sSubType) then
 		return
 	end
 
-	local aAbilityList = CustomItemGen.getAbilityList(sType, sSubType)
+	local aAbilityList = window.windowlist.window.getAbilityList(sType, sSubType)
 
 	local dDamageType = DB.getChild(nodeItem, 'damagetype')
 	local sName = DB.getValue(nodeItem, 'name')
@@ -57,6 +57,7 @@ function onInit()
 	end
 end
 
+-- luacheck: globals onValueChanged
 function onValueChanged(...)
 	if super and super.onValueChanged then
 		super.onValueChanged(...)
@@ -67,12 +68,12 @@ function onValueChanged(...)
 		return
 	end
 
-	local sType, sSubType = CustomItemGen.getItemType(nodeItem)
-	if CustomItemGen.notifyMissingTypeData(sType, sSubType) then
+	local sType, sSubType = window.windowlist.window.getItemType(nodeItem)
+	if window.windowlist.window.notifyMissingTypeData(sType, sSubType) then
 		return
 	end
 
-	local aAbilityList = CustomItemGen.getAbilityList(sType, sSubType)
+	local aAbilityList = window.windowlist.window.getAbilityList(sType, sSubType)
 	local sAbility = getValue()
 	if aAbilityList ~= nil and next(aAbilityList[sAbility].aSubSelection) ~= nil then
 		window.ability_sub_select.clear()

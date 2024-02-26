@@ -104,9 +104,9 @@ local function addEffectsForAbility(nodeItem, sType, sSubType, aAbility)
 
 	local aEffects = {}
 	if aAbilityLookup then
-		if aAbility.sSubAbility ~= Interface.getString('bmos_customizeitem_bmos_customizeitem_bonus_none') and next(aAbilityLookup.aSubSelection) ~= nil then
+		if aAbility.sSubAbility ~= Interface.getString('bmos_customizeitem_bonus_none') and next(aAbilityLookup.aSubSelection) ~= nil then
 			if
-				aAbility.sSubSubAbility ~= Interface.getString('bmos_customizeitem_bmos_customizeitem_bonus_none')
+				aAbility.sSubSubAbility ~= Interface.getString('bmos_customizeitem_bonus_none')
 				and next(aAbilityLookup.aSubSelection[aAbility.sSubAbility].aSubSubSelection) ~= nil
 			then
 				aEffects = aAbilityLookup.aSubSelection[aAbility.sSubAbility].aSubSubSelection[aAbility.sSubSubAbility].aEffects
@@ -315,10 +315,10 @@ local function getWeightBySize(iItemWeight, sOriginalSize, sItemSize)
 end
 
 local function figureAbilityName(sAbility, sSubAbility, sSubSubAbility)
-	local sAbilityName = sAbilityName .. sAbility
-	if sSubAbility ~= Interface.getString('bmos_customizeitem_bmos_customizeitem_bonus_none') then
+	local sAbilityName = sAbility
+	if sSubAbility ~= Interface.getString('bmos_customizeitem_bonus_none') then
 		sAbilityName = string.format('%s (%s', sAbilityName, sSubAbility)
-		if sSubSubAbility ~= Interface.getString('bmos_customizeitem_bmos_customizeitem_bonus_none') then
+		if sSubSubAbility ~= Interface.getString('bmos_customizeitem_bonus_none') then
 			sAbilityName = string.format('%s (%s)', sAbilityName, sSubSubAbility)
 		end
 		sAbilityName = sAbilityName .. ')'
@@ -329,7 +329,7 @@ end
 
 local function getItemNewName(sItemName, sEnhancementBonus, iEnchancementBonus, sSpecialMaterial, aAbilities, bMasterworkMaterial, sItemSize)
 	local sItemNewName = ''
-	if sItemSize:lower() ~= Interface.getString('bmos_customizeitem_item_size_medium'):lower() then
+	if sItemSize:lower() ~= Interface.getString('bmos_customizeitem_size_medium'):lower() then
 		sItemNewName = sItemNewName .. sItemSize .. ' '
 	end
 	if sEnhancementBonus == Interface.getString('bmos_customizeitem_bonus_mwk') and not bMasterworkMaterial then
@@ -338,20 +338,13 @@ local function getItemNewName(sItemName, sEnhancementBonus, iEnchancementBonus, 
 	if iEnchancementBonus > 0 then
 		sItemNewName = sItemNewName .. '+' .. tostring(iEnchancementBonus) .. ' '
 	end
-	if sSpecialMaterial ~= Interface.getString('bmos_customizeitem_bmos_customizeitem_bonus_none') then
+	if sSpecialMaterial ~= Interface.getString('bmos_customizeitem_bonus_none') then
 		sItemNewName = sItemNewName .. CustomItemGenItemData.aSpecialMaterials[sSpecialMaterial].sStringName .. ' '
 	end
-
 	for _, aAbility in pairs(aAbilities) do
 		sItemNewName = sItemNewName .. figureAbilityName(aAbility.sAbility, aAbility.sSubAbility, aAbility.sSubSubAbility)
 	end
-
-	sItemNewName = sItemNewName .. sItemName
-	sItemNewName = sItemNewName:lower()
-
-	sItemNewName = sItemNewName:gsub('^%l', string.upper)
-
-	return sItemNewName
+	return StringManager.titleCase(sItemNewName .. sItemName)
 end
 
 local function getEnchancementCost(iEnchancementBonus, sType)
@@ -415,7 +408,7 @@ local function checkForAbilitySelectionError(sType, sSubType, aAbility1, aAbilit
 end
 
 local function checkSelection(sSelection)
-	return (sSelection ~= Interface.getString('bmos_customizeitem_bmos_customizeitem_bonus_none'))
+	return (sSelection ~= Interface.getString('bmos_customizeitem_bonus_none'))
 end
 
 local function checkComboboxes(sType, sSubType, sBonus, sMaterial, aAbilities)
@@ -437,14 +430,14 @@ local function checkComboboxes(sType, sSubType, sBonus, sMaterial, aAbilities)
 		local aAbilityList = getAbilityList(sType, sSubType)
 		if
 			next(aAbilityList[aAbility1.sAbility].aSubSelection) ~= nil
-			and aAbility1.sSubAbility == Interface.getString('bmos_customizeitem_bmos_customizeitem_bonus_none')
+			and aAbility1.sSubAbility == Interface.getString('bmos_customizeitem_bonus_none')
 		then
 			aConflicts.sAbility1 = aAbility1.sAbility
 			return bBonus, bMaterial, 3, aConflicts
 		elseif
 			next(aAbilityList[aAbility1.sAbility].aSubSelection) ~= nil
 			and next(aAbilityList[aAbility1.sAbility].aSubSelection[aAbility1.sSubAbility].aSubSubSelection) ~= nil
-			and aAbility1.sSubSubAbility == Interface.getString('bmos_customizeitem_bmos_customizeitem_bonus_none')
+			and aAbility1.sSubSubAbility == Interface.getString('bmos_customizeitem_bonus_none')
 		then
 			aConflicts.sAbility1 = aAbility1.sAbility
 			return bBonus, bMaterial, 3, aConflicts
@@ -507,7 +500,7 @@ local function addAmmoEffect(nodeItem)
 	if not nodeEffectList then
 		nodeEffectList = DB.createChild(nodeItem, 'effectlist')
 	end
-	local nBonus = DB.getValue(nodeItem, 'bonus', 0)
+	local nBonus = bonus.getValue()
 	addEffect(nodeEffectList, 'IF: CUSTOM(' .. getWeaponTypeName(nodeItem) .. ' Attack); ATK: ' .. nBonus .. ' ranged; DMG: ' .. nBonus, 0, false)
 end
 
@@ -515,21 +508,21 @@ local function cleanAbility(aAbility, sType, sSubType)
 	local aNewAbility = {}
 	local aAbilityList = getAbilityList(sType, sSubType)
 
-	if aAbility.sAbility == Interface.getString('bmos_customizeitem_bmos_customizeitem_bonus_none') then
+	if aAbility.sAbility == Interface.getString('bmos_customizeitem_bonus_none') then
 		return aNewAbility
 	end
 	aNewAbility.sAbility = aAbility.sAbility
 
 	if next(aAbilityList[aAbility.sAbility].aSubSelection) == nil then
-		aNewAbility.sSubAbility = Interface.getString('bmos_customizeitem_bmos_customizeitem_bonus_none')
-		aNewAbility.sSubSubAbility = Interface.getString('bmos_customizeitem_bmos_customizeitem_bonus_none')
+		aNewAbility.sSubAbility = Interface.getString('bmos_customizeitem_bonus_none')
+		aNewAbility.sSubSubAbility = Interface.getString('bmos_customizeitem_bonus_none')
 	else
 		aNewAbility.sSubAbility = aAbility.sSubAbility
 		if
-			aAbility.sSubAbility ~= Interface.getString('bmos_customizeitem_bmos_customizeitem_bonus_none')
+			aAbility.sSubAbility ~= Interface.getString('bmos_customizeitem_bonus_none')
 			and next(aAbilityList[aAbility.sAbility].aSubSelection[aAbility.sSubAbility].aSubSubSelection) == nil
 		then
-			aNewAbility.sSubSubAbility = Interface.getString('bmos_customizeitem_bmos_customizeitem_bonus_none')
+			aNewAbility.sSubSubAbility = Interface.getString('bmos_customizeitem_bonus_none')
 		else
 			aNewAbility.sSubSubAbility = aAbility.sSubSubAbility
 		end
@@ -542,11 +535,11 @@ local function getAbilities(nodeItem, sType, sSubType)
 		return
 	end
 	local aAbilities = {}
-	for _, nodeAbility in ipairs(DB.getChildList(nodeItem, 'abilitieslist')) do
+	for _, winAbilityEntry in ipairs(item_ability_list.getWindows()) do
 		local aAbility = {}
-		aAbility.sAbility = DB.getValue(nodeAbility, 'combobox_ability')
-		aAbility.sSubAbility = DB.getValue(nodeAbility, 'combobox_ability_sub_select')
-		aAbility.sSubSubAbility = DB.getValue(nodeAbility, 'combobox_ability_sub_sub_select')
+		aAbility.sAbility = winAbilityEntry.ability_select.getValue()
+		aAbility.sSubAbility = winAbilityEntry.ability_sub_select.getValue()
+		aAbility.sSubSubAbility = winAbilityEntry.ability_sub_sub_select.getValue()
 		aAbility = cleanAbility(aAbility, sType, sSubType)
 		if next(aAbility) ~= nil then
 			table.insert(aAbilities, aAbility)
@@ -574,19 +567,17 @@ end
 function getItemType(nodeItem)
 	local sItemType = ''
 	local sItemSubType = ''
-	local sType = string.lower(DB.getValue(nodeItem, 'type') or '')
-	local sSubType = string.lower(DB.getValue(nodeItem, 'subtype') or '')
+	local sType = string.lower(DB.getValue(nodeItem, 'type', ''))
+	local sSubType = string.lower(DB.getValue(nodeItem, 'subtype', ''))
 	if sType == 'weapon' then
 		sItemType = 'weapon'
+	elseif sSubType:match('shield') then
+		sItemType = 'shield'
 	elseif sType == 'armor' then
-		if sSubType:match('shield') then
-			sItemType = 'shield'
-		else
-			sItemType = 'armor'
-		end
+		sItemType = 'armor'
 	end
 
-	if sSubType:match('ammunition') or sType == 'ammo' or sSubType == 'ammo' then
+	if sType == 'ammo' or sSubType == 'ammo' or sSubType:match('ammunition') then
 		sItemType = 'ammunition'
 	end
 
@@ -924,7 +915,7 @@ local function getItemData(databasenode)
 		sOriginalSize = dSize.getValue()
 	end
 	if not sOriginalSize or sOriginalSize == '' then
-		sOriginalSize = Interface.getString('bmos_customizeitem_item_size_medium')
+		sOriginalSize = Interface.getString('bmos_customizeitem_size_medium')
 	end
 
 	local sCoinValue, sCoin = sItemCost:match('^%s*([%d,]+)%s*([^%d]*)$')
@@ -959,14 +950,14 @@ local function getItemData(databasenode)
 		sOriginalSize
 end
 
--- luacheck: globals generateMagicItem
+-- luacheck: globals generateMagicItem material
 function generateMagicItem(nodeItem)
 	if not nodeItem then
 		return false
 	end
-	local sEnhancementBonus = DB.getValue(nodeItem, 'combobox_bonus', '')
-	local sSpecialMaterial = DB.getValue(nodeItem, 'combobox_material', '')
-	local sItemSize = DB.getValue(nodeItem, 'combobox_item_size', '')
+	local sEnhancementBonus = bonus.getValue() or ''
+	local sSpecialMaterial = material.getValue() or ''
+	local sItemSize = size.getValue() or ''
 	local sType, sSubType = getItemType(nodeItem)
 	if notifyMissingTypeData(sType, sSubType) then
 		return
@@ -1031,9 +1022,9 @@ function generateMagicItem(nodeItem)
 		iExtraCost = iExtraCost + iAbilityExtraCost
 		sDamageType, iRange = getSpecialAbilityData(aAbility.sAbility, sDamageType, iRange)
 		local sFullSpecialAbility = aAbility.sAbility
-		if aAbility.sSubAbility ~= Interface.getString('bmos_customizeitem_bmos_customizeitem_bonus_none') then
+		if aAbility.sSubAbility ~= Interface.getString('bmos_customizeitem_bonus_none') then
 			sFullSpecialAbility = sFullSpecialAbility .. '(' .. aAbility.sSubAbility
-			if aAbility.sSubSubAbility ~= Interface.getString('bmos_customizeitem_bmos_customizeitem_bonus_none') then
+			if aAbility.sSubSubAbility ~= Interface.getString('bmos_customizeitem_bonus_none') then
 				sFullSpecialAbility = sFullSpecialAbility .. '(' .. aAbility.sSubSubAbility .. ')'
 			end
 			sFullSpecialAbility = sFullSpecialAbility .. ')'
@@ -1084,7 +1075,7 @@ function generateMagicItem(nodeItem)
 	iNewWeight = getWeightBySize(iNewWeight, sOriginalSize, sItemSize)
 
 	local iMasterworkCost = 0
-	if bMasterworkMaterial or sEnhancementBonus ~= Interface.getString('bmos_customizeitem_bmos_customizeitem_bonus_none') then
+	if bMasterworkMaterial or sEnhancementBonus ~= Interface.getString('bmos_customizeitem_bonus_none') then
 		iMasterworkCost = getMasterworkPrice(sType, sItemProperties)
 		sItemProperties = addCSV(sItemProperties, 'masterwork')
 		iNewArmorPenalty = iNewArmorPenalty + 1
@@ -1110,7 +1101,7 @@ function generateMagicItem(nodeItem)
 			sDamageType = getDamageTypeByEnhancementBonus(sDamageType, iEnchancementBonus)
 		end
 	end
-	local sNewNonIdentifiedName = 'Unidentified ' .. sItemName:lower()
+	local sNewNonIdentifiedName = string.format('Unidentified %s', sItemName:lower())
 
 	local iCL = 3 * iNewBonus
 	for _, iCL1 in pairs(aCL) do
@@ -1144,7 +1135,7 @@ function generateMagicItem(nodeItem)
 
 	local sItemDescription = DB.getValue(nodeItem, 'description', '')
 	if sAddDescription ~= '' then
-		sItemDescription = sItemDescription .. '<h>' .. sSpecialMaterial .. '</h>' .. sAddDescription
+		string.format('%s<h>%s</h>%s', sItemDescription, sSpecialMaterial, sAddDescription)
 	end
 
 	-- Update fields in DB
@@ -1175,7 +1166,7 @@ function generateMagicItem(nodeItem)
 		DB.setValue(nodeItem, 'speed30', 'number', iNewSpeed30)
 		DB.setValue(nodeItem, 'spellfailure', 'number', iNewArmorSpellFailure)
 	end
-	Comm.addChatMessage({ text = 'Generated ' .. sItemNewName, secret = true, icon = 'ct_faction_friend' }) -- ]]
+	Comm.addChatMessage({ text = string.format('Generated %s', sItemNewName), secret = true, icon = 'ct_faction_friend' })
 
-	return true
+	return nodeItem
 end

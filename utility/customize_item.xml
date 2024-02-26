@@ -6,6 +6,7 @@
 
 	<windowclass name="bmos_customizeitem_window_main">
 		<margins control="0,0,0,2" />
+		<script file="utility/scripts/CIG_customize_item.lua" />
 		<sheetdata>
 			<anchor_column name="columnanchor" />
 
@@ -45,17 +46,6 @@
 			<anchor_content_top />
 			<anchor_content_bottom />
 
-			<button_text_bottom_center name="button_generate">
-				<state textres="button_bmos_customizeitem" />
-				<script>
-					function onButtonPress()
-						local nodeItem = CustomItemGen.generateMagicItem(window.getDatabaseNode())
-						Interface.openWindow('item', nodeItem)
-						window.parentcontrol.window.close()
-					end
-				</script>
-			</button_text_bottom_center>
-
 			<header_column name="item_abilities_label">
 				<static textres="header_bmos_customizeitem_abilities" />
 				<center />
@@ -66,7 +56,9 @@
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="0" />
 					<left />
 					<right />
+					<bottom anchor="bottom" relation="relative" offset="-35" />
 				</anchored>
+				<sourceless />
 				<datasource>.abilitieslist</datasource>
 				<class>item_ability_entry</class>
 				<script file="utility/scripts/item_ability_list.lua" />
@@ -85,6 +77,19 @@
 				<anchored to="item_ability_list" />
 				<target>item_ability_list</target>
 			</scrollbar_list>
+
+			<button_text_bottom_center name="button_generate">
+				<state textres="button_bmos_customizeitem" />
+				<script>
+					function onButtonPress()
+						local nodeItem = DB.copyNode(window.getDatabaseNode(), DB.createChild(DB.createNode('item')))
+						window.generateMagicItem(nodeItem)
+						Interface.openWindow('item', nodeItem)
+						DB.deleteChild(window.getDatabaseNode(), 'abilitieslist')
+						window.parentcontrol.window.close()
+					end
+				</script>
+			</button_text_bottom_center>
 		</sheetdata>
 	</windowclass>
 

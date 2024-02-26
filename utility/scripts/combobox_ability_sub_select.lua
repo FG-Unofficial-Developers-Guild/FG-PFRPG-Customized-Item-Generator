@@ -2,7 +2,7 @@
 -- Please see the LICENSE.md file included with this distribution for attribution and copyright information.
 --
 
--- luacheck: globals getValue
+-- luacheck: globals getValue onValueChanged
 function onValueChanged()
 	if super and super.onValueChanged then
 		super.onValueChanged()
@@ -13,12 +13,12 @@ function onValueChanged()
 		return
 	end
 
-	local sType, sSubType = CustomItemGen.getItemType(nodeItem)
-	if CustomItemGen.notifyMissingTypeData(sType, sSubType) then
+	local sType, sSubType = window.windowlist.window.getItemType(nodeItem)
+	if window.windowlist.window.notifyMissingTypeData(sType, sSubType) then
 		return
 	end
 
-	local aAbilityList = CustomItemGen.getAbilityList(sType, sSubType)
+	local aAbilityList = window.windowlist.window.getAbilityList(sType, sSubType)
 	local sAbility = window.ability_select.getValue()
 	local aSubSelection = {}
 	if aAbilityList ~= nil and next(aAbilityList[sAbility].aSubSelection) ~= nil then
@@ -40,6 +40,7 @@ function onValueChanged()
 	window.ability_sub_sub_select_label.setVisible(false)
 end
 
+-- luacheck: globals onVisibilityChanged
 function onVisibilityChanged()
 	window.ability_sub_sub_select.setComboBoxVisible(false)
 	window.ability_sub_sub_select_label.setVisible(false)

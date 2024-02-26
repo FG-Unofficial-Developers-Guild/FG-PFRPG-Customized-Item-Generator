@@ -22,7 +22,6 @@
 		<script name="CustomItemGenConsumablesData" file="scripts/CIG_consumables_data.lua"/>
 		<script name="CustomItemGenItemData" file="scripts/CIG_item_data.lua"/>
 		<script name="CustomItemGenToolbar" file="scripts/CIG_toolbar_buttons.lua"/>
-		<script name="CustomItemGen" file="scripts/CIG_customize_item.lua"/>
 
 		<includefile source="campaign/record_item.xml" />
 		<includefile source="campaign/record_spell.xml" />
