@@ -117,16 +117,18 @@ local function addEffectsForAbility(nodeItem, sType, sSubType, aAbility)
 			aEffects = aAbilityLookup.aEffects
 		end
 	end
-	if next(aEffects) ~= nil then
-		for _, aEffect in ipairs(aEffects) do
-			if not aEffect.bAERequired or (aEffect.bAERequired and CombatManagerKel) then
-				if aEffect.nCritical == 0 or (aEffect.nCritical == nCritical) then
-					local sEffect = aEffect.sEffect
-					if sType == 'ammunition' and aEffect.sEffect:match('%%s') then
-						sEffect = sEffect:format(getWeaponTypeName(nodeItem))
-					end
-					addEffect(nodeEffectList, sEffect, aEffect.nActionOnly, false)
+	if next(aEffects) == nil then
+		return aAbilityLookup
+	end
+
+	for _, aEffect in ipairs(aEffects) do
+		if not aEffect.bAERequired or (aEffect.bAERequired and CombatManagerKel) then
+			if aEffect.nCritical == 0 or (aEffect.nCritical == nCritical) then
+				local sEffect = aEffect.sEffect
+				if sType == 'ammunition' and aEffect.sEffect:match('%%s') then
+					sEffect = sEffect:format(getWeaponTypeName(nodeItem))
 				end
+				addEffect(nodeEffectList, sEffect, aEffect.nActionOnly, false)
 			end
 		end
 	end
@@ -474,10 +476,7 @@ local function addRangedEffect(nodeItem)
 	if not usingAE() then
 		return
 	end
-	local nodeEffectList = DB.getChild(nodeItem, 'effectlist')
-	if not nodeEffectList then
-		nodeEffectList = DB.createChild(nodeItem, 'effectlist')
-	end
+	local nodeEffectList = DB.createChild(nodeItem, 'effectlist')
 	addEffect(nodeEffectList, getWeaponTypeName(nodeItem) .. ' Attack', 1, true)
 	addEffect(nodeEffectList, 'Crit' .. getCritical(nodeItem), 1, true)
 end
@@ -489,12 +488,10 @@ local function addAmmoEffect(nodeItem)
 	if not usingAE() then
 		return
 	end
-	local nodeEffectList = DB.getChild(nodeItem, 'effectlist')
-	if not nodeEffectList then
-		nodeEffectList = DB.createChild(nodeItem, 'effectlist')
-	end
+	local nodeEffectList = DB.createChild(nodeItem, 'effectlist')
 	local nBonus = bonus.getValue()
-	addEffect(nodeEffectList, 'IF: CUSTOM(' .. getWeaponTypeName(nodeItem) .. ' Attack); ATK: ' .. nBonus .. ' ranged; DMG: ' .. nBonus, 0, false)
+	local sEffect = string.format('IF: CUSTOM(%s Attack); ATK: %d ranged; DMG: %d', getWeaponTypeName(nodeItem), nBonus, nBonus)
+	addEffect(nodeEffectList, sEffect, 0, false)
 end
 
 local function cleanAbility(aAbility, sType, sSubType)
