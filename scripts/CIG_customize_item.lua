@@ -435,7 +435,10 @@ local function checkComboboxes(sType, sSubType, sBonus, sMaterial, aAbilities)
 			end
 		end
 		local aAbilityList = getAbilityList(sType, sSubType)
-		if next(aAbilityList[aAbility1.sAbility].aSubSelection) ~= nil and aAbility1.sSubAbility == Interface.getString('bmos_customizeitem_bmos_customizeitem_bonus_none') then
+		if
+			next(aAbilityList[aAbility1.sAbility].aSubSelection) ~= nil
+			and aAbility1.sSubAbility == Interface.getString('bmos_customizeitem_bmos_customizeitem_bonus_none')
+		then
 			aConflicts.sAbility1 = aAbility1.sAbility
 			return bBonus, bMaterial, 3, aConflicts
 		elseif
