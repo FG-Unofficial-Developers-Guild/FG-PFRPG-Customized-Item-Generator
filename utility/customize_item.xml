@@ -82,7 +82,7 @@
 				<state textres="button_bmos_customizeitem" />
 				<script>
 					function onButtonPress()
-						local nodeItem = DB.copyNode(window.getDatabaseNode(), DB.createChild(DB.createNode('item')))
+						local nodeItem = window.getDatabaseNode()
 						window.generateMagicItem(nodeItem)
 						Interface.openWindow('item', nodeItem)
 						DB.deleteChild(window.getDatabaseNode(), 'abilitieslist')

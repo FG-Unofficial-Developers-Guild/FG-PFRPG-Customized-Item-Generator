@@ -8,8 +8,8 @@ local function createConsumable(c)
 end
 
 local function customizeItem(c)
-	local nodeSpell = c.window.getDatabaseNode()
-	Interface.openWindow('bmos_customizeitem_window', nodeSpell)
+	local nodeItem = DB.copyNode(c.window.getDatabaseNode(), DB.createChild(DB.createNode('item')))
+	Interface.openWindow('bmos_customizeitem_window', nodeItem)
 end
 
 function onInit()
