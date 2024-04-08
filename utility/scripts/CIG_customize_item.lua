@@ -426,7 +426,10 @@ local function checkComboboxes(sType, sSubType, sBonus, sMaterial, aAbilities)
 			end
 		end
 		local aAbilityList = getAbilityList(sType, sSubType)
-		if next(aAbilityList[aAbility1.sAbility].aSubSelection) ~= nil and aAbility1.sSubAbility == Interface.getString('bmos_customizeitem_bonus_none') then
+		if
+			next(aAbilityList[aAbility1.sAbility].aSubSelection) ~= nil
+			and aAbility1.sSubAbility == Interface.getString('bmos_customizeitem_bonus_none')
+		then
 			aConflicts.sAbility1 = aAbility1.sAbility
 			return bBonus, bMaterial, 3, aConflicts
 		elseif
@@ -978,7 +981,10 @@ function generateMagicItem(nodeItem)
 
 	if iEffectiveBonus > CustomItemGenItemData.nMaxTotalBonus then
 		Comm.addChatMessage({
-			text = string.format(Interface.getString('error_bmos_customizeitem_effectivebonustoohigh'), tostring(CustomItemGenItemData.nMaxTotalBonus)),
+			text = string.format(
+				Interface.getString('error_bmos_customizeitem_effectivebonustoohigh'),
+				tostring(CustomItemGenItemData.nMaxTotalBonus)
+			),
 			secret = true,
 			icon = 'ct_faction_foe',
 		})
@@ -1024,7 +1030,8 @@ function generateMagicItem(nodeItem)
 	local iEnhancementCost = getEnchancementCost(iCostBonus, sType)
 	local iTotalCost = iMaterialCost + iMasterworkCost + iEnhancementCost + iExtraCost
 
-	local sItemNewName = getItemNewName(sItemName, sEnhancementBonus, iEnchancementBonus, sSpecialMaterial, aAbilities, bMasterworkMaterial, sItemSize)
+	local sItemNewName =
+		getItemNewName(sItemName, sEnhancementBonus, iEnchancementBonus, sSpecialMaterial, aAbilities, bMasterworkMaterial, sItemSize)
 
 	local iNewBonus = 0
 	if iEnchancementBonus > 0 then

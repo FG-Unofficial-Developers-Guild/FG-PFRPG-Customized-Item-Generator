@@ -40,7 +40,10 @@ function onInit()
 	addItems({ Interface.getString('bmos_customizeitem_bonus_none') })
 
 	for key, value in pairs(aAbilityList) do
-		if bMeleeWeapon and ((bSlashingWeapon and value.bSlashing) or (bPiercingWeapon and value.bPiercing) or (bBludgeoningWeapon and value.bBludgeoning)) then
+		if
+			bMeleeWeapon
+			and ((bSlashingWeapon and value.bSlashing) or (bPiercingWeapon and value.bPiercing) or (bBludgeoningWeapon and value.bBludgeoning))
+		then
 			add(key)
 		elseif bRangedWeapon then
 			if

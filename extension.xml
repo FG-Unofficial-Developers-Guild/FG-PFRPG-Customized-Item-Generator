@@ -16,7 +16,7 @@
 		</ruleset>
 	</properties>
 
-	<announcement text="https://www.fantasygrounds.com/forums/showthread.php?57818-Customized-Item-Generator-for-3-5E-and-Pathfinder\rCustomised Item Generator v2.0\rBy Faelwen with updates by rmilmine and bmos." font="emotefont" icon="module_loaded" />
+	<announcement text="https://www.fantasygrounds.com/forums/showthread.php?57818-Customized-Item-Generator-for-3-5E-and-Pathfinder\rCustomised Item Generator v2.0-hotfix.1\rBy Faelwen with updates by rmilmine and bmos." font="emotefont" icon="module_loaded" />
 
 	<base>
 		<script name="CustomItemGenConsumablesData" file="scripts/CIG_consumables_data.lua"/>
