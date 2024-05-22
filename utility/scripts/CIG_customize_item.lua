@@ -377,6 +377,9 @@ end
 
 local function getEnhancementBonus(sEnhancementBonus)
 	local iEnchancementBonus = 0
+	if not sEnhancementBonus then
+		return iEnchancementBonus
+	end
 	if sEnhancementBonus == Interface.getString('bmos_customizeitem_bonus_1') then
 		iEnchancementBonus = 1
 	elseif sEnhancementBonus == Interface.getString('bmos_customizeitem_bonus_2') then
@@ -492,7 +495,7 @@ local function addAmmoEffect(nodeItem)
 		return
 	end
 	local nodeEffectList = DB.createChild(nodeItem, 'effectlist')
-	local nBonus = bonus.getValue()
+	local nBonus = getEnhancementBonus(bonus.getValue())
 	local sEffect = string.format('IF: CUSTOM(%s Attack); ATK: %d ranged; DMG: %d', getWeaponTypeName(nodeItem), nBonus, nBonus)
 	addEffect(nodeEffectList, sEffect, 0, false)
 end
