@@ -1,46 +1,35 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 
 <!-- 
-  Please see the LICENSE.md file included with this distribution for 
-  attribution and copyright information.
+	Please see the LICENSE.md file included with this distribution for
+	attribution and copyright information.
 -->
 
 <!--  Added button to windowclass -->
 <root>
-	<windowclass name="item" merge="join">
+    <windowclass name="item" merge="join">
         <sheetdata>
             <windowmenubar_utilitybox name="menubar">
                 <script>
                     function onInit()
-                        if super and super.onInit then
-                            super.onInit()
-                        end
-                        ToolbarManager.addSeparator(subwindow, "right");
-                        ToolbarManager.addButton(subwindow, "bmos_customizeitem", "right");
+	                    if super and super.onInit then
+	                    	super.onInit()
+	                    end
+	                    ToolbarManager.addSeparator(subwindow, "right");
+	                    ToolbarManager.addButton(subwindow, "bmos_customizeitem", "right");
                     end
                 </script>
             </windowmenubar_utilitybox>
         </sheetdata>
-	</windowclass>
+    </windowclass>
 
-	<windowclass name="item_main_armor" merge="join">
-		<script file="campaign/scripts/item_main.lua" />
-		<sheetdata>
-			<label_column name="size_label" insertbefore="divider3">
-				<static textres="label_bmos_customizeitem_item_size" />
-			</label_column>
-			<string_columnh name="size" insertbefore="divider3" />
-		</sheetdata>
-	</windowclass>
-	
-	<windowclass name="item_main_weapon" merge="join">
-		<script file="campaign/scripts/item_main.lua" />
-		<sheetdata>
-			<label_column name="size_label" insertbefore="divider3">
-				<static textres="label_bmos_customizeitem_item_size" />
-			</label_column>
-			<string_columnh name="size" insertbefore="divider3" />
-		</sheetdata>
-	</windowclass>
-
+    <windowclass name="item_main" merge="join">
+        <script file="campaign/scripts/item_main.lua"/>
+        <sheetdata>
+            <label_content_column name="size_label" insertbefore="divider3">
+                <static textres="label_bmos_customizeitem_item_size"/>
+            </label_content_column>
+            <string_content_columnh name="size" insertbefore="divider3"/>
+        </sheetdata>
+    </windowclass>
 </root>
