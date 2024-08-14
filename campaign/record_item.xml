@@ -23,7 +23,7 @@
         </sheetdata>
 	</windowclass>
 
-	<windowclass name="item_main" merge="join">
+	<windowclass name="item_main_armor" merge="join">
 		<script file="campaign/scripts/item_main.lua" />
 		<sheetdata>
 			<label_column name="size_label" insertbefore="divider3">
@@ -32,4 +32,15 @@
 			<string_columnh name="size" insertbefore="divider3" />
 		</sheetdata>
 	</windowclass>
+	
+	<windowclass name="item_main_weapon" merge="join">
+		<script file="campaign/scripts/item_main.lua" />
+		<sheetdata>
+			<label_column name="size_label" insertbefore="divider3">
+				<static textres="label_bmos_item_size" />
+			</label_column>
+			<string_columnh name="size" insertbefore="divider3" />
+		</sheetdata>
+	</windowclass>
+
 </root>
