@@ -1031,7 +1031,7 @@ function generateMagicItem(nodeItem)
 	if bMasterworkMaterial or sEnhancementBonus ~= Interface.getString('bmos_customizeitem_bonus_none') then
 		iMasterworkCost = getMasterworkPrice(sType, sItemProperties)
 		sItemProperties = addCSV(sItemProperties, 'masterwork')
-		if ItemManager.isWeapon(nodeItem) and sEnhancementBonus ~= Interface.getString('bmos_customizeitem_bonus_none') then
+		if ItemManager.isWeapon(nodeItem) and sEnhancementBonus ~= Interface.getString('bmos_customizeitem_bonus_mwk') then
 			sItemProperties = removeCSV(sItemProperties, 'masterwork')
 		end
 		iNewArmorPenalty = iNewArmorPenalty + 1
