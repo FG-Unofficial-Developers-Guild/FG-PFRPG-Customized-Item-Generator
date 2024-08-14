@@ -5,7 +5,7 @@
 		<basicnumberc>
 			<anchored width="40" height="20">
 				<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
-				<left offset="97" />
+				<left offset="110" />
 			</anchored>
 		</basicnumberc>
 	</template>
