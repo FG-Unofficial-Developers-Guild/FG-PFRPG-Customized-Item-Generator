@@ -14,6 +14,17 @@ local function addCSV(sString, sAppend)
 	return string.format('%s, %s', sString, sAppend)
 end
 
+local function removeCSV(sString, sRemove)
+	local sStringComma = sString .. ','
+	local sRemovedProperties = ''
+	for property in string.gmatch(sStringComma, '([^,]*),%s') do
+		if property ~= sRemove then
+			sRemovedProperties = addCSV(sRemovedProperties, property)
+		end
+	end
+	return sRemovedProperties
+end
+
 local function usingAE()
 	return StringManager.contains(Extension.getExtensions(), 'FG-PFRPG-Advanced-Effects')
 end
@@ -567,8 +578,6 @@ function getItemType(nodeItem)
 	local sSubType = string.lower(DB.getValue(nodeItem, 'subtype', ''))
 	if sType == 'weapon' then
 		sItemType = 'weapon'
-	elseif sSubType:match('shield') then
-		sItemType = 'shield'
 	elseif sType == 'armor' then
 		sItemType = 'armor'
 	end
@@ -594,6 +603,8 @@ function getItemType(nodeItem)
 			sItemSubType = 'medium'
 		elseif sSubType:match('heavy') then
 			sItemSubType = 'heavy'
+		elseif sSubType:match('shield') then
+			sItemSubType = 'shield'
 		end
 	end
 	return sItemType, sItemSubType
@@ -1020,6 +1031,9 @@ function generateMagicItem(nodeItem)
 	if bMasterworkMaterial or sEnhancementBonus ~= Interface.getString('bmos_customizeitem_bonus_none') then
 		iMasterworkCost = getMasterworkPrice(sType, sItemProperties)
 		sItemProperties = addCSV(sItemProperties, 'masterwork')
+		if ItemManager.isWeapon(nodeItem) and sEnhancementBonus ~= Interface.getString('bmos_customizeitem_bonus_none') then
+			sItemProperties = removeCSV(sItemProperties, 'masterwork')
+		end
 		iNewArmorPenalty = iNewArmorPenalty + 1
 		if iNewArmorPenalty > 0 then
 			iNewArmorPenalty = 0
